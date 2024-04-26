@@ -1,7 +1,9 @@
 #!/bin/bash
+# set exit mode and save path
 set -e
 pushd ~/.dotfiles/nixos/
 
+# read arguments to check if we should git push
 push='true'
 while getopts "o:offline" flag; do
 	case "${flag}" in
@@ -10,8 +12,12 @@ while getopts "o:offline" flag; do
 	esac
 done
 
+# open file browser and format on exit
 ranger
 alejandra . &>/dev/null
+
+# get diff. If no diff found, exit.
+git diff --quiet && echo "No changes detected, exiting..." && exit
 git diff
 echo "NixOS Rebuilding..."
 config=./configuration.nix
