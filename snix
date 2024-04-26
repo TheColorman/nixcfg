@@ -1,12 +1,24 @@
 #!/bin/bash
 set -e
 pushd ~/.dotfiles/nixos/
+
+push='true'
+while getopts "o:offline" flag; do
+	case "${flag}" in
+		o) push='false' ;;
+		offline) push='false' ;;
+	esac
+done
+
 ranger
 alejandra . &>/dev/null
-git diff **/*.nix
+git diff
 echo "NixOS Rebuilding..."
 config=./configuration.nix
 sudo nixos-rebuild switch -I nixos-config=$config &> nixos-switch.log || ( cat nixos-switch.log | grep --color error && false)
 gen=$(nixos-rebuild -I nixos-config=$config list-generations | grep current)
 git commit -am "$gen"
+if [[ $push == 'true' ]]; then
+	git push
+fi
 popd
