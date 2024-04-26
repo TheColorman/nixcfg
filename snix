@@ -5,11 +5,7 @@ ranger
 alejandra . &>/dev/null
 git diff **/*.nix
 echo "NixOS Rebuilding..."
-sudo nixos-rebuild \
-	-I nixos-config=/home/color/.dotfiles/nixos/configuration.nix \
-       	switch \
-	&>nixos-switch.log \
-	|| ( cat nixos-switch.log | grep --color error && false)
+sudo nixos-rebuild switch -I nixos-config=/home/color/.dotfiles/nixos/configuration.nix &>nixos-switch.log || ( cat nixos-switch.log | grep --color error && false)
 gen=$(nixos-rebuild list-generations | grep current)
 git commit -am "$gen"
 popd
