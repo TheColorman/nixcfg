@@ -67,4 +67,9 @@
     ];
     theme = "eastwood";
   };
+
+  # GPG
+  programs.gnupg.agent = {
+    enable = true;
+  };
 }

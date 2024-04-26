@@ -13,7 +13,7 @@ done
 
 # open file browser and format on exit
 ranger
-alejandra . &>/dev/null
+alejandra . 2>/dev/null
 
 # get diff. If no diff found, exit.
 set +e
