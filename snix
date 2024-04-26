@@ -5,10 +5,9 @@ pushd ~/.dotfiles/nixos/
 
 # read arguments to check if we should git push
 push='true'
-while getopts "o:offline" flag; do
+while getopts "o" flag; do
 	case "${flag}" in
 		o) push='false' ;;
-		offline) push='false' ;;
 	esac
 done
 
