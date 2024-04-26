@@ -19,9 +19,9 @@ alejandra . &>/dev/null
 set +e
 git diff --quiet && echo "No changes detected, exiting..." && exit
 git diff --quiet **/*.nix
-echo "$?"
+donix=$?
 set -e
-echo "$?"
+echo "$donix"
 git diff
 
 if [[ $? == 1 ]]; then
