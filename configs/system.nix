@@ -21,6 +21,7 @@
     alejandra
     zsh # good shell :3
     wget
+    highlight
   ];
 
   environment.variables.EDITOR = "vim";
