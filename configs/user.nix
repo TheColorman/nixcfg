@@ -43,7 +43,7 @@
       brain = {
         devices = devs;
         id = "yedar-6vrrr";
-        path = "~/brain";
+        path = "/home/color/brain";
       };
       CTF = {
         devices = devs;
