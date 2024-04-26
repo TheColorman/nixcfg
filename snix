@@ -20,7 +20,9 @@ alejandra . &>/dev/null
 set +e
 git diff --quiet && echo "No changes detected, exiting..." && exit
 git diff --quiet **/*.nix
+echo "$?"
 set -e
+echo "$?"
 git diff
 
 if [[ $? == 1 ]]; then
