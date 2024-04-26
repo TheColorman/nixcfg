@@ -24,7 +24,7 @@ set -e
 echo "$donix"
 git diff
 
-if [[ $? == 1 ]]; then
+if [[ $donix == 1 ]]; then
 	echo "NixOS Rebuilding..."
 	config=./configuration.nix
 	sudo nixos-rebuild switch -I nixos-config=$config &> nixos-switch.log || ( cat nixos-switch.log | grep --color error && false)
