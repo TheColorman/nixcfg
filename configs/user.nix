@@ -13,7 +13,6 @@
       vscode
       vesktop
       neofetch
-      obsidian
     ];
   };
 }
