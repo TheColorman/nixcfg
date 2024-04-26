@@ -21,7 +21,6 @@ git diff --quiet && echo "No changes detected, exiting..." && exit
 git diff --quiet **/*.nix
 donix=$?
 set -e
-echo "$donix"
 git diff
 
 if [[ $donix == 1 ]]; then
@@ -31,6 +30,7 @@ if [[ $donix == 1 ]]; then
 	gen=$(nixos-rebuild -I nixos-config=$config list-generations | grep current)
 	git commit -am "$gen"
 else
+	echo "No configuration changes, skipping build..."
 	git commit -am "Non-config change"
 fi
 if [[ $push == 'true' ]]; then
