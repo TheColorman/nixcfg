@@ -18,6 +18,7 @@
     vim
     git
     gh
+    gnupg
     alejandra
     zsh # good shell :3
     wget
