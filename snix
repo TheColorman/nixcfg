@@ -18,12 +18,18 @@ alejandra . &>/dev/null
 
 # get diff. If no diff found, exit.
 git diff --quiet && echo "No changes detected, exiting..." && exit
+(git diff --quiet **/*.nix)
 git diff
-echo "NixOS Rebuilding..."
-config=./configuration.nix
-sudo nixos-rebuild switch -I nixos-config=$config &> nixos-switch.log || ( cat nixos-switch.log | grep --color error && false)
-gen=$(nixos-rebuild -I nixos-config=$config list-generations | grep current)
-git commit -am "$gen"
+
+if [[ $? == 1 ]]; then
+	echo "NixOS Rebuilding..."
+	config=./configuration.nix
+	sudo nixos-rebuild switch -I nixos-config=$config &> nixos-switch.log || ( cat nixos-switch.log | grep --color error && false)
+	gen=$(nixos-rebuild -I nixos-config=$config list-generations | grep current)
+	git commit -am "$gen"
+else
+	git commit -am "Non-config change"
+fi
 if [[ $push == 'true' ]]; then
 	git push
 fi
