@@ -17,8 +17,10 @@ ranger
 alejandra . &>/dev/null
 
 # get diff. If no diff found, exit.
+set +e
 git diff --quiet && echo "No changes detected, exiting..." && exit
-(git diff --quiet **/*.nix)
+git diff --quiet **/*.nix
+set -e
 git diff
 
 if [[ $? == 1 ]]; then
