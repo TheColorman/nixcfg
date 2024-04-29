@@ -21,6 +21,7 @@
     gnupg
     alejandra
     zsh # good shell :3
+    zoxide
     wget
     highlight
   ];
