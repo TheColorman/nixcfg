@@ -24,6 +24,7 @@
     zoxide
     wget
     highlight
+    home-manager
   ];
 
   environment.variables.EDITOR = "vim";
@@ -35,6 +36,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
+
+  home-manager.useUserPackages = true;
 
   # Allow execution of dynamic binaries
   programs.nix-ld.enable = true;

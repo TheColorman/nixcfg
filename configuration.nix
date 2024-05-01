@@ -2,6 +2,7 @@
 {...}: {
   imports = [
     /etc/nixos/hardware-configuration.nix # Include the results of the hardware scan.
+    <home-manager/nixos>
     ./configs/bootloader.nix
     ./configs/networking.nix
     ./configs/locale.nix
