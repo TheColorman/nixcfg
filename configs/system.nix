@@ -24,7 +24,6 @@
     zoxide
     wget
     highlight
-    home-manager
   ];
 
   environment.variables.EDITOR = "vim";
