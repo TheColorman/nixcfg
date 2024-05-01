@@ -39,7 +39,7 @@
     '';
 
     homemanager.text = ''
-      ln -sf /home/color/.dotfiles/nixos/configs/home.nix /home/color/.config/homemanager/home.nix
+      ln -sf /home/color/.dotfiles/nixos/configs/home.nix /home/color/.config/home-manager/home.nix
     '';
   };
   services.syncthing = with builtins; rec {
