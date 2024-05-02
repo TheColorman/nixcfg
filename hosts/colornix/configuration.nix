@@ -25,4 +25,6 @@
       "color" = import ./home.nix;
     };
   };
+
+  environment.pathsToLink = [ "/share/zsh" ];
 }

@@ -70,9 +70,32 @@
   #  /etc/profiles/per-user/color/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "vim";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # i dont understand flakes and home manager
+  pograms.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "sudo"
+        "aliases"
+        "common-aliases"
+        "gh"
+        "history"
+      ];
+      theme = "eastwood";
+    };
+    syntaxHighlighting = {
+      enable = true;
+      highlighters = [ "main" "brackets" "cursor" ];
+    };
+  };
 }
