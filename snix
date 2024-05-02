@@ -26,7 +26,7 @@ git add .
 
 if [[ $donix == 1 ]]; then
 	echo "NixOS Rebuilding..."
-	config="./#default"
+	config="./#colornix"
 	sudo nixos-rebuild switch --flake $config &> nixos-switch.log || ( cat nixos-switch.log | grep --color error && false)
 	gen=$(nixos-rebuild --flake $config list-generations | grep current)
 	git add . # add updated lock files
