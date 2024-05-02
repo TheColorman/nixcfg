@@ -29,6 +29,7 @@ if [[ $donix == 1 ]]; then
 	config="./#default"
 	sudo nixos-rebuild switch --flake $config &> nixos-switch.log || ( cat nixos-switch.log | grep --color error && false)
 	gen=$(nixos-rebuild --flake $config list-generations | grep current)
+	git add . # add updated lock files
 	git commit -am "$gen"
 else
 	echo "No configuration changes, skipping build..."
