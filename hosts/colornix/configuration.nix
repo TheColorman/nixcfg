@@ -26,5 +26,8 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    python312Packages.pygments
+  ];
   environment.pathsToLink = [ "/share/zsh" ];
 }
