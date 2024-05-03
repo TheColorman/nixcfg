@@ -30,6 +30,7 @@
 
   # Nix development
   environment.systemPackages = with pkgs; [
+    direnv
     zsh-autoenv # auto direnv for zsh
   ];
 }
