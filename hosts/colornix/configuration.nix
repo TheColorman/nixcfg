@@ -7,8 +7,6 @@
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
-    # idk if this will work
-    ../../modules/nixos/fw-ectool.nix
 
     ../../modules/nixos/bootloader.nix # Generic bootloader - grub tbd
     ../../modules/nixos/plasma.nix # Desktop environment
