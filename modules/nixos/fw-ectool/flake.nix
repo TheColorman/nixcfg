@@ -9,42 +9,54 @@
   };
 
   outputs = { self, nixpkgs, ectoolSrc, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
+    let
+      system = "x86_64-linux";
+    
+      pkgs = nixpkgs.legacyPackages.${system};
 
-        ectool = pkgs.stdenv.mkDerivation {
-          name = "ectool";
-          src = ectoolSrc;
+      ectoolpkg = pkgs.stdenv.mkDerivation {
+        name = "ectool";
+        src = ectoolSrc;
 
-          buildInputs = with pkgs; [
-            clang
-            cmake
-            git
-            libftdi1
-            libusb1
-            ninja
-            pkg-config
-          ];
+        buildInputs = with pkgs; [
+          clang
+          cmake
+          git
+          libftdi1
+          libusb1
+          ninja
+          pkg-config
+        ];
 
-          buildPhase = ''
-            mkdir -p $TMPDIR/build
-            cd $TMPDIR/build
-            CC=clang CXX=clang++ cmake -GNinja $src
-            cmake --build .
-          '';
+        buildPhase = ''
+          mkdir -p $TMPDIR/build
+          cd $TMPDIR/build
+          CC=clang CXX=clang++ cmake -GNinja $src
+          cmake --build .
+        '';
 
-          installPhase = ''
-            mkdir -p $out/bin
-            cp $TMPDIR/build/src/ectool $out/bin/
-          '';
+        installPhase = ''
+          mkdir -p $out/bin
+          cp $TMPDIR/build/src/ectool $out/bin/
+        '';
+      };
+    in
+    {
+      packages.${system} = rec {
+        ectool = ectoolpkg;
+        default = ectool;
+
+      };
+      devShells.${system} = rec {
+        ectool = pkgs.mkShell { buildInputs = [ ectoolpkg ]; };
+        default = ectool;
+
+      };
+      overlays = rec {
+        ectool = final: prev: {
+          ectool = with final; ectoolpkg;
         };
-      in
-      {
-        packages.ectool = ectool;
-        packages.default = self.packages.${system}.ectool;
-        
-        devShells.ectool = pkgs.mkShell { buildInputs = [ ectool ]; };
-        devShells.default = self.devShells.${system}.ectool;
-      });
+        default = ectool;
+      };
+    };
 }
