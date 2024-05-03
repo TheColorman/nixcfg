@@ -25,25 +25,14 @@
     nixpkgs,
     fw-ectool,
     ...
-  } @ inputs: 
-  let
-    overlays = [
-      (final: prev: {
-        colorectool = fw-ectool.packages.x86_64-linux.default; 
-      })
-    ];
-  in
-  {
-    nixosConfigurations.colornix = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+  } @ inputs: {
+    nixosConfigurations.colornix = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs system; };
+      
       modules = [
         ./hosts/colornix/configuration.nix
         inputs.home-manager.nixosModules.default
-        ({ pkgs, ... }: {
-          nixpkgs.overlays = overlays;
-          environment.systemPackages = with pkgs; [ colorectool ];
-        })
       ];
     };
   };

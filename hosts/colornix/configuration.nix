@@ -2,8 +2,13 @@
 {
   pkgs,
   inputs,
+  system,
   ...
-}: {
+}: 
+let
+  pkg = name: inputs.${name}.packages.${system}.default;
+in
+{
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
@@ -29,6 +34,7 @@
   environment.systemPackages = with pkgs; [
     python312Packages.pygments
     input-remapper
+    (pkg "fw-ectool")
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];

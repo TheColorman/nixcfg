@@ -43,18 +43,18 @@
     in
     {
       packages.${system} = rec {
-        ectool = ectoolpkg;
-        default = ectool;
+        colorectool = ectoolpkg;
+        default = colorectool;
 
       };
       devShells.${system} = rec {
-        ectool = pkgs.mkShell { buildInputs = [ ectoolpkg ]; };
-        default = ectool;
+        colorectool = pkgs.mkShell { buildInputs = [ ectoolpkg ]; };
+        default = colorectool;
 
       };
       overlays = rec {
         colorectool = final: prev: {
-          colorectool = with final; ectoolpkg;
+          colorectool = ectoolpkg;
         };
         default = colorectool;
       };
