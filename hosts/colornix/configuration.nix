@@ -29,6 +29,7 @@
   environment.systemPackages = with pkgs; [
     python312Packages.pygments
     fw-ectool # Framework Embedded Controller tool
+    input-remapper
   ];
   environment.pathsToLink = [ "/share/zsh" ];
 }
