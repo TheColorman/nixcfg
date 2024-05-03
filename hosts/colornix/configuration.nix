@@ -28,6 +28,7 @@
 
   environment.systemPackages = with pkgs; [
     python312Packages.pygments
+    fw-ectool # Framework Embedded Controller tool
   ];
   environment.pathsToLink = [ "/share/zsh" ];
 }
