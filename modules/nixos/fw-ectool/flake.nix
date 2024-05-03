@@ -53,10 +53,10 @@
 
       };
       overlays = rec {
-        ectool = final: prev: {
-          ectool = with final; ectoolpkg;
+        colorectool = final: prev: {
+          colorectool = with final; ectoolpkg;
         };
-        default = ectool;
+        default = colorectool;
       };
     };
 }

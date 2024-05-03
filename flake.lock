@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "ectoolSrc": {
+      "flake": false,
+      "locked": {
+        "host": "gitlab.howett.net",
+        "lastModified": 1713926465,
+        "narHash": "sha256-SHRnyqicFlviBDu3aH+uKVUstVxpIhZV6JSuZOgOwXU=",
+        "owner": "DHowett",
+        "repo": "ectool",
+        "rev": "39d64fb0e79e874cfe9877af69158fc2520b1a80",
+        "type": "gitlab"
+      },
+      "original": {
+        "host": "gitlab.howett.net",
+        "owner": "DHowett",
+        "repo": "ectool",
+        "type": "gitlab"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1696426674,
@@ -33,6 +51,43 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "fw-ectool": {
+      "inputs": {
+        "ectoolSrc": "ectoolSrc",
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-hwpaegRaD57wQz50J0dj7v17RmOwufjbBSGPXcbvCS8=",
+        "path": "./modules/nixos/fw-ectool",
+        "type": "path"
+      },
+      "original": {
+        "path": "./modules/nixos/fw-ectool",
+        "type": "path"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -56,7 +111,7 @@
     "nix-alien": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nix-filter": "nix-filter",
         "nix-index-database": "nix-index-database",
         "nixpkgs": [
@@ -144,12 +199,28 @@
     },
     "root": {
       "inputs": {
+        "fw-ectool": "fw-ectool",
         "home-manager": "home-manager",
         "nix-alien": "nix-alien",
         "nixpkgs": "nixpkgs_2"
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

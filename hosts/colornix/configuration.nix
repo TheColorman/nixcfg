@@ -30,6 +30,7 @@
     python312Packages.pygments
     input-remapper
   ];
+
   environment.pathsToLink = [ "/share/zsh" ];
   services.input-remapper.enable = true;
 }
