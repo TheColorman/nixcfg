@@ -27,4 +27,9 @@
     # Add any missing dynamic libraries for unpackaged
     # programs here, NOT in environment.systemPackages
   ];
+
+  # Nix development
+  environment.systemPackages = with pkgs; [
+    zsh-autoenv # auto direnv for zsh
+  ];
 }
