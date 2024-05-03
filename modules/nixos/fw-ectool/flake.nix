@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
     ectoolSrc.url = "gitlab:DHowett/ectool?host=gitlab.howett.net";
     ectoolSrc.flake = false;
   };
