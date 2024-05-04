@@ -7,55 +7,56 @@
     ectoolSrc.flake = false;
   };
 
-  outputs = { self, nixpkgs, ectoolSrc, flake-utils }:
-    let
-      system = "x86_64-linux";
-    
-      pkgs = nixpkgs.legacyPackages.${system};
+  outputs = {
+    self,
+    nixpkgs,
+    ectoolSrc,
+    flake-utils,
+  }: let
+    system = "x86_64-linux";
 
-      ectoolpkg = pkgs.stdenv.mkDerivation {
-        name = "ectool";
-        src = ectoolSrc;
+    pkgs = nixpkgs.legacyPackages.${system};
 
-        buildInputs = with pkgs; [
-          clang
-          cmake
-          git
-          libftdi1
-          libusb1
-          ninja
-          pkg-config
-        ];
+    ectoolpkg = pkgs.stdenv.mkDerivation {
+      name = "ectool";
+      src = ectoolSrc;
 
-        buildPhase = ''
-          mkdir -p $TMPDIR/build
-          cd $TMPDIR/build
-          CC=clang CXX=clang++ cmake -GNinja $src
-          cmake --build .
-        '';
+      buildInputs = with pkgs; [
+        clang
+        cmake
+        git
+        libftdi1
+        libusb1
+        ninja
+        pkg-config
+      ];
 
-        installPhase = ''
-          mkdir -p $out/bin
-          cp $TMPDIR/build/src/ectool $out/bin/
-        '';
-      };
-    in
-    {
-      packages.${system} = rec {
-        fw-ectool = ectoolpkg;
-        default = fw-ectool;
+      buildPhase = ''
+        mkdir -p $TMPDIR/build
+        cd $TMPDIR/build
+        CC=clang CXX=clang++ cmake -GNinja $src
+        cmake --build .
+      '';
 
-      };
-      devShells.${system} = rec {
-        fw-ectool = pkgs.mkShell { buildInputs = [ ectoolpkg ]; };
-        default = fw-ectool;
-
-      };
-      overlays = rec {
-        fw-ectool = final: prev: {
-          fw-ectool = ectoolpkg;
-        };
-        default = fw-ectool;
-      };
+      installPhase = ''
+        mkdir -p $out/bin
+        cp $TMPDIR/build/src/ectool $out/bin/
+      '';
     };
+  in {
+    packages.${system} = rec {
+      fw-ectool = ectoolpkg;
+      default = fw-ectool;
+    };
+    devShells.${system} = rec {
+      fw-ectool = pkgs.mkShell {buildInputs = [ectoolpkg];};
+      default = fw-ectool;
+    };
+    overlays = rec {
+      fw-ectool = final: prev: {
+        fw-ectool = ectoolpkg;
+      };
+      default = fw-ectool;
+    };
+  };
 }

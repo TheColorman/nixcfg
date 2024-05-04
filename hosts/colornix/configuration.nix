@@ -4,11 +4,9 @@
   inputs,
   system,
   ...
-}: 
-let
+}: let
   pkg = name: inputs.${name}.packages.${system}.default;
-in
-{
+in {
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
@@ -37,6 +35,6 @@ in
     (pkg "fw-ectool")
   ];
 
-  environment.pathsToLink = [ "/share/zsh" ];
+  environment.pathsToLink = ["/share/zsh"];
   services.input-remapper.enable = true;
 }

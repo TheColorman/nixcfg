@@ -12,8 +12,8 @@
       google-chrome
       vscode
       vesktop
-      neofetch
       obsidian
+      fastfetch
       syncthing
       tailscale
     ];

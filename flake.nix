@@ -28,8 +28,8 @@
   } @ inputs: {
     nixosConfigurations.colornix = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs system; };
-      
+      specialArgs = {inherit inputs system;};
+
       modules = [
         ./hosts/colornix/configuration.nix
         inputs.home-manager.nixosModules.default

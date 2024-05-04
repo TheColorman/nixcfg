@@ -95,7 +95,7 @@
     };
     syntaxHighlighting = {
       enable = true;
-      highlighters = [ "main" "brackets" "cursor" ];
+      highlighters = ["main" "brackets" "cursor"];
     };
   };
 }
