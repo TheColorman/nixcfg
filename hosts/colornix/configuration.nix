@@ -32,6 +32,7 @@ in {
   environment.systemPackages = with pkgs; [
     python312Packages.pygments
     input-remapper
+    aria2
     (pkg "fw-ectool")
   ];
 
