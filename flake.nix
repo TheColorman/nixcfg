@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     #nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     #home-manager = {
@@ -26,7 +26,7 @@
 
   outputs = {
     self,
-    #nixpkgs,
+    nixpkgs,
     #nixos-hardware,
     #fw-ectool,
     colornix,
@@ -45,7 +45,7 @@
     nixosConfigurations = let
       colornixConfig = builtins.trace colornix.nixosConfigurations colornix.nixosConfigurations;
     in {
-      inherit colornixConfig;
+      colornix = nixpkgs.lib.nixosSystem {};
     };
   };
 }
