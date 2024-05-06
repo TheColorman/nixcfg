@@ -45,7 +45,11 @@
     nixosConfigurations = let
       colornixConfig = builtins.trace colornix.nixosConfigurations colornix.nixosConfigurations;
     in {
-      colornix = nixpkgs.lib.nixosSystem {};
+      colornix = nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs system; };
+        modules = [];
+      };
     };
   };
 }
