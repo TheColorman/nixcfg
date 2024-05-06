@@ -2,23 +2,23 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    #nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #home-manager = {
+    #  url = "github:nix-community/home-manager";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
-    nix-alien = {
-      url = "github:thiagokokada/nix-alien";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nix-alien = {
+    #  url = "github:thiagokokada/nix-alien";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
-    fw-ectool = {
-      url = "path:./modules/nixos/fw-ectool";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #fw-ectool = {
+    #  url = "path:./modules/nixos/fw-ectool";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     # configurations
     colornix.url = "path:./hosts/colornix";
@@ -26,9 +26,9 @@
 
   outputs = {
     self,
-    nixpkgs,
-    nixos-hardware,
-    fw-ectool,
+    #nixpkgs,
+    #nixos-hardware,
+    #fw-ectool,
     colornix,
     ...
   } @ inputs: {
