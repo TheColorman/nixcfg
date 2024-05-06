@@ -46,7 +46,9 @@
       colornix = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = { inherit inputs system; suwucide = builtins.trace colornix.nixosConfigurations; };
-        modules = [];
+        modules = [
+          ./hosts/colornix/configuration.nix
+        ];
       };
     };
   };
