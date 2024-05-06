@@ -43,11 +43,12 @@
     #  ];
     #};
     nixosConfigurations = let
-      colornixConfig = builtins.trace colornix colornix.nixosConfigurations;
+      colornixConfig = colornix.nixosConfigurations;
+      colornixkillmenow = builtins.trace colornixConfig colornixConfig;
     in {
       colornix = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs system; suwucide = colornixConfig; };
+        specialArgs = { inherit inputs system; suwucide = colornixkillmenow; };
         modules = [];
       };
     };
