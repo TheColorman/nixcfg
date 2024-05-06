@@ -11,7 +11,7 @@
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, fw-ectool }@inputs: {
-    nixosConfiguration.colornix = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.colornix = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = { inherit inputs system; };
       

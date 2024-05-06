@@ -31,7 +31,7 @@
     #fw-ectool,
     colornix,
     ...
-  } @ inputs: {
+  } @ inputs: builtins.trace colornix {
     #nixosConfigurations.colornix = nixpkgs.lib.nixosSystem rec {
     #  system = "x86_64-linux";
     #  specialArgs = {inherit inputs system;};
