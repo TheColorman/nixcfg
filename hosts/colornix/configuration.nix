@@ -33,7 +33,7 @@ in {
     python312Packages.pygments
     input-remapper
     aria2
-    (pkg "fw-ectool")
+    #(pkg "fw-ectool")
   ];
 
   environment.pathsToLink = ["/share/zsh"];
