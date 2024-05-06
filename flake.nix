@@ -5,10 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     #nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    #home-manager = {
-    #  url = "github:nix-community/home-manager";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     #nix-alien = {
     #  url = "github:thiagokokada/nix-alien";
@@ -27,6 +27,7 @@
   outputs = {
     self,
     nixpkgs,
+    home-manager,
     #nixos-hardware,
     #fw-ectool,
     colornix,
@@ -48,6 +49,7 @@
         specialArgs = { inherit inputs system; suwucide = builtins.trace colornix.nixosConfigurations; };
         modules = [
           ./hosts/colornix/configuration.nix
+          home-manager.nixosModules.default
         ];
       };
     };
