@@ -6,7 +6,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    fw-ectool.url = "path:../../modules/nixos/fw-ectool";
+    fw-ectool.url = "git+file:.?dir=../../modules/nixos/fw-ectool";
     fw-ectool.inputs.nixpks.follows = "nixpkgs";
   };
 
