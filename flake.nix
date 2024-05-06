@@ -42,13 +42,10 @@
     #    nixos-hardware.nixosModules.framework-13-7040-amd
     #  ];
     #};
-    nixosConfigurations = let
-      colornixConfig = colornix.nixosConfigurations;
-      colornixkillmenow = builtins.trace colornixConfig colornixConfig;
-    in {
+    nixosConfigurations = {
       colornix = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs system; suwucide = colornixkillmenow; };
+        specialArgs = { inherit inputs system; suwucide = builtins.trace colornix.nixosConfigurations; };
         modules = [];
       };
     };
