@@ -16,19 +16,19 @@
 
     # configurations
     # TODO: dynamically import host configurations
-    colornix.url = "path:./hosts/colornix";
-    colornix.inputs.home-manager.follows = "home-manager";
+    framework.url = "path:./hosts/framework";
+    framework.inputs.home-manager.follows = "home-manager";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    colornix,
+    framework,
     ...
   } @ inputs: {
     nixosConfigurations = {
-      colornix = nixpkgs.lib.nixosSystem colornix.config;
+      framework = nixpkgs.lib.nixosSystem framework.config;
     };
   };
 }

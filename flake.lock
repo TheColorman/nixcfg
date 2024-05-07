@@ -1,24 +1,5 @@
 {
   "nodes": {
-    "colornix": {
-      "inputs": {
-        "fw-ectool": "fw-ectool",
-        "home-manager": "home-manager",
-        "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2",
-        "this": "this"
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-FrrIJbCGYijRugeN7bmL0a0i8IG/2Rji+E52wGdtxww=",
-        "path": "./hosts/colornix",
-        "type": "path"
-      },
-      "original": {
-        "path": "./hosts/colornix",
-        "type": "path"
-      }
-    },
     "ectoolSrc": {
       "flake": false,
       "locked": {
@@ -54,6 +35,27 @@
         "type": "indirect"
       }
     },
+    "framework": {
+      "inputs": {
+        "fw-ectool": "fw-ectool",
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixos-hardware": "nixos-hardware",
+        "nixpkgs": "nixpkgs_2",
+        "this": "this"
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-FrrIJbCGYijRugeN7bmL0a0i8IG/2Rji+E52wGdtxww=",
+        "path": "./hosts/framework",
+        "type": "path"
+      },
+      "original": {
+        "path": "./hosts/framework",
+        "type": "path"
+      }
+    },
     "fw-ectool": {
       "inputs": {
         "ectoolSrc": "ectoolSrc",
@@ -62,11 +64,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "lastModified": 1715118115,
-        "narHash": "sha256-TVxuAG1FNbKgukV5vKYF/YDBfmesQ4kEvP9aDYcAxj0=",
-        "ref": "refs/heads/master",
-        "rev": "4978b708c690c7919586b9f0b8da7a9047dfc22a",
-        "revCount": 97,
+        "dirtyRev": "af2ef2cf2c3347f8c0a21e3e2fa20df92256c74f-dirty",
+        "dirtyShortRev": "af2ef2c-dirty",
+        "lastModified": 1715118430,
+        "narHash": "sha256-F4QmF4vWDh+h0MtlhaGy7ZTfoOJ4bNnt/nH44X6Zbuk=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -77,27 +78,6 @@
       }
     },
     "home-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "colornix",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1715077503,
-        "narHash": "sha256-AfHQshzLQfUqk/efMtdebHaQHqVntCMjhymQzVFLes0=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "6e277d9566de9976f47228dd8c580b97488734d4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "home-manager_2": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -183,8 +163,8 @@
     },
     "root": {
       "inputs": {
-        "colornix": "colornix",
-        "home-manager": "home-manager_2",
+        "framework": "framework",
+        "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_3"
       }
     },
@@ -206,11 +186,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "lastModified": 1715118115,
-        "narHash": "sha256-TVxuAG1FNbKgukV5vKYF/YDBfmesQ4kEvP9aDYcAxj0=",
-        "ref": "refs/heads/master",
-        "rev": "4978b708c690c7919586b9f0b8da7a9047dfc22a",
-        "revCount": 97,
+        "dirtyRev": "af2ef2cf2c3347f8c0a21e3e2fa20df92256c74f-dirty",
+        "dirtyShortRev": "af2ef2c-dirty",
+        "lastModified": 1715118430,
+        "narHash": "sha256-F4QmF4vWDh+h0MtlhaGy7ZTfoOJ4bNnt/nH44X6Zbuk=",
         "type": "git",
         "url": "file:."
       },

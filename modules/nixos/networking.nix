@@ -1,5 +1,5 @@
 {...}: {
-  networking.hostName = "colornix";
+  networking.hostName = "framework";
   networking.networkmanager.enable = true;
 
   # Patch for connecting to legacy eduroam networks
