@@ -44,14 +44,7 @@
     #  ];
     #};
     nixosConfigurations = {
-      colornix = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs system; suwucide = builtins.trace colornix.nixosConfigurations; };
-        modules = [
-          ./hosts/colornix/configuration.nix
-          home-manager.nixosModules.default
-        ];
-      };
+      colornix = nixpkgs.lib.nixosSystem colornix.config;
     };
   };
 }
