@@ -29,5 +29,5 @@ in {
   environment.pathsToLink = ["/share/zsh"];
   services.input-remapper.enable = true;
 
-  system.nixos.label = "split-config";
+  system.nixos.label = "update-hostname";
 }
