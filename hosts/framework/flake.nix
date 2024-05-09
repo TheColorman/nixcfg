@@ -7,7 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     fw-ectool.url = "git+file:.?dir=modules/flakes/fw-ectool";
-    fw-ectool.inputs.nixpks.follows = "nixpkgs";
+    fw-ectool.inputs.nixpkgs.follows = "nixpkgs";
 
     this.url = "git+file:.";
     this.flake = false;
