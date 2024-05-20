@@ -19,8 +19,6 @@
     ];
   };
 
-  #imports = [./home.nix];
-
   # Syncthing config
   system.activationScripts = {
     syncthingSetup.text = ''
