@@ -81,6 +81,18 @@
         "url": "file:.?dir=modules/flakes/fw-ectool"
       }
     },
+    "globals": {
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-T5yaRg6lT2i4Gx6cgctm3P6KNkAUUhKlr1e/lGYvTZc=",
+        "path": "./globals",
+        "type": "path"
+      },
+      "original": {
+        "path": "./globals",
+        "type": "path"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -152,6 +164,7 @@
     "root": {
       "inputs": {
         "framework": "framework",
+        "globals": "globals",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2"
       }

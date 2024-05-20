@@ -76,7 +76,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # i dont understand flakes and home manager
   programs.zsh = {
     enable = true;
     enableCompletion = true;
