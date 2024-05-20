@@ -28,6 +28,4 @@ in {
 
   environment.pathsToLink = ["/share/zsh"];
   services.input-remapper.enable = true;
-
-  system.nixos.label = "update-hostname";
 }

@@ -18,6 +18,8 @@
     # TODO: dynamically import host configurations
     framework.url = "path:./hosts/framework";
     framework.inputs.home-manager.follows = "home-manager";
+
+    globals.url = "path:./globals";
   };
 
   outputs = {
