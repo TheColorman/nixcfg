@@ -2,7 +2,7 @@
   description = "Framework configuration";
 
   inputs = {
-    nixpkgs.url = "/home/color/nixos/nixpkgs?ref=nixpkgs-unstable";
+    nixpkgs.url = "/home/color/nixos/nixpkgs?ref=nixos-unstable";
     nixos-hardware.url = "/home/color/nixos/nixos-hardware?ref=master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
