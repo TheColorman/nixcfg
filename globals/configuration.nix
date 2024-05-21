@@ -1,4 +1,4 @@
 {...}: {
   users.mutableUsers = false;
-  system.nixos.label = "update_zsh";
+  system.nixos.label = "local_nixpkgs";
 }
