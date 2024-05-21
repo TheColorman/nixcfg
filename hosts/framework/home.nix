@@ -30,6 +30,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".p10k.zsh".source = ./dotfiles/p10k.zsh;
   };
 
   # Home Manager can also manage your environment variables through
@@ -52,67 +53,104 @@
     EDITOR = "vim";
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs = {
+    # Let Home Manager install and manage itself.
+    home-manager.enable = true;
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    autocd = true;
-    dirHashes = {
-      dl = "$HOME/Downloads";
-    };
-    history = {
-      ignoreDups = true;
-      ignoreSpace = true;
-    };
-    initExtra = ''
-      ZINIT_HOME="${pkgs.zinit}/share/zinit"
-
-      source "''${ZINIT_HOME}/zinit.zsh"
-
-      eval "$(zoxide init --cmd cd zsh)"
-    '';
-    shellAliases = {
-      nixtest = "pushd ~/nixos/config && sudo nix flake update && sudo nixos-rebuild test --flake ~/nixos/config && popd";
-      nixswitch = "pushd ~/nixos/config && sudo nixos-rebuild switch --flake ~/nixos/config && popd";
-    };
-    syntaxHighlighting = {
+    zsh = {
       enable = true;
-      highlighters = ["main" "brackets" "cursor"];
-    };
-  };
-
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      shell = {
-        program = "${pkgs.tmux}/bin/tmux";
-        args = [ "new-session" "-A" "-s" "main" ];
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      autocd = true;
+      dirHashes = {
+        dl = "$HOME/Downloads";
       };
-      font = {
-        bold = {
-          family = "CaskaydiaCove Nerd Font";
-          style = "Bold";
+      history = {
+        ignoreAllDups = true;
+        ignoreSpace = true;
+      };
+      initExtra = ''
+        ZINIT_HOME="${pkgs.zinit}/share/zinit"
+
+        source "''${ZINIT_HOME}/zinit.zsh"
+
+        # Should do this declaratively eventually, but that requires basically creating a zinit home-manager module from scratch.
+        zinit ice depth=1; zinit light romkatv/powerlevel10k
+        zinit light Aloxaf/fzf-tab 
+
+        # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+        # keybinds
+        bindkey '^F' autosuggest-accept
+        bindkey '^[v' .describe-key-briefly # for figuring out the actual keys
+        bindkey '^[OA' history-search-backward
+        bindkey '^[OB' history-search-forward
+
+        # Completion styling
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+        zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+        zstyle ':completion:*' menu no
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
+        # Shell integrations
+        eval "$(zoxide init --cmd cd zsh)"
+        eval "$(fzf --zsh)"
+      '';
+      initExtraFirst = ''
+        # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+        # Initialization code that may require console input (password prompts, [y/n]
+        # confirmations, etc.) must go above this block; everything else may go below.
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        fi
+      '';
+      shellAliases = {
+        nixtest = "pushd ~/nixos/config && sudo nix flake update && sudo nixos-rebuild test --flake ~/nixos/config && popd";
+        nixswitch = "pushd ~/nixos/config && sudo nixos-rebuild switch --flake ~/nixos/config && popd";
+      };
+      syntaxHighlighting = {
+        enable = true;
+        highlighters = ["main" "brackets"];
+      };
+    };
+
+    alacritty = {
+      enable = true;
+      settings = {
+        shell = {
+          program = "${pkgs.tmux}/bin/tmux";
+          args = [ "new-session" "-A" "-s" "main" ];
         };
-        italic = {
-          family = "CaskaydiaCove Nerd Font";
-          style = "Italic";
-        };
-        normal = {
-          family = "CaskaydiaCove Nerd Font";
-          style = "Regular";
+        font = {
+          bold = {
+            family = "CaskaydiaCove Nerd Font";
+            style = "Bold";
+          };
+          italic = {
+            family = "CaskaydiaCove Nerd Font";
+            style = "Italic";
+          };
+          normal = {
+            family = "CaskaydiaCove Nerd Font";
+            style = "Regular";
+          };
         };
       };
     };
-  };
 
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-    customPaneNavigationAndResize = true;
-    keyMode = "vi";
-    mouse = true;
+    tmux = {
+      enable = true;
+      clock24 = true;
+      customPaneNavigationAndResize = true;
+      keyMode = "vi";
+      mouse = true;
+      terminal = "screen-256color";
+    };
+
+    fzf = {
+      enable = true;
+      tmux.enableShellIntegration = true;
+    };
   };
 }
