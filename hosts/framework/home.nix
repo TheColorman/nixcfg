@@ -59,6 +59,17 @@
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
+    autocd = true;
+    dirHashes = {
+      dl = "$HOME/Downloads";
+    };
+    history = {
+      ignoreDups = true;
+      ignoreSpace = true;
+    };
+    initExtra = ''
+      eval "$(zoxide init --cmd cd zsh)"
+    '';
     oh-my-zsh = {
       enable = true;
       plugins = [
