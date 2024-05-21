@@ -76,6 +76,7 @@
     '';
     shellAliases = {
       nixtest = "pushd ~/nixos/config && sudo nix flake update && sudo nixos-rebuild test --flake ~/nixos/config && popd";
+      nixswitch = "pushd ~/nixos/config && sudo nixos-rebuild switch --flake ~/nixos/config && popd";
     };
     syntaxHighlighting = {
       enable = true;
