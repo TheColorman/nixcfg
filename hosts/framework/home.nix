@@ -70,18 +70,6 @@
     initExtra = ''
       eval "$(zoxide init --cmd cd zsh)"
     '';
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "sudo"
-        "aliases"
-        "common-aliases"
-        "gh"
-        "history"
-      ];
-      theme = "eastwood";
-    };
     syntaxHighlighting = {
       enable = true;
       highlighters = ["main" "brackets" "cursor"];
