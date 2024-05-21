@@ -1,4 +1,4 @@
 {...}: {
   users.mutableUsers = false;
-  system.nixos.label = "local_nixpkgs";
+  system.nixos.label = "add_tmux";
 }
