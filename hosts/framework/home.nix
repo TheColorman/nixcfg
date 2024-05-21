@@ -68,6 +68,10 @@
       ignoreSpace = true;
     };
     initExtra = ''
+      ZINIT_HOME="${pkgs.zinit}/share/zinit"
+
+      source "''${ZINIT_HOME}/zinit.zsh"
+
       eval "$(zoxide init --cmd cd zsh)"
     '';
     syntaxHighlighting = {
