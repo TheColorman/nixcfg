@@ -76,4 +76,9 @@
       highlighters = ["main" "brackets" "cursor"];
     };
   };
+
+  programs.alacritty = {
+    enable = true;
+    settings = { };
+  };
 }
