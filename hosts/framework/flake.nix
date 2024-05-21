@@ -37,7 +37,7 @@
         "nix" # General nixos config
         "shell" # Global zsh, might make this user-based for home-manager management
         "snix" # Script used to version control nix config
-        "fonts/caskadiacode"
+        "fonts/cascadiacode"
       ];
     };
   };
