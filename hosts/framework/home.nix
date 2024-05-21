@@ -74,6 +74,9 @@
 
       eval "$(zoxide init --cmd cd zsh)"
     '';
+    shellAliases = {
+      nixtest = "pushd ~/nixos/config && sudo nix flake update && sudo nixos-rebuild test --flake ~/nixos/config && popd";
+    };
     syntaxHighlighting = {
       enable = true;
       highlighters = ["main" "brackets" "cursor"];
