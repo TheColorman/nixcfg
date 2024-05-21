@@ -67,11 +67,11 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "lastModified": 1716330837,
-        "narHash": "sha256-Q9VrVr6teOhL11MaVma5ZcBkfISn1luGhq4RHvHcWt0=",
+        "lastModified": 1716330872,
+        "narHash": "sha256-Ej2phXmfzSWpU8GH5V5usbZX3B9ZNBMOEMhaSVtchws=",
         "ref": "refs/heads/master",
-        "rev": "9e1ffe940bdda17a6495353d4da6abfbd20baf33",
-        "revCount": 146,
+        "rev": "c63df4fadcd2b4b3cee0583193b81df459099fbc",
+        "revCount": 147,
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -131,11 +131,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716137900,
-        "narHash": "sha256-sowPU+tLQv8GlqtVtsXioTKeaQvlMz/pefcdwg8MvfM=",
+        "lastModified": 1716293225,
+        "narHash": "sha256-pU9ViBVE3XYb70xZx+jK6SEVphvt7xMTbm6yDIF4xPs=",
         "ref": "nixos-unstable",
-        "rev": "6c0b7a92c30122196a761b440ac0d46d3d9954f1",
-        "revCount": 628669,
+        "rev": "3eaeaeb6b1e08a016380c279f8846e0bd8808916",
+        "revCount": 629267,
         "type": "git",
         "url": "file:///home/color/nixos/nixpkgs"
       },
@@ -147,11 +147,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1716137900,
-        "narHash": "sha256-sowPU+tLQv8GlqtVtsXioTKeaQvlMz/pefcdwg8MvfM=",
+        "lastModified": 1716293225,
+        "narHash": "sha256-pU9ViBVE3XYb70xZx+jK6SEVphvt7xMTbm6yDIF4xPs=",
         "ref": "nixos-unstable",
-        "rev": "6c0b7a92c30122196a761b440ac0d46d3d9954f1",
-        "revCount": 628669,
+        "rev": "3eaeaeb6b1e08a016380c279f8846e0bd8808916",
+        "revCount": 629267,
         "type": "git",
         "url": "file:///home/color/nixos/nixpkgs"
       },
@@ -187,11 +187,11 @@
     "this": {
       "flake": false,
       "locked": {
-        "lastModified": 1716330837,
-        "narHash": "sha256-Q9VrVr6teOhL11MaVma5ZcBkfISn1luGhq4RHvHcWt0=",
+        "lastModified": 1716330872,
+        "narHash": "sha256-Ej2phXmfzSWpU8GH5V5usbZX3B9ZNBMOEMhaSVtchws=",
         "ref": "refs/heads/master",
-        "rev": "9e1ffe940bdda17a6495353d4da6abfbd20baf33",
-        "revCount": 146,
+        "rev": "c63df4fadcd2b4b3cee0583193b81df459099fbc",
+        "revCount": 147,
         "type": "git",
         "url": "file:."
       },
