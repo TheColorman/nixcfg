@@ -47,7 +47,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-x6kD8XmJFdMdXreoI0y/+kMkptL3Sqr6TAw04sQsM08=",
+        "narHash": "sha256-jcAH50lc+WroY7gLi9/EDmPhrrC/mnsZXaPbVlCTBD8=",
         "path": "./hosts/framework",
         "type": "path"
       },
@@ -67,11 +67,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "lastModified": 1716319537,
-        "narHash": "sha256-VbYZH3NJo0Y3zWE/7WMUVYSj6KNhIv27LB0lHc66Nq8=",
-        "ref": "refs/heads/master",
-        "rev": "4758d0252b8da9f8b3b072ed21d93e44271e2a16",
-        "revCount": 124,
+        "dirtyRev": "d34eae5ef4b17538c301f38b0c550e919fdccd20-dirty",
+        "dirtyShortRev": "d34eae5-dirty",
+        "lastModified": 1716319560,
+        "narHash": "sha256-yqHvGsKPmrCH1k6w1RTQxy7gSuNl6LIWg3FfK2ptu5w=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -187,11 +186,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "lastModified": 1716319537,
-        "narHash": "sha256-VbYZH3NJo0Y3zWE/7WMUVYSj6KNhIv27LB0lHc66Nq8=",
-        "ref": "refs/heads/master",
-        "rev": "4758d0252b8da9f8b3b072ed21d93e44271e2a16",
-        "revCount": 124,
+        "dirtyRev": "d34eae5ef4b17538c301f38b0c550e919fdccd20-dirty",
+        "dirtyShortRev": "d34eae5-dirty",
+        "lastModified": 1716319560,
+        "narHash": "sha256-yqHvGsKPmrCH1k6w1RTQxy7gSuNl6LIWg3FfK2ptu5w=",
         "type": "git",
         "url": "file:."
       },
