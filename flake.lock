@@ -47,7 +47,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-7DsulRzlpEbvdTLrKD4Mnkhwq4g+jd2H+O0pPQCWlkQ=",
+        "narHash": "sha256-v9vX8c292eYG9B/ZfKxIE6ElBnV8Jeeiq34+N/sciK0=",
         "path": "./hosts/framework",
         "type": "path"
       },
@@ -67,11 +67,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "lastModified": 1716317172,
-        "narHash": "sha256-47+MDSidPS//nI1kt4Gh6Gch8J8K9/ElfGlyMMIBG20=",
-        "ref": "refs/heads/master",
-        "rev": "384683f342090174f0b56637b57285e3668b7bc0",
-        "revCount": 117,
+        "dirtyRev": "203e6a1b800e94148680f2dd1a188d89feca6f41-dirty",
+        "dirtyShortRev": "203e6a1-dirty",
+        "lastModified": 1716317863,
+        "narHash": "sha256-CfOkR0DBQwSv7Qa6ra9bhWJHzM6Rrp6pnHATvJ1Ore4=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -117,32 +116,32 @@
       "locked": {
         "lastModified": 1716173274,
         "narHash": "sha256-FC21Bn4m6ctajMjiUof30awPBH/7WjD0M5yqrWepZbY=",
-        "owner": "nixos",
-        "repo": "nixos-hardware",
+        "ref": "master",
         "rev": "d9e0b26202fd500cf3e79f73653cce7f7d541191",
-        "type": "github"
+        "revCount": 1677,
+        "type": "git",
+        "url": "file:///home/color/nixos/nixos-hardware"
       },
       "original": {
-        "owner": "nixos",
         "ref": "master",
-        "repo": "nixos-hardware",
-        "type": "github"
+        "type": "git",
+        "url": "file:///home/color/nixos/nixos-hardware"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716137900,
-        "narHash": "sha256-sowPU+tLQv8GlqtVtsXioTKeaQvlMz/pefcdwg8MvfM=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "6c0b7a92c30122196a761b440ac0d46d3d9954f1",
-        "type": "github"
+        "lastModified": 1716220750,
+        "narHash": "sha256-Lhhrd1ZBNXCbUupWGq6gRPIy1qMKEdcAXcjnwgVqe/U=",
+        "ref": "nixpkgs-unstable",
+        "rev": "641daa314d5bc1bca4b345da8eb08a130b109c79",
+        "revCount": 628952,
+        "type": "git",
+        "url": "file:///home/color/nixos/nixpkgs"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "ref": "nixpkgs-unstable",
+        "type": "git",
+        "url": "file:///home/color/nixos/nixpkgs"
       }
     },
     "nixpkgs_2": {
@@ -187,11 +186,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "lastModified": 1716317172,
-        "narHash": "sha256-47+MDSidPS//nI1kt4Gh6Gch8J8K9/ElfGlyMMIBG20=",
-        "ref": "refs/heads/master",
-        "rev": "384683f342090174f0b56637b57285e3668b7bc0",
-        "revCount": 117,
+        "dirtyRev": "203e6a1b800e94148680f2dd1a188d89feca6f41-dirty",
+        "dirtyShortRev": "203e6a1-dirty",
+        "lastModified": 1716317863,
+        "narHash": "sha256-CfOkR0DBQwSv7Qa6ra9bhWJHzM6Rrp6pnHATvJ1Ore4=",
         "type": "git",
         "url": "file:."
       },
