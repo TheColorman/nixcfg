@@ -90,6 +90,20 @@
         program = "${pkgs.tmux}/bin/tmux";
         args = [ "new-session" "-A" "-s" "main" ];
       };
+      font = {
+        bold = {
+          family = "CaskaydiaCove Nerd Font";
+          style = "Bold";
+        };
+        italic = {
+          family = "CaskaydiaCove Nerd Font";
+          style = "Italic";
+        };
+        normal = {
+          family = "CaskaydiaCove Nerd Font";
+          style = "Regular";
+        };
+      };
     };
   };
 
