@@ -2,8 +2,8 @@
   description = "Framework configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    nixpkgs.url = "git+file:../nixpkgs?ref=nixpkgs-unstable";
+    nixos-hardware.url = "git+file:../nixos-hardware?ref=master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     fw-ectool.url = "git+file:.?dir=modules/flakes/fw-ectool";
