@@ -29,4 +29,6 @@ in {
 
   environment.pathsToLink = ["/share/zsh"];
   services.input-remapper.enable = true;
+  services.fwupd.enable = true;
+  hardware.bluetooth.enable = true;
 }
