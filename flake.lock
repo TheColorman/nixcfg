@@ -67,10 +67,11 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "dirtyRev": "a0be79c78d1d296837918200fee9e1664668a94e-dirty",
-        "dirtyShortRev": "a0be79c-dirty",
-        "lastModified": 1716457649,
-        "narHash": "sha256-9qkE621JfEDeKknLnKMm9dLCxJbzx2FguadP+EitzLs=",
+        "lastModified": 1716473710,
+        "narHash": "sha256-1HLydtYY9grLdBN9ad/zgxMD5DXZJJeMwEo4OLNMn3A=",
+        "ref": "refs/heads/master",
+        "rev": "be91f88238fdaf7194ca743e1381cc15981ad345",
+        "revCount": 153,
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -131,11 +132,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716473064,
-        "narHash": "sha256-02rNnNztQqyeagmReo4oR/cq9UXJLHaINpxF4IFVEe8=",
+        "lastModified": 1716474766,
+        "narHash": "sha256-iyzzLxY3tvx7+51XoKiSZD0YWe1BdtEtjsdleWxW/Ak=",
         "ref": "nixos-unstable",
-        "rev": "a44eb07d726bce2bd600fbeca3685d5b9dbf0e2d",
-        "revCount": 629268,
+        "rev": "52f41057795885e13e14e484849d3e62b5e3b25d",
+        "revCount": 629727,
         "type": "git",
         "url": "file:///home/color/nixos/nixpkgs"
       },
@@ -147,11 +148,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1716473064,
-        "narHash": "sha256-02rNnNztQqyeagmReo4oR/cq9UXJLHaINpxF4IFVEe8=",
+        "lastModified": 1716474766,
+        "narHash": "sha256-iyzzLxY3tvx7+51XoKiSZD0YWe1BdtEtjsdleWxW/Ak=",
         "ref": "nixos-unstable",
-        "rev": "a44eb07d726bce2bd600fbeca3685d5b9dbf0e2d",
-        "revCount": 629268,
+        "rev": "52f41057795885e13e14e484849d3e62b5e3b25d",
+        "revCount": 629727,
         "type": "git",
         "url": "file:///home/color/nixos/nixpkgs"
       },
@@ -187,10 +188,11 @@
     "this": {
       "flake": false,
       "locked": {
-        "dirtyRev": "a0be79c78d1d296837918200fee9e1664668a94e-dirty",
-        "dirtyShortRev": "a0be79c-dirty",
-        "lastModified": 1716457649,
-        "narHash": "sha256-9qkE621JfEDeKknLnKMm9dLCxJbzx2FguadP+EitzLs=",
+        "lastModified": 1716473710,
+        "narHash": "sha256-1HLydtYY9grLdBN9ad/zgxMD5DXZJJeMwEo4OLNMn3A=",
+        "ref": "refs/heads/master",
+        "rev": "be91f88238fdaf7194ca743e1381cc15981ad345",
+        "revCount": 153,
         "type": "git",
         "url": "file:."
       },
