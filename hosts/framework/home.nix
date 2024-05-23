@@ -31,6 +31,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
     ".p10k.zsh".source = ./dotfiles/p10k.zsh;
+    ".config/kitty/launch.conf".source = ./dotfiles/kitty_launch.conf
   };
 
   # Home Manager can also manage your environment variables through
@@ -115,28 +116,17 @@
       };
     };
 
-    alacritty = {
+    kitty = {
       enable = true;
+      font.name = "CaskaydiaCove Nerd Font";
       settings = {
-        shell = {
-          program = "${pkgs.tmux}/bin/tmux";
-          args = [ "new-session" "-A" "-s" "main" ];
-        };
-        font = {
-          bold = {
-            family = "CaskaydiaCove Nerd Font";
-            style = "Bold";
-          };
-          italic = {
-            family = "CaskaydiaCove Nerd Font";
-            style = "Italic";
-          };
-          normal = {
-            family = "CaskaydiaCove Nerd Font";
-            style = "Regular";
-          };
-        };
+        scrollback_lines = 10000;
+        enable_audio_bell = false;
       };
+      shellIntegration.enableZshIntegration = true;
+      extraConfig = ''
+        startup_session launch.conf
+      '';
     };
 
     tmux = {
