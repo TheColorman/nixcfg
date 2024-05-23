@@ -31,7 +31,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
     ".p10k.zsh".source = ./dotfiles/p10k.zsh;
-    ".config/kitty/launch.conf".source = ./dotfiles/kitty_launch.conf
+    ".config/kitty/launch.conf".source = ./dotfiles/kitty_launch.conf;
   };
 
   # Home Manager can also manage your environment variables through
