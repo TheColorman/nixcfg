@@ -47,7 +47,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-H/GiKWa2g6yvsPNUMuOrTH0avIejoPN15KxSspY22Cc=",
+        "narHash": "sha256-ap5KxzWZVU2HKHpAgfHTrreNWo+hDzPii9M7n41QfxU=",
         "path": "./hosts/framework",
         "type": "path"
       },
@@ -67,11 +67,11 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "lastModified": 1716457460,
-        "narHash": "sha256-AlqT+mtP/FQarpgpbxSB28G+8gBBlahn+i8QWbqeWhY=",
+        "lastModified": 1716457577,
+        "narHash": "sha256-mRvXvqNlQb5bBQjzhPrgk73cDs7Ziwd3H8qYbYLdlxI=",
         "ref": "refs/heads/master",
-        "rev": "acadfc16fc5bb3ea7c81f1a6b0be04c82664b4d9",
-        "revCount": 149,
+        "rev": "5ecf9b36b70dd4a27d21d2cce381e7a3f51274b0",
+        "revCount": 150,
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -100,11 +100,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716448020,
-        "narHash": "sha256-u1ddoBOILtLVX4NYzqSZ9Qaqusql1M4reLd1fs554hY=",
+        "lastModified": 1716457508,
+        "narHash": "sha256-ZxzffLuWRyuMrkVVq7wastNUqeO0HJL9xqfY1QsYaqo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "25dedb0d52c20448f6a63cc346df1adbd6ef417e",
+        "rev": "850cb322046ef1a268449cf1ceda5fd24d930b05",
         "type": "github"
       },
       "original": {
@@ -187,11 +187,11 @@
     "this": {
       "flake": false,
       "locked": {
-        "lastModified": 1716457460,
-        "narHash": "sha256-AlqT+mtP/FQarpgpbxSB28G+8gBBlahn+i8QWbqeWhY=",
+        "lastModified": 1716457577,
+        "narHash": "sha256-mRvXvqNlQb5bBQjzhPrgk73cDs7Ziwd3H8qYbYLdlxI=",
         "ref": "refs/heads/master",
-        "rev": "acadfc16fc5bb3ea7c81f1a6b0be04c82664b4d9",
-        "revCount": 149,
+        "rev": "5ecf9b36b70dd4a27d21d2cce381e7a3f51274b0",
+        "revCount": 150,
         "type": "git",
         "url": "file:."
       },
