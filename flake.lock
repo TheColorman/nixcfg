@@ -83,7 +83,7 @@
     "globals": {
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-oLU4WHuBUn1/LMop5krLvqwoQoO8noij+5e8cZ1qDXQ=",
+        "narHash": "sha256-MJ1BCEs2P4KnqeQH9m+eeuczFYtxQHPZlXqjRpgwKiM=",
         "path": "./globals",
         "type": "path"
       },
