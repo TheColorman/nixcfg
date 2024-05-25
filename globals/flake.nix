@@ -3,7 +3,7 @@
 
   inputs = {};
 
-  outputs = {}: {
+  outputs = {...}: {
     config.modules = [ ./configuration.nix ];
   };
 }
