@@ -27,7 +27,7 @@
     nixpkgs,
     home-manager,
     framework,
-    globals
+    globals,
     ...
   } @ inputs: {
     nixosConfigurations = {
