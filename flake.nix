@@ -31,7 +31,7 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
-      framework = nixpkgs.lib.nixosSystem (framework.config // globals.config);
+      framework = nixpkgs.lib.nixosSystem (globals.config // framework.config);
     };
   };
 }
