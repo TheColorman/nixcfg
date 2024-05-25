@@ -107,7 +107,10 @@
         fi
       '';
       shellAliases = {
-        nixtest = "pushd ~/nixos/config && sudo nix flake update && sudo nixos-rebuild test --flake ~/nixos/config && popd";
+        tnix = "pushd ~/nixos/config && sudo nix flake update && sudo nixos-rebuild test --flake ~/nixos/config && popd";
+        snix = "pushd ~/nixos/config && sudo nix flake update && sudo nixos-rebuild switch --flake ~/nixos/config && popd";
+        bnix = "pushd ~/nixos/config && sudo nix flake update && sudo nixos-rebuild boot --flake ~/nixos/config && popd";
+        dnix = "pushd ~/nixos/config && sudo nix flake update && sudo nixos-rebuild dry-build --flake ~/nixos/config && popd";
         nixswitch = "pushd ~/nixos/config && sudo nixos-rebuild switch --flake ~/nixos/config && popd";
       };
       syntaxHighlighting = {
