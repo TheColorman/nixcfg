@@ -30,7 +30,8 @@
         # directory, so guess I'm forced to treat them all as non-flake inputs
         # and import them by referencing the parent flake output path like this.
       ] ++ nixpkgs.lib.imap0 (i: v: "${this.outPath}/modules/nixos/${v}.nix") [
-        "plasma" # Desktop environment
+        # "plasma" # Desktop environment
+        "hyprland"
         "bootloader" # Generic bootloader - grub tbd
         "locale" # Danish UTF-8 locale for rendering
         "networking" # Networkmanager

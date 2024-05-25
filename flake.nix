@@ -27,10 +27,11 @@
     nixpkgs,
     home-manager,
     framework,
+    globals
     ...
   } @ inputs: {
     nixosConfigurations = {
-      framework = nixpkgs.lib.nixosSystem framework.config;
+      framework = nixpkgs.lib.nixosSystem (framework.config // globals.config);
     };
   };
 }

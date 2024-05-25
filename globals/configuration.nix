@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "add_tmux";
+  system.nixos.label = "hyprland";
 }
