@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "hyprland";
+  system.nixos.label = "disable_hyprland";
 }
