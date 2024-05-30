@@ -9,15 +9,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #nix-alien = {
-    #  url = "github:thiagokokada/nix-alien";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
     # configurations
     # TODO: dynamically import host configurations
-    framework.url = "path:./hosts/framework";
-    framework.inputs.home-manager.follows = "home-manager";
+    framework = {
+      url = "path:./hosts/framework";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     globals.url = "path:./globals";
   };
