@@ -57,4 +57,4 @@
     enable = true;
     highlighters = ["main" "brackets"];
   };
-};
+}

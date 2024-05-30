@@ -9,6 +9,14 @@
     fw-ectool.url = "git+file:.?dir=modules/flakes/fw-ectool";
     fw-ectool.inputs.nixpkgs.follows = "nixpkgs";
 
+    # stylix = {
+    #   url = "github:danth/stylix";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     home-manager.follows = "home-manager";
+    #   };
+    # };
+
     this.url = "git+file:.";
     this.flake = false;
   };
@@ -25,6 +33,7 @@
         
         inputs.home-manager.nixosModules.default
         nixos-hardware.nixosModules.framework-13-7040-amd
+        # stylix.nixosModules.stylix
 
         # I can't import the nix configs directly since they're in a parent
         # directory, so guess I'm forced to treat them all as non-flake inputs
