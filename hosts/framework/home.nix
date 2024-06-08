@@ -6,6 +6,7 @@
 }@meta: let
   # Imports a home manager module from the home-manager dir
   mod = name: (import "${inputs.this.outPath}/modules/home-manager/${name}.nix" meta);
+  file = name: "${inputs.this.outPath}/modules/home-manager/${name}";
 in {
   home.username = "color";
   home.homeDirectory = "/home/color";
@@ -21,7 +22,7 @@ in {
 
   home.file = {
     ".p10k.zsh".source = ./dotfiles/p10k.zsh;
-    ".config/kitty/launch.conf".source = ./dotfiles/kitty_launch.conf;
+    ".config/kitty/launch.conf".source = file "kitty/launch_tmux.conf";
   };
 
   home.sessionVariables = {
@@ -33,20 +34,7 @@ in {
     home-manager.enable = true;
 
     zsh = mod "zsh";
-
-    kitty = {
-      enable = true;
-      font.name = "CaskaydiaCove Nerd Font";
-      settings = {
-        scrollback_lines = 10000;
-        enable_audio_bell = false;
-      };
-      shellIntegration.enableZshIntegration = true;
-      extraConfig = ''
-        startup_session launch.conf
-      '';
-    };
-
+    kitty = mod "kitty/kitty";
     tmux = mod "tmux";
 
     fzf = {
