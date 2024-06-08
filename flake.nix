@@ -29,6 +29,7 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
+      # TODO: globals.config and framework.config - they do not merge propely. Need to figure out how to do a recurive attr merge.
       framework = nixpkgs.lib.nixosSystem (globals.config // framework.config);
     };
   };
