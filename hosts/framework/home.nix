@@ -1,8 +1,12 @@
 {
   config,
   pkgs,
+  inputs,
   ...
-}: {
+}@meta: let
+  # Imports a home manager module from the home-manager dir
+  mod = name: (import "${inputs.this.outPath}/modules/home-manager/${name}.nix" meta);
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "color";
@@ -58,7 +62,7 @@
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
 
-    zsh = with builtins; import fetchGit ./. + "/modules/home-manager/zsh.nix"
+    zsh = mod "zsh";
 
     kitty = {
       enable = true;
