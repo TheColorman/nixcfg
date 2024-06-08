@@ -69,10 +69,11 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "dirtyRev": "56b4429e0fcaef8b6d7145788180cb7b9c0a1618-dirty",
-        "dirtyShortRev": "56b4429-dirty",
-        "lastModified": 1717859162,
-        "narHash": "sha256-eVrJ8LL0vqa6t3JNuAuMDxYMFJG5dc7ADVn+adF18y8=",
+        "lastModified": 1717862128,
+        "narHash": "sha256-9dNv2eQcEua3n/5LE/e8odJJEQ4CT/anr/2mavRecwc=",
+        "ref": "refs/heads/master",
+        "rev": "c3ec1aee8e952e02032e1c8c735c087cb82df7d4",
+        "revCount": 173,
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -101,11 +102,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716457508,
-        "narHash": "sha256-ZxzffLuWRyuMrkVVq7wastNUqeO0HJL9xqfY1QsYaqo=",
+        "lastModified": 1717525419,
+        "narHash": "sha256-5z2422pzWnPXHgq2ms8lcCfttM0dz+hg+x1pCcNkAws=",
         "ref": "master",
-        "rev": "850cb322046ef1a268449cf1ceda5fd24d930b05",
-        "revCount": 3551,
+        "rev": "a7117efb3725e6197dd95424136f79147aa35e5b",
+        "revCount": 3587,
         "type": "git",
         "url": "file:///home/color/nixos/home-manager"
       },
@@ -117,11 +118,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1716173274,
-        "narHash": "sha256-FC21Bn4m6ctajMjiUof30awPBH/7WjD0M5yqrWepZbY=",
+        "lastModified": 1717828156,
+        "narHash": "sha256-YvstO0lobf3JWQuAfZCLYRTROC2ZDEgtWeQtWbO49p4=",
         "ref": "master",
-        "rev": "d9e0b26202fd500cf3e79f73653cce7f7d541191",
-        "revCount": 1677,
+        "rev": "057a7996d012f342a38a26261ee529cebb1755ef",
+        "revCount": 1702,
         "type": "git",
         "url": "file:///home/color/nixos/nixos-hardware"
       },
@@ -133,11 +134,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716474766,
-        "narHash": "sha256-iyzzLxY3tvx7+51XoKiSZD0YWe1BdtEtjsdleWxW/Ak=",
+        "lastModified": 1717862391,
+        "narHash": "sha256-8un3RuXNG3HbXhPoZK1aFD7L36+etaJDcY7U5b5LNu4=",
         "ref": "nixos-unstable",
-        "rev": "52f41057795885e13e14e484849d3e62b5e3b25d",
-        "revCount": 629727,
+        "rev": "0e1a6a4ad55cff0568440d9099e2c40a6e22cb47",
+        "revCount": 635426,
         "type": "git",
         "url": "file:///home/color/nixos/nixpkgs"
       },
@@ -173,10 +174,11 @@
     "this": {
       "flake": false,
       "locked": {
-        "dirtyRev": "56b4429e0fcaef8b6d7145788180cb7b9c0a1618-dirty",
-        "dirtyShortRev": "56b4429-dirty",
-        "lastModified": 1717859162,
-        "narHash": "sha256-eVrJ8LL0vqa6t3JNuAuMDxYMFJG5dc7ADVn+adF18y8=",
+        "lastModified": 1717862128,
+        "narHash": "sha256-9dNv2eQcEua3n/5LE/e8odJJEQ4CT/anr/2mavRecwc=",
+        "ref": "refs/heads/master",
+        "rev": "c3ec1aee8e952e02032e1c8c735c087cb82df7d4",
+        "revCount": 173,
         "type": "git",
         "url": "file:."
       },
