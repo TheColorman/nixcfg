@@ -36,10 +36,6 @@ in {
     zsh = mod "zsh";
     kitty = mod "kitty/kitty";
     tmux = mod "tmux";
-
-    fzf = {
-      enable = true;
-      tmux.enableShellIntegration = true;
-    };
+    fzf = mod "fzf";
   };
 }
