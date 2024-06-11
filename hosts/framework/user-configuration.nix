@@ -10,6 +10,7 @@ in {
     syncthingSetup.text = mod "nixos/syncthing/setup_script";
   };
   services.syncthing = mod "nixos/syncthing/syncthing";
+  services.tailscale = mod "nixos/tailscale";
 
   programs.git = mod "nixos/git";
 }
