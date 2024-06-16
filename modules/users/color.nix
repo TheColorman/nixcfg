@@ -14,5 +14,7 @@
     wireguard-tools
     firefox
     unzip
+    btop
+    p7zip
   ];
 }

@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "disable_hyprland";
+  system.nixos.label = "add_btop_and_7z";
 }
