@@ -7,9 +7,9 @@ in {
 
   # Syncthing config
   system.activationScripts = {
-    syncthingSetup.text = mod "nixos/syncthing/setup_script";
+    syncthingSetup.text = mod "nixos/syncthing/setup_script" "color";
   };
-  services.syncthing = mod "nixos/syncthing/syncthing";
+  services.syncthing = mod "nixos/syncthing/syncthing" "color";
   services.tailscale = mod "nixos/tailscale";
 
   programs.git = mod "nixos/git";

@@ -1,4 +1,4 @@
-{...}: with builtins; rec {
+{...}: owner: with builtins; rec {
   enable = true;
   openDefaultPorts = true;
   settings.devices = {
@@ -22,17 +22,17 @@
     brain = {
       devices = devs;
       id = "yedar-6vrrr";
-      path = "/home/color/brain";
+      path = "/home/${owner}/brain";
     };
     CTF = {
       devices = devs;
       id = "dh6gy-zxqu6";
-      path = "/home/color/CTF";
+      path = "/home/${owner}/CTF";
     };
     ITU = {
       devices = devs;
       id = "yc39s-4wtgc";
-      path = "/home/color/ITU";
+      path = "/home/${owner}/ITU";
     };
   };
 }
