@@ -9,29 +9,27 @@
     fw-ectool.url = "git+file:.?dir=modules/flakes/fw-ectool";
     fw-ectool.inputs.nixpkgs.follows = "nixpkgs";
 
-    # stylix = {
-    #   url = "github:danth/stylix";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     home-manager.follows = "home-manager";
-    #   };
-    # };
+    stylix = {
+      url = "/home/color/nixos/deps/stylix?ref=release-24.05";
+      inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     this.url = "git+file:.";
     this.flake = false;
   };
 
   outputs = {
-    self, nixpkgs, nixos-hardware, home-manager, fw-ectool, this
+    self, nixpkgs, nixos-hardware, home-manager, fw-ectool, stylix, this
   }@inputs: {
     config = rec {
       system = "x86_64-linux";
       specialArgs = { inherit inputs system; };
 
       modules = [
-        ./configuration.nix
-        
+        stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
+        ./configuration.nix
         nixos-hardware.nixosModules.framework-13-7040-amd
         # stylix.nixosModules.stylix
 
@@ -47,7 +45,7 @@
         "nix" # General nixos config
         "shell" # Global zsh, might make this user-based for home-manager management
         "snix" # Script used to version control nix config
-        "fonts/cascadiacode"
+        # "fonts/cascadiacode"
       ];
     };
   };

@@ -1,6 +1,6 @@
 {...}: {
   enable = true;
-  font.name = "CaskaydiaCove Nerd Font";
+  # font.name = "CascadiaCode";
   settings = {
     scrollback_lines = 10000;
     enable_audio_bell = false;

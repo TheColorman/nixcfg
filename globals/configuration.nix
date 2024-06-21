@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "update_home_manager";
+  system.nixos.label = "add_stylix";
 }

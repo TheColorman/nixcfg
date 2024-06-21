@@ -33,4 +33,25 @@ in {
   services.input-remapper.enable = true;
   services.fwupd.enable = true;
   hardware.bluetooth.enable = true;
+
+  # Stylix config
+  stylix = {
+    enable = true;
+    image = ./assets/2024-H1.png;
+    fonts = with pkgs; {
+      serif = {
+        package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
+        name = "CascadiaCode Serif";
+      };
+      sansSerif = {
+        package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
+        name = "CascadiaCode Sans";
+      };
+      monospace = {
+        package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
+        name = "CascadiaCode Sans Mono";
+      };
+    };
+    polarity = "dark";
+  };
 }
