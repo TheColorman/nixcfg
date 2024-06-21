@@ -69,11 +69,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "lastModified": 1718874477,
-        "narHash": "sha256-8AXYQJY+pnqXdtsi+uFuRQpVZS5Hkk4zUmt+PCoWvAg=",
-        "ref": "refs/heads/master",
-        "rev": "43e886d8a72846787ef43718488465d18fad2d93",
-        "revCount": 183,
+        "dirtyRev": "c13091a330323ab3a95352b88fd39219d1f87584-dirty",
+        "dirtyShortRev": "c13091a-dirty",
+        "lastModified": 1718967731,
+        "narHash": "sha256-F727BSeBRQ4r38xG5nxra3b35n16bwPfAsQP+jCYz40=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -86,7 +85,7 @@
     "globals": {
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-uE1gbZSJDzEzOdr076rviuzlcRQu/YzdF6sMBlJVLZA=",
+        "narHash": "sha256-qWAQvW/CYNeuNoI5HX/9VLSnUqfAHvh2ScemsFkDbmA=",
         "path": "./globals",
         "type": "path"
       },
@@ -102,11 +101,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1717525419,
-        "narHash": "sha256-5z2422pzWnPXHgq2ms8lcCfttM0dz+hg+x1pCcNkAws=",
+        "lastModified": 1718788307,
+        "narHash": "sha256-SqiOz0sljM0GjyQEVinPXQxaGcbOXw5OgpCWGPgh/vo=",
         "ref": "master",
-        "rev": "a7117efb3725e6197dd95424136f79147aa35e5b",
-        "revCount": 3587,
+        "rev": "d7830d05421d0ced83a0f007900898bdcaf2a2ca",
+        "revCount": 3601,
         "type": "git",
         "url": "file:///home/color/nixos/home-manager"
       },
@@ -174,11 +173,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "lastModified": 1718874477,
-        "narHash": "sha256-8AXYQJY+pnqXdtsi+uFuRQpVZS5Hkk4zUmt+PCoWvAg=",
-        "ref": "refs/heads/master",
-        "rev": "43e886d8a72846787ef43718488465d18fad2d93",
-        "revCount": 183,
+        "dirtyRev": "c13091a330323ab3a95352b88fd39219d1f87584-dirty",
+        "dirtyShortRev": "c13091a-dirty",
+        "lastModified": 1718967731,
+        "narHash": "sha256-F727BSeBRQ4r38xG5nxra3b35n16bwPfAsQP+jCYz40=",
         "type": "git",
         "url": "file:."
       },
