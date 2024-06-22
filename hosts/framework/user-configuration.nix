@@ -8,6 +8,9 @@ in {
   # Syncthing config
   system.activationScripts = {
     syncthingSetup.text = mod "nixos/syncthing/setup_script" "color";
+    fix_stylix.text = ''
+      rm /home/color/.gtkrc-2.0
+    '';
   };
   services.syncthing = mod "nixos/syncthing/syncthing" "color";
   services.tailscale = mod "nixos/tailscale";
