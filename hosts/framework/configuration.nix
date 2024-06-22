@@ -3,6 +3,7 @@
   pkgs,
   inputs,
   system,
+  config,
   ...
 }: let
   pkg = name: inputs.${name}.packages.${system}.default;
@@ -29,7 +30,7 @@ in {
     zinit
   ];
 
-  environment.pathsToLink = ["/share/zsh"];
+  environment.pathsToLink = builtins.trace config.nur ["/share/zsh"];
   services.input-remapper.enable = true;
   services.fwupd.enable = true;
   hardware.bluetooth.enable = true;

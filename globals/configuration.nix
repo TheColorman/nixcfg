@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "fix_stylix_gtkrc";
+  system.nixos.label = "add_nur";
 }

@@ -15,12 +15,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nur.url = "github:nix-community/NUR";
+
     this.url = "git+file:.";
     this.flake = false;
   };
 
   outputs = {
-    self, nixpkgs, nixos-hardware, home-manager, fw-ectool, stylix, this
+    self, nixpkgs, nixos-hardware, home-manager, fw-ectool, stylix, nur, this
   }@inputs: {
     config = rec {
       system = "x86_64-linux";
@@ -29,6 +31,7 @@
       modules = [
         stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
+        nur.nixosModules.nur
         ./configuration.nix
         nixos-hardware.nixosModules.framework-13-7040-amd
         # stylix.nixosModules.stylix
