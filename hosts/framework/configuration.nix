@@ -30,7 +30,7 @@ in {
     zinit
   ];
 
-  environment.pathsToLink = builtins.trace config.nur ["/share/zsh"];
+  environment.pathsToLink = ["/share/zsh"];
   services.input-remapper.enable = true;
   services.fwupd.enable = true;
   hardware.bluetooth.enable = true;

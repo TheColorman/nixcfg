@@ -47,11 +47,10 @@
     fi
   '';
   shellAliases = {
-    tnix = "pushd ~/nixos/config && sudo nixos-rebuild test --flake ~/nixos/config && popd";
+    tnix = "pushd ~/nixos/config && sudo nixos-rebuild test --flake ~/nixos/config --option eval-cache false && popd";
     snix = "pushd ~/nixos/config && sudo nixos-rebuild switch --flake ~/nixos/config && popd";
     bnix = "pushd ~/nixos/config && sudo nixos-rebuild boot --flake ~/nixos/config && popd";
     dnix = "pushd ~/nixos/config && sudo nixos-rebuild dry-build --flake ~/nixos/config && popd";
-    nixswitch = "pushd ~/nixos/config && sudo nixos-rebuild switch --flake ~/nixos/config && popd";
   };
   syntaxHighlighting = {
     enable = true;
