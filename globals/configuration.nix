@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "remove_lutris";
+  system.nixos.label = "add_gaming_stuff";
 }

@@ -27,6 +27,7 @@ in {
 
   home.sessionVariables = {
     EDITOR = "vim";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
 
   programs = {
@@ -38,4 +39,8 @@ in {
     tmux = mod "tmux";
     fzf = mod "fzf";
   };
+
+  home.packages = with pkgs; [
+    protonup # GAMING
+  ];
 }

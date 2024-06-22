@@ -28,6 +28,8 @@ in {
     (pkg "fw-ectool")
     fprintd
     zinit
+
+    mangohud # gaming
   ];
 
   environment.pathsToLink = ["/share/zsh"];
@@ -55,4 +57,18 @@ in {
     };
     polarity = "dark";
   };
+
+  # Gaming stuff
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    protontricks.enable = true;
+  };
+  programs.gamemode.enable = true;
+  
 }
