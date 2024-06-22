@@ -311,7 +311,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-QHg4kVcVwN6kcOh9a7G9g7tGrBlq3VQHHzw4pEECf48=",
+        "narHash": "sha256-mw0aZ2INEMDskqslhmZIq49fPvoOiXs9mFWeIbtjElQ=",
         "path": "./hosts/framework",
         "type": "path"
       },
@@ -363,10 +363,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "dirtyRev": "ae650e50362b78ab12bb48a56ba5c6b3aecc0d2e-dirty",
-        "dirtyShortRev": "ae650e5-dirty",
-        "lastModified": 1719070724,
-        "narHash": "sha256-qcf/Cnejh2FR9H5XUObznhGD++jBIKcry+WPDsk/REM=",
+        "dirtyRev": "7614bd246e100350407d62a8655bd233f329a373-dirty",
+        "dirtyShortRev": "7614bd2-dirty",
+        "lastModified": 1719070905,
+        "narHash": "sha256-3c1G88KRb4he/p/W7Zx9HXduCmTn7EP52ryUKsZlTsI=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -379,7 +379,7 @@
     "globals": {
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-Kdpu7IVHSYoSLDqdakh/qGbNJqRvOzKmJ92fXHw3CPo=",
+        "narHash": "sha256-WqE6vBjpFrwRc/2H+h4KFVGhD2+O5IRFSH2cnpEd/6M=",
         "path": "./globals",
         "type": "path"
       },
@@ -477,11 +477,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1719068692,
-        "narHash": "sha256-Qm+fZAjJLtB/AsOb0A64htl93sCM8Ei4OS2sPKkcu5o=",
+        "lastModified": 1719081887,
+        "narHash": "sha256-xAmq1hOGDF5t5+bKgU/zaSsuv5Nbo+KdzK2BFvLL56w=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "45eca51531f14fc14dc00ac7020bc698067a4767",
+        "rev": "768bf25fd49b2b2d95dd477fccfacf7f8638212a",
         "type": "github"
       },
       "original": {
@@ -585,10 +585,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "dirtyRev": "ae650e50362b78ab12bb48a56ba5c6b3aecc0d2e-dirty",
-        "dirtyShortRev": "ae650e5-dirty",
-        "lastModified": 1719070724,
-        "narHash": "sha256-qcf/Cnejh2FR9H5XUObznhGD++jBIKcry+WPDsk/REM=",
+        "dirtyRev": "7614bd246e100350407d62a8655bd233f329a373-dirty",
+        "dirtyShortRev": "7614bd2-dirty",
+        "lastModified": 1719070905,
+        "narHash": "sha256-3c1G88KRb4he/p/W7Zx9HXduCmTn7EP52ryUKsZlTsI=",
         "type": "git",
         "url": "file:."
       },

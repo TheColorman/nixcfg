@@ -28,6 +28,7 @@ in {
     (pkg "fw-ectool")
     fprintd
     zinit
+    lutris
   ];
 
   environment.pathsToLink = ["/share/zsh"];

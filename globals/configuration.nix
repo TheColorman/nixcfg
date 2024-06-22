@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "remove_trace_and_update_snippets";
+  system.nixos.label = "add_lutris";
 }
