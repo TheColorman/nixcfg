@@ -39,6 +39,10 @@ in {
     tmux = mod "tmux";
     fzf = mod "fzf";
   };
+  
+  services = {
+    kdeconnect.enable = true;
+  };
 
   home.packages = with pkgs; [
     protonup # GAMING
