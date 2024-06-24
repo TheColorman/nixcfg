@@ -30,6 +30,8 @@ in {
     zinit
 
     mangohud # gaming
+
+    killall
   ];
 
   environment.pathsToLink = ["/share/zsh"];

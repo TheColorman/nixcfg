@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "add_gaming_stuff";
+  system.nixos.label = "local_nur";
 }

@@ -311,7 +311,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-sMoKeNFJwPoCEn8Oszbm/gfo27WxF69JTLBeYxmT1uo=",
+        "narHash": "sha256-h86ievylnBmOYseEaNtoj3spXGQCZ8V4A4aBM6qsPhA=",
         "path": "./hosts/framework",
         "type": "path"
       },
@@ -363,10 +363,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "dirtyRev": "c4ab4c1675093d195a39ac7ca04414494a314e46-dirty",
-        "dirtyShortRev": "c4ab4c1-dirty",
-        "lastModified": 1719083314,
-        "narHash": "sha256-GqUfC71GklVlY6toFBHtSY7VwrXGbYzeSfisD+iMe3E=",
+        "dirtyRev": "9b5dfa2dc3580a344e4c1a32e43430bf0500b253-dirty",
+        "dirtyShortRev": "9b5dfa2-dirty",
+        "lastModified": 1719089438,
+        "narHash": "sha256-nuJnQV8VrBTSa+WoIzu/0jdUUJBGGGZLJbqnBfBiZaE=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -477,17 +477,18 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1719081887,
-        "narHash": "sha256-xAmq1hOGDF5t5+bKgU/zaSsuv5Nbo+KdzK2BFvLL56w=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "768bf25fd49b2b2d95dd477fccfacf7f8638212a",
-        "type": "github"
+        "lastModified": 1719246882,
+        "narHash": "sha256-N8U+tuJ1h9dEBLSlc+xiMZLaJkbtCJMZ4QwKy812huY=",
+        "ref": "master",
+        "rev": "8313afa775ebd7deea9f7695d871da22bd17a0f1",
+        "revCount": 24229,
+        "type": "git",
+        "url": "file:///home/color/nixos/deps/NUR"
       },
       "original": {
-        "owner": "nix-community",
-        "repo": "NUR",
-        "type": "github"
+        "ref": "master",
+        "type": "git",
+        "url": "file:///home/color/nixos/deps/NUR"
       }
     },
     "root": {
@@ -585,10 +586,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "dirtyRev": "c4ab4c1675093d195a39ac7ca04414494a314e46-dirty",
-        "dirtyShortRev": "c4ab4c1-dirty",
-        "lastModified": 1719083314,
-        "narHash": "sha256-GqUfC71GklVlY6toFBHtSY7VwrXGbYzeSfisD+iMe3E=",
+        "dirtyRev": "9b5dfa2dc3580a344e4c1a32e43430bf0500b253-dirty",
+        "dirtyShortRev": "9b5dfa2-dirty",
+        "lastModified": 1719089438,
+        "narHash": "sha256-nuJnQV8VrBTSa+WoIzu/0jdUUJBGGGZLJbqnBfBiZaE=",
         "type": "git",
         "url": "file:."
       },

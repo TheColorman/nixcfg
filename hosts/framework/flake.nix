@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur.url = "github:nix-community/NUR";
+    nur.url = "/home/color/nixos/deps/NUR?ref=master";
 
     this.url = "git+file:.";
     this.flake = false;
