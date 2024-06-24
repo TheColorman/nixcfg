@@ -28,7 +28,6 @@ in {
   home.sessionVariables = {
     EDITOR = "vim";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-    GDK_SCALE = 2; # Steam scaling
   };
 
   programs = {

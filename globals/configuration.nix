@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "local_nur";
+  system.nixos.label = "undo_scaling";
 }
