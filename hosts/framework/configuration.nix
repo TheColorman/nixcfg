@@ -32,6 +32,7 @@ in {
     mangohud # gaming
 
     killall
+    bottles
   ];
 
   environment.pathsToLink = ["/share/zsh"];
