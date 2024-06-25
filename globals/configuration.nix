@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "add_kde_connect";
+  system.nixos.label = "tmux_session_groups";
 }
