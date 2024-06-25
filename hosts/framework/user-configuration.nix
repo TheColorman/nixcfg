@@ -9,7 +9,7 @@ in {
   system.activationScripts = {
     syncthingSetup.text = mod "nixos/syncthing/setup_script" "color";
     fix_stylix.text = ''
-      rm /home/color/.gtkrc-2.0
+      rm /home/color/.gtkrc-2.0 -f
     '';
   };
   services.syncthing = mod "nixos/syncthing/syncthing" "color";

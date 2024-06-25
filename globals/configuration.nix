@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "add_bottles";
+  system.nixos.label = "fix_rm_script";
 }
