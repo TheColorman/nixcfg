@@ -34,5 +34,10 @@
       id = "yc39s-4wtgc";
       path = "/home/${owner}/ITU";
     };
+    Documents = {
+      devices = devs;
+      id = "wt32c-t7rkv";
+      path = "/home/${owner}/Documents";
+    };
   };
 }

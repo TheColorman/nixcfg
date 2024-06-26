@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "update_kitty_config";
+  system.nixos.label = "add_syncthing_folder";
 }
