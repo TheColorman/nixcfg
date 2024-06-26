@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "fix_rm_script";
+  system.nixos.label = "update_kitty_config";
 }
