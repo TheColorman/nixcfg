@@ -33,6 +33,7 @@ in {
 
     killall
     bottles
+    mpv
   ];
 
   environment.pathsToLink = ["/share/zsh"];
