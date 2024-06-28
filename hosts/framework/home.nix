@@ -37,7 +37,7 @@ in {
     kitty = mod "kitty/kitty";
     tmux = mod "tmux";
     fzf = mod "fzf";
-    oh-my-posh = mod "oh-my-posh";
+    oh-my-posh = mod "oh-my-posh/oh-my-posh";
   };
   
   services = {
