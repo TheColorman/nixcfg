@@ -34,6 +34,7 @@ in {
     killall
     bottles
     mpv
+    safeeyes
   ];
 
   environment.pathsToLink = ["/share/zsh"];

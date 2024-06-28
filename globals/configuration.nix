@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "add_mpv";
+  system.nixos.label = "add_oh-my-posh";
 }

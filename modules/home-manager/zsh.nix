@@ -16,11 +16,10 @@
     source "''${ZINIT_HOME}/zinit.zsh"
 
     # Should do this declaratively eventually, but that requires basically creating a zinit home-manager module from scratch.
-    zinit ice depth=1; zinit light romkatv/powerlevel10k
     zinit light Aloxaf/fzf-tab 
 
-    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    # oh-my-posh initialization
+    # eval "$(oh-my-posh init zsh)" # No need, home-manager does this for me :3
 
     # keybinds
     bindkey '^F' autosuggest-accept
@@ -39,18 +38,13 @@
     eval "$(fzf --zsh)"
   '';
   initExtraFirst = ''
-    # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-    # Initialization code that may require console input (password prompts, [y/n]
-    # confirmations, etc.) must go above this block; everything else may go below.
-    if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-      source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-    fi
   '';
   shellAliases = {
-    tnix = "pushd ~/nixos/config && sudo nixos-rebuild test --flake ~/nixos/config --option eval-cache false && popd";
+    tnix = "pushd ~/nixos/config && git add . && sudo nix flake update && git add . && git commit -m 'temp' && sudo nixos-rebuild test --flake ~/nixos/config --option eval-cache false && git reset --soft HEAD~1 && popd";
     snix = "pushd ~/nixos/config && sudo nixos-rebuild switch --flake ~/nixos/config && popd";
     bnix = "pushd ~/nixos/config && sudo nixos-rebuild boot --flake ~/nixos/config && popd";
     dnix = "pushd ~/nixos/config && sudo nixos-rebuild dry-build --flake ~/nixos/config && popd";
+    conf = "pushd ~/nixos/config && ranger && popd";
   };
   syntaxHighlighting = {
     enable = true;

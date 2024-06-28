@@ -1,7 +1,4 @@
 {...}: {
-  networking.hostName = "framework";
-  networking.networkmanager.enable = true;
-
   # Patch for connecting to legacy eduroam networks
   nixpkgs.config.packageOverrides = pkgs: rec {
     wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (oldAttrs: {
@@ -9,6 +6,14 @@
     });
   };
 
-  # Prevent networkmanager from managing nix containers
-  networking.networkmanager.unmanaged = ["interface-name:ve-*"];
+  networking = {
+    hostName = "framework";
+    networkmanager.enable = true;
+    hosts = {
+      "192.168.50.222" = [ "truenas" ];
+    };
+
+    # Prevent networkmanager from managing nix containers
+    networkmanager.unmanaged = ["interface-name:ve-*"];
+  };
 }

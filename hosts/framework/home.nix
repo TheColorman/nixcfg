@@ -21,7 +21,6 @@ in {
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.file = {
-    ".p10k.zsh".source = ./dotfiles/p10k.zsh;
     ".config/kitty/launch.conf".source = file "kitty/launch_tmux.conf";
   };
 
@@ -38,6 +37,7 @@ in {
     kitty = mod "kitty/kitty";
     tmux = mod "tmux";
     fzf = mod "fzf";
+    oh-my-posh = mod "oh-my-posh";
   };
   
   services = {
