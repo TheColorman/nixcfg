@@ -311,7 +311,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-hbZ8jLIVhus4lNMA6r1Lfbl3dDdlh404IFjq6AMBx08=",
+        "narHash": "sha256-nA5NSog2MhchIKZcVbqv+McoSSpgC5VH5n3+RG56KSQ=",
         "path": "./hosts/framework",
         "type": "path"
       },
@@ -363,10 +363,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "dirtyRev": "1eb5c453fd7d661dc47b0e381ae016c313c5504e-dirty",
-        "dirtyShortRev": "1eb5c45-dirty",
-        "lastModified": 1719585116,
-        "narHash": "sha256-AVdi0MWSMjwfbwcO4OpcdeYRAwF/NJuofpZxskzifJI=",
+        "dirtyRev": "15141901787718d40ea6db94f17b5a18ec631eb8-dirty",
+        "dirtyShortRev": "1514190-dirty",
+        "lastModified": 1719688681,
+        "narHash": "sha256-J4ORSw9zctIp5fuViM9xc4EAFR895oLs+yFBZqJ01xI=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -379,7 +379,7 @@
     "globals": {
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-lpWyPoTZuZlMWy7/F3PhKgNPv6S3923X6Iofb71lcBg=",
+        "narHash": "sha256-zFcNXyAL5cB+8RtlFqZINfT8cZnfFtQDpk29FZ8lbzY=",
         "path": "./globals",
         "type": "path"
       },
@@ -429,11 +429,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718788307,
-        "narHash": "sha256-SqiOz0sljM0GjyQEVinPXQxaGcbOXw5OgpCWGPgh/vo=",
+        "lastModified": 1719827439,
+        "narHash": "sha256-tneHOIv1lEavZ0vQ+rgz67LPNCgOZVByYki3OkSshFU=",
         "ref": "master",
-        "rev": "d7830d05421d0ced83a0f007900898bdcaf2a2ca",
-        "revCount": 3601,
+        "rev": "59ce796b2563e19821361abbe2067c3bb4143a7d",
+        "revCount": 3624,
         "type": "git",
         "url": "file:///home/color/nixos/home-manager"
       },
@@ -445,11 +445,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1718894893,
-        "narHash": "sha256-hxQBUtDbFOCCW1CsFZTS9Q5Ov1ZKdJgbBZHSez1M6iA=",
+        "lastModified": 1719895800,
+        "narHash": "sha256-xNbjISJTFailxass4LmdWeV4jNhAlmJPwj46a/GxE6M=",
         "ref": "master",
-        "rev": "083823b7904e43a4fc1c7229781417e875359a42",
-        "revCount": 1733,
+        "rev": "6e253f12b1009053eff5344be5e835f604bb64cd",
+        "revCount": 1768,
         "type": "git",
         "url": "file:///home/color/nixos/nixos-hardware"
       },
@@ -461,11 +461,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1718967660,
-        "narHash": "sha256-gEBAYATII5VH0KP022lyfZQZuSvJWvYNBNJFqD7qlzI=",
+        "lastModified": 1719940558,
+        "narHash": "sha256-M/OPSTHUTqdgkUUGdh6ognkByDt9HeI4dLIr9rb4nX0=",
         "ref": "nixos-unstable",
-        "rev": "bf30ae2231656582c5deb1fa15f7c7ac8312b3ba",
-        "revCount": 640875,
+        "rev": "362ebcb59f57605e6a5aa27a9a5ddeeeb15a2280",
+        "revCount": 646104,
         "type": "git",
         "url": "file:///home/color/nixos/nixpkgs"
       },
@@ -477,11 +477,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1719246882,
-        "narHash": "sha256-N8U+tuJ1h9dEBLSlc+xiMZLaJkbtCJMZ4QwKy812huY=",
+        "lastModified": 1719938409,
+        "narHash": "sha256-GzmLs/YaKAzpTQr9u4VpU0ISGtBluAyx9qTZC/86wb4=",
         "ref": "master",
-        "rev": "8313afa775ebd7deea9f7695d871da22bd17a0f1",
-        "revCount": 24229,
+        "rev": "1ec5b968d5751a0c817b7e56974059d01b348bf2",
+        "revCount": 24419,
         "type": "git",
         "url": "file:///home/color/nixos/deps/NUR"
       },
@@ -586,10 +586,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "dirtyRev": "1eb5c453fd7d661dc47b0e381ae016c313c5504e-dirty",
-        "dirtyShortRev": "1eb5c45-dirty",
-        "lastModified": 1719585116,
-        "narHash": "sha256-AVdi0MWSMjwfbwcO4OpcdeYRAwF/NJuofpZxskzifJI=",
+        "dirtyRev": "15141901787718d40ea6db94f17b5a18ec631eb8-dirty",
+        "dirtyShortRev": "1514190-dirty",
+        "lastModified": 1719688681,
+        "narHash": "sha256-J4ORSw9zctIp5fuViM9xc4EAFR895oLs+yFBZqJ01xI=",
         "type": "git",
         "url": "file:."
       },

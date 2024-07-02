@@ -64,11 +64,11 @@ in {
   };
 
   # Gaming stuff
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
+
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;

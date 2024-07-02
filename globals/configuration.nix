@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "add_fortivpn";
+  system.nixos.label = "update_system";
 }
