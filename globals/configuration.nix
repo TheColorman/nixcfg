@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "update_system";
+  system.nixos.label = "wip_fcifx";
 }
