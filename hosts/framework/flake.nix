@@ -2,27 +2,27 @@
   description = "Framework configuration";
 
   inputs = {
-    nixpkgs.url = "/home/color/nixos/nixpkgs?ref=nixos-unstable";
-    nixos-hardware.url = "/home/color/nixos/nixos-hardware?ref=master";
+    nixpkgs.url = "/home/color/nixos/dependencies/nixpkgs?ref=nixos-unstable";
+    nixos-hardware.url = "/home/color/nixos/dependencies/nixos-hardware?ref=master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     fw-ectool.url = "git+file:.?dir=modules/flakes/fw-ectool";
     fw-ectool.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix = {
-      url = "/home/color/nixos/deps/stylix?ref=release-24.05";
+      url = "/home/color/nixos/dependencies/stylix?ref=release-24.05";
       inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur.url = "/home/color/nixos/deps/NUR?ref=master";
+    # nur.url = "/home/color/nixos/deps/NUR?ref=master";
 
     this.url = "git+file:.";
     this.flake = false;
   };
 
   outputs = {
-    self, nixpkgs, nixos-hardware, home-manager, fw-ectool, stylix, nur, this
+    self, nixpkgs, nixos-hardware, home-manager, fw-ectool, stylix, this
   }@inputs: {
     config = rec {
       system = "x86_64-linux";
@@ -31,7 +31,7 @@
       modules = [
         stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
-        nur.nixosModules.nur
+        # nur.nixosModules.nur
         ./configuration.nix
         nixos-hardware.nixosModules.framework-13-7040-amd
         # stylix.nixosModules.stylix

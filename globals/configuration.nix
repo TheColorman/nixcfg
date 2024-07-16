@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "add_fcitx5";
+  system.nixos.label = "move_deps";
 }

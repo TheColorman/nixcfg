@@ -40,11 +40,11 @@
   initExtraFirst = ''
   '';
   shellAliases = {
-    tnix = "pushd ~/nixos/config && git add . && sudo nix flake update && git add . && git commit -m 'temp' && sudo nixos-rebuild test --flake ~/nixos/config --option eval-cache false && git reset --soft HEAD~1 && popd";
-    snix = "pushd ~/nixos/config && sudo nixos-rebuild switch --flake ~/nixos/config && popd";
-    bnix = "pushd ~/nixos/config && sudo nixos-rebuild boot --flake ~/nixos/config && popd";
-    dnix = "pushd ~/nixos/config && sudo nixos-rebuild dry-build --flake ~/nixos/config && popd";
-    conf = "pushd ~/nixos/config && ranger && popd";
+    tnix = "pushd ~/nixos && git add . && sudo nix flake update && git add . && git commit -m 'temp' && sudo nixos-rebuild test --flake ~/nixos --option eval-cache false && git reset --soft HEAD~1 && popd";
+    snix = "pushd ~/nixos && sudo nixos-rebuild switch --flake ~/nixos && popd";
+    bnix = "pushd ~/nixos && sudo nixos-rebuild boot --flake ~/nixos && popd";
+    dnix = "pushd ~/nixos && sudo nixos-rebuild dry-build --flake ~/nixos && popd";
+    conf = "pushd ~/nixos && ranger && popd";
   };
   syntaxHighlighting = {
     enable = true;

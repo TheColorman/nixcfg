@@ -2,15 +2,15 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "/home/color/nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "/home/color/nixos/dependencies/nixpkgs?ref=nixos-unstable";
 
     home-manager = {
-      url = "/home/color/nixos/home-manager?ref=master";
+      url = "/home/color/nixos/dependencies/home-manager?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
-      url = "/home/color/nixos/deps/stylix?ref=release-24.05";
+      url = "/home/color/nixos/dependencies/stylix?ref=release-24.05";
       inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };

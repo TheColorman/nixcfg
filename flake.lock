@@ -305,13 +305,12 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nur": "nur",
         "stylix": "stylix",
         "this": "this"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-L8AUy8wTsZ6zeSVGHqai+rGNjUl0RtdCaLJ09PMyzNc=",
+        "narHash": "sha256-8olX13InmLGDBQpjh8FkeQqyT3H/Sjn2EqmndgULqdc=",
         "path": "./hosts/framework",
         "type": "path"
       },
@@ -363,10 +362,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "dirtyRev": "dda57bd67000e885f51bc21cea6579413116b936-dirty",
-        "dirtyShortRev": "dda57bd-dirty",
-        "lastModified": 1721067670,
-        "narHash": "sha256-YaDj1TpX3XLFAmN0abj0XBGO2QND3A3phoEYEO+Dx48=",
+        "dirtyRev": "9a7cb3a999373e99afcb503e7a62fd59388218a5-dirty",
+        "dirtyShortRev": "9a7cb3a-dirty",
+        "lastModified": 1721155932,
+        "narHash": "sha256-QrV/96K5OdkmA08/qKPajxKtfwgj5gicWmQy/IQ4+xE=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -379,7 +378,7 @@
     "globals": {
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-Wl00PC2sNypdRXagEIdkpeOPBJMck1NuTdHUUxG08e8=",
+        "narHash": "sha256-UIPt54L1UqmTpNu78nfk/tqobbTovYkccrpIlZzpKVs=",
         "path": "./globals",
         "type": "path"
       },
@@ -429,18 +428,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1720734513,
-        "narHash": "sha256-neWQ8eNtLTd+YMesb7WjKl1SVCbDyCm46LUgP/g/hdo=",
+        "lastModified": 1721135958,
+        "narHash": "sha256-H548rpPMsn25LDKn1PCFmPxmWlClJJGnvdzImHkqjuY=",
         "ref": "master",
-        "rev": "90ae324e2c56af10f20549ab72014804a3064c7f",
-        "revCount": 3644,
+        "rev": "afd2021bedff2de92dfce0e257a3d03ae65c603d",
+        "revCount": 3646,
         "type": "git",
-        "url": "file:///home/color/nixos/home-manager"
+        "url": "file:///home/color/nixos/dependencies/home-manager"
       },
       "original": {
         "ref": "master",
         "type": "git",
-        "url": "file:///home/color/nixos/home-manager"
+        "url": "file:///home/color/nixos/dependencies/home-manager"
       }
     },
     "nixos-hardware": {
@@ -451,44 +450,28 @@
         "rev": "c5013aa7ce2c7ec90acee5d965d950c8348db751",
         "revCount": 1778,
         "type": "git",
-        "url": "file:///home/color/nixos/nixos-hardware"
+        "url": "file:///home/color/nixos/dependencies/nixos-hardware"
       },
       "original": {
         "ref": "master",
         "type": "git",
-        "url": "file:///home/color/nixos/nixos-hardware"
+        "url": "file:///home/color/nixos/dependencies/nixos-hardware"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1720961159,
-        "narHash": "sha256-+jsQCYddc+Lb+WnTOLkzGPPkqgBp7s0LKhWzRxJJmTY=",
+        "lastModified": 1720957393,
+        "narHash": "sha256-oedh2RwpjEa+TNxhg5Je9Ch6d3W1NKi7DbRO1ziHemA=",
         "ref": "nixos-unstable",
-        "rev": "5dce4341d7ad0cc2188ed98e556f22e9ed585eea",
-        "revCount": 652180,
+        "rev": "693bc46d169f5af9c992095736e82c3488bf7dbb",
+        "revCount": 652902,
         "type": "git",
-        "url": "file:///home/color/nixos/nixpkgs"
+        "url": "file:///home/color/nixos/dependencies/nixpkgs"
       },
       "original": {
         "ref": "nixos-unstable",
         "type": "git",
-        "url": "file:///home/color/nixos/nixpkgs"
-      }
-    },
-    "nur": {
-      "locked": {
-        "lastModified": 1719938409,
-        "narHash": "sha256-GzmLs/YaKAzpTQr9u4VpU0ISGtBluAyx9qTZC/86wb4=",
-        "ref": "master",
-        "rev": "1ec5b968d5751a0c817b7e56974059d01b348bf2",
-        "revCount": 24419,
-        "type": "git",
-        "url": "file:///home/color/nixos/deps/NUR"
-      },
-      "original": {
-        "ref": "master",
-        "type": "git",
-        "url": "file:///home/color/nixos/deps/NUR"
+        "url": "file:///home/color/nixos/dependencies/nixpkgs"
       }
     },
     "root": {
@@ -527,12 +510,12 @@
         "rev": "e59d2c1725b237c362e4a62f5722f5b268d566c7",
         "revCount": 366,
         "type": "git",
-        "url": "file:///home/color/nixos/deps/stylix"
+        "url": "file:///home/color/nixos/dependencies/stylix"
       },
       "original": {
         "ref": "release-24.05",
         "type": "git",
-        "url": "file:///home/color/nixos/deps/stylix"
+        "url": "file:///home/color/nixos/dependencies/stylix"
       }
     },
     "stylix_2": {
@@ -560,12 +543,12 @@
         "rev": "e59d2c1725b237c362e4a62f5722f5b268d566c7",
         "revCount": 366,
         "type": "git",
-        "url": "file:///home/color/nixos/deps/stylix"
+        "url": "file:///home/color/nixos/dependencies/stylix"
       },
       "original": {
         "ref": "release-24.05",
         "type": "git",
-        "url": "file:///home/color/nixos/deps/stylix"
+        "url": "file:///home/color/nixos/dependencies/stylix"
       }
     },
     "systems": {
@@ -586,10 +569,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "dirtyRev": "dda57bd67000e885f51bc21cea6579413116b936-dirty",
-        "dirtyShortRev": "dda57bd-dirty",
-        "lastModified": 1721067670,
-        "narHash": "sha256-YaDj1TpX3XLFAmN0abj0XBGO2QND3A3phoEYEO+Dx48=",
+        "dirtyRev": "9a7cb3a999373e99afcb503e7a62fd59388218a5-dirty",
+        "dirtyShortRev": "9a7cb3a-dirty",
+        "lastModified": 1721155932,
+        "narHash": "sha256-QrV/96K5OdkmA08/qKPajxKtfwgj5gicWmQy/IQ4+xE=",
         "type": "git",
         "url": "file:."
       },
