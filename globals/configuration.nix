@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "wip_fcifx";
+  system.nixos.label = "add_fcitx5";
 }

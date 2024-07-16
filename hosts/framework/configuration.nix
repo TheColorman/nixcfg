@@ -83,6 +83,7 @@ in {
         fcitx5-mozc
       ];
       waylandFrontend = true;
+      plasma6Support = true;
     };
   };
 }
