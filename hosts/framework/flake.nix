@@ -49,7 +49,7 @@
         "shell" # Global zsh, might make this user-based for home-manager management
         "snix" # Script used to version control nix config
         "openfortivpn" # University VPN
-        # "fonts/cascadiacode"
+        "fonts/cascadiacode"
       ];
     };
   };
