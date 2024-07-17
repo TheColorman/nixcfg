@@ -49,15 +49,15 @@ in {
     fonts = with pkgs; {
       serif = {
         package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
-        name = "CascadiaCode Serif";
+        name = "CaskaydiaCove Nerd Font Propo";
       };
       sansSerif = {
         package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
-        name = "CascadiaCode Sans";
+        name = "CaskaydiaCove Nerd Font Propo";
       };
       monospace = {
         package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
-        name = "CascadiaCode Sans Mono";
+        name = "CaskaydiaCove Nerd Font Mono";
       };
     };
     polarity = "dark";

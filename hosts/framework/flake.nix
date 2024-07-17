@@ -34,7 +34,6 @@
         # nur.nixosModules.nur
         ./configuration.nix
         nixos-hardware.nixosModules.framework-13-7040-amd
-        # stylix.nixosModules.stylix
 
         # I can't import the nix configs directly since they're in a parent
         # directory, so guess I'm forced to treat them all as non-flake inputs

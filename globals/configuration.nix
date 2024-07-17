@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "move_deps";
+  system.nixos.label = "fix_fonts";
 }
