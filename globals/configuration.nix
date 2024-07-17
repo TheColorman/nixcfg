@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "fix_fonts";
+  system.nixos.label = "customize_shell";
 }

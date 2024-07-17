@@ -57,7 +57,7 @@ in {
       };
       monospace = {
         package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
-        name = "CaskaydiaCove Nerd Font Mono";
+        name = "CaskaydiaCove Nerd Font";
       };
     };
     polarity = "dark";

@@ -2,4 +2,5 @@ my nix configs and update script
 
 ### todo
 - [ ] Add `~/.config/fcitx5` to home-manager.
-- [ ] Customize `oh-my-posh`.
+- [ ] Use `stylix` colors in `oh-my-posh` config.
+- [ ] Add [`sops-nix`](https://github.com/Mic92/sops-nix) for managing secrets.
