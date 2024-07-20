@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "customize_shell";
+  system.nixos.label = "light_model";
 }
