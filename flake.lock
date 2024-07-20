@@ -362,10 +362,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "dirtyRev": "f8bda18150d27a464075b9f3aaaaafcf737695bf-dirty",
-        "dirtyShortRev": "f8bda18-dirty",
-        "lastModified": 1721257932,
-        "narHash": "sha256-rdv3HnkIb6Qx97/9neSuhWlEVcGevYiVnrGG3LmUMXs=",
+        "dirtyRev": "a53085a792df7a787efc7ca92727690b7fe4fc5a-dirty",
+        "dirtyShortRev": "a53085a-dirty",
+        "lastModified": 1721492303,
+        "narHash": "sha256-a4fc3TMWhbZe1ij/0VyBn8U3UzeGxj7pvpntvBkLUEk=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -378,7 +378,7 @@
     "globals": {
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-mSR3ZmoHXl6h2GSGqMmrI2rwva5EqZRD2r1QHyLta54=",
+        "narHash": "sha256-ROpLuLr03rVYEWAaNYwwjey+Hq8sk3aKUft94Tcv5S0=",
         "path": "./globals",
         "type": "path"
       },
@@ -444,11 +444,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1720737798,
-        "narHash": "sha256-G/OtEAts7ZUvW5lrGMXSb8HqRp2Jr9I7reBuvCOL54w=",
+        "lastModified": 1721413321,
+        "narHash": "sha256-0GdiQScDceUrVGbxYpV819LHesK3szHOhJ09e6sgES4=",
         "ref": "master",
-        "rev": "c5013aa7ce2c7ec90acee5d965d950c8348db751",
-        "revCount": 1778,
+        "rev": "ab165a8a6cd12781d76fe9cbccb9e975d0fb634f",
+        "revCount": 1793,
         "type": "git",
         "url": "file:///home/color/nixos/dependencies/nixos-hardware"
       },
@@ -460,11 +460,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1720957393,
-        "narHash": "sha256-oedh2RwpjEa+TNxhg5Je9Ch6d3W1NKi7DbRO1ziHemA=",
+        "lastModified": 1721379653,
+        "narHash": "sha256-8MUgifkJ7lkZs3u99UDZMB4kbOxvMEXQZ31FO3SopZ0=",
         "ref": "nixos-unstable",
-        "rev": "693bc46d169f5af9c992095736e82c3488bf7dbb",
-        "revCount": 652902,
+        "rev": "1d9c2c9b3e71b9ee663d11c5d298727dace8d374",
+        "revCount": 655136,
         "type": "git",
         "url": "file:///home/color/nixos/dependencies/nixpkgs"
       },
@@ -569,10 +569,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "dirtyRev": "f8bda18150d27a464075b9f3aaaaafcf737695bf-dirty",
-        "dirtyShortRev": "f8bda18-dirty",
-        "lastModified": 1721257932,
-        "narHash": "sha256-rdv3HnkIb6Qx97/9neSuhWlEVcGevYiVnrGG3LmUMXs=",
+        "dirtyRev": "a53085a792df7a787efc7ca92727690b7fe4fc5a-dirty",
+        "dirtyShortRev": "a53085a-dirty",
+        "lastModified": 1721492303,
+        "narHash": "sha256-a4fc3TMWhbZe1ij/0VyBn8U3UzeGxj7pvpntvBkLUEk=",
         "type": "git",
         "url": "file:."
       },

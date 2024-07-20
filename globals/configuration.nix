@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "light_model";
+  system.nixos.label = "update_deps";
 }
