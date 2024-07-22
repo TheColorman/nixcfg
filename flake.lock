@@ -362,10 +362,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "dirtyRev": "a53085a792df7a787efc7ca92727690b7fe4fc5a-dirty",
-        "dirtyShortRev": "a53085a-dirty",
-        "lastModified": 1721492303,
-        "narHash": "sha256-a4fc3TMWhbZe1ij/0VyBn8U3UzeGxj7pvpntvBkLUEk=",
+        "dirtyRev": "45f811d19728cb3101743b7e5a0c11e97a7c2209-dirty",
+        "dirtyShortRev": "45f811d-dirty",
+        "lastModified": 1721493444,
+        "narHash": "sha256-rETtCskWme+WyKnyHgjOPQW99i6T5OdFe758r3iA+Ug=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -428,11 +428,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721135958,
-        "narHash": "sha256-H548rpPMsn25LDKn1PCFmPxmWlClJJGnvdzImHkqjuY=",
+        "lastModified": 1721534365,
+        "narHash": "sha256-XpZOkaSJKdOsz1wU6JfO59Rx2fqtcarQ0y6ndIOKNpI=",
         "ref": "master",
-        "rev": "afd2021bedff2de92dfce0e257a3d03ae65c603d",
-        "revCount": 3646,
+        "rev": "635563f245309ef5320f80c7ebcb89b2398d2949",
+        "revCount": 3647,
         "type": "git",
         "url": "file:///home/color/nixos/dependencies/home-manager"
       },
@@ -569,10 +569,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "dirtyRev": "a53085a792df7a787efc7ca92727690b7fe4fc5a-dirty",
-        "dirtyShortRev": "a53085a-dirty",
-        "lastModified": 1721492303,
-        "narHash": "sha256-a4fc3TMWhbZe1ij/0VyBn8U3UzeGxj7pvpntvBkLUEk=",
+        "dirtyRev": "45f811d19728cb3101743b7e5a0c11e97a7c2209-dirty",
+        "dirtyShortRev": "45f811d-dirty",
+        "lastModified": 1721493444,
+        "narHash": "sha256-rETtCskWme+WyKnyHgjOPQW99i6T5OdFe758r3iA+Ug=",
         "type": "git",
         "url": "file:."
       },
