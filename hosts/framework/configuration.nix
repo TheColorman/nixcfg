@@ -60,7 +60,7 @@ in {
         name = "CaskaydiaCove Nerd Font";
       };
     };
-    polarity = "light";
+    polarity = "dark";
   };
 
   # Gaming stuff

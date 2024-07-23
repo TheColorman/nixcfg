@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "update_deps";
+  system.nixos.label = "dark_mode";
 }
