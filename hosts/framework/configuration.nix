@@ -5,8 +5,9 @@
   system,
   config,
   ...
-}: let
+}@meta: let
   pkg = name: inputs.${name}.packages.${system}.default;
+  mod = name: (import "${inputs.this.outPath}/modules/${name}.nix");
 in {
   imports = [
     ./hardware-configuration.nix
@@ -19,6 +20,14 @@ in {
     users = {
       "color" = import ./home.nix;
     };
+  };
+
+  networking.nat = {
+    enable = true;
+    internalInterfaces = [ "ve-+" ];
+    externalInterface = "ens3";
+    # Lazy IPv6 connectivity for the container
+    enableIPv6 = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -35,6 +44,7 @@ in {
     bottles
     mpv
     safeeyes
+    dig
   ];
 
   environment.pathsToLink = ["/share/zsh"];
@@ -87,4 +97,6 @@ in {
       plasma6Support = true;
     };
   };
+
+  containers.hacking = mod "nixos/containers/hack" meta;
 }
