@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "add_syncthing_colorphone";
+  system.nixos.label = "update_deps";
 }
