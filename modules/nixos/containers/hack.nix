@@ -8,8 +8,9 @@
   localAddress6 = "fc00::2";
   config = { config, pkgs, ... }: {
     system.stateVersion = "24.05";
-
     nixpkgs.config.allowUnfree = true;
+    system.autoUpgrade.channel = "https://nixos.org/channels/nixpkgs-unstable";
+
 
     environment = {
       # Make hosts file writable
@@ -21,8 +22,14 @@
         burpsuite
         python312Full
         python312Packages.pwntools
+        nmap
+        openvpn
+        wireguard-tools
+        ghidra-bin
       ];
-    };   
+    };
+
+    programs.zsh.enable = true;
 
     users.users.col0r = {
       isNormalUser = true;
@@ -30,6 +37,7 @@
       extraGroups = [ "wheel" "networkmanager" ];
       uid = 1000;
       hashedPassword = "$y$j9T$VlePY7lc3CERuhGFmd1Tx1$24kMEO2sZA.fSplgA0FHQmFR.Q6S6ly8CLMGFzysKy0";
+      shell = pkgs.zsh;
     };
   };
 }

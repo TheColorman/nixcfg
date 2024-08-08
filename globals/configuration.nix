@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "keyboard_colemak_dh";
+  system.nixos.label = "update_hack_container";
 }
