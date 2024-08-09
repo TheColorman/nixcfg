@@ -4,5 +4,5 @@
   ];
 
   users.mutableUsers = false;
-  system.nixos.label = "update_hack_container";
+  system.nixos.label = "update_container_plus_wallpaper";
 }

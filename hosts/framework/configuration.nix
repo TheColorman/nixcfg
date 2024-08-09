@@ -56,7 +56,7 @@ in {
   # Stylix config
   stylix = {
     enable = true;
-    image = ./assets/2024-H1.png;
+    image = ./assets/2024-H2.png;
     fonts = with pkgs; {
       serif = {
         package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });

@@ -26,7 +26,15 @@
         openvpn
         wireguard-tools
         ghidra-bin
+        vim
+        feroxbuster
       ];
+
+      sessionVariables = {
+        WAYLAND_DISPLAY = "wayland-0";
+        XDG_RUNTIME_DIR = "/run/user/1000";
+        DISPLAY = ":1";
+      };
     };
 
     programs.zsh.enable = true;
@@ -39,5 +47,22 @@
       hashedPassword = "$y$j9T$VlePY7lc3CERuhGFmd1Tx1$24kMEO2sZA.fSplgA0FHQmFR.Q6S6ly8CLMGFzysKy0";
       shell = pkgs.zsh;
     };
+
+    hardware.opengl = {
+      enable = true;
+    };
   };
+
+  bindMounts = {
+    home = {
+      hostPath = "/home/color/projects/hack_container";
+      isReadOnly = false;
+      mountPoint = "/home/col0r";
+    };
+    waylandDisplay = rec {
+      hostPath = "/run/user/1000";
+      mountPoint = hostPath;
+    };
+  };
+  enableTun = true;
 }
