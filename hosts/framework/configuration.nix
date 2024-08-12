@@ -13,6 +13,7 @@ in {
     ./hardware-configuration.nix
     ./user-configuration.nix
     inputs.home-manager.nixosModules.default
+    ./dotfiles/omp.nix
   ];
 
   home-manager = {
@@ -30,6 +31,24 @@ in {
     # Lazy IPv6 connectivity for the container
     enableIPv6 = true;
   };
+
+  sops = {
+    defaultSopsFile = "${builtins.toString inputs.nix-secrets}/secrets.yaml";
+    age = {
+      sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+      keyFile = "/var/lib/sops-nix/key.txt";
+      generateKey = true;
+    };
+    secrets = {
+      color_passwd = { neededForUsers = true; };
+      lastfm_auth = {
+        owner = config.home-manager.users.color.home.username;
+      };
+      tailscale_auth = {};
+    };
+  };
+
+  
 
   environment.systemPackages = with pkgs; [
     python312Packages.pygments

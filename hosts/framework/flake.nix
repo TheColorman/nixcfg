@@ -17,12 +17,22 @@
 
     # nur.url = "/home/color/nixos/deps/NUR?ref=master";
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-secrets = {
+      url = "git+ssh://git@github.com/TheColorman/nix-secrets?shallow=1";
+      flake = false;
+    };
+
     this.url = "git+file:.";
     this.flake = false;
   };
 
   outputs = {
-    self, nixpkgs, nixos-hardware, home-manager, fw-ectool, stylix, this
+    self, nixpkgs, nixos-hardware, home-manager, fw-ectool, stylix, this, sops-nix, ...
   }@inputs: {
     config = rec {
       system = "x86_64-linux";
@@ -34,6 +44,7 @@
         # nur.nixosModules.nur
         ./configuration.nix
         nixos-hardware.nixosModules.framework-13-7040-amd
+        sops-nix.nixosModules.sops
 
         # I can't import the nix configs directly since they're in a parent
         # directory, so guess I'm forced to treat them all as non-flake inputs

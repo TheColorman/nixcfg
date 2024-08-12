@@ -1,4 +1,4 @@
-{pkgs, inputs, ...}@meta: let
+{pkgs, inputs, config, ...}@meta: let
   mod = name: (import "${inputs.this.outPath}/modules/${name}.nix" meta);
   file = name: "${inputs.this.outPath}/modules/${name}";
 in {

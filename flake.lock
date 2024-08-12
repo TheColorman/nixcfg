@@ -301,16 +301,18 @@
         "home-manager": [
           "home-manager"
         ],
+        "nix-secrets": "nix-secrets",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": [
           "nixpkgs"
         ],
+        "sops-nix": "sops-nix",
         "stylix": "stylix",
         "this": "this"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-jnH1MNc/0j5d/VInBgqmfVyq+orTxwnLYKB7D/SarKY=",
+        "narHash": "sha256-Fm4ZxKvMElfBe9Xp7RKVs9dsI1aiac7b5uBP8ST8kKM=",
         "path": "./hosts/framework",
         "type": "path"
       },
@@ -362,10 +364,10 @@
       },
       "locked": {
         "dir": "modules/flakes/fw-ectool",
-        "dirtyRev": "8faffa2568cc8fff67be5143e6909b882d58e87c-dirty",
-        "dirtyShortRev": "8faffa2-dirty",
-        "lastModified": 1723115995,
-        "narHash": "sha256-BYuCLxlTDQSgKEMBoI+8H8xtYKTozD/vLkXz/t9RV8s=",
+        "dirtyRev": "3e701341cd356986578e5ade122ec59d35669578-dirty",
+        "dirtyShortRev": "3e70134-dirty",
+        "lastModified": 1723200235,
+        "narHash": "sha256-lavBF2GRL3JPT5rD1ApL3/E9yKwN8DeEDtT2s2+uJL0=",
         "type": "git",
         "url": "file:.?dir=modules/flakes/fw-ectool"
       },
@@ -378,7 +380,7 @@
     "globals": {
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-19EPAaknTpOez4B5Cy+rDeD0clQDdR002nGV3DxKMyE=",
+        "narHash": "sha256-PEQ/BFLwXRW2V4LqXJcbGVp7aMeVUoQmIFiGVdMyRi4=",
         "path": "./globals",
         "type": "path"
       },
@@ -442,6 +444,23 @@
         "url": "file:///home/color/nixos/dependencies/home-manager"
       }
     },
+    "nix-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723454902,
+        "narHash": "sha256-e6+GAcfgxd+hGJ1g97LKeCeCg2cBLsT85ETDg4YHhmg=",
+        "ref": "refs/heads/master",
+        "rev": "af56694f662267c6ee58f6d8b13eb56cc9e8b0bc",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/TheColorman/nix-secrets"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/TheColorman/nix-secrets"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1722332872,
@@ -474,6 +493,22 @@
         "url": "file:///home/color/nixos/dependencies/nixpkgs"
       }
     },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1721524707,
+        "narHash": "sha256-5NctRsoE54N86nWd0psae70YSLfrOek3Kv1e8KoXe/0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "556533a23879fc7e5f98dd2e0b31a6911a213171",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "release-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "framework": "framework",
@@ -481,6 +516,28 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "stylix": "stylix_2"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "framework",
+          "nixpkgs"
+        ],
+        "nixpkgs-stable": "nixpkgs-stable"
+      },
+      "locked": {
+        "lastModified": 1723454404,
+        "narHash": "sha256-Zhcf1TMDYb0BxDHKhEKCKFb1qi2vwlX0BgJPwk9Gd3E=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "ab2d1ffeb5b85da2f6537beb2fe05da54276c261",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "stylix": {
@@ -569,10 +626,10 @@
     "this": {
       "flake": false,
       "locked": {
-        "dirtyRev": "8faffa2568cc8fff67be5143e6909b882d58e87c-dirty",
-        "dirtyShortRev": "8faffa2-dirty",
-        "lastModified": 1723115995,
-        "narHash": "sha256-BYuCLxlTDQSgKEMBoI+8H8xtYKTozD/vLkXz/t9RV8s=",
+        "dirtyRev": "3e701341cd356986578e5ade122ec59d35669578-dirty",
+        "dirtyShortRev": "3e70134-dirty",
+        "lastModified": 1723200235,
+        "narHash": "sha256-lavBF2GRL3JPT5rD1ApL3/E9yKwN8DeEDtT2s2+uJL0=",
         "type": "git",
         "url": "file:."
       },

@@ -1,6 +1,6 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   isNormalUser = true;
-  hashedPassword = "$y$j9T$GeIykcimY0uMSihQJFxJr.$d98nEQugR8otnw8stez46hw8L2EBnp3lNTJAcen0Q42";
+  hashedPasswordFile = config.sops.secrets.color_passwd.path;
   description = "color";
   extraGroups = ["networkmanager" "wheel"];
   packages = with pkgs; [

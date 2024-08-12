@@ -2,6 +2,8 @@
   config,
   pkgs,
   inputs,
+  osConfig,
+  lib,
   ...
 }@meta: let
   # Imports a home manager module from the home-manager dir
@@ -39,12 +41,13 @@ in {
     fzf = mod "fzf";
     oh-my-posh = mod "oh-my-posh/oh-my-posh";
   };
-  
+
   services = {
     kdeconnect.enable = true;
   };
 
   home.packages = with pkgs; [
     protonup # GAMING
+    age
   ];
 }

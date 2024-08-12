@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, osConfig, ...}: {
   enable = true;
   enableCompletion = true;
   autosuggestion.enable = true;
@@ -36,6 +36,8 @@
     # Shell integrations
     eval "$(zoxide init --cmd cd zsh)"
     eval "$(fzf --zsh)"
+    
+    eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${osConfig.sops.templates."ohmyposh_config.toml".path})"
   '';
   initExtraFirst = ''
   '';
