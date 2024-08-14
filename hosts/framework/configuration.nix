@@ -35,6 +35,7 @@
   environment.systemPackages = with pkgs; [ fprintd ];
 
   services.fwupd.enable = true;
+  services.fprintd.enable = true;
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -92,5 +93,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "add-packages";
+  system.nixos.label = "fix-fingerprint";
 }
