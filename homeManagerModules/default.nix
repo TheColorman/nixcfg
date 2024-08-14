@@ -3,6 +3,7 @@
     ./features/kdeconnect.nix
     ./features/kitty.nix
     ./features/oh-my-posh.nix
+    ./features/stylix.nix
     ./features/tmux.nix
     ./features/vim.nix
     ./features/zsh.nix

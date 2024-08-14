@@ -1,9 +1,4 @@
-{ inputs
-, outputs
-, pkgs
-, lib
-, ...
-}: {
+{ outputs, ... }: {
   imports = [ outputs.homeManagerModules.default ];
 
   home = {
@@ -26,5 +21,6 @@
     };
     tmux.enable = true;
     vim.enable = true;
+    stylix.enable = true;
   };
 }
