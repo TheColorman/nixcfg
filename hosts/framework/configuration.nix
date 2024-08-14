@@ -70,6 +70,7 @@
       mpv
       safeeyes
       dig
+      nixpkgs-fmt
     ];
   };
 
@@ -93,5 +94,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "fix-fingerprint";
+  system.nixos.label = "add-nixpkgs-fmt";
 }
