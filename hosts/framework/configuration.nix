@@ -84,5 +84,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "massive-config-refactor";
+  system.nixos.label = "fix-zsh";
 }

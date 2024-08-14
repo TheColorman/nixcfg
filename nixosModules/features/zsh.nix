@@ -10,6 +10,8 @@ in
 
   config = lib.mkIf cfg.enable {
     home-manager.users.color.myHomeManager.zsh.enable = true;
+    users.users.${config.myNixOS.username}.shell = pkgs.zsh;
+    programs.zsh.enable = true;
     environment.systemPackages = with pkgs; [
       zsh
       zoxide
