@@ -61,6 +61,14 @@
       direnv
       zsh-autoenv
       inputs.fw-ectool.packages.x86_64-linux.fw-ectool
+      aria2
+      fprintd
+      mangohud
+      killall
+      bottles
+      mpv
+      safeeyes
+      dig
     ];
   };
 
@@ -84,5 +92,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "fix-zsh";
+  system.nixos.label = "add-packages";
 }
