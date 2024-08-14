@@ -8,6 +8,9 @@ my nix configs and update script
   - [ ] Trash multi-computer support.  
   - [ ] Centralise modules dir.  
   - [ ] Use consistent compartmentalisation.  
+- [ ] Vim setup.  
+  - [ ] Adapt Vim binds for Colemak Curl (DH-mod)  
+  - [ ] Sane defaults (tab-width, line numbers etc.)
 
 ### toDONE
 

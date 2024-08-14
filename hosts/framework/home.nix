@@ -1,53 +1,27 @@
 {
-  config,
-  pkgs,
-  inputs,
-  osConfig,
-  lib,
-  ...
-}@meta: let
-  # Imports a home manager module from the home-manager dir
-  mod = name: (import "${inputs.this.outPath}/modules/home-manager/${name}.nix" meta);
-  file = name: "${inputs.this.outPath}/modules/home-manager/${name}";
-in {
-  home.username = "color";
-  home.homeDirectory = "/home/color";
+	inputs,
+	outputs,
+	pkgs,
+	lib,
+	...
+}: {
+	imports = [ outputs.homeManagerModules.default ];
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+	home = {
+		username = "color";
+		homeDirectory = "/home/color";
+		stateVersion = "23.11";
+	};
 
-  home.file = {
-    ".config/kitty/launch.conf".source = file "kitty/launch_tmux.conf";
-  };
-
-  home.sessionVariables = {
-    EDITOR = "vim";
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-  };
-
-  programs = {
-    # Let Home Manager install and manage itself.
-    home-manager.enable = true;
-
-    zsh = mod "zsh";
-    kitty = mod "kitty/kitty";
-    tmux = mod "tmux";
-    fzf = mod "fzf";
-    oh-my-posh = mod "oh-my-posh/oh-my-posh";
-  };
-
-  services = {
-    kdeconnect.enable = true;
-  };
-
-  home.packages = with pkgs; [
-    protonup # GAMING
-    age
-  ];
+	myHomeManager = {
+		zsh.enable = true;
+		kitty = { enable = true;
+							enableTmuxIntegration = true; };
+		gaming.enable = true;
+		kdeconnect.enable = true;
+		oh-my-posh = { enable = true;
+									 enableZshIntegration = true; };
+		tmux.enable = true;
+		vim.enable = true;
+	};
 }

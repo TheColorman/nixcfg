@@ -1,122 +1,87 @@
 # configuration.nix
 {
-  pkgs,
-  inputs,
-  system,
-  config,
-  ...
-}@meta: let
-  pkg = name: inputs.${name}.packages.${system}.default;
-  mod = name: (import "${inputs.this.outPath}/modules/${name}.nix");
-in {
-  imports = [
-    ./hardware-configuration.nix
-    ./user-configuration.nix
-    inputs.home-manager.nixosModules.default
-    ./dotfiles/omp.nix
-  ];
+	config,
+	pkgs,
+	lib,
+	inputs,
+	outputs,
+	system,
+	...
+} @ meta: {
+	imports = [ ./hardware-configuration.nix ];
 
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "color" = import ./home.nix;
-    };
-  };
+	myNixOS = {
+		username = "color";
+		userConfig = ./home.nix;
 
-  # container bullshit
-  networking.nat = {
-    enable = true;
-    internalInterfaces = [ "ve-+" ];
-    externalInterface = "wlp1s0";
-    # Lazy IPv6 connectivity for the container
-    enableIPv6 = true;
-  };
+		bluetooth.enable = true;
+		containers.hacking.enable = true;
+		git.enable = true;
+		gpg.enable = true;
+		input-remapper.enable = true;
+		japanese.enable = true;
+		kdeconnect.enable = true;
+		oh-my-posh.enable = true;
+		sops.enable = true;
+		syncthing.enable = true;
+		tailscale.enable = true;
+		zsh.enable = true;
+		stylix.enable = true;
+		fonts.enable = true;
+		networking.enable = true;
+		openfortivpn.enable = true;
+		plasma.enable = true;
+	};
 
-  sops = {
-    defaultSopsFile = "${builtins.toString inputs.nix-secrets}/secrets.yaml";
-    age = {
-      sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-      keyFile = "/var/lib/sops-nix/key.txt";
-      generateKey = true;
-    };
-    secrets = {
-      color_passwd = { neededForUsers = true; };
-      lastfm_auth = {
-        owner = config.home-manager.users.color.home.username;
-      };
-      tailscale_auth = {};
-    };
-  };
+	environment.systemPackages = with pkgs; [ fprintd ];
 
-  
+	services.fwupd.enable = true;
+	hardware.graphics = {
+		enable = true;
+		enable32Bit = true;
+	};
 
-  environment.systemPackages = with pkgs; [
-    python312Packages.pygments
-    input-remapper
-    aria2
-    (pkg "fw-ectool")
-    fprintd
-    zinit
+	users.users.color = {
+		isNormalUser = true;
+		hashedPasswordFile = config.sops.secrets.color_passwd.path;
+		description = "color";
+		extraGroups = ["networkmanager" "wheel"];
+		packages = with pkgs; [
+			google-chrome
+			vscode
+			vesktop
+			obsidian
+			fastfetch
+			wireguard-tools
+			firefox
+			unzip
+			btop
+			p7zip
+			ranger
+			alejandra
+			direnv
+			zsh-autoenv
+			inputs.fw-ectool.packages.x86_64-linux.fw-ectool
+		];
+	};
 
-    mangohud # gaming
+	boot.loader = { systemd-boot.enable = true;
+									efi.canTouchEfiVariables = true; };
+	
+	time.timeZone = "Australia/Sydney";
+	i18n.defaultLocale = "en_DK.UTF-8";
+	i18n.extraLocaleSettings = {
+		LC_ADDRESS = "da_DK.UTF-8";
+		LC_IDENTIFICATION = "da_DK.UTF-8";
+		LC_MEASUREMENT = "da_DK.UTF-8";
+		LC_MONETARY = "da_DK.UTF-8";
+		LC_NAME = "da_DK.UTF-8";
+		LC_NUMERIC = "en_US.UTF-8";
+		LC_PAPER = "da_DK.UTF-8";
+		LC_TELEPHONE = "da_DK.UTF-8";
+		LC_TIME = "da_DK.UTF-8";
+	};
 
-    killall
-    bottles
-    mpv
-    safeeyes
-    dig
-  ];
-
-  environment.pathsToLink = ["/share/zsh"];
-  services.input-remapper.enable = true;
-  services.fwupd.enable = true;
-  hardware.bluetooth.enable = true;
-
-  # Stylix config
-  stylix = {
-    enable = true;
-    image = ./assets/2024-H2.png;
-    fonts = with pkgs; {
-      serif = {
-        package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
-        name = "CaskaydiaCove Nerd Font Propo";
-      };
-      sansSerif = {
-        package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
-        name = "CaskaydiaCove Nerd Font Propo";
-      };
-      monospace = {
-        package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
-        name = "CaskaydiaCove Nerd Font";
-      };
-    };
-    polarity = "dark";
-  };
-
-  # Gaming stuff
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-    protontricks.enable = true;
-  };
-  programs.gamemode.enable = true;
- 
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5 = {
-      addons = with pkgs; [
-        fcitx5-mozc
-      ];
-      waylandFrontend = true;
-      plasma6Support = true;
-    };
-  };
-
-  containers.hacking = mod "nixos/containers/hack" meta;
+	system.stateVersion = "23.11";
+	system.nixos.label = "massive-config-refactor";
 }
