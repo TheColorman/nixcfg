@@ -1,23 +1,25 @@
-{ lib, config, ... }: let
-	cfg = config.myNixOS.kdeconnect;
-in {
-	# Note: requires home-manager version to be enabled
-  
-	imports = [ ];
+{ lib, config, ... }:
+let
+  cfg = config.myNixOS.kdeconnect;
+in
+{
+  # Note: requires home-manager version to be enabled
 
-	options.myNixOS.kdeconnect.enable = lib.mkEnableOption "Enable KDE Connect";
+  imports = [ ];
 
-	config = lib.mkIf cfg.enable {
-		networking.firewall = {
-			enable = true;
-			allowedTCPPortRanges = [{
-				from = 1714; # KDE Connect
-				to = 1764;
-			}];
-			allowedUDPPortRanges = [{
-				from = 1714; # KDE Connect
-				to = 1764;
-			}];
-		};
-	};
+  options.myNixOS.kdeconnect.enable = lib.mkEnableOption "Enable KDE Connect";
+
+  config = lib.mkIf cfg.enable {
+    networking.firewall = {
+      enable = true;
+      allowedTCPPortRanges = [{
+        from = 1714; # KDE Connect
+        to = 1764;
+      }];
+      allowedUDPPortRanges = [{
+        from = 1714; # KDE Connect
+        to = 1764;
+      }];
+    };
+  };
 }

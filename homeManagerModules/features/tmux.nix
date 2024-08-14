@@ -1,68 +1,70 @@
-{ lib, config, ... }: let
-	cfg = config.myHomeManager.tmux;
-in {
-	imports = [ ];
-	
-	options.myHomeManager.tmux.enable = lib.mkEnableOption "Enable tmux config";
-	
-	config = lib.mkIf cfg.enable {
-		programs.tmux = {
-			enable = true;
-			clock24 = true;
-			customPaneNavigationAndResize = true;
-			keyMode = "vi";
-			mouse = true;
-			terminal = "screen-256color";
-			extraConfig = ''
-				bind -Tcopy-mode WheelUpPane send -N1 -X scroll-up
-				bind -Tcopy-mode WheelDownPane send -N1 -X scroll-down
+{ lib, config, ... }:
+let
+  cfg = config.myHomeManager.tmux;
+in
+{
+  imports = [ ];
 
-				# split panes using | and -
-				bind | split-window -h
-				bind - split-window -v
-				unbind '"'
-				unbind %
+  options.myHomeManager.tmux.enable = lib.mkEnableOption "Enable tmux config";
 
-				# switch panes using Alt-arrow without prefix
-				bind -n M-Left select-pane -L
-				bind -n M-Right select-pane -R
-				bind -n M-Up select-pane -U
-				bind -n M-Down select-pane -D
+  config = lib.mkIf cfg.enable {
+    programs.tmux = {
+      enable = true;
+      clock24 = true;
+      customPaneNavigationAndResize = true;
+      keyMode = "vi";
+      mouse = true;
+      terminal = "screen-256color";
+      extraConfig = ''
+        bind -Tcopy-mode WheelUpPane send -N1 -X scroll-up
+        bind -Tcopy-mode WheelDownPane send -N1 -X scroll-down
 
-				# don't rename windows automatically
-				set-option -g allow-rename off
+        # split panes using | and -
+        bind | split-window -h
+        bind - split-window -v
+        unbind '"'
+        unbind %
 
-				# STYLING
-				# clock mode
-				setw -g clock-mode-colour colour1
+        # switch panes using Alt-arrow without prefix
+        bind -n M-Left select-pane -L
+        bind -n M-Right select-pane -R
+        bind -n M-Up select-pane -U
+        bind -n M-Down select-pane -D
 
-				# copy mode
-				setw -g mode-style 'fg=colour1 bg=colour18 bold'
+        # don't rename windows automatically
+        set-option -g allow-rename off
 
-				# pane borders
-				set -g pane-border-style 'fg=colour1'
-				set -g pane-active-border-style 'fg=colour3'
+        # STYLING
+        # clock mode
+        setw -g clock-mode-colour colour1
 
-				# statusbar
-				set -g status-position bottom
-				set -g status-justify left
-				set -g status-style 'fg=colour1'
-				set -g status-left '''
-				set -g status-right '%Y-%m-%d %H:%M '
-				set -g status-right-length 50
-				set -g status-left-length 10
+        # copy mode
+        setw -g mode-style 'fg=colour1 bg=colour18 bold'
 
-				setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
-				setw -g window-status-current-format ' #I #W #F '
+        # pane borders
+        set -g pane-border-style 'fg=colour1'
+        set -g pane-active-border-style 'fg=colour3'
 
-				setw -g window-status-style 'fg=colour1 dim'
-				setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
+        # statusbar
+        set -g status-position bottom
+        set -g status-justify left
+        set -g status-style 'fg=colour1'
+        set -g status-left '''
+        set -g status-right '%Y-%m-%d %H:%M '
+        set -g status-right-length 50
+        set -g status-left-length 10
 
-				setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
+        setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
+        setw -g window-status-current-format ' #I #W #F '
 
-				# messages
-				set -g message-style 'fg=colour2 bg=colour0 bold'
-			'';
-		};
-	};
+        setw -g window-status-style 'fg=colour1 dim'
+        setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
+
+        setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
+
+        # messages
+        set -g message-style 'fg=colour2 bg=colour0 bold'
+      '';
+    };
+  };
 }

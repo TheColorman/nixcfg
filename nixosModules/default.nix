@@ -1,49 +1,51 @@
 { inputs, pkgs, ... }: {
-	imports = [ inputs.home-manager.nixosModules.home-manager ] ++ [
-		./features/stylix/default.nix
-		./features/bluetooth.nix
-		./features/container_hacking.nix
-		./features/containers.nix
-		./features/fonts.nix
-		./features/git.nix
-		./features/gpg.nix
-		./features/hyprland.nix
-		./features/input-remapper.nix
-		./features/japanese.nix
-		./features/kdeconnect.nix
-		./features/networking.nix
-		./features/oh-my-posh.nix
-		./features/openfortivpn.nix
-		./features/plasma.nix
-		./features/sops.nix
-		./features/syncthing.nix
-		./features/tailscale.nix
-		./features/zsh.nix
-	] ++ [
-		./bundles/gaming.nix
-		./bundles/home-manager.nix
-		./bundles/xserver.nix
-	];
-	
-	options.myNixOS = {};
+  imports = [ inputs.home-manager.nixosModules.home-manager ] ++ [
+    ./features/stylix/default.nix
+    ./features/bluetooth.nix
+    ./features/container_hacking.nix
+    ./features/containers.nix
+    ./features/fonts.nix
+    ./features/git.nix
+    ./features/gpg.nix
+    ./features/hyprland.nix
+    ./features/input-remapper.nix
+    ./features/japanese.nix
+    ./features/kdeconnect.nix
+    ./features/networking.nix
+    ./features/oh-my-posh.nix
+    ./features/openfortivpn.nix
+    ./features/plasma.nix
+    ./features/sops.nix
+    ./features/syncthing.nix
+    ./features/tailscale.nix
+    ./features/zsh.nix
+  ] ++ [
+    ./bundles/gaming.nix
+    ./bundles/home-manager.nix
+    ./bundles/xserver.nix
+  ];
 
-	config = {
-		# Allow execution of dynamic binaries
-		programs.nix-ld.enable = true;
-		programs.nix-ld.libraries = with pkgs; [
-			# Add any missing dynamic libraries for unpackaged
-			# programs here, NOT in environment.systemPackages
-		];
-		nix.settings.experimental-features = [ "nix-command" "flakes" ];
-		nixpkgs.config.allowUnfree = true;
+  options.myNixOS = { };
 
-		system.autoUpgrade = { enable = true;
-													 allowReboot = false;
-													 channel = "https://channels.nixos.org/nixos-unstable"; };
+  config = {
+    # Allow execution of dynamic binaries
+    programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+      # Add any missing dynamic libraries for unpackaged
+      # programs here, NOT in environment.systemPackages
+    ];
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nixpkgs.config.allowUnfree = true;
 
-		# Dynamic symlinks in /bin, useful for shebangs
-		services.envfs.enable = true;
+    system.autoUpgrade = {
+      enable = true;
+      allowReboot = false;
+      channel = "https://channels.nixos.org/nixos-unstable";
+    };
 
-		users.mutableUsers = false;
-	};
+    # Dynamic symlinks in /bin, useful for shebangs
+    services.envfs.enable = true;
+
+    users.mutableUsers = false;
+  };
 }
