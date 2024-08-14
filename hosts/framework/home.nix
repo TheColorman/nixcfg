@@ -22,5 +22,6 @@
     tmux.enable = true;
     vim.enable = true;
     stylix.enable = true;
+    vesktop.enable = true;
   };
 }

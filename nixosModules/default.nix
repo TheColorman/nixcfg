@@ -1,5 +1,5 @@
 { inputs, pkgs, ... }: {
-  imports = [ inputs.home-manager.nixosModules.home-manager ] ++ [
+  imports = [ inputs.home-manager.nixosModules.default ] ++ [
     ./features/stylix/default.nix
     ./features/bluetooth.nix
     ./features/container_hacking.nix

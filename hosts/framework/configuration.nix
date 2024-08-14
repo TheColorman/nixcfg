@@ -49,7 +49,6 @@
     packages = with pkgs; [
       google-chrome
       vscode
-      vesktop
       obsidian
       fastfetch
       wireguard-tools
