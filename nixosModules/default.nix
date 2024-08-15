@@ -18,6 +18,7 @@
     ./features/sops.nix
     ./features/syncthing.nix
     ./features/tailscale.nix
+    ./features/vmware.nix
     ./features/zsh.nix
   ] ++ [
     ./bundles/gaming.nix

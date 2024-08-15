@@ -30,6 +30,7 @@
     networking.enable = true;
     openfortivpn.enable = true;
     plasma.enable = true;
+    vmware.enable = true;
   };
 
   environment.systemPackages = with pkgs; [ fprintd ];
@@ -93,5 +94,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "fix-stylix";
+  system.nixos.label = "add-vmware";
 }
