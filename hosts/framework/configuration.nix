@@ -95,5 +95,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "add-libreoffice";
+  system.nixos.label = "add-steam";
 }
