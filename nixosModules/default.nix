@@ -11,6 +11,7 @@
     ./features/input-remapper.nix
     ./features/japanese.nix
     ./features/kdeconnect.nix
+    ./features/libreoffice.nix
     ./features/networking.nix
     ./features/oh-my-posh.nix
     ./features/openfortivpn.nix

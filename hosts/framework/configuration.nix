@@ -31,6 +31,7 @@
     openfortivpn.enable = true;
     plasma.enable = true;
     vmware.enable = true;
+    libreoffice.enable = true;
   };
 
   environment.systemPackages = with pkgs; [ fprintd ];
@@ -94,5 +95,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "add-vmware";
+  system.nixos.label = "add-libreoffice";
 }
