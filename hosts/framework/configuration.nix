@@ -30,7 +30,7 @@
     networking.enable = true;
     openfortivpn.enable = true;
     plasma.enable = true;
-    vmware.enable = true;
+    vmware.enable = false;
     libreoffice.enable = true;
   };
 
@@ -95,5 +95,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "add-kwallet-pam";
+  system.nixos.label = "disable-vmware";
 }
