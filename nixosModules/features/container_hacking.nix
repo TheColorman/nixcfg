@@ -11,7 +11,11 @@ in
     myNixOS.containers.meta.enable = true; # Enable ./containers.nix related settings
 
     environment.systemPackages = [ pkgs.xorg.xhost ];
-    services.xserver.displayManager.setupCommands = "xhost +si:localuser:coolor";
+    # I would use +SI:localuser:col0r, but that only works if the col0r user exists
+    # when the command is executed, but the user is only created when the container
+    # starts and a program tries to connect to the x11 socket, so I have to give
+    # access to all local users.
+    services.xserver.displayManager.setupCommands = "xhost local:";
 
     containers.hacking = {
       privateNetwork = true;
