@@ -33,6 +33,8 @@ in
         nixpkgs.config.allowUnfree = true;
         system.autoUpgrade.channel = "https://nixos.org/channels/nixpkgs-unstable";
 
+        networking.firewall.enable = false;
+
         environment = {
           etc.hosts.mode = "0644"; # Make hosts file writable
 
