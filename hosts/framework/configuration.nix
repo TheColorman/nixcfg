@@ -32,6 +32,7 @@
     plasma.enable = true;
     vmware.enable = false;
     libreoffice.enable = true;
+    nixcfg.enable = true;
   };
 
   environment.systemPackages = with pkgs; [ fprintd ];
@@ -95,5 +96,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "disable-vmware";
+  system.nixos.label = "add-scripts";
 }

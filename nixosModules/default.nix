@@ -13,6 +13,7 @@
     ./features/kdeconnect.nix
     ./features/libreoffice.nix
     ./features/networking.nix
+    ./features/nixcfg.nix
     ./features/oh-my-posh.nix
     ./features/openfortivpn.nix
     ./features/plasma.nix

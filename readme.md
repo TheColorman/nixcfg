@@ -3,7 +3,6 @@ my nix configs and update script
 ### todo
 - [ ] Add `~/.config/fcitx5` to home-manager.
 - [ ] Use `stylix` colors in `oh-my-posh` config.
-- [ ] Turn `*nix` aliases into scripts.  
 - [ ] Vim setup.  
   - [ ] Adapt Vim binds for Colemak Curl (DH-mod)  
   - [ ] Sane defaults (tab-width, line numbers etc.)
@@ -12,3 +11,4 @@ my nix configs and update script
 
 - [x] Add [`sops-nix`](https://github.com/Mic92/sops-nix) for managing secrets.  
 - [x] Fix the fucking mess of a config.  
+- [x] Turn `*nix` aliases into scripts.  

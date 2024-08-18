@@ -45,13 +45,6 @@ in
         eval "$(fzf --zsh)"
       '';
       initExtraFirst = "";
-      shellAliases = {
-        tnix = "pushd ~/nixos && git add . && sudo nix flake update && git add . && git commit -m 'temp' && sudo nixos-rebuild test --flake ~/nixos --option eval-cache false && git reset --soft HEAD~1 && popd";
-        snix = "pushd ~/nixos && sudo nixos-rebuild switch --flake ~/nixos && popd";
-        bnix = "pushd ~/nixos && sudo nixos-rebuild boot --flake ~/nixos && popd";
-        dnix = "pushd ~/nixos && sudo nixos-rebuild dry-build --flake ~/nixos && popd";
-        conf = "pushd ~/nixos && ranger && popd";
-      };
       syntaxHighlighting = {
         enable = true;
         highlighters = [ "main" "brackets" ];
