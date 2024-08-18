@@ -10,12 +10,17 @@ in
   config = lib.mkIf cfg.enable {
     myNixOS.containers.meta.enable = true; # Enable ./containers.nix related settings
 
-    environment.systemPackages = [ pkgs.xorg.xhost ];
-    # I would use +SI:localuser:col0r, but that only works if the col0r user exists
-    # when the command is executed, but the user is only created when the container
-    # starts and a program tries to connect to the x11 socket, so I have to give
-    # access to all local users.
-    services.xserver.displayManager.setupCommands = "xhost local:";
+    environment.systemPackages = lib.mkIf config.myNixOS.xserver.enable [
+      (pkgs.writeShellApplication {
+        name = "hack";
+        runtimeInputs = with pkgs; [ xorg.xhost ];
+        text = ''
+          nixos-container start hacking
+          xhost local:
+          nixos-container login hacking
+        '';
+      })
+    ];
 
     containers.hacking = {
       privateNetwork = true;
@@ -57,9 +62,9 @@ in
 
         programs.zsh.enable = true;
 
-        users.users.cooler = {
+        users.users.col0r = {
           isNormalUser = true;
-          home = "/home/cooler";
+          home = "/home/col0r";
           extraGroups = [ "wheel" "networkmanager" ];
           uid = 1000;
           hashedPassword = "$y$j9T$VlePY7lc3CERuhGFmd1Tx1$24kMEO2sZA.fSplgA0FHQmFR.Q6S6ly8CLMGFzysKy0"; # TODO: make this a secret
@@ -76,7 +81,7 @@ in
             #!${pkgs.stdenv.shell}
             set -euo pipefail
 
-            chown cooler:users /run/user/1000
+            chown col0r:users /run/user/1000
             chmod u=rwx /run/user/1000
           '';
           wantedBy = [ "multi-user.target" ];
@@ -90,7 +95,7 @@ in
         home = {
           hostPath = "/home/color/projects/hack_container";
           isReadOnly = false;
-          mountPoint = "/home/cooler";
+          mountPoint = "/home/col0r";
         };
         # Enable GUI using host
         waylandDisplay = rec {
