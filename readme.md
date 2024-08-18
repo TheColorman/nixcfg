@@ -6,6 +6,7 @@ my nix configs and update script
 - [ ] Vim setup.  
   - [ ] Adapt Vim binds for Colemak Curl (DH-mod)  
   - [ ] Sane defaults (tab-width, line numbers etc.)
+- [ ] Merge `nixosModules` and `homeManagerModules` directories, mimicking [`MatthewCroughan/nixcfg`](https://github.com/MatthewCroughan/nixcfg)
 
 ### toDONE
 
