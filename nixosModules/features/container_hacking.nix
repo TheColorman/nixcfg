@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 let
   cfg = config.myNixOS.containers.hacking;
 in
@@ -9,6 +9,13 @@ in
 
   config = lib.mkIf cfg.enable {
     myNixOS.containers.meta.enable = true; # Enable ./containers.nix related settings
+    systemd.services.fix-xserver-perms = {
+      script = ''
+        xhost local:col0r
+      '';
+      wantedBy = [ "graphical-sessien.target" ];
+    };
+
     containers.hacking = {
       privateNetwork = true;
       hostAddress = "192.168.0.10";
@@ -42,6 +49,8 @@ in
             WAYLAND_DISPLAY = "wayland-0";
             XDG_RUNTIME_DIR = "/run/user/1000";
             DISPLAY = ":1";
+            _JAVA_AWT_WM_NONREPARENTING = "1";
+            _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
           };
         };
 
@@ -56,7 +65,24 @@ in
           shell = pkgs.zsh;
         };
 
-        hardware.graphics.enable = true;
+        hardware.graphics = {
+          enable = true;
+          # extraPackages = config.hardware.graphics.extraPackages;
+        };
+
+        systemd.services.fix-run-permission = {
+          script = ''
+            #!${pkgs.stdenv.shell}
+            set -euo pipefail
+
+            chown col0r:users /run/user/1000
+            chmod u=rwx /run/user/1000
+          '';
+          wantedBy = [ "multi-user.target" ];
+          serviceConfig = {
+            Type = "oneshot";
+          };
+        };
       };
 
       bindMounts = {
@@ -76,7 +102,7 @@ in
           isReadOnly = true;
         };
       };
-
+ 
       enableTun = true; # Allow starting VPN connections
     };
   };

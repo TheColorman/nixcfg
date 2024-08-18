@@ -22,7 +22,7 @@ in
         name = "tnix";
         runtimeInputs = with pkgs; [ git ];
         text = preBuild + ''
-          sudo nixos-rebuild test --flake ~/nixos --option eval-cache false
+          sudo nixos-rebuild test --flake ~/nixcfg --option eval-cache false
         '' + postBuild;
       })
       (writeShellApplication {

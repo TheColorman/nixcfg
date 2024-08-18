@@ -96,5 +96,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "add-scripts";
+  system.nixos.label = "fix-container-xserver-and-tnix";
 }
