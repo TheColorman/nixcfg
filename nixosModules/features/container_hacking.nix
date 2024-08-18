@@ -11,13 +11,7 @@ in
     myNixOS.containers.meta.enable = true; # Enable ./containers.nix related settings
 
     environment.systemPackages = [ pkgs.xorg.xhost ];
-    systemd.user.services.fix-xserver-perms = {
-      script = ''
-        xhost local:col0r
-      '';
-      wantedBy = [ "graphical-sessien.target" ];
-      partOf = [ "graphical-session.target" ];
-    };
+    services.xserver.displayManager.setupCommands = "xhost +si:localuser:coolor";
 
     containers.hacking = {
       privateNetwork = true;
@@ -59,9 +53,9 @@ in
 
         programs.zsh.enable = true;
 
-        users.users.col0r = {
+        users.users.cooler = {
           isNormalUser = true;
-          home = "/home/col0r";
+          home = "/home/cooler";
           extraGroups = [ "wheel" "networkmanager" ];
           uid = 1000;
           hashedPassword = "$y$j9T$VlePY7lc3CERuhGFmd1Tx1$24kMEO2sZA.fSplgA0FHQmFR.Q6S6ly8CLMGFzysKy0"; # TODO: make this a secret
@@ -78,7 +72,7 @@ in
             #!${pkgs.stdenv.shell}
             set -euo pipefail
 
-            chown col0r:users /run/user/1000
+            chown cooler:users /run/user/1000
             chmod u=rwx /run/user/1000
           '';
           wantedBy = [ "multi-user.target" ];
@@ -92,7 +86,7 @@ in
         home = {
           hostPath = "/home/color/projects/hack_container";
           isReadOnly = false;
-          mountPoint = "/home/col0r";
+          mountPoint = "/home/cooler";
         };
         # Enable GUI using host
         waylandDisplay = rec {
