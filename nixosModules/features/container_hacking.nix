@@ -9,11 +9,14 @@ in
 
   config = lib.mkIf cfg.enable {
     myNixOS.containers.meta.enable = true; # Enable ./containers.nix related settings
-    systemd.services.fix-xserver-perms = {
+
+    environment.systemPackages = [ pkgs.xorg.xhost ];
+    systemd.user.services.fix-xserver-perms = {
       script = ''
         xhost local:col0r
       '';
       wantedBy = [ "graphical-sessien.target" ];
+      partOf = [ "graphical-session.target" ];
     };
 
     containers.hacking = {
