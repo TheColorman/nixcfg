@@ -77,7 +77,10 @@
   };
 
   boot.loader = {
-    systemd-boot.enable = true;
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 100;
+    };
     efi.canTouchEfiVariables = true;
   };
 
@@ -96,5 +99,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "fix-container-xserver-and-tnix";
+  system.nixos.label = "add-configuration-limit";
 }
