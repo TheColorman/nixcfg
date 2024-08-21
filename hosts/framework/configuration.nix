@@ -33,6 +33,7 @@
     vmware.enable = false;
     libreoffice.enable = true;
     nixcfg.enable = true;
+    gaming.enable = true;
   };
 
   environment.systemPackages = with pkgs; [ fprintd ];
@@ -99,5 +100,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "add-configuration-limit";
+  system.nixos.label = "enable-mynixos-gaming";
 }
