@@ -100,5 +100,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "enable-mynixos-gaming";
+  system.nixos.label = "update-nixpkgs-8a33541";
 }
