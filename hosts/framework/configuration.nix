@@ -100,5 +100,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "update-nixpkgs-8a33541";
+  system.nixos.label = "fix-vmware-feature";
 }
