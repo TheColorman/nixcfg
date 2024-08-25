@@ -30,7 +30,7 @@
     networking.enable = true;
     openfortivpn.enable = true;
     plasma.enable = true;
-    vmware.enable = false;
+    vmware.enable = true;
     libreoffice.enable = true;
     nixcfg.enable = true;
     gaming.enable = true;
@@ -100,5 +100,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "fix-vmware-feature";
+  system.nixos.label = "test-vmware-build";
 }
