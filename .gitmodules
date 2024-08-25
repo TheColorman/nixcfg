@@ -9,4 +9,4 @@
 	url = https://github.com/NixOS/nixos-hardware
 [submodule "dependencies/nixpkgs"]
 	path = dependencies/nixpkgs
-	url = https://github.com/NixOS/nixpkgs
+	url = https://github.com/TheColorman/nixpkgs.git
