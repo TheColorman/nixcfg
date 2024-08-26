@@ -70,7 +70,6 @@
       mangohud
       killall
       bottles
-      mpv
       safeeyes
       dig
       nixpkgs-fmt
@@ -100,5 +99,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "test-vmware-build";
+  system.nixos.label = "update-mpv-config";
 }

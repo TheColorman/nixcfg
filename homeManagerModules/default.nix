@@ -2,6 +2,7 @@
   imports = [ ] ++ [
     ./features/kdeconnect.nix
     ./features/kitty.nix
+    ./features/mpv.nix
     ./features/oh-my-posh.nix
     ./features/stylix.nix
     ./features/tmux.nix

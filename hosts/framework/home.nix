@@ -23,5 +23,6 @@
     vim.enable = true;
     stylix.enable = true;
     vesktop.enable = true;
+    mpv.enable = true;
   };
 }
