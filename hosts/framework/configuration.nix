@@ -41,25 +41,6 @@ in
 
   my.username = username;
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "hm-backup";
-
-    extraSpecialArgs = {
-      inherit inputs;
-      outputs = inputs.self.outputs;
-    };
-    users."${username}" = {
-      programs.home-manager.enable = true;
-      home = {
-        inherit username;
-        homeDirectory = "/home/${username}";
-        stateVersion = "23.11";
-      };
-    };
-  };
-
   environment.systemPackages = with pkgs; [ fprintd ];
   users.users."${username}" = {
     isNormalUser = true;
@@ -125,5 +106,5 @@ in
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "refactor-again";
+  system.nixos.label = "update-hacking-container";
 }

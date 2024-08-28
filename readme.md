@@ -5,7 +5,7 @@ my nix configs and update script
 ## Layout
 
 - `dependencies/` - Flake dependencies I need locally for whatever reason, as submodules.
-- `flakes/` - Programs not packages in `nixpkgs` that I couldn't be bothered to split into their own repo. Might change how this works and is imported at some point.
+- `flakes/` - Programs not packaged in `nixpkgs` that I couldn't be bothered to split into their own repo. Might change how this works and is imported at some point.
 - `hosts/` - Configuration for each machine.
   - `framework/` - My Framework laptop. Only host for now.
 - `modules/` - Nix [modules](https://nixos.wiki/wiki/Module) exposed as an output in `flake.nix`, which allows me to import them in host configurations or in other modules.

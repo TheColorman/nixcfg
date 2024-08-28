@@ -1,5 +1,6 @@
 { lib, config, pkgs, ... }:
 let
+  cfg = config.my.oh-my-posh;
   zshEnabled = config.home-manager.users."${config.my.username}".programs.zsh.enable;
 in
 {
@@ -21,7 +22,7 @@ in
   };
 
   sops.templates."oh-my-posh-config.toml" = {
-    owner = config.users.users.color.name;
+    owner = config.users.users."${config.my.username}".name;
     content = ''
       #:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 

@@ -6,7 +6,7 @@
   };
 
   networking = {
-    hostName = "framework";
+    hostName = "framework"; # @TODO: infer this
     networkmanager.enable = true;
     hosts = lib.mkIf config.services.tailscale.enable
       { "192.168.50.222" = [ "truenas" ]; };

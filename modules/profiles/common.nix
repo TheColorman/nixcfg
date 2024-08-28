@@ -1,5 +1,9 @@
 # Common configuration, assumed to be imported in all hosts
-{ lib, pkgs, inputs, ... }: {
+{ lib, pkgs, inputs, config, ... }:
+let
+  username = config.my.username;
+in
+{
   imports = [ inputs.home-manager.nixosModules.default ];
 
   options.my.username = lib.mkOption
@@ -25,5 +29,24 @@
     services.envfs.enable = true;
 
     users.mutableUsers = false;
+
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      backupFileExtension = "hm-backup";
+
+      extraSpecialArgs = {
+        inherit inputs;
+        outputs = inputs.self.outputs;
+      };
+      users."${username}" = {
+        programs.home-manager.enable = true;
+        home = {
+          inherit username;
+          homeDirectory = "/home/${username}";
+          stateVersion = "23.11";
+        };
+      };
+    };
   };
 }

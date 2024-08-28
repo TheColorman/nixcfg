@@ -16,7 +16,7 @@ in
     };
     secrets = {
       color_passwd = { neededForUsers = true; };
-      lastfm_auth = { owner = config.users.users.color.name; };
+      lastfm_auth = { owner = config.users.users."${config.my.username}".name; };
       tailscale_auth = { };
     };
   };
