@@ -6,46 +6,62 @@
 , outputs
 , system
 , ...
-} @ meta: {
-  imports = [ ./hardware-configuration.nix ];
+} @ meta:
+let
+  username = "color";
+in
+{
+  imports = with outputs.modules; [
+    ./hardware-configuration.nix
+    profiles-common
+    profiles-gaming
+    profiles-plasma
+    system-fonts
+    system-japanese
+    system-networking
+    apps-git
+    apps-kdeconnect
+    apps-kitty
+    apps-libreoffice
+    apps-mpv
+    apps-nix
+    apps-oh-my-posh
+    apps-openfortivpn
+    apps-sops
+    apps-stylix-default
+    apps-syncthing
+    apps-tailscale
+    apps-tmux
+    apps-vesktop
+    apps-vim
+    apps-vmware
+    apps-zsh
+    containers-hacking
+  ];
 
-  myNixOS = {
-    username = "color";
-    userConfig = ./home.nix;
+  my.username = username;
 
-    bluetooth.enable = true;
-    containers.hacking.enable = true;
-    git.enable = true;
-    gpg.enable = true;
-    input-remapper.enable = true;
-    japanese.enable = true;
-    kdeconnect.enable = true;
-    oh-my-posh.enable = true;
-    sops.enable = true;
-    syncthing.enable = true;
-    tailscale.enable = true;
-    zsh.enable = true;
-    stylix.enable = true;
-    fonts.enable = true;
-    networking.enable = true;
-    openfortivpn.enable = true;
-    plasma.enable = true;
-    vmware.enable = true;
-    libreoffice.enable = true;
-    nixcfg.enable = true;
-    gaming.enable = true;
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "hm-backup";
+
+    extraSpecialArgs = {
+      inherit inputs;
+      outputs = inputs.self.outputs;
+    };
+    users."${username}" = {
+      programs.home-manager.enable = true;
+      home = {
+        inherit username;
+        homeDirectory = "/home/${username}";
+        stateVersion = "23.11";
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [ fprintd ];
-
-  services.fwupd.enable = true;
-  services.fprintd.enable = true;
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
-  users.users.color = {
+  users.users."${username}" = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.color_passwd.path;
     description = "color";
@@ -66,14 +82,24 @@
       zsh-autoenv
       inputs.fw-ectool.packages.x86_64-linux.fw-ectool
       aria2
-      fprintd
       mangohud
       killall
       bottles
       safeeyes
       dig
       nixpkgs-fmt
+      ripgrep
     ];
+  };
+
+  services.fwupd.enable = true;
+  services.fprintd.enable = true;
+  services.input-remapper.enable = true; # @TODO get this shit to start on login or smthn
+  hardware.bluetooth.enable = true;
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   boot.loader = {
@@ -99,5 +125,5 @@
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "update-mpv-config";
+  system.nixos.label = "refactor-again";
 }

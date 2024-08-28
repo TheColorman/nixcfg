@@ -29,27 +29,26 @@
     };
   };
 
-  outputs = { ... }@inputs:
+  outputs = { home-manager, nixos-hardware, ... }@inputs:
     let
       outputs = inputs.self.outputs;
     in
     {
+      modules = import ./modules {
+        lib = inputs.nixpkgs.lib;
+      };
+
       nixosConfigurations = {
         framework = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/framework/configuration.nix outputs.nixosModules.default ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [
+            ./hosts/framework/configuration.nix
+            home-manager.nixosModules.default
+            nixos-hardware.nixosModules.framework-13-7040-amd
+          ];
         };
       };
-
-      homeConfigurations = {
-        "color@framework" = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/framework/home.nix outputs.homeManagerModules.default ];
-        };
-      };
-
-      nixosModules.default = ./nixosModules;
-      homeManagerModules.default = ./homeManagerModules;
     };
 }
