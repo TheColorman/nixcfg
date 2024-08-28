@@ -106,5 +106,5 @@ in
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "update-hacking-container";
+  system.nixos.label = "update-nixpkgs";
 }

@@ -37,12 +37,6 @@ in
         ];
 
         my.username = guestUsername;
-        my.oh-my-posh.shellIcon = ''
-          type = 'text'
-          style = 'plain'
-          background = 'transparent'
-          template = ''
-        '';
 
         home-manager.users."${guestUsername}".home.stateVersion = lib.mkForce "24.05";
 
