@@ -40,6 +40,7 @@ in
   ];
 
   my.username = username;
+  my.stylix.heliotheme = true;
 
   environment.systemPackages = with pkgs; [ fprintd ];
   users.users."${username}" = {
