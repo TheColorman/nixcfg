@@ -48,7 +48,7 @@ in
     # Heliosynchronous polarity
     specialisation = lib.mkIf cfg.heliotheme {
       light.configuration.stylix.polarity = lib.mkForce "light";
-      dark.configuration.stylix.polarity = lib.mkforce "dark";
+      dark.configuration.stylix.polarity = lib.mkForce "dark";
     };
 
 
