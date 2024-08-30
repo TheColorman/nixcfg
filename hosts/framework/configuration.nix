@@ -16,6 +16,7 @@ in
     profiles-common
     profiles-gaming
     profiles-plasma
+    profiles-stylix-default
     system-fonts
     system-japanese
     system-networking
@@ -28,7 +29,6 @@ in
     apps-oh-my-posh
     apps-openfortivpn
     apps-sops
-    apps-stylix-default
     apps-syncthing
     apps-tailscale
     apps-tmux
