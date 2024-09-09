@@ -106,6 +106,11 @@ in
     LC_TIME = "da_DK.UTF-8";
   };
 
+  # Temporary
+  boot.kernel.sysctl = {
+    "net.ipv4.conf.all.forwarding" = true;
+  };
+
   system.stateVersion = "23.11";
-  system.nixos.label = "update-nixpkgs";
+  system.nixos.label = "temp";
 }
