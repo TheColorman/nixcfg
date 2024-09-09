@@ -23,6 +23,7 @@ my nix configs and update script
   - [ ] Adapt Vim binds for Colemak Curl (DH-mod)
   - [ ] Sane defaults (tab-width, line numbers etc.)
 - [ ] Add config path option to oh-my-posh to allow different configs (for containers).
+- [ ] Add [binfmt](https://search.nixos.org/options?channel=24.05&show=boot.binfmt.emulatedSystems&from=0&size=50&sort=relevance&type=packages&query=boot.binfmt.emulatedSystems) support to run binaries from other architectures umulated.
 
 ### toDONE
 
