@@ -20,6 +20,7 @@ in
     system-fonts
     system-japanese
     system-networking
+    system-opengl
     apps-git
     apps-kdeconnect
     apps-kitty
