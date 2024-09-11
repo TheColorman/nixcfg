@@ -20,7 +20,6 @@ in
     system-fonts
     system-japanese
     system-networking
-    system-opengl
     apps-git
     apps-kdeconnect
     apps-kitty
@@ -79,11 +78,6 @@ in
   services.fprintd.enable = true;
   services.input-remapper.enable = true; # @TODO get this shit to start on login or smthn
   hardware.bluetooth.enable = true;
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
 
   boot.loader = {
     systemd-boot = {
