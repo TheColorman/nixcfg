@@ -21,6 +21,7 @@ in
     system-japanese
     system-networking
     apps-git
+    apps-hashcat
     apps-kdeconnect
     apps-kitty
     apps-libreoffice
@@ -107,5 +108,5 @@ in
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "temp";
+  system.nixos.label = "add-hashcat";
 }

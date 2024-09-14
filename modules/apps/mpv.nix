@@ -14,8 +14,8 @@ in
     xdg.configFile."mpv/script-opts/videoclip.conf".text = ''
       # Absolute paths to the folders where generated clips will be placed.
       # `~` or `$HOME` are not supported due to mpv limitations.
-      video_folder_path=/${username}/color/Videos
-      audio_folder_path=/${username}/color/Music
+      video_folder_path=/home/${username}/Videos
+      audio_folder_path=/home/${username}/Music
 
       # Menu size
       font_size=24
