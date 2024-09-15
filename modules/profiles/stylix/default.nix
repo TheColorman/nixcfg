@@ -10,7 +10,7 @@ in
       default = false;
       description = ''
         If enabled, will automatically switch Stylix polarity on sunset and
-        sunrise, with a 1 hour offset to stay in dark polarity longer..
+        sunrise.
       '';
     };
     latitude = lib.mkOption {
@@ -47,6 +47,7 @@ in
       polarity = "dark";
     };
 
+    # @TODO: this can probably be removed now that I have home-manager "backupFileExpension" 
     system.activationScripts.fix_stylix.text = ''
       rm /home/color/.gtkrc-2.0 -f
     '';
@@ -71,7 +72,7 @@ in
 
       path = with pkgs; [ gitMinimal ];
       environment = {
-        GIT_SAFE_DIR = "/home/${config.my.username}/nixcfg";
+        GIT_SAFE_DIR = "/home/${config.my.username}/nixcfg/.git";
       };
       script = let
         jq = "${pkgs.jq}/bin/jq";
