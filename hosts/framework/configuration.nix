@@ -41,7 +41,11 @@ in
   ];
 
   my.username = username;
-  my.stylix.heliotheme = true;
+  my.stylix.heliotheme = {
+    enable = true;
+    latitude = "-33.8582504248224";
+    longitude = "151.21476416121257";
+  };
 
   environment.systemPackages = with pkgs; [ fprintd ];
   users.users."${username}" = {

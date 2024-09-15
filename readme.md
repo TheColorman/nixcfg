@@ -25,6 +25,12 @@ my nix configs and update script
 - [ ] Add config path option to oh-my-posh to allow different configs (for containers).
 - [ ] Add [binfmt](https://search.nixos.org/options?channel=24.05&show=boot.binfmt.emulatedSystems&from=0&size=50&sort=relevance&type=packages&query=boot.binfmt.emulatedSystems) support to run binaries from other architectures umulated.
 - [ ] Add utility programs (file, exiftool).
+- [ ] Add autoupgrade nixpkgs
+  - Basic systemd service that tries to run `git rebase upstream/nixos-unstable` in `dependencies/nixpkgs/` and `nixos-rebuild switch` daily.
+  - Ensure that this only runs when there is a fast internet connection (rebuilds download a couple GB)
+    - [ ] Figure out how to test internet speed without relying on private companies (I'm looking at you ookla)
+      - Do a rebuild, but cancel if it goes over $n$ minutes?
+- [ ] Figure out how to import some of the `oh-my-zsh` aliases.
 
 ### toDONE
 

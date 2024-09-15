@@ -58,6 +58,7 @@ in
             ghidra-bin
             feroxbuster
             wireshark
+            ffuf
           ];
           uid = 1000;
         };
