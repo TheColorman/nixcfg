@@ -95,21 +95,14 @@ in
         now_epoch=$(${date} +%s)
         target_polarity="dark" && [[ "$sunrise_epoch" -lt "$now_epoch" ]] && [[ "$sunset_epoch" -gt "$now_epoch" ]] && target_polarity="light"
 
-        # Figure out current polarity
-        current_polarity="dark" && [[ "$(${find} /run/current-system/specialisation -iname "light" | ${wc} -l)" -eq 0 ]] && current_polarity="light"
-        echo "Target polarity set to $target_polarity, current polarity is $current_polarity"
-
         # Update polarisation if it does not match
-        if [ "$current_polarity" != "$target_polarity" ]; then
-          echo "Changing polarity..."
-          if [ "$target_polarity" == "light" ]; then
-            echo "Attempting to switch to Light polarity"
-            ${switch_light}
-          else
-            echo "Attempting to switch to Dark polarity"
-            ${switch_dark}
-          fi
-          exit 0
+        echo "Changing polarity..."
+        if [ "$target_polarity" == "light" ]; then
+          echo "Attempting to switch to Light polarity"
+          ${switch_light}
+        else
+          echo "Attempting to switch to Dark polarity"
+          ${switch_dark}
         fi
 
         # Wait for astronomical event
