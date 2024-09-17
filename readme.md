@@ -29,7 +29,12 @@ my nix configs and update script
   - Ensure that this only runs when there is a fast internet connection (rebuilds download a couple GB)
     - [ ] Figure out how to test internet speed without relying on private companies (I'm looking at you ookla)
       - Do a rebuild, but cancel if it goes over $n$ minutes?
-- [ ] Figure out how to import some of the `oh-my-zsh` aliases.
+- [ ] Shell improvements
+  - [ ] Figure out how to import some of the `oh-my-zsh` aliases.
+  - [ ] Allow using ctrl to skip words
+- [ ] Better ranger/kitty/tmux/vim integration
+  - [ ] Enable image preview in kitty
+  - [ ] Open files in new tmux window/pane
 
 ### toDONE
 
