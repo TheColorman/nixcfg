@@ -21,7 +21,7 @@ let
   nixFiles = filterAttrs (name: value: hasSuffix ".nix" name) files;
   modules = mapAttrs'
     (name: value:
-      nameValuePair (removeSuffix ".nix" name) (import value)
+      nameValuePair (removeSuffix "-default" (removeSuffix ".nix" name)) (import value)
     )
     nixFiles;
 in

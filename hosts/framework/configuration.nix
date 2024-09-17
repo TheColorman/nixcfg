@@ -16,7 +16,7 @@ in
     profiles-common
     profiles-gaming
     profiles-plasma
-    profiles-stylix-default
+    profiles-stylix
     system-fonts
     system-japanese
     system-networking
