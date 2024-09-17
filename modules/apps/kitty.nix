@@ -15,7 +15,6 @@ in
       };
       keybindings = {
         "ctrl+c" = "copy_or_interrupt";
-        "ctrl+v" = "paste";
       };
       shellIntegration.enableZshIntegration = zshEnabled;
       extraConfig = lib.mkIf tmuxEnabled ''

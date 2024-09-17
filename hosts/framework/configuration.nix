@@ -18,8 +18,8 @@ in
     profiles-plasma
     profiles-stylix
     system-fonts
-    system-japanese
     system-networking
+    apps-fcitx5
     apps-git
     apps-hashcat
     apps-kdeconnect

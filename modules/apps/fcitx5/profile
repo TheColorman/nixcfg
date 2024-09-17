@@ -1,0 +1,29 @@
+[Groups/0]
+# Group Name
+Name=Default
+# Layout
+Default Layout=custom
+# Default Input Method
+DefaultIM=keyboard-ru-rulemak
+
+[Groups/0/Items/0]
+# Name
+Name=keyboard-us-colemak_dh
+# Layout
+Layout=
+
+[Groups/0/Items/1]
+# Name
+Name=mozc
+# Layout
+Layout=custom
+
+[Groups/0/Items/2]
+# Name
+Name=keyboard-ru-rulemak
+# Layout
+Layout=
+
+[GroupOrder]
+0=Default
+

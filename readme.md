@@ -17,7 +17,6 @@ my nix configs and update script
 
 ## todo
 
-- [ ] Add `~/.config/fcitx5` to home-manager.
 - [ ] Use `stylix` colors in `oh-my-posh` config.
 - [ ] Vim setup.
   - [ ] Adapt Vim binds for Colemak Curl (DH-mod)
@@ -38,3 +37,4 @@ my nix configs and update script
 - [x] Fix the fucking mess of a config.
 - [x] Turn `*nix` aliases into scripts.
 - [x] Merge `nixosModules` and `homeManagerModules` directories, mimicking [`MatthewCroughan/nixcfg`](https://github.com/MatthewCroughan/nixcfg)
+- [x] Add `~/.config/fcitx5` to home-manager.
