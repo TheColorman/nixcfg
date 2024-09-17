@@ -85,6 +85,8 @@ in
         switch_dark = "${nixos-rebuild} test --flake /home/${config.my.username}/nixcfg";
         switch_light = "${switch_dark} --specialisation light";
       in ''
+        # Let's wait a little bit for the system to finish booting/building
+        sleep 60
         # Check what polarisation we should be using right now
         sunrise=$(${heliocron} report --json | ${jq} -r '.sunrise')
         sunset=$(${heliocron} report --json | ${jq} -r '.sunset')
