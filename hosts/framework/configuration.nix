@@ -112,5 +112,5 @@ in
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "add-hashcat";
+  system.nixos.label = "nixpkgs-17-09-2024";
 }
