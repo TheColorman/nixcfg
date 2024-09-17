@@ -54,6 +54,9 @@ in
         enable = true;
         highlighters = [ "main" "brackets" ];
       };
+      shellAliases = {
+        nixos-diff = "nix profile diff-closures --profile /nix/var/nix/profiles/system";
+      };
     };
     programs.fzf = {
       enable = true;
