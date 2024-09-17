@@ -66,14 +66,8 @@ in
       enable = true;
       description = "Theme polarity switcher";
 
-      restartTriggers = [ config.stylix.polarity ];
       wantedBy = [ "graphical.target" ];
-      serviceConfig.Restart = "on-success";
-
       path = with pkgs; [ gitMinimal ];
-      environment = {
-        GIT_SAFE_DIR = "/home/${config.my.username}/nixcfg/.git";
-      };
       script = let
         jq = "${pkgs.jq}/bin/jq";
         date = "${pkgs.coreutils}/bin/date";
@@ -97,7 +91,11 @@ in
         now_epoch=$(${date} +%s)
         target_polarity="dark" && [[ "$sunrise_epoch" -lt "$now_epoch" ]] && [[ "$sunset_epoch" -gt "$now_epoch" ]] && target_polarity="light"
 
-        # Update polarisation if it does not match
+        # Update to target polarity
+        # - Note: when shutting down in light polarity, and then booting into
+        #   dark polarity, lots of KDE elements are still light for some reason,
+        #   so instead of checking whether we're in the correct polarity, I just
+        #   switch regardless.
         echo "Changing polarity..."
         if [ "$target_polarity" == "light" ]; then
           echo "Attempting to switch to Light polarity"
@@ -108,13 +106,15 @@ in
         fi
 
         # Wait for astronomical event
-        echo "Waiting for sunrise..."
-        ${heliocron} wait --event sunrise && echo "Attempting to switch to Light polarity" && ${switch_light}
-        echo "Waiting for sunset..."
-        ${heliocron} wait --event sunset && echo "Attempting to switch to dark polarity" && ${switch_dark}
-        echo "Waiting for sunrise tomorrow..."
-        ${heliocron} -d $(${date} -d '+1 day' +%Y-%m-%d) wait --event sunrise && echo "Attempting to switch to light polarity" && ${switch_light} 
-        exit 0
+        while :
+        do
+          echo "Waiting for sunrise..."
+          ${heliocron} wait --event sunrise && echo "Attempting to switch to Light polarity" && ${switch_light}
+          echo "Waiting for sunset..."
+          ${heliocron} wait --event sunset && echo "Attempting to switch to Dark polarity" && ${switch_dark}
+          echo "Waiting for sunrise tomorrow..."
+          ${heliocron} -d $(${date} -d '+1 day' +%Y-%m-%d) wait --event sunrise && echo "Attempting to switch to light polarity" && ${switch_light} 
+        done
       '';
     };
   };
