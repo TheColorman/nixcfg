@@ -37,6 +37,7 @@ in
     apps-tmux
     apps-vesktop
     apps-vmware
+    apps-vscode
     apps-zsh
     containers-hacking
   ];
@@ -56,7 +57,6 @@ in
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       google-chrome
-      vscode
       obsidian
       fastfetch
       wireguard-tools
