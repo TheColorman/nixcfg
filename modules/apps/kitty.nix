@@ -17,9 +17,12 @@ in
         "ctrl+c" = "copy_or_interrupt";
       };
       shellIntegration.enableZshIntegration = zshEnabled;
-      extraConfig = lib.mkIf tmuxEnabled ''
-        startup_session launch.conf
-      '';
+
+      settings = {
+        startup_session = lib.optionalString tmuxEnabled "launch.conf";
+        background_blur = 1;
+        hide_window_decorations = true;
+      };
     };
 
     xdg.configFile = lib.mkIf tmuxEnabled {

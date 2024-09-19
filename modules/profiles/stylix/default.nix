@@ -44,6 +44,12 @@ in
           name = "CaskaydiaCove Nerd Font";
         };
       };
+      opacity = {
+        applications = 0.5;
+        desktop = 0.5;
+        popups = 0.7;
+        terminal = 0.5;
+      };
       polarity = "dark";
     };
 
