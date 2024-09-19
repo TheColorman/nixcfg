@@ -1,0 +1,25 @@
+/* Vencord CSS Snippet: https://discord.com/channels/1015060230222131221/1028106818368589824/1241203879941767169 */
+
+:root {
+    --discord-icon: none;
+    /* discord icon */
+    --home-icon: block;
+    /* moon icon */
+    --home-icon-url: url('https://cdn.discordapp.com/emojis/1217110775601172591.gif?size=240&quality=lossless');
+}
+
+[class*=childWrapper]>svg:not([class*=favoriteIcon]) {
+    display: var(--discord-icon);
+}
+
+[class*=childWrapper]:has(svg:not([class*=favoriteIcon]))::before {
+    content: '';
+    display: var(--home-icon);
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background: var(--text-normal);
+    mask-image: var(--home-icon-url) center/contain no-repeat !important;
+    mask: var(--home-icon-url) center/contain no-repeat !important;
+}
+
