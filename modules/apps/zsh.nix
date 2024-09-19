@@ -34,10 +34,9 @@ in
         # eval "$(oh-my-posh init zsh)" # No need, home-manager does this for me :3
 
         # keybinds
-        bindkey '^F' autosuggest-accept
-        bindkey '^[v' .describe-key-briefly # for figuring out the actual keys
-        bindkey '^[OA' history-search-backward
-        bindkey '^[OB' history-search-forward
+        bindkey '^y' autosuggest-accept
+        bindkey '^e' history-search-backward
+        bindkey '^i' history-search-forward
 
         # Completion styling
         zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
