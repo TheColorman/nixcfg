@@ -19,6 +19,7 @@ in
     profiles-stylix
     system-fonts
     system-networking
+    apps-btop
     apps-fcitx5
     apps-git
     apps-hashcat
@@ -61,7 +62,6 @@ in
       wireguard-tools
       firefox
       unzip
-      btop
       p7zip
       ranger
       alejandra
