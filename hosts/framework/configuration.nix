@@ -111,5 +111,5 @@ in
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "remove-pulseaudio";
+  system.nixos.label = "add-nvim-and-stylix-programs";
 }
