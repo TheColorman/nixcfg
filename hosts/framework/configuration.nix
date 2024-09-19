@@ -69,7 +69,6 @@ in
       zsh-autoenv
       inputs.fw-ectool.packages.x86_64-linux.fw-ectool
       aria2
-      mangohud
       killall
       bottles
       safeeyes
