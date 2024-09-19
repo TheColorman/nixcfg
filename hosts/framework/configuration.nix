@@ -26,6 +26,7 @@ in
     apps-kitty
     apps-libreoffice
     apps-mpv
+    apps-neovim
     apps-nix
     apps-oh-my-posh
     apps-openfortivpn
@@ -34,7 +35,6 @@ in
     apps-tailscale
     apps-tmux
     apps-vesktop
-    apps-vim
     apps-vmware
     apps-zsh
     containers-hacking

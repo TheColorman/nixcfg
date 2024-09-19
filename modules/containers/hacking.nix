@@ -30,9 +30,9 @@ in
         imports = with outputs.modules; [
           profiles-common
           apps-git
+          apps-neovim
           apps-oh-my-posh
           apps-sops
-          apps-vim
           apps-zsh
         ];
 
