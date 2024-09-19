@@ -112,5 +112,5 @@ in
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "nixpkgs-17-09-2024";
+  system.nixos.label = "remove-pulseaudio";
 }
