@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   home-manager.users."${config.my.username}" = {
     programs.tmux = {
@@ -8,6 +8,7 @@
       keyMode = "vi";
       mouse = true;
       terminal = "screen-256color";
+      plugins = with pkgs.tmuxPlugins; [ urlview tmux-thumbs tmux-fzf ];
       extraConfig = ''
         bind -Tcopy-mode WheelUpPane send -N1 -X scroll-up
         bind -Tcopy-mode WheelDownPane send -N1 -X scroll-down
@@ -43,7 +44,7 @@
         set -g status-justify left
         set -g status-style 'fg=colour1'
         set -g status-left '''
-        set -g status-right '%Y-%m-%d %H:%M '
+        set -g status-right '#{weather}| #{battery_icon} #{battery_percentage} | %Y-%m-%d %H:%M '
         set -g status-right-length 50
         set -g status-left-length 10
 
@@ -57,6 +58,10 @@
 
         # messages
         set -g message-style 'fg=colour2 bg=colour0 bold'
+
+        # Plugins that need to be loaded after their configuration
+        run-shell ${pkgs.tmuxPlugins.weather}/share/tmux-plugins/weather/weather.tmux
+        run-shell ${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/battery.tmux
       '';
     };
   };
