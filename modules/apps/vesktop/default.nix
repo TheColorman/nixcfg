@@ -4,6 +4,7 @@
   inherit (lib.strings) optionalString;
 
   cfg = config.my.vesktop;
+  isDark = config.stylix.polarity == "dark";
 
   themes = "vesktop/themes";
 
@@ -42,7 +43,7 @@ in {
  
           /* See https://github.com/MiniDiscordThemes/SystemColor#customisation for customisation settings. */
           :root {
-            --systemcolor-base: #${base00};
+            --systemcolor-base: #${if isDark then base00 else base05};
             --systemcolor-bg-blur: 0px;
           }
  
