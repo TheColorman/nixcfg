@@ -111,5 +111,4 @@ in
   };
 
   system.stateVersion = "23.11";
-  system.nixos.label = "finish-vesktop-theming";
 }
