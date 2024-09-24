@@ -14,5 +14,6 @@
       tailscale = lib.optionalAttrs config.services.tailscale.enable { "192.168.50.222" = [ "truenas" ]; };
       full = base // tailscale;
     in full;
+    nameservers = [ "192.168.50.58" "1.1.1.1" ];
   };
 }
