@@ -1,13 +1,29 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, lib, ... }: let
+  inherit (lib.lists) imap0 foldl';
+  inherit (lib.strings) removePrefix;
+  inherit (builtins) toString;
+
+  configFiles = [
+  ./config
+  ./profile
+  ./conf/clipboard.conf
+  ./conf/keyboard.conf
+  ./conf/mozc.conf
+  ./conf/notifications.conf
+  ];
+  paths = imap0 (_: v:
+    removePrefix (toString ./. + "/") (toString v))
+    configFiles;
+    mappedFiles = foldl'
+      (acc: x: acc // {
+        "fcitx5/${x}" = {
+          source = ./. + "/${x}";
+          force = true;
+        };
+      }) {} paths;
+in {
   home-manager.users."${config.my.username}" = {
-    xdg.configFile = {
-      "fcitx5/config".source = ./config;
-      "fcitx5/profile".source = ./profile;
-      "fcitx5/conf/clipboard.conf".source = ./conf/clipboard.conf;
-      "fcitx5/conf/keyboard.conf".source = ./conf/keyboard.conf;
-      "fcitx5/conf/mozc.conf".source = ./conf/mozc.conf;
-      "fcitx5/conf/notifications.conf".source = ./conf/notifications.conf;
-    };
+    xdg.configFile = mappedFiles;
   };
 
   i18n.inputMethod = {
