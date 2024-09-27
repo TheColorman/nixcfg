@@ -73,7 +73,7 @@ in
 
           sessionVariables = {
             WAYLAND_DISPLAY = "wayland-0";
-            XDG_RUNTIME_DIR = " /run/user/1000 ";
+            XDG_RUNTIME_DIR = "/run/user/1000";
             DISPLAY = ":1";
             _JAVA_AWT_WM_NONREPARENTING = "1";
             _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
@@ -87,11 +87,11 @@ in
         };
         systemd.services.fix-run-permission = {
           script = ''
-              #!${pkgs.stdenv.shell}
-              set - euo pipefail
+            #!${pkgs.stdenv.shell}
+            set - euo pipefail
 
-              chown ${guestUsername}:users /run/user/1000
-              chmod u=rwx /run/user/1000
+            chown ${guestUsername}:users /run/user/1000
+            chmod u=rwx /run/user/1000
           '';
           wantedBy = [ "multi-user.target" ];
           serviceConfig = {
