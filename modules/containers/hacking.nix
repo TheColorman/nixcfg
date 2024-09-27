@@ -1,5 +1,6 @@
 { lib, config, pkgs, inputs, outputs, ... }:
 let
+  hostUsername = config.my.username;
   guestUsername = "col0r";
 in
 
@@ -40,7 +41,13 @@ in
 
         nixpkgs.config.allowUnfree = true;
 
-        home-manager.users."${guestUsername}".home.stateVersion = lib.mkForce "24.05";
+        home-manager.users."${guestUsername}" = hm@{...}: {
+          home.stateVersion = lib.mkForce "24.05";
+          home.file.CTF = lib.mkIf config.services.syncthing.enable rec {
+            target = "/home/${hostUsername}/projects/hack_container/CTF";
+            source = hm.lib.file.mkOutOfStoreSynlink target;
+          };
+        };
 
         system.stateVersion = " 24.05 ";
 
@@ -90,29 +97,32 @@ in
               set - euo pipefail
 
               chown ${guestUsername}:users /run/user/1000
-            chmod u=rwx /run/user/1000
+              chmod u=rwx /run/user/1000
           '';
           wantedBy = [ "multi-user.target" ];
           serviceConfig = {
             Type = "oneshot";
           };
         };
+
+        
       };
 
     bindMounts = {
       home = {
-        hostPath = "/home/${config.my.username}/projects/hack_container";
-        isReadOnly = false;
+        hostPath = "/home/${hostUsername}/projects/hack_container";
         mountPoint = "/home/${guestUsername}";
+        isReadOnly = false;
       };
       # Enable GUI using host
-      waylandDisplay = rec {
+      waylandDisplay = {
         hostPath = "/run/user/1000";
-        mountPoint = hostPath;
+        mountPoint = "/run/user/1000";
+        isReadOnly = false; # uh-oh spaggheti-o's
       };
-      x11Display = rec {
+      x11Display = {
         hostPath = "/tmp/.X11-unix";
-        mountPoint = hostPath;
+        mountPoint = "/tmp/.X11-unix";
         isReadOnly = true;
       };
       oh-my-posh-config = rec {
