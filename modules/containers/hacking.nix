@@ -38,6 +38,8 @@ in
 
         my.username = guestUsername;
 
+        nixpkgs.config.allowUnfree = true;
+
         home-manager.users."${guestUsername}".home.stateVersion = lib.mkForce "24.05";
 
         system.stateVersion = " 24.05 ";
@@ -59,6 +61,9 @@ in
             feroxbuster
             wireshark
             ffuf
+            binwalk
+            exiftool
+            vscode
           ];
           uid = 1000;
         };
