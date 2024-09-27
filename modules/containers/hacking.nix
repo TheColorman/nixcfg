@@ -19,7 +19,7 @@ in
     })
   ];
 
-  containers.hacking = {
+   containers.hacking = {
     privateNetwork = true;
     hostAddress = "192.168.0.10";
     localAddress = "192.168.0.11";
@@ -41,13 +41,7 @@ in
 
         nixpkgs.config.allowUnfree = true;
 
-        home-manager.users."${guestUsername}" = hm@{...}: {
-          home.stateVersion = lib.mkForce "24.05";
-          home.file.CTF = lib.mkIf config.services.syncthing.enable rec {
-            target = "/home/${hostUsername}/projects/hack_container/CTF";
-            source = hm.lib.file.mkOutOfStoreSynlink target;
-          };
-        };
+        home-manager.users."${guestUsername}".home.stateVersion = lib.mkForce "24.05";
 
         system.stateVersion = " 24.05 ";
 
@@ -111,7 +105,7 @@ in
     bindMounts = {
       home = {
         hostPath = "/home/${hostUsername}/projects/hack_container";
-        mountPoint = "/home/${guestUsername}";
+        mountPoint = "/home/${guestUsername}/shared";
         isReadOnly = false;
       };
       # Enable GUI using host
@@ -129,6 +123,11 @@ in
         hostPath = "/run/secrets-rendered/oh-my-posh-config.toml";
         mountPoint = hostPath;
         isReadOnly = true;
+      };
+      CTF = lib.mkIf config.services.syncthing.enable {
+        hostPath = "/home/${hostUsername}/CTF";
+        mountPoint = "/home/${guestUsername}/CTF";
+        isReadOnly = false;
       };
     };
 
