@@ -34,6 +34,7 @@ in
           apps-neovim
           apps-oh-my-posh
           apps-sops
+          apps-vscode
           apps-zsh
         ];
 
@@ -64,7 +65,6 @@ in
             ffuf
             binwalk
             exiftool
-            vscode
           ];
           uid = 1000;
         };
