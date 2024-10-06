@@ -31,6 +31,7 @@ in
     apps-nix
     apps-oh-my-posh
     apps-openfortivpn
+    apps-safeeyes
     apps-sops
     apps-syncthing
     apps-tailscale
@@ -71,7 +72,6 @@ in
       aria2
       killall
       bottles
-      safeeyes
       dig
       nixpkgs-fmt
       ripgrep
