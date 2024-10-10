@@ -17,6 +17,8 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  i18n.consoleUseXkbConfig = true;
+
 
   # 32-bit application support
   hardware.graphics.enable32Bit = true;
