@@ -16,6 +16,7 @@ in
     profiles-common
     profiles-gaming
     profiles-plasma
+    profiles-shell
     profiles-stylix
     profiles-yubikey
     system-emulation
@@ -42,7 +43,6 @@ in
     apps-vesktop
     apps-vmware
     apps-vscode
-    apps-zsh
     containers-hacking
   ];
 
@@ -68,9 +68,6 @@ in
       unzip
       p7zip
       ranger
-      alejandra
-      direnv
-      zsh-autoenv
       inputs.fw-ectool.packages.x86_64-linux.fw-ectool
       aria2
       killall
@@ -108,7 +105,7 @@ in
     LC_TIME = "da_DK.UTF-8";
   };
 
-  # Temporary
+  # @TODO: do I really need this? Did I add it for hotspots? Do hotspots need ipv4 forwarding? too scared to turn it off...
   boot.kernel.sysctl = {
     "net.ipv4.conf.all.forwarding" = true;
   };
