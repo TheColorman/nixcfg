@@ -17,13 +17,14 @@ in
     profiles-gaming
     profiles-plasma
     profiles-stylix
+    profiles-yubikey
     system-emulation
     system-fonts
     system-networking
-    system-pcsc
     apps-btop
     apps-fcitx5
     apps-git
+    apps-gpg
     apps-hashcat
     apps-kdeconnect
     apps-kitty
