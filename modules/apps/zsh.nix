@@ -6,6 +6,7 @@ let
   username = config.my.username;
   fzf = config.home-manager.users.${username}.programs.fzf;
   zoxide = config.home-manager.users.${username}.programs.zoxide;
+  direnv = config.home-manager.users.${username}.programs.direnv;
 
   # https://github.com/nix-community/home-manager/blob/086f619dd991a4d355c07837448244029fc2d9ab/modules/programs/fzf.nix#L211
   fzfIntegration = ''
@@ -15,6 +16,8 @@ let
   '';
   # https://github.com/nix-community/home-manager/blob/086f619dd991a4d355c07837448244029fc2d9ab/modules/programs/zoxide.nix#L75
   zoxideIntegration = "eval \"$(${zoxide.package}/bin/zoxide init zsh ${concatStringsSep " " zoxide.options})\"";
+  # https://github.com/nix-community/home-manager/blob/086f619dd991a4d355c07837448244029fc2d9ab/modules/programs/direnv.nix#L122
+  direnvIntegration = "eval \"$(${getExe direnv.package} hook zsh)\"";
 in
 {
   # Set as login shell
@@ -59,6 +62,7 @@ in
       # so I do it here manually.
       ${if fzf.enable then fzfIntegration else ""}
       ${if zoxide.enable then zoxideIntegration else ""} 
+      ${if direnv.enable then direnvIntegration else ""}
     '';
     syntaxHighlighting = {
       enable = true;
