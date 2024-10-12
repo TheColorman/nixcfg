@@ -17,6 +17,7 @@ in
     profiles-gaming
     profiles-plasma
     profiles-stylix
+    system-emulation
     system-fonts
     system-networking
     apps-btop
