@@ -80,6 +80,16 @@ in
           };
         };
 
+        boot.binfmt.emulatedSystems = [
+          "i686-windows"
+          "x86_64-windows"
+          "aarch64-linux"
+          "aarch64_be-linux"
+          "armv6l-linux"
+          "armv7l-linux"
+          "loongarch64-linux"
+        ];
+
         networking.firewall.enable = false;
         hardware.graphics = {
           enable = true;
