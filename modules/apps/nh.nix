@@ -7,5 +7,4 @@ in {
     clean.extraArgs = "--keep-since 30d --keep 50";
     flake = "/home/${user}/nixcfg";
   };
-  environment.systemPackages = [ pkgs.nh ];
 }

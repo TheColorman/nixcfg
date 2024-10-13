@@ -31,6 +31,7 @@ in
     apps-libreoffice
     apps-mpv
     apps-neovim
+    apps-nh
     apps-nix
     apps-oh-my-posh
     apps-openfortivpn
