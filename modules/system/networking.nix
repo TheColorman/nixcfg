@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: {
+{ lib, config, ... }: {
   nixpkgs.config.packageOverrides = pkgs: rec {
     wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (oldAttrs: {
       patches = (oldAttrs.patches or [ ]) ++ [ ../patches/eduroam.patch ];

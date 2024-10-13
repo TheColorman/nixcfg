@@ -1,6 +1,5 @@
 { lib, config, pkgs, ... }:
 let
-  cfg = config.my.oh-my-posh;
   zshEnabled = config.home-manager.users."${config.my.username}".programs.zsh.enable;
 in
 {

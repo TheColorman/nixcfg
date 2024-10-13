@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ ... }: {
   networking = {
     nat = {
       enable = true;

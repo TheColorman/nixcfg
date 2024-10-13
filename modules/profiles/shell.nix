@@ -1,4 +1,4 @@
-{ outputs, config, pkgs, ... }: {
+{ outputs, ... }: {
   imports = with outputs.modules; [
     apps-direnv
     apps-fzf

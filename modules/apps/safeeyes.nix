@@ -1,8 +1,8 @@
 { lib, pkgs, ... }: let 
   inherit (pkgs) alsa-utils wlrctl xorg;
 in {
-  nixpkgs.overlays = [ (final: prev: {
-    safeeyes = prev.safeeyes.overrideAttrs (old: {
+  nixpkgs.overlays = [ (_final: prev: {
+    safeeyes = prev.safeeyes.overrideAttrs (_old: {
       preFixup = ''
         makeWrapperArgs+=(
           "''${gappsWrapperArgs[@]}"

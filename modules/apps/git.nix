@@ -1,4 +1,4 @@
-{ pkgs, outputs, ... }:
+{ pkgs, ... }:
 {
   # Multiple modules rely on apps-gpg, so it is instead imported in host
   # configuration.nix.

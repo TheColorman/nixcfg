@@ -18,7 +18,7 @@ let
         else recursiveFileSearch (filepath) ("${friendlyPrefix}${fname}-"))
       (readDir path));
   files = foldl' (acc: x: acc // x) { } (recursiveFileSearch ./. "");
-  nixFiles = filterAttrs (name: value: hasSuffix ".nix" name) files;
+  nixFiles = filterAttrs (name: _value: hasSuffix ".nix" name) files;
   modules = mapAttrs'
     (name: value:
       nameValuePair (removeSuffix ".nix" name) (import value)

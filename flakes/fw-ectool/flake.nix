@@ -8,10 +8,8 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     ectoolSrc,
-    flake-utils,
   }: let
     system = "x86_64-linux";
 
@@ -53,7 +51,7 @@
       default = fw-ectool;
     };
     overlays = rec {
-      fw-ectool = final: prev: {
+      fw-ectool = _final: _prev: {
         fw-ectool = ectoolpkg;
       };
       default = fw-ectool;

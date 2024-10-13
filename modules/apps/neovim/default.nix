@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, ... }: 
 # let
 #   lastplace = pkgs.vimUtils.buildVimPlugin {
 #     name = "lastplace";

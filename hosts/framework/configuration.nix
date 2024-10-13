@@ -1,12 +1,11 @@
 # configuration.nix
 { config
 , pkgs
-, lib
 , inputs
 , outputs
 , system
 , ...
-} @ meta:
+}:
 let
   username = "color";
 in

@@ -80,8 +80,6 @@ in
         nixos-rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
         location = "--latitude ${cfg.heliotheme.latitude} --longitude ${cfg.heliotheme.longitude}";
         heliocron = "${pkgs.heliocron}/bin/heliocron ${location}";
-        find = "${pkgs.findutils}/bin/find";
-        wc = "${pkgs.coreutils}/bin/wc";
         switch_dark = "${nixos-rebuild} test --flake /home/${config.my.username}/nixcfg";
         switch_light = "${switch_dark} --specialisation light";
       in ''
