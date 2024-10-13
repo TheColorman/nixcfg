@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: let
+{ config, ... }: let
   user = config.my.username;
 in {
   programs.nh = {
