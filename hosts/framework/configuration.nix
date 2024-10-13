@@ -3,7 +3,6 @@
 , pkgs
 , inputs
 , outputs
-, system
 , ...
 }:
 let
