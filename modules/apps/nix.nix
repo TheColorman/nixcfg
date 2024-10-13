@@ -1,13 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 let
   script = name: text: pkgs.writeShellApplication { inherit name text; };
 in
 {
+  imports = [ outputs.modules.apps-nh ];
   environment.systemPackages = [
-    (script "tnix"  "sudo nixos-rebuild test --flake ~/nixcfg --option eval-cache false")
-    (script "dbnix" "sudo nixos-rebuild dry-build --flake ~/nixcfg --option eval-cache false")
-    (script "danix" "sudo nixos-rebuild dry-activate --flake ~/nixcfg")
-    (script "snix"  "sudo nixos-rebuild switch --flake ~/nixcfg")
-    (script "bnix"  "sudo nixos-rebuild boot --flake ~/nixcfg")
+    (script "tnix"  "nh os test --verbose")
+    (script "dbnix" "nh os build --dry")
+    (script "danix" "nh os test --dry")
+    (script "snix"  "nh os switch")
+    (script "bnix"  "nh os build")
   ];
 }
