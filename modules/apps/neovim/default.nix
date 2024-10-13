@@ -1,10 +1,11 @@
-{ config, ... }: 
-# let
+{ config, pkgs, lib, ... }: 
+let
 #   lastplace = pkgs.vimUtils.buildVimPlugin {
 #     name = "lastplace";
 #     src = ./lastplace.lua;
 #   };
-# in
+  inherit (lib.meta) getExe;
+in
 {
   home-manager.users."${config.my.username}" = {
     programs.neovim = {
@@ -14,6 +15,12 @@
       
       coc = {
         enable = true;
+        settings.languageserver.nix = {
+          command = getExe pkgs.nil;
+          filetypes = ["nix"];
+          rootPatterns = ["flake.nix"];
+          settings.nil.formatting.command = [ "${getExe pkgs.alejandra}" ];
+        };
       };
 
       plugins = [
