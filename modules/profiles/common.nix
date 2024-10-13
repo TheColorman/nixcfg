@@ -1,13 +1,12 @@
 # Common configuration, assumed to be imported in all hosts
-{ lib, pkgs, inputs, config, ... }:
+{ lib, inputs, config, ... }:
 let
   username = config.my.username;
 in
 {
   imports = [ inputs.home-manager.nixosModules.default ];
 
-  options.my.username = lib.mkOption
-    {
+  options.my.username = lib.mkOption {
       default = "color";
       description = ''
         Username used for home-manager configuration.
@@ -18,10 +17,6 @@ in
   config = {
     # Allow execution of dynamic binaries
     programs.nix-ld.enable = true;
-    programs.nix-ld.libraries = with pkgs; [
-      # Add any missing dynamic libraries for unpackaged
-      # programs here, NOT in environment.systemPackages
-    ];
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nixpkgs.config.allowUnfree = true;
 

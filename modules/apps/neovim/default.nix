@@ -15,11 +15,14 @@ in
       
       coc = {
         enable = true;
-        settings.languageserver.nix = {
-          command = getExe pkgs.nil;
-          filetypes = ["nix"];
-          rootPatterns = ["flake.nix"];
-          settings.nil.formatting.command = [ "${getExe pkgs.alejandra}" ];
+        settings = {
+          formatOnSaveFileTypes = ["*"];
+          languageserver.nix = {
+            command = getExe pkgs.nil;
+            filetypes = ["nix"];
+            rootPatterns = ["flake.nix"];
+            settings.nil.formatting.command = [ "${getExe pkgs.alejandra}" ];
+          };
         };
       };
 
