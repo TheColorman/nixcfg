@@ -6,7 +6,7 @@ let
   flakedir = "/home/${user}/nixcfg";
 
   gitTagScript = ''
-    generation=$(nix-env --list-generations | grep current | awk '{print $1}')
+    generation=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | grep current | awk '{print $1}')
     echo "Built generation $generation."
     read -r -p "Create git tag? [Y/n]: " choice
 
