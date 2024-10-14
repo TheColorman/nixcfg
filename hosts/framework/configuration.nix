@@ -1,14 +1,13 @@
 # configuration.nix
-{ config
-, pkgs
-, inputs
-, outputs
-, ...
-}:
-let
-  username = "color";
-in
 {
+  config,
+  pkgs,
+  inputs,
+  outputs,
+  ...
+}: let
+  username = "color";
+in {
   imports = with outputs.modules; [
     ./hardware-configuration.nix
     profiles-common
@@ -51,12 +50,12 @@ in
     longitude = "151.21476416121257";
   };
 
-  environment.systemPackages = with pkgs; [ fprintd ];
+  environment.systemPackages = with pkgs; [fprintd];
   users.users."${username}" = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.color_passwd.path;
     description = "color";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       google-chrome
       obsidian
@@ -66,7 +65,6 @@ in
       unzip
       p7zip
       ranger
-      inputs.fw-ectool.packages.x86_64-linux.fw-ectool
       aria2
       killall
       bottles
