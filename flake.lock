@@ -114,24 +114,6 @@
         "type": "github"
       }
     },
-    "ectoolSrc": {
-      "flake": false,
-      "locked": {
-        "host": "gitlab.howett.net",
-        "lastModified": 1719173375,
-        "narHash": "sha256-EMOliuyWB0xyrYB+E9axZtJawnIVIAM5nx026tESi38=",
-        "owner": "DHowett",
-        "repo": "ectool",
-        "rev": "0ac6155abbb7d4622d3bcf2cdf026dde2f80dad7",
-        "type": "gitlab"
-      },
-      "original": {
-        "host": "gitlab.howett.net",
-        "owner": "DHowett",
-        "repo": "ectool",
-        "type": "gitlab"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -148,23 +130,6 @@
         "type": "github"
       }
     },
-    "flake-utils": {
-      "inputs": {
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1726560853,
-        "narHash": "sha256-X6rJYSESBVr3hBoH0WbKE5KvhPU5bloyZ2L4K60/fPQ=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a",
-        "type": "github"
-      },
-      "original": {
-        "id": "flake-utils",
-        "type": "indirect"
-      }
-    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -179,29 +144,6 @@
         "owner": "SenchoPens",
         "repo": "fromYaml",
         "type": "github"
-      }
-    },
-    "fw-ectool": {
-      "inputs": {
-        "ectoolSrc": "ectoolSrc",
-        "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "dir": "flakes/fw-ectool",
-        "dirtyRev": "da82138afa0c078a1757be48c8bff4ee993cb47e-dirty",
-        "dirtyShortRev": "da82138-dirty",
-        "lastModified": 1726556107,
-        "narHash": "sha256-kEr7+wyatXIcmJNA8suJ6YTkzMF6cEwZxaeeGM9vL4E=",
-        "type": "git",
-        "url": "file:.?dir=flakes/fw-ectool"
-      },
-      "original": {
-        "dir": "flakes/fw-ectool",
-        "type": "git",
-        "url": "file:.?dir=flakes/fw-ectool"
       }
     },
     "gnome-shell": {
@@ -322,7 +264,6 @@
     },
     "root": {
       "inputs": {
-        "fw-ectool": "fw-ectool",
         "home-manager": "home-manager",
         "nix-secrets": "nix-secrets",
         "nixos-hardware": "nixos-hardware",
@@ -383,21 +324,6 @@
         "owner": "danth",
         "ref": "release-24.05",
         "repo": "stylix",
-        "type": "github"
-      }
-    },
-    "systems": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
         "type": "github"
       }
     },
