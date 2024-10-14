@@ -20,7 +20,7 @@ in {
     system-keyboard
     system-networking
     apps-btop
-    # apps-fcitx5
+    apps-fcitx5
     apps-git
     apps-gpg
     apps-hashcat
