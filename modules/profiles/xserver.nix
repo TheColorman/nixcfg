@@ -1,10 +1,10 @@
 { ... }: {
   services.xserver.enable = true;
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak_dh";
-  };
+  # services.xserver.xkb = {
+  #   layout = "us";
+  #   variant = "colemak_dh";
+  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
