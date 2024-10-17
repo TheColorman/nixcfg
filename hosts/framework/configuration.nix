@@ -70,6 +70,7 @@ in {
       dig
       nixpkgs-fmt
       ripgrep
+      cachix
     ];
   };
 
