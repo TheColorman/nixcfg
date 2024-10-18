@@ -1,9 +1,19 @@
-{ lib, config, inputs, pkgs, ... }:
-let
-  cfg = config.my.stylix;
-in
+# My configuration for Stylix. Wallpapers are in ./assets/
+# Format is <year>-H<year half (1st or 2nd)>. I change my wallpaper every 6 months.
+# Artist credit:
+# 2024-H1: Wallpaper Engine wallpaper (https://steamcommunity.com/sharedfiles/filedetails/?id=1288111061), by Jacket (https://steamcommunity.com/id/bloody_jacket)
+# 2024-H2: Vicky Bawangun (https://vickyb18.artstation.com/)
+# 2025-H1: nemupan (https://linktr.ee/nemupan)
 {
-  imports = [ inputs.stylix.nixosModules.stylix ];
+  lib,
+  config,
+  inputs,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.stylix;
+in {
+  imports = [inputs.stylix.nixosModules.stylix];
 
   options.my.stylix.heliotheme = {
     enable = lib.mkOption {
@@ -28,19 +38,19 @@ in
   config = {
     stylix = {
       enable = true;
-      image = ./assets/2024-H2.png;
+      image = ./assets/2024-H2.jpg;
       fonts = with pkgs; {
         # @TODO: these probably shouldn't all be the same with different names right?...
         serif = {
-          package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
+          package = nerdfonts.override {fonts = ["CascadiaCode"];};
           name = "CaskaydiaCove Nerd Font Propo";
         };
         sansSerif = {
-          package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
+          package = nerdfonts.override {fonts = ["CascadiaCode"];};
           name = "CaskaydiaCove Nerd Font Propo";
         };
         monospace = {
-          package = (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
+          package = nerdfonts.override {fonts = ["CascadiaCode"];};
           name = "CaskaydiaCove Nerd Font";
         };
       };
@@ -53,7 +63,7 @@ in
       polarity = "dark";
     };
 
-    # @TODO: this can probably be removed now that I have home-manager "backupFileExpension" 
+    # @TODO: this can probably be removed now that I have home-manager "backupFileExpension"
     system.activationScripts.fix_stylix.text = ''
       rm /home/color/.gtkrc-2.0 -f
     '';
@@ -72,8 +82,8 @@ in
       enable = true;
       description = "Theme polarity switcher";
 
-      wantedBy = [ "graphical.target" ];
-      path = with pkgs; [ gitMinimal ];
+      wantedBy = ["graphical.target"];
+      path = with pkgs; [gitMinimal];
       script = let
         jq = "${pkgs.jq}/bin/jq";
         date = "${pkgs.coreutils}/bin/date";
@@ -117,7 +127,7 @@ in
           echo "Waiting for sunset..."
           ${heliocron} wait --event sunset && echo "Attempting to switch to Dark polarity" && ${switch_dark}
           echo "Waiting for sunrise tomorrow..."
-          ${heliocron} -d $(${date} -d '+1 day' +%Y-%m-%d) wait --event sunrise && echo "Attempting to switch to light polarity" && ${switch_light} 
+          ${heliocron} -d $(${date} -d '+1 day' +%Y-%m-%d) wait --event sunrise && echo "Attempting to switch to light polarity" && ${switch_light}
         done
       '';
     };
