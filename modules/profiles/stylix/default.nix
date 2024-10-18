@@ -38,7 +38,7 @@ in {
   config = {
     stylix = {
       enable = true;
-      image = ./assets/2024-H2.jpg;
+      image = ./assets/2024-H2.png;
       fonts = with pkgs; {
         # @TODO: these probably shouldn't all be the same with different names right?...
         serif = {
