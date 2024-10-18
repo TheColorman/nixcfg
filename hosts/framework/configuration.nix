@@ -71,6 +71,7 @@ in {
       nixpkgs-fmt
       ripgrep
       cachix
+      nextcloud-client
     ];
   };
 
