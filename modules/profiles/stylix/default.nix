@@ -12,6 +12,9 @@
   ...
 }: let
   cfg = config.my.stylix;
+  scfg = config.stylix;
+
+  asset = "2024-H2";
 in {
   imports = [inputs.stylix.nixosModules.stylix];
 
@@ -38,8 +41,8 @@ in {
   config = {
     stylix = {
       enable = true;
-      base16Scheme = import ./assets/2024-H2.nix;
-      image = ./assets/2024-H2.png;
+      base16Scheme = (import ./assets/${asset}.nix).${scfg.polarity};
+      image = ./assets/${asset}.png;
       fonts = with pkgs; {
         # @TODO: these probably shouldn't all be the same with different names right?...
         serif = {
