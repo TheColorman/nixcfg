@@ -37,7 +37,6 @@ in {
     apps-tailscale
     apps-tmux
     apps-vesktop
-    apps-vmware
     apps-vscode
     containers-hacking
   ];
