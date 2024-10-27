@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "Colorman NixOS configuration flake";
 
   inputs = {
     nixpkgs.url = "git+file:./dependencies/nixpkgs?ref=nixos-unstable";
