@@ -248,11 +248,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1729847782,
-        "narHash": "sha256-LavONFuVn1HHjMAwskrSc02WVpti8go8oojjIj6L3Uo=",
+        "lastModified": 1729880355,
+        "narHash": "sha256-RP+OQ6koQQLX5nw0NmcDrzvGL8HDLnyXt/jHhL1jwjM=",
         "ref": "nixos-unstable",
-        "rev": "e8c9bc6f0230700f20aec0e0109d93e97a92f0f5",
-        "revCount": 696848,
+        "rev": "18536bf04cd71abd345f9579158841376fdd0c5a",
+        "revCount": 696981,
         "type": "git",
         "url": "file:./dependencies/nixpkgs"
       },
