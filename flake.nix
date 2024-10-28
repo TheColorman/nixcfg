@@ -20,10 +20,6 @@
       url = "git+ssh://git@github.com/TheColorman/nix-secrets?shallow=1";
       flake = false;
     };
-    this = {
-      url = "git+file:.";
-      flake = false;
-    };
   };
 
   outputs = {

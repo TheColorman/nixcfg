@@ -255,8 +255,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix",
-        "stylix": "stylix",
-        "this": "this"
+        "stylix": "stylix"
       }
     },
     "sops-nix": {
@@ -311,22 +310,6 @@
         "ref": "release-24.05",
         "repo": "stylix",
         "type": "github"
-      }
-    },
-    "this": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729848663,
-        "narHash": "sha256-R04MswdGVJDDMrPzrxehWrCoiHxSGbmHxAOMzfo5Fnc=",
-        "ref": "refs/heads/master",
-        "rev": "0b42449f3ba6e19e43f614d4c1ed1bde5f9a931e",
-        "revCount": 358,
-        "type": "git",
-        "url": "file:."
-      },
-      "original": {
-        "type": "git",
-        "url": "file:."
       }
     }
   },
