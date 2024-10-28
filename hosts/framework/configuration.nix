@@ -15,6 +15,7 @@ in {
     profiles-shell
     profiles-stylix
     profiles-yubikey
+    system-boot
     system-emulation
     system-fonts
     system-networking
@@ -78,14 +79,6 @@ in {
   services.fprintd.enable = true;
   services.input-remapper.enable = true; # @TODO get this shit to start on login or smthn
   hardware.bluetooth.enable = true;
-
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 50;
-    };
-    efi.canTouchEfiVariables = true;
-  };
 
   time.timeZone = "Australia/Sydney";
   i18n.defaultLocale = "en_DK.UTF-8";
