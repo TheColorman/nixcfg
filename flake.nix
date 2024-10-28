@@ -5,6 +5,7 @@
     nixpkgs.url = "git+file:./dependencies/nixpkgs?ref=nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix = {
       url = "github:danth/stylix?ref=release-24.05";
