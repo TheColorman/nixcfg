@@ -78,6 +78,7 @@ in {
   services.fwupd.enable = true;
   services.fprintd.enable = true;
   services.input-remapper.enable = true; # @TODO get this shit to start on login or smthn
+  services.power-profiles-daemon.enable = true;
   hardware.bluetooth.enable = true;
 
   time.timeZone = "Australia/Sydney";
