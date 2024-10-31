@@ -20,6 +20,9 @@
       url = "git+ssh://git@github.com/TheColorman/nix-secrets?shallow=1";
       flake = false;
     };
+
+    nixvimcfg.url = "github:TheColorman/nixvimcfg";
+    nixvimcfg.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
