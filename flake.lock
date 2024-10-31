@@ -544,11 +544,11 @@
         "nixvimchad": "nixvimchad"
       },
       "locked": {
-        "lastModified": 1730353589,
-        "narHash": "sha256-+wMVVQBO8XhxBqDm1PhtQ4Fddk+dQAPA75oGecsfjBo=",
+        "lastModified": 1730384419,
+        "narHash": "sha256-yPqrSdJY3zgTO69/gYqtwoe6E/C+GG+K34Ja61mVdAw=",
         "owner": "TheColorman",
         "repo": "nixvimcfg",
-        "rev": "b8bcaa5202fd9101e042bed41b4361b2c1dec3a5",
+        "rev": "13be12838f32b41969b24841cca8705b71e29e3f",
         "type": "github"
       },
       "original": {
@@ -567,11 +567,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1730352315,
-        "narHash": "sha256-eKEqbD8szgqGxnKk/NoL09ddd2ZBGA8z6EHRWRUFJiw=",
+        "lastModified": 1730384396,
+        "narHash": "sha256-HESARpfggvefOr5NkJu03JrojmOm2Xjw6+PawZfHz+U=",
         "owner": "thecolorman",
         "repo": "nixvimchad",
-        "rev": "0a5507325c6abf3a12e0b3267b57624aa7262692",
+        "rev": "e70c263ed8dbe821ff7ceaa256a5217cc224e1a0",
         "type": "github"
       },
       "original": {
