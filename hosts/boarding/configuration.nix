@@ -40,6 +40,8 @@ in {
       killall
       dig
       ripgrep
+      alejandra
+      nixd
     ];
   };
 
