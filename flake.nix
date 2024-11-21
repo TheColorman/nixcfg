@@ -2,8 +2,7 @@
   description = "Colorman NixOS configuration flake";
 
   inputs = {
-    # nixpkgs.url = "git+file:./dependencies/nixpkgs?ref=nixos-unstable";
-    nixpkgs.url = "git+file:./dependencies/nixpkgs/?ref=0232b1d3bae0f60b5aeed7c3ccbf25c0a7233486";
+    nixpkgs.url = "github:nixos/nixpkgs/0232b1d3bae0f60b5aeed7c3ccbf25c0a7233486";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
