@@ -452,18 +452,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1730531603,
-        "narHash": "sha256-Dqg6si5CqIzm87sp57j5nTaeBbWhHFaVyG7V6L8k3lY=",
-        "ref": "nixos-unstable",
-        "rev": "7ffd9ae656aec493492b44d0ddfb28e79a1ea25d",
-        "revCount": 702572,
+        "lastModified": 1730359060,
+        "narHash": "sha256-Hkk0mf4pgvX9Ut0YA397nsFqMLhzFVBdFHc4PhBrxYE=",
+        "ref": "e19cfce6f3f08d07653157d8826f5c920c770d7b",
+        "rev": "e19cfce6f3f08d07653157d8826f5c920c770d7b",
+        "revCount": 701358,
         "type": "git",
-        "url": "file:./dependencies/nixpkgs"
+        "url": "file:./dependencies/nixpkgs/"
       },
       "original": {
-        "ref": "nixos-unstable",
+        "ref": "e19cfce6f3f08d07653157d8826f5c920c770d7b",
         "type": "git",
-        "url": "file:./dependencies/nixpkgs"
+        "url": "file:./dependencies/nixpkgs/"
       }
     },
     "nixpkgs-lib": {

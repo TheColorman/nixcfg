@@ -1,0 +1,19 @@
+c94770963642bb6ff94f93f0d8f9f81bff350630 is the first bad commit
+commit c94770963642bb6ff94f93f0d8f9f81bff350630 (HEAD)
+Author: TheColorman <github@colorman.me>
+Date:   Mon Nov 4 15:04:31 2024 +1100
+
+    Update nixpkgs
+
+ dependencies/nixpkgs | 2 +-
+ flake.lock           | 8 ++++----
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+
+e19cfce6f3f08d07653157d8826f5c920c770d7b is the first bad commit
+commit e19cfce6f3f08d07653157d8826f5c920c770d7b (HEAD)
+Merge: 0232b1d3bae0 ce8b620bbf51
+Author: Vladimír Čunát <v@cunat.cz>
+Date:   Thu Oct 31 08:17:40 2024 +0100
+
+    staging-next 2024-10-15 (#348827)
