@@ -24,6 +24,7 @@ in {
     apps-git
     apps-gpg
     apps-hashcat
+    apps-kanata
     apps-kdeconnect
     apps-kitty
     apps-libreoffice
