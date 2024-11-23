@@ -3,7 +3,7 @@
     grub = {
       enable = true;
       device = "nodev";
-      configurationLimit = 50;
+      configurationLimit = 40;
       efiSupport = true;
     };
     efi.canTouchEfiVariables = true;
