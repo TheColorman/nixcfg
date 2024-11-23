@@ -13,19 +13,29 @@
         (defvar
           tap-time 200
           hold-time 200
+          left-hand-keys (
+            q  w  f  p  b
+             a  r  s  t  g
+               x  c  d  v  z
+          )
+          right-hand-keys (
+            j  l  u  y  ;  [  ]  \
+             m  n  e  i  o  '
+               k  h  ,  .  /
+          )
         )
 
         (defalias
           cap bspc
           ;; Map home row to modifiers
-          aM (tap-hold $tap-time $hold-time a lmet)
-          sA (tap-hold $tap-time $hold-time s lalt)
-          dS (tap-hold $tap-time $hold-time d lsft)
-          fC (tap-hold $tap-time $hold-time f lctl)
-          jC (tap-hold $tap-time $hold-time j lctl)
-          kS (tap-hold $tap-time $hold-time k lsft)
-          lA (tap-hold $tap-time $hold-time l lalt)
-          ;M (tap-hold $tap-time $hold-time ; lmet)
+          aM (multi f24 (tap-hold-release-keys $tap-time $hold-time a lmet $left-hand-keys))
+          sA (multi f24 (tap-hold-release-keys $tap-time $hold-time s lalt $left-hand-keys))
+          dS (multi f24 (tap-hold-release-keys $tap-time $hold-time d lsft $left-hand-keys))
+          fC (multi f24 (tap-hold-release-keys $tap-time $hold-time f lctl $left-hand-keys))
+          jC (multi f24 (tap-hold-release-keys $tap-time $hold-time j lctl $right-hand-keys))
+          kS (multi f24 (tap-hold-release-keys $tap-time $hold-time k lsft $right-hand-keys))
+          lA (multi f24 (tap-hold-release-keys $tap-time $hold-time l lalt $right-hand-keys))
+          ;M (multi f24 (tap-hold-release-keys $tap-time $hold-time ; lmet $right-hand-keys))
         )
         (deflayer (default-layer)
           @cap @aM @sA @dS @fC   @jC @kS @lA @;M
