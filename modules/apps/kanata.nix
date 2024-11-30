@@ -7,42 +7,47 @@
 
         ;; Even though I use Colemak as my OS layout, this still has to be defined as qwerty
         (defsrc
-          caps a s d f   j k l ;
+          tab q  w  e  r  t  y  u  i  o  p
+          caps a  s  d  f  g  h  j  k  l  ;
+          lsft  z  x  c  v  b  n  m  ,  .
+
+                             spc
         )
 
         (defvar
-          tap-time 200
-          hold-time 200
-          left-hand-keys (
-            q  w  f  p  b
-             a  r  s  t  g
-               x  c  d  v  z
-          )
-          right-hand-keys (
-            j  l  u  y  ;  [  ]  \
-             m  n  e  i  o  '
-               k  h  ,  .  /
-          )
+          ;; Currently not used
+          ;; left-hand-keys (
+          ;;   q  w  f  p  b
+          ;;    a  r  s  t  g
+          ;;      x  c  d  v  z
+          ;; )
+          ;; right-hand-keys (
+          ;;   j  l  u  y  ;  [  ]  \
+          ;;    m  n  e  i  o  '
+          ;;      k  h  ,  .  /
+          ;; )
         )
 
         (defalias
-          cap bspc
-          ;; Map home row to modifiers
-          aM (multi f24 (tap-hold-release-keys $tap-time $hold-time a lmet $left-hand-keys))
-          sA (multi f24 (tap-hold-release-keys $tap-time $hold-time s lalt $left-hand-keys))
-          dS (multi f24 (tap-hold-release-keys $tap-time $hold-time d lsft $left-hand-keys))
-          fC (multi f24 (tap-hold-release-keys $tap-time $hold-time f lctl $left-hand-keys))
-          jC (multi f24 (tap-hold-release-keys $tap-time $hold-time j lctl $right-hand-keys))
-          kS (multi f24 (tap-hold-release-keys $tap-time $hold-time k lsft $right-hand-keys))
-          lA (multi f24 (tap-hold-release-keys $tap-time $hold-time l lalt $right-hand-keys))
-          ;M (multi f24 (tap-hold-release-keys $tap-time $hold-time ; lmet $right-hand-keys))
+          ext (layer-while-held navigation)
         )
         (deflayer (default-layer)
-          @cap @aM @sA @dS @fC   @jC @kS @lA @;M
+          tab  q   w   e   r   t   y   u   i   o   p
+          @ext  a   s   d   f   g   h   j   k   l   ;
+          lsft   z   x   c   v   b   n   m   ,   .
+                                 spc
+        )
+        ;; I use symbols cause they're not as wide as the text versions.
+        ;; See https://github.com/jtroo/kanata/blob/main/docs/fancy_symbols.md
+        (deflayer (navigation)
+          tab  _   _   _   _   _   _   _   _   _   _
+          @ext  ‹⎇  ‹❖  ‹⇧  ‹⌃  _   _   ◀   ▲   ▼   ▶
+          lsft  C-z C-x  _  C-v C-b  _   ⌫   ⌦   _
+                                enter
         )
       '';
       extraDefCfg = ''
-        process-unmapped-keys yes
+        process-unmapped-keys no
       '';
     };
   };
