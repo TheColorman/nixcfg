@@ -46,15 +46,15 @@ in {
       fonts = with pkgs; {
         # @TODO: these probably shouldn't all be the same with different names right?...
         serif = {
-          package = nerdfonts.override {fonts = ["CascadiaCode"];};
+          package = nerd-fonts.caskaydia-cove;
           name = "CaskaydiaCove Nerd Font Propo";
         };
         sansSerif = {
-          package = nerdfonts.override {fonts = ["CascadiaCode"];};
+          package = nerd-fonts.caskaydia-cove;
           name = "CaskaydiaCove Nerd Font Propo";
         };
         monospace = {
-          package = nerdfonts.override {fonts = ["CascadiaCode"];};
+          package = nerd-fonts.caskaydia-cove;
           name = "CaskaydiaCove Nerd Font";
         };
       };
