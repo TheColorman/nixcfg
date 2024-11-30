@@ -23,9 +23,9 @@ let
 in
 {
   environment.systemPackages = [
-    (script "tnix"  "sudo nixos-rebuild test ${flake} -L -vv")
-    (script "dbnix" "sudo nixos-rebuild dry-build ${flake} -L -vv")
-    (script "danix" "sudo nixos-rebuild dry-activate ${flake} -L -vv")
+    (script "tnix"  "sudo nixos-rebuild test ${flake} -L -v")
+    (script "dbnix" "sudo nixos-rebuild dry-build ${flake} -L -v")
+    (script "danix" "sudo nixos-rebuild dry-activate ${flake} -L -v")
     (script "bnix"  ''
       sudo nixos-rebuild boot ${flake}
 
