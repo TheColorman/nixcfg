@@ -14,6 +14,7 @@ in {
     profiles-plasma
     profiles-shell
     profiles-stylix
+    profiles-workspace
     profiles-yubikey
     system-boot
     system-emulation
@@ -27,7 +28,6 @@ in {
     apps-kanata
     apps-kdeconnect
     apps-kitty
-    apps-libreoffice
     apps-mpv
     apps-neovim
     apps-nix
