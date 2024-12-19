@@ -20,6 +20,7 @@ in {
     system-emulation
     system-fonts
     system-networking
+    apps-adb
     apps-btop
     apps-fcitx5
     apps-git
