@@ -528,11 +528,11 @@
         "nixvimchad": "nixvimchad"
       },
       "locked": {
-        "lastModified": 1732975329,
-        "narHash": "sha256-RexlhxUaUN61SdukgXvu/F+qpFlwXC4Va7Iv2JMhLnY=",
+        "lastModified": 1735465884,
+        "narHash": "sha256-wJ2BUMa8uK5MLVFsy6IR43Ljziq1XcL1oaa7H97UVTM=",
         "owner": "TheColorman",
         "repo": "nixvimcfg",
-        "rev": "60a3f575007578b20615f4e9230dc05aa919f0a4",
+        "rev": "94677d7287c8f5c41197e1827c8903eee08c5477",
         "type": "github"
       },
       "original": {
