@@ -22,7 +22,9 @@ my nix configs and update script
   - [ ] Allow using ctrl to skip words
 - [ ] Better ranger/kitty/tmux/vim integration
   - [ ] Enable image preview in kitty
+    - This will probably require contributins to tmux to allow kitty images to display...
   - [ ] Open files in new tmux window/pane
+- [ ] Remove nvchad from neovim config?
 
 ### toDONE
 
