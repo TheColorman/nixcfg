@@ -8,7 +8,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix = {
-      url = "github:danth/stylix?ref=release-24.05";
+      url = "github:danth/stylix?ref=release-24.11";
       inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
