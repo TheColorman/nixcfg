@@ -41,6 +41,7 @@ in {
     apps-tmux
     apps-vesktop
     apps-vscode
+    apps-waydroid
     containers-hacking
   ];
 
