@@ -58,6 +58,10 @@ in {
   ## patch the script
   systemd.services.docker-desktop-proxy.script = lib.mkForce ''${config.wsl.wslConf.automount.root}/wsl/docker-desktop/docker-desktop-user-distro proxy --docker-desktop-root ${config.wsl.wslConf.automount.root}/wsl/docker-desktop "C:\Program Files\Docker\Docker\resources"'';
 
+  home-manager.users.${username}.programs.zsh.shellAliases = {
+    docker = "/run/current-system/sw/bin/docker";
+  };
+
   users.users."${username}" = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$sD7TNPmhg9Zxso6eUqMV9/$Wa/zdt3yOxWfrY3aLlRjbajyqy/6r6oYInvjplj02O9";
