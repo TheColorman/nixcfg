@@ -28,6 +28,7 @@ in {
 
   wsl.enable = true;
   wsl.defaultUser = username;
+  wsl.docker-desktop.enable = true;
 
   users.users."${username}" = {
     isNormalUser = true;
