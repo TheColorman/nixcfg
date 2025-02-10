@@ -298,16 +298,16 @@
       "locked": {
         "lastModified": 1729880355,
         "narHash": "sha256-RP+OQ6koQQLX5nw0NmcDrzvGL8HDLnyXt/jHhL1jwjM=",
-        "ref": "nixos-unstable",
+        "owner": "nixos",
+        "repo": "nixpkgs",
         "rev": "18536bf04cd71abd345f9579158841376fdd0c5a",
-        "revCount": 696981,
-        "type": "git",
-        "url": "file:./dependencies/nixpkgs"
+        "type": "github"
       },
       "original": {
-        "ref": "nixos-unstable",
-        "type": "git",
-        "url": "file:./dependencies/nixpkgs"
+        "owner": "nixos",
+        "ref": "18536bf",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-24-05": {
