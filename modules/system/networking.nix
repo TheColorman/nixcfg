@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  systemName,
   ...
 }: {
   options.my.network.ignoreDeauth = lib.mkEnableOption "whether to ignore deauth packets";
@@ -13,7 +14,7 @@
     };
 
     networking = {
-      hostName = "framework"; # @TODO: infer this
+      hostName = systemName;
       networkmanager.enable = true;
       networkmanager.wifi.scanRandMacAddress = false;
       hosts = let

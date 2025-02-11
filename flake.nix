@@ -40,6 +40,7 @@
       framework = inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
+          systemName = "framework";
         };
         modules = [
           ./hosts/framework/configuration.nix
@@ -47,6 +48,18 @@
           nixos-hardware.nixosModules.framework-13-7040-amd
         ];
       };
+      live = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          systemName = "live";
+        };
+        modules = [
+          ./hosts/live/configuration.nix
+          home-manager.nixosModules.default
+        ];
+      };
     };
+
+    build.live = inputs.self.outputs.nixosConfigurations.live.config.system.build.images.sd-card;
   };
 }
