@@ -84,7 +84,7 @@ in {
   services.power-profiles-daemon.enable = true;
   hardware.bluetooth.enable = true;
 
-  time.timeZone = "Asia/Tokyo";
+  time.timeZone = "Europe/Copenhagen";
   i18n.defaultLocale = "en_DK.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "da_DK.UTF-8";
