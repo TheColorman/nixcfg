@@ -10,7 +10,6 @@ in {
     system-networking
     apps-btop
     apps-direnv
-    apps-fcitx5
     apps-fzf
     apps-git
     apps-gpg
