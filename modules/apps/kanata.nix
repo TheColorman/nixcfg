@@ -63,7 +63,8 @@
       '';
       extraDefCfg = ''
         process-unmapped-keys no
-        windows-algr cancel-lctl-press
+        ;; windows only i guess
+        ;; windows-algr cancel-lctl-press
       '';
     };
   };
