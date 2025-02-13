@@ -30,19 +30,13 @@
 
         (defalias
           ext (layer-while-held navigation)
-          agr (one-shot 500 (layer-while-held alt-graph))
-
-          ;; Keys
-          æ (unicode æ)
-          ø (unicode ø)
-          å (unicode å)
         )
         (deflayer (default-layer)
           grv 1   2   3   4   5   6   7   8   9   0
           tab  q   w   e   r   t   y   u   i   o   p
           @ext  a   s   d   f   g   h   j   k   l   ;
           lsft   z   x   c   v   b   n   m   ,   .
-                                 spc  @agr
+                                 spc  ⎇›
         )
         ;; I use symbols cause they're not as wide as the text versions.
         ;; See https://github.com/jtroo/kanata/blob/main/docs/fancy_symbols.md
@@ -51,14 +45,7 @@
           tab  _   _   _   _   _   _   ⇤   ⇞   ⇟   ⇥
           @ext  ‹⎇  ‹❖  ‹⇧  ‹⌃  _   _   ◀   ▲   ▼   ▶
           lsft  C-z C-x  _  C-v C-b  _   ⌫   ⌦   _
-                                enter  @agr
-        )
-        (deflayer (alt-graph)
-          grv _   _   _   _   _   _   _   _   _   _
-          tab  _   @å  _   @ø  _   _   _   _   _   _
-          @ext  _   _   _   _   _   _   _   _   _   _
-          lsft   _   _   _   _   @æ  _   _   _   _
-                                 spc  @agr
+                                enter  ⎇›
         )
       '';
       extraDefCfg = ''
