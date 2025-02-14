@@ -17,6 +17,7 @@ in {
     profiles-workspace
     profiles-yubikey
     system-boot
+    system-display
     system-emulation
     system-fonts
     system-networking
