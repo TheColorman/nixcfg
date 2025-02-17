@@ -1,9 +1,10 @@
-{ pkgs, outputs, lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   inherit (lib.meta) getExe;
   user = config.my.username;
   script = name: text: pkgs.writeShellApplication { inherit name text; };
   flakedir = "/home/${user}/nixcfg";
+  flake = "--flake ${flakedir}";
 
   gitTagScript = ''
     generation=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | grep current | awk '{print $1}')
@@ -21,18 +22,17 @@ let
   '';
 in
 {
-  imports = [ outputs.modules.apps-nh ];
   environment.systemPackages = [
-    (script "tnix"  "nh os test --verbose ${flakedir}")
-    (script "dbnix" "nh os build --dry ${flakedir}")
-    (script "danix" "nh os test --dry ${flakedir}")
+    (script "tnix"  "sudo nixos-rebuild test ${flake} -L -v")
+    (script "dbnix" "sudo nixos-rebuild dry-build ${flake} -L -v")
+    (script "danix" "sudo nixos-rebuild dry-activate ${flake} -L -v")
     (script "bnix"  ''
-      nh os boot ${flakedir}
+      sudo nixos-rebuild boot ${flake}
 
       ${gitTagScript}
     '')
     (script "snix" ''
-      nh os switch ${flakedir}
+      sudo nixos-rebuild switch ${flake}
 
       ${gitTagScript} 
     '')

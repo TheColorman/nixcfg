@@ -14,19 +14,22 @@ in {
     profiles-plasma
     profiles-shell
     profiles-stylix
+    profiles-workspace
     profiles-yubikey
     system-boot
+    system-display
     system-emulation
     system-fonts
     system-networking
+    apps-adb
     apps-btop
     apps-fcitx5
     apps-git
     apps-gpg
     apps-hashcat
+    apps-kanata
     apps-kdeconnect
     apps-kitty
-    apps-libreoffice
     apps-mpv
     apps-neovim
     apps-nix
@@ -39,6 +42,7 @@ in {
     apps-tmux
     apps-vesktop
     apps-vscode
+    apps-waydroid
     containers-hacking
   ];
 
@@ -81,7 +85,7 @@ in {
   services.power-profiles-daemon.enable = true;
   hardware.bluetooth.enable = true;
 
-  time.timeZone = "Australia/Sydney";
+  time.timeZone = "Europe/Copenhagen";
   i18n.defaultLocale = "en_DK.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "da_DK.UTF-8";

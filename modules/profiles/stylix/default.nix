@@ -3,7 +3,7 @@
 # Artist credit:
 # 2024-H1: Wallpaper Engine wallpaper (https://steamcommunity.com/sharedfiles/filedetails/?id=1288111061), by Jacket (https://steamcommunity.com/id/bloody_jacket)
 # 2024-H2: Vicky Bawangun (https://vickyb18.artstation.com/)
-# 2025-H1: nemupan (https://linktr.ee/nemupan)
+# 2025-H1: nemupan (https://linktr.ee/nemupan). Extended using Photoshop to fit my aspect ratio
 {
   lib,
   config,
@@ -14,7 +14,7 @@
   cfg = config.my.stylix;
   scfg = config.stylix;
 
-  asset = "2024-H2";
+  asset = "2025-H1";
 in {
   imports = [inputs.stylix.nixosModules.stylix];
 
@@ -46,15 +46,15 @@ in {
       fonts = with pkgs; {
         # @TODO: these probably shouldn't all be the same with different names right?...
         serif = {
-          package = nerdfonts.override {fonts = ["CascadiaCode"];};
+          package = nerd-fonts.caskaydia-cove;
           name = "CaskaydiaCove Nerd Font Propo";
         };
         sansSerif = {
-          package = nerdfonts.override {fonts = ["CascadiaCode"];};
+          package = nerd-fonts.caskaydia-cove;
           name = "CaskaydiaCove Nerd Font Propo";
         };
         monospace = {
-          package = nerdfonts.override {fonts = ["CascadiaCode"];};
+          package = nerd-fonts.caskaydia-cove;
           name = "CaskaydiaCove Nerd Font";
         };
       };
@@ -62,12 +62,12 @@ in {
         applications = 0.5;
         desktop = 0.5;
         popups = 0.7;
-        terminal = 0.4;
+        terminal = 0.6;
       };
       polarity = "dark";
     };
 
-    # @TODO: this can probably be removed now that I have home-manager "backupFileExpension"
+    # @TODO: this can probably be removed now that I have home-manager "backupFileExtension"
     system.activationScripts.fix_stylix.text = ''
       rm /home/color/.gtkrc-2.0 -f
     '';
@@ -82,6 +82,7 @@ in {
       light.configuration.stylix.polarity = lib.mkForce "light";
     };
 
+    # @TODO: This broke a while back...
     systemd.services.heliotheme = lib.mkIf cfg.heliotheme.enable {
       enable = true;
       description = "Theme polarity switcher";

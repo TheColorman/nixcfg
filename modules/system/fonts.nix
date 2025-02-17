@@ -1,8 +1,4 @@
-{ pkgs, ... }:
-let
-  nerdfont = with pkgs; (nerdfonts.override { fonts = [ "CascadiaCode" ]; });
-in
-{
-  environment.systemPackages = with pkgs; [ nerdfont ];
-  fonts.packages = with pkgs; [ nerdfont ];
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [ nerd-fonts.caskaydia-cove ];
+  fonts.packages = with pkgs; [ nerd-fonts.caskaydia-cove ];
 }

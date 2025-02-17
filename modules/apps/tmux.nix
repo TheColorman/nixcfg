@@ -9,6 +9,9 @@
       mouse = true;
       terminal = "screen-256color";
       plugins = with pkgs.tmuxPlugins; [ urlview tmux-thumbs tmux-fzf ];
+      escapeTime = 0;
+      historyLimit = 10000;
+      prefix = "M-s"; # Alt + s
       extraConfig = ''
         bind -Tcopy-mode WheelUpPane send -N1 -X scroll-up
         bind -Tcopy-mode WheelDownPane send -N1 -X scroll-down

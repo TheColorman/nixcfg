@@ -4,7 +4,6 @@ my nix configs and update script
 
 ## Layout
 
-- `dependencies/` - Flake dependencies I need locally for whatever reason, as submodules.
 - `hosts/` - Configuration for each machine.
   - `framework/` - My Framework laptop. Only host for now.
 - `modules/` - Nix [modules](https://nixos.wiki/wiki/Module) exposed as an output in `flake.nix`, which allows me to import them in host configurations or in other modules.
@@ -23,7 +22,9 @@ my nix configs and update script
   - [ ] Allow using ctrl to skip words
 - [ ] Better ranger/kitty/tmux/vim integration
   - [ ] Enable image preview in kitty
+    - This will probably require contributins to tmux to allow kitty images to display...
   - [ ] Open files in new tmux window/pane
+- [ ] Remove nvchad from neovim config?
 
 ### toDONE
 
