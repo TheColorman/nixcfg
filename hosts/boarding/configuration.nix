@@ -1,10 +1,8 @@
 # configuration.nix
 {
-  config,
   pkgs,
   outputs,
   inputs,
-  lib,
   ...
 }: let
   username = "boarder";
@@ -35,28 +33,8 @@ in {
     defaultUser = username;
     startMenuLaunchers = true;
 
-    docker-desktop.enable = true; # done manually
-
-    # extraBin = with pkgs; [
-    #   # Binaries for Docker Desktop wsl-distro-proxy
-    #   {src = "${coreutils}/bin/mkdir";}
-    #   {src = "${coreutils}/bin/cat";}
-    #   {src = "${coreutils}/bin/whoami";}
-    #   {src = "${coreutils}/bin/ls";}
-    #   {src = "${busybox}/bin/addgroup";}
-    #   {src = "${su}/bin/groupadd";}
-    #   {src = "${su}/bin/usermod";}
-    # ];
+    # docker-desktop.enable = true;
   };
-
-  # virtualisation.docker = {
-  #   enable = true;
-  #   enableOnBoot = true;
-  #   autoPrune.enable = true;
-  # };
-
-  ## patch the script
-  # systemd.services.docker-desktop-proxy.script = lib.mkForce ''${config.wsl.wslConf.automount.root}/wsl/docker-desktop/docker-desktop-user-distro proxy --docker-desktop-root ${config.wsl.wslConf.automount.root}/wsl/docker-desktop "C:\Program Files\Docker\Docker\resources"'';
 
   home-manager.users.${username}.programs.zsh.shellAliases = {
     docker = "/run/current-system/sw/bin/docker";
