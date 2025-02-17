@@ -14,6 +14,7 @@ in {
     profiles-shell
     system-fonts
     apps-btop
+    apps-docker
     apps-git
     apps-gpg
     apps-neovim
