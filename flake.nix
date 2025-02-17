@@ -4,15 +4,15 @@
   inputs = {
     # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs?ref=18536bf";
-    nixpkgs-24-05.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-boarder.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager-24-05.url = "github:nix-community/home-manager/release-24.05";
-    home-manager-24-05.inputs.nixpkgs.follows = "nixpkgs-24-05";
+    home-manager-boarder.url = "github:nix-community/home-manager/release-24.11";
+    home-manager-boarder.inputs.nixpkgs.follows = "nixpkgs-boarder";
 
     stylix = {
-      url = "github:danth/stylix?ref=release-24.05";
+      url = "github:danth/stylix?ref=release-24.11";
       inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -26,12 +26,12 @@
     };
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs-24-05";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs-boarder";
   };
 
   outputs = {
     home-manager,
-    home-manager-24-05,
+    home-manager-boarder,
     nixos-hardware,
     ...
   } @ inputs: let
@@ -53,15 +53,15 @@
         ];
       };
 
-      boarding = inputs.nixpkgs-24-05.lib.nixosSystem {
+      boarding = inputs.nixpkgs-boarder.lib.nixosSystem {
         specialArgs = let
           # @TODO: This is goofy as hell, needs to be refactored.
           # Figure out how to get profels/common to import preferred modules.
           boardingInputs =
             (builtins.removeAttrs inputs ["nixpkgs" "home-manager"])
             // {
-              nixpkgs = inputs.nixpkgs-24-05;
-              home-manager = inputs.home-manager-24-05;
+              nixpkgs = inputs.nixpkgs-boarder;
+              home-manager = inputs.home-manager-boarder;
             };
         in {
           inherit outputs;
@@ -69,7 +69,7 @@
         };
         modules = [
           ./hosts/boarding/configuration.nix
-          home-manager-24-05.nixosModules.default
+          home-manager-boarder.nixosModules.default
         ];
       };
     };
