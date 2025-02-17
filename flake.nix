@@ -51,7 +51,7 @@
         ];
       };
 
-      boarding = inputs.nixpkgs-boarder.lib.nixosSystem {
+      boarding = inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
         };
