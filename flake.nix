@@ -3,12 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-boarder.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager-boarder.url = "github:nix-community/home-manager/release-24.11";
-    home-manager-boarder.inputs.nixpkgs.follows = "nixpkgs-boarder";
 
     stylix = {
       url = "github:danth/stylix?ref=release-24.11";
@@ -25,14 +22,13 @@
     };
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs-boarder";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nixvimcfg.url = "github:TheColorman/nixvimcfg";
     nixvimcfg.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
     home-manager,
-    home-manager-boarder,
     nixos-hardware,
     ...
   } @ inputs: let
@@ -56,22 +52,12 @@
       };
 
       boarding = inputs.nixpkgs-boarder.lib.nixosSystem {
-        specialArgs = let
-          # @TODO: This is goofy as hell, needs to be refactored.
-          # Figure out how to get profels/common to import preferred modules.
-          boardingInputs =
-            (builtins.removeAttrs inputs ["nixpkgs" "home-manager"])
-            // {
-              nixpkgs = inputs.nixpkgs-boarder;
-              home-manager = inputs.home-manager-boarder;
-            };
-        in {
-          inherit outputs;
-          inputs = boardingInputs;
+        specialArgs = {
+          inherit inputs outputs;
         };
         modules = [
           ./hosts/boarding/configuration.nix
-          home-manager-boarder.nixosModules.default
+          home-manager.nixosModules.default
         ];
       };
 
