@@ -20,6 +20,7 @@ in {
     apps-neovim
     apps-nix
     apps-oh-my-posh
+    apps-tmux
     apps-vscode-server
   ];
 
