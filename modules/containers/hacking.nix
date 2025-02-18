@@ -26,8 +26,10 @@ in
     hostAddress6 = "fc00::1";
     localAddress6 = "fc00::2";
     specialArgs = { inherit inputs outputs; };
-    config = { lib, config, pkgs, outputs, ... }:
-      {
+    config = { lib, pkgs, outputs, ... }:
+      let
+        pwndbg = inputs.pwndbg.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      in {
         imports = with outputs.modules; [
           profiles-common
           apps-git
@@ -44,14 +46,13 @@ in
 
         home-manager.users."${guestUsername}".home.stateVersion = lib.mkForce "24.05";
 
-        system.stateVersion = " 24.05 ";
+        system.stateVersion = "24.05";
 
         users.users."${guestUsername}" = {
           isNormalUser = true;
           hashedPassword = "$y$j9T$VlePY7lc3CERuhGFmd1Tx1$24kMEO2sZA.fSplgA0FHQmFR.Q6S6ly8CLMGFzysKy0"; # TODO: make this a secret
           extraGroups = [ "networkmanager" "wheel" ];
           packages = with pkgs; [
-            pwndbg
             firefox
             burpsuite
             python312Full
@@ -65,7 +66,7 @@ in
             ffuf
             binwalk
             exiftool
-          ];
+          ] ++ [ pwndbg ];
           uid = 1000;
         };
         environment = {
