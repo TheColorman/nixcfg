@@ -42,7 +42,7 @@
         ;; See https://github.com/jtroo/kanata/blob/main/docs/fancy_symbols.md
         (deflayer (navigation)
           grv _   _   _   _   _   _   _   _   _   _
-          tab  _   _   _   _   _   _   ⇤   ⇞   ⇟   ⇥
+          tab  ⎋   _   _   _   _   _   ⇤   ⇞   ⇟   ⇥
           @ext  ‹⎇  ‹❖  ‹⇧  ‹⌃  _   _   ◀   ▲   ▼   ▶
           lsft  C-z C-x  _  C-v C-b  _   ⌫   ⌦   _
                                 enter  ⎇›
