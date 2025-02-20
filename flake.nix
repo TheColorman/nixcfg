@@ -4,7 +4,7 @@
   inputs = {
     # == Important modules ==
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/3d9b0a86d74e9dc3a85ed8d2abcef3ab0940c69d";
+    nixpkgs.url = "github:nixos/nixpkgs/5df43628fdf08d642be8ba5b3625a6c70731c19c";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
