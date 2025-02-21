@@ -23,6 +23,7 @@ in {
     system-networking
     apps-adb
     apps-btop
+    apps-docker
     apps-fcitx5
     apps-git
     apps-gpg
