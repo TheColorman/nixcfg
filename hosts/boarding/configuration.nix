@@ -55,7 +55,6 @@ in {
       ripgrep
       alejandra
       nixd
-      dotnet-sdk_8
     ];
   };
 
