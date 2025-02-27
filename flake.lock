@@ -608,11 +608,11 @@
         "nixvimchad": "nixvimchad"
       },
       "locked": {
-        "lastModified": 1740579413,
-        "narHash": "sha256-SU+ClgPJk1XCS4QBYEosZZps3zvMQ7MBOGJ6dv+Pk3Y=",
+        "lastModified": 1740651286,
+        "narHash": "sha256-6PYWqyrh+bHaXGQVYOl3o0aRE6tL+nrHkv4s5iWI6wY=",
         "owner": "TheColorman",
         "repo": "nixvimcfg",
-        "rev": "87000d31246c7d0133ba2ef2cb0aa16bd9fe121f",
+        "rev": "ddaaa51bc8958e0fd0c31d78ded972f3fe0dd970",
         "type": "github"
       },
       "original": {
