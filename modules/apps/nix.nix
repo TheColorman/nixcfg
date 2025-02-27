@@ -7,7 +7,8 @@ let
   flake = "--flake ${flakedir}";
 
   gitTagScript = ''
-    generation=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | grep current | awk '{print $1}')
+    fake_generation=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | grep current | awk '{print $1}')
+    generation=$((fake_generation + 323)) # i accidentally reset my generation number :(
     echo "Built generation $generation."
     read -r -p "Create git tag? [Y/n]: " choice
 
