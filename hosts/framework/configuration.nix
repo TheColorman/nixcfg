@@ -55,6 +55,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [fprintd];
+  environment.etc.hosts.mode = "0644"; # Make hosts file writable
   users.users."${username}" = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.color_passwd.path;
