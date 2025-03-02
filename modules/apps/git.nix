@@ -38,7 +38,7 @@ in {
         };
         merge.conflictstyle = "zdiff3";
         column.ui = "auto";
-        branch.sort = "-comitterdate";
+        branch.sort = "-committerdate";
         tag.sort = "version:refname";
         init.defaultBranch = "main";
         fetch = {
