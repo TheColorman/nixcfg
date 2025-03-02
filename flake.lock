@@ -604,11 +604,11 @@
         "nixvimchad": "nixvimchad"
       },
       "locked": {
-        "lastModified": 1740919748,
-        "narHash": "sha256-BSet9GC7C/thTMaX9vR0aue5F4Egl7VVHGnV9OeHc1g=",
+        "lastModified": 1740929508,
+        "narHash": "sha256-9xUgFEPrxeS+JG7v2O+up1eQuIH9I5FD/qqgQ/wo0HI=",
         "owner": "TheColorman",
         "repo": "nixvimcfg",
-        "rev": "1084b1f38355116f504fdc3bb44e8a8b46f027b1",
+        "rev": "366a7bed2e78c73dd31221fbef6e0ccf5b6662f3",
         "type": "github"
       },
       "original": {
