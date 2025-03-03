@@ -5,10 +5,10 @@
   ...
 }: let
   user = config.my.username;
-  nvim = inputs.nixvimcfg.packages.${pkgs.system}.default;
+  nvim = inputs.nvfcfg.packages.${pkgs.system}.default;
 in {
   home-manager.users.${user} = {
-    home.packages = [ pkgs.nixd nvim ];
+    home.packages = [ nvim ];
     home.sessionVariables.EDITOR = "nvim";
   };
 }

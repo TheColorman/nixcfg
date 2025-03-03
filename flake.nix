@@ -24,9 +24,9 @@
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
     # == Packages only provided as flake ==
-    # My nixvim config
-    nixvimcfg.url = "github:TheColorman/nixvimcfg";
-    nixvimcfg.inputs.nixpkgs.follows = "nixpkgs";
+    # My nvf config
+    nvfcfg.url = "github:TheColorman/nvfcfg";
+    nvfcfg.inputs.nixpkgs.follows = "nixpkgs";
     # Binary debugger
     pwndbg.url = "github:pwndbg/pwndbg?ref=dev";
     pwndbg.inputs.nixpkgs.follows = "nixpkgs";
