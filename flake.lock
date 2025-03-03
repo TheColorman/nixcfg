@@ -482,11 +482,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1741038390,
-        "narHash": "sha256-iUWYgWVNweiQLNN326MuOcSh6CvQai6eglHSvkaC+S0=",
+        "lastModified": 1741039403,
+        "narHash": "sha256-Hea4fEFWz9rwHzIW6sD58zEUJPqIoW6hMKH0xN5PGsE=",
         "owner": "TheColorman",
         "repo": "nvfcfg",
-        "rev": "0b092a39a7f75888e47e2f5a3fabb5dd21410f40",
+        "rev": "da541f55aa332b0910dbd12290791f9f16cd00df",
         "type": "github"
       },
       "original": {
