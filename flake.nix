@@ -6,30 +6,43 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/8bb37161a0488b89830168b81c48aed11569cb93";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # == Add-ons ==
-    # Theming
-    stylix.url = "github:danth/stylix?ref=release-24.11";
-    stylix.inputs.home-manager.follows = "home-manager";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    stylix = {
+      # Theming
+      url = "github:danth/stylix?ref=release-24.11";
+      inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Secrets
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    nix-secrets.url = "git+ssh://git@github.com/TheColorman/nix-secrets?shallow=1";
-    nix-secrets.flake = false;
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-secrets = {
+      url = "git+ssh://git@github.com/TheColorman/nix-secrets?shallow=1";
+      flake = false;
+    };
     # WSL
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
-
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # == Packages only provided as flake ==
     # My nvf config
-    nvfcfg.url = "github:TheColorman/nvfcfg";
-    nvfcfg.inputs.nixpkgs.follows = "nixpkgs";
+    nvfcfg = {
+      url = "github:TheColorman/nvfcfg";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Binary debugger
-    pwndbg.url = "github:pwndbg/pwndbg?ref=dev";
-    pwndbg.inputs.nixpkgs.follows = "nixpkgs";
+    pwndbg = {
+      url = "github:pwndbg/pwndbg?ref=dev";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -37,10 +50,10 @@
     nixos-hardware,
     ...
   } @ inputs: let
-    outputs = inputs.self.outputs;
+    inherit (inputs.self) outputs;
   in {
     modules = import ./modules {
-      lib = inputs.nixpkgs.lib;
+      inherit (inputs.nixpkgs) lib;
     };
 
     nixosConfigurations = {
