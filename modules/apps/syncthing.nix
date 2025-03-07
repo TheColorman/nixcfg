@@ -1,48 +1,53 @@
-{ pkgs, config, ... }:
-let
-  user = config.my.username;
-in
 {
+  pkgs,
+  config,
+  inputs,
+  ...
+}: let
+  user = config.my.username;
+  secrets = (import "${inputs.nix-secrets}/evaluation-secrets.nix").syncthing.devices;
+in {
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
     settings.devices = {
-      "colordesktop" = {
-        addresses = [ "dynamic" ];
-        id = "MCFUD3B-ZCXDBVJ-H243LXH-V3N6CEK-IT6PW6E-2EMYKH2-FURKLOT-546OQAQ";
+      colordesktop = {
+        inherit (secrets.colordesktop) id;
+        addresses = ["dynamic"];
       };
-      "colorcloud" = {
+      colorcloud = {
+        inherit (secrets.colorcloud) id;
         addresses = [
           "tcp://192.168.50.222:20978"
           "tcp://192.168.50.222:20979"
           "quic://192.168.50.222:20978"
           "quic://192.168.50.222:20979"
         ];
-        id = "HRE2PWX-SNH52Z7-4YWWZRK-GX5IJ5V-SNYBZOY-P4NHNWC-TDBV5ZY-MKZLKA7";
       };
-      "colorphone" = {
-        addresses = [ "dynamic" ];
-        id = "FUHS52Q-W6FORIW-OP4737B-RI5FP4Z-KCHL3U6-C2CF7HG-OKMQAU6-AJJYOA3";
+
+      colorphone = {
+        inherit (secrets.colorphone) id;
+        addresses = ["dynamic"];
       };
     };
     settings.folders = {
       brain = {
-        devices = [ "colordesktop" "colorcloud" "colorphone" ];
+        devices = ["colordesktop" "colorcloud" "colorphone"];
         id = "yedar-6vrrr";
         path = "/home/${user}/brain";
       };
       CTF = {
-        devices = [ "colordesktop" "colorcloud" ];
+        devices = ["colordesktop" "colorcloud"];
         id = "dh6gy-zxqu6";
         path = "/home/${user}/CTF";
       };
       ITU = {
-        devices = [ "colordesktop" "colorcloud" ];
+        devices = ["colordesktop" "colorcloud"];
         id = "yc39s-4wtgc";
         path = "/home/${user}/ITU";
       };
       Documents = {
-        devices = [ "colordesktop" "colorcloud" "colorphone" ];
+        devices = ["colordesktop" "colorcloud" "colorphone"];
         id = "wt32c-t7rkv";
         path = "/home/${user}/Documents";
       };
@@ -76,5 +81,5 @@ in
 
     $setfacl -m u:syncthing:--x /home/${user}
   '';
-  environment.systemPackages = with pkgs; [ syncthing ];
+  environment.systemPackages = with pkgs; [syncthing];
 }
