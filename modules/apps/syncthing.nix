@@ -11,10 +11,6 @@ in {
     enable = true;
     openDefaultPorts = true;
     settings.devices = {
-      colordesktop = {
-        inherit (secrets.colordesktop) id;
-        addresses = ["dynamic"];
-      };
       colorcloud = {
         inherit (secrets.colorcloud) id;
         addresses = [
@@ -25,29 +21,29 @@ in {
         ];
       };
 
-      colorphone = {
-        inherit (secrets.colorphone) id;
+      colorpixel = {
+        inherit (secrets.colorpixel) id;
         addresses = ["dynamic"];
       };
     };
     settings.folders = {
       brain = {
-        devices = ["colordesktop" "colorcloud" "colorphone"];
+        devices = ["colorcloud" "colorpixel"];
         id = "yedar-6vrrr";
         path = "/home/${user}/brain";
       };
       CTF = {
-        devices = ["colordesktop" "colorcloud"];
+        devices = ["colorcloud"];
         id = "dh6gy-zxqu6";
         path = "/home/${user}/CTF";
       };
       ITU = {
-        devices = ["colordesktop" "colorcloud"];
+        devices = ["colorcloud"];
         id = "yc39s-4wtgc";
         path = "/home/${user}/ITU";
       };
       Documents = {
-        devices = ["colordesktop" "colorcloud" "colorphone"];
+        devices = ["colorcloud" "colorpixel"];
         id = "wt32c-t7rkv";
         path = "/home/${user}/Documents";
       };
