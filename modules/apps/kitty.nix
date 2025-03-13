@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-let
+{
+  lib,
+  config,
+  ...
+}: let
   tmuxEnabled = config.home-manager.users."${config.my.username}".programs.tmux.enable;
   zshEnabled = config.home-manager.users."${config.my.username}".programs.zsh.enable;
-in
-{
+in {
   home-manager.users."${config.my.username}" = {
     programs.kitty = {
       enable = true;
@@ -22,6 +24,7 @@ in
         startup_session = lib.optionalString tmuxEnabled "launch.conf";
         background_blur = 1;
         hide_window_decorations = true;
+        cursor_trail = 3;
       };
     };
 
