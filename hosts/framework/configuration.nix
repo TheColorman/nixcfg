@@ -80,11 +80,11 @@ in {
       nextcloud-client
     ];
   };
-
-  services.fwupd.enable = true;
-  services.fprintd.enable = true;
-  services.input-remapper.enable = true; # @TODO get this shit to start on login or smthn
-  services.power-profiles-daemon.enable = true;
+  services = {
+    fwupd.enable = true;
+    fprintd.enable = true;
+    power-profiles-daemon.enable = true;
+  };
   hardware.bluetooth.enable = true;
 
   time.timeZone = "Europe/Copenhagen";
