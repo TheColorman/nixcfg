@@ -1,12 +1,16 @@
-{ lib, config, pkgs, ... }:
-let
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
   inherit (lib) concatStringsSep;
   inherit (lib.meta) getExe;
 
-  username = config.my.username;
-  fzf = config.home-manager.users.${username}.programs.fzf;
-  zoxide = config.home-manager.users.${username}.programs.zoxide;
-  direnv = config.home-manager.users.${username}.programs.direnv;
+  inherit (config.my) username;
+  inherit (config.home-manager.users.${username}.programs) fzf;
+  inherit (config.home-manager.users.${username}.programs) zoxide;
+  inherit (config.home-manager.users.${username}.programs) direnv;
 
   # https://github.com/nix-community/home-manager/blob/086f619dd991a4d355c07837448244029fc2d9ab/modules/programs/fzf.nix#L211
   fzfIntegration = ''
@@ -18,8 +22,7 @@ let
   zoxideIntegration = "eval \"$(${zoxide.package}/bin/zoxide init zsh ${concatStringsSep " " zoxide.options})\"";
   # https://github.com/nix-community/home-manager/blob/086f619dd991a4d355c07837448244029fc2d9ab/modules/programs/direnv.nix#L122
   direnvIntegration = "eval \"$(${getExe direnv.package} hook zsh)\"";
-in
-{
+in {
   # Set as login shell
   programs.zsh.enable = true;
   users.users.${username}.shell = pkgs.zsh;
@@ -42,7 +45,7 @@ in
       source "''${ZINIT_HOME}/zinit.zsh"
 
       # @TODO: Should do this declaratively eventually, but that requires basically creating a zinit home-manager module from scratch.
-      zinit light Aloxaf/fzf-tab 
+      zinit light Aloxaf/fzf-tab
 
       # === keybinds === #
       bindkey '^y' autosuggest-accept
@@ -60,13 +63,25 @@ in
       # attributes called "enableZshIntegration", that when enabled, should add
       # their init commands to initExtra of zsh. They don't seem to get added,
       # so I do it here manually.
-      ${if fzf.enable then fzfIntegration else ""}
-      ${if zoxide.enable then zoxideIntegration else ""} 
-      ${if direnv.enable then direnvIntegration else ""}
+      ${
+        if fzf.enable
+        then fzfIntegration
+        else ""
+      }
+      ${
+        if zoxide.enable
+        then zoxideIntegration
+        else ""
+      }
+      ${
+        if direnv.enable
+        then direnvIntegration
+        else ""
+      }
     '';
     syntaxHighlighting = {
       enable = true;
-      highlighters = [ "main" "brackets" ];
+      highlighters = ["main" "brackets"];
     };
     shellAliases = {
       nixos-diff = "nix profile diff-closures --profile /nix/var/nix/profiles/system";

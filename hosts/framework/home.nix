@@ -1,5 +1,5 @@
-{ outputs, ... }: {
-  imports = [ outputs.homeManagerModules.default ];
+{outputs, ...}: {
+  imports = [outputs.homeManagerModules.default];
 
   home = {
     username = "color";

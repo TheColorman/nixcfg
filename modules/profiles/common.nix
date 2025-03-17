@@ -5,7 +5,7 @@
   config,
   ...
 }: let
-  username = config.my.username;
+  inherit (config.my) username;
 in {
   imports = [inputs.home-manager.nixosModules.default];
 
@@ -40,7 +40,7 @@ in {
 
       extraSpecialArgs = {
         inherit inputs;
-        outputs = inputs.self.outputs;
+        inherit (inputs.self) outputs;
       };
       users."${username}" = {
         programs.home-manager.enable = true;
