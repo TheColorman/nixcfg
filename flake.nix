@@ -3,8 +3,7 @@
 
   inputs = {
     # == Important modules ==
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/8bb37161a0488b89830168b81c48aed11569cb93";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager = {
       url = "github:nix-community/home-manager";
