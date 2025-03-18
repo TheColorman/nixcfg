@@ -9,9 +9,4 @@
     {src = lib.getExe' pkgs.coreutils "readlink";}
     {src = lib.getExe' pkgs.coreutils "uname";}
   ];
-
-  programs.nix-ld = {
-    enable = true;
-    package = pkgs.nix-ld-rs; # only for NixOS 24.05
-  };
 }
