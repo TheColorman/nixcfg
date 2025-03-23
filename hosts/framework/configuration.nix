@@ -20,6 +20,7 @@ in {
     system-display
     system-emulation
     system-fonts
+    system-nas_mounts
     system-networking
     apps-adb
     apps-btop
