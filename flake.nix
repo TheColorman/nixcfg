@@ -3,10 +3,10 @@
 
   inputs = {
     # == Important modules ==
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -28,14 +28,15 @@
     };
     # WSL
     nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL/main";
+      url = "github:nix-community/NixOS-WSL?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # == Packages only provided as flake ==
     # My nvf config
     nvfcfg = {
       url = "github:TheColorman/nvfcfg";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # NOTE: Seems to have gotten some issues with new nixpkgs?
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     # Binary debugger
     pwndbg = {
