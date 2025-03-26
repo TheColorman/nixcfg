@@ -1,5 +1,8 @@
-{ config, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   user = config.my.username;
 in {
   # Multiple modules rely on apps-gpg, so it is instead imported in host
@@ -72,6 +75,9 @@ in {
     gh = {
       enable = true;
       settings.git_protocol = "ssh";
+      extensions = with pkgs; [
+        gh-copilot
+      ];
     };
   };
 }
