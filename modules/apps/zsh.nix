@@ -39,41 +39,46 @@ in {
       ignoreSpace = true;
     };
     initExtra = ''
-      # === Zinit setup === #
-      ZINIT_HOME="${pkgs.zinit}/share/zinit"
+      # === Nix helpers === #
+      function nxrun() {
+      	nix run "nixpkgs#$@"
+      }
 
-      source "''${ZINIT_HOME}/zinit.zsh"
+         # === Zinit setup === #
+         ZINIT_HOME="${pkgs.zinit}/share/zinit"
 
-      # @TODO: Should do this declaratively eventually, but that requires basically creating a zinit home-manager module from scratch.
-      zinit light Aloxaf/fzf-tab
+         source "''${ZINIT_HOME}/zinit.zsh"
 
-      # === keybinds === #
-      bindkey '^y' autosuggest-accept
-      bindkey '^e' history-search-backward
-      bindkey '^i' history-search-forward
+         # @TODO: Should do this declaratively eventually, but that requires basically creating a zinit home-manager module from scratch.
+         zinit light Aloxaf/fzf-tab
 
-      # === Completion styling === #
-      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-      zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
-      zstyle ':completion:*' menu no
-      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+         # === keybinds === #
+         bindkey '^y' autosuggest-accept
+         bindkey '^e' history-search-backward
+         bindkey '^i' history-search-forward
 
-      # === Shell integrations === #
-      # Not sure why I have to do this. Integrations like zoxide and fzf have
-      # attributes called "enableZshIntegration", that when enabled, should add
-      # their init commands to initExtra of zsh. They don't seem to get added,
-      # so I do it here manually.
-      ${
+         # === Completion styling === #
+         zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+         zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+         zstyle ':completion:*' menu no
+         zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
+         # === Shell integrations === #
+         # Not sure why I have to do this. Integrations like zoxide and fzf have
+         # attributes called "enableZshIntegration", that when enabled, should add
+         # their init commands to initExtra of zsh. They don't seem to get added,
+         # so I do it here manually.
+         ${
         if fzf.enable
         then fzfIntegration
         else ""
       }
-      ${
+         ${
         if zoxide.enable
         then zoxideIntegration
         else ""
       }
-      ${
+         ${
         if direnv.enable
         then direnvIntegration
         else ""
