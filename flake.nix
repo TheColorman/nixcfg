@@ -36,7 +36,7 @@
     nvfcfg = {
       url = "github:TheColorman/nvfcfg";
       # NOTE: Seems to have gotten some issues with new nixpkgs?
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # Binary debugger
     pwndbg = {
