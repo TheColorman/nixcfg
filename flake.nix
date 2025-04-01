@@ -33,11 +33,8 @@
     };
     # == Packages only provided as flake ==
     # My nvf config
-    nvfcfg = {
-      url = "github:TheColorman/nvfcfg";
-      # NOTE: Seems to have gotten some issues with new nixpkgs?
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nvfcfg.url = "github:TheColorman/nvfcfg";
+
     # Binary debugger
     pwndbg = {
       url = "github:pwndbg/pwndbg?ref=dev";
