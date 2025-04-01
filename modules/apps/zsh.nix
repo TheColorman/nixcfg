@@ -39,46 +39,52 @@ in {
       ignoreSpace = true;
     };
     initExtra = ''
-      # === Nix helpers === #
+      # === Helpers === #
       function nxrun() {
       	nix run "nixpkgs#$@"
       }
 
-         # === Zinit setup === #
-         ZINIT_HOME="${pkgs.zinit}/share/zinit"
+      genpasswd() {
+        local l=$1
+        [[ -z "$l" ]] && l=16
+        tr -dc 'A-Za-z0-9_' < /dev/urandom | head -c ''${l}
+        echo
+      }
+      # === Zinit setup === #
+      ZINIT_HOME="${pkgs.zinit}/share/zinit"
 
-         source "''${ZINIT_HOME}/zinit.zsh"
+      source "''${ZINIT_HOME}/zinit.zsh"
 
-         # @TODO: Should do this declaratively eventually, but that requires basically creating a zinit home-manager module from scratch.
-         zinit light Aloxaf/fzf-tab
+      # @TODO: Should do this declaratively eventually, but that requires basically creating a zinit home-manager module from scratch.
+      zinit light Aloxaf/fzf-tab
 
-         # === keybinds === #
-         bindkey '^y' autosuggest-accept
-         bindkey '^e' history-search-backward
-         bindkey '^i' history-search-forward
+      # === keybinds === #
+      bindkey '^y' autosuggest-accept
+      bindkey '^e' history-search-backward
+      bindkey '^i' history-search-forward
 
-         # === Completion styling === #
-         zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-         zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
-         zstyle ':completion:*' menu no
-         zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+      # === Completion styling === #
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+      zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+      zstyle ':completion:*' menu no
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
-         # === Shell integrations === #
-         # Not sure why I have to do this. Integrations like zoxide and fzf have
-         # attributes called "enableZshIntegration", that when enabled, should add
-         # their init commands to initExtra of zsh. They don't seem to get added,
-         # so I do it here manually.
-         ${
+      # === Shell integrations === #
+      # Not sure why I have to do this. Integrations like zoxide and fzf have
+      # attributes called "enableZshIntegration", that when enabled, should add
+      # their init commands to initExtra of zsh. They don't seem to get added,
+      # so I do it here manually.
+      ${
         if fzf.enable
         then fzfIntegration
         else ""
       }
-         ${
+      ${
         if zoxide.enable
         then zoxideIntegration
         else ""
       }
-         ${
+      ${
         if direnv.enable
         then direnvIntegration
         else ""
