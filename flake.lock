@@ -452,14 +452,15 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs_2",
-        "nvf": "nvf"
+        "nvf": "nvf",
+        "unstable": "unstable"
       },
       "locked": {
-        "lastModified": 1743496330,
-        "narHash": "sha256-C4BlD+OW0FMRlmby3saZm+4FwYk4Q0WBWKKtct22ZFw=",
+        "lastModified": 1743718237,
+        "narHash": "sha256-bvv1wYNr++0avcrim7cEdLzDV/lrvh61lsBOe/JlN+c=",
         "owner": "TheColorman",
         "repo": "nvfcfg",
-        "rev": "adfaa005a12e675a0c3ba5b9f204004d9539ac23",
+        "rev": "97361816ab2a22685c0e34a897227cf8f126e618",
         "type": "github"
       },
       "original": {
@@ -727,6 +728,22 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "tinted-tmux",
+        "type": "github"
+      }
+    },
+    "unstable": {
+      "locked": {
+        "lastModified": 1743583204,
+        "narHash": "sha256-F7n4+KOIfWrwoQjXrL2wD9RhFYLs2/GGe/MQY1sSdlE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "2c8d3f48d33929642c1c12cd243df4cc7d2ce434",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
