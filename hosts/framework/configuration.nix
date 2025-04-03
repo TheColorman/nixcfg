@@ -41,7 +41,6 @@ in {
     apps-sops
     apps-syncthing
     apps-tailscale
-    apps-tmux
     apps-vesktop
     apps-vscode
     apps-waydroid
