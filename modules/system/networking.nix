@@ -30,5 +30,7 @@
         ignore_deauth=1
       '';
     };
+
+    services.resolved.enable = true;
   };
 }
