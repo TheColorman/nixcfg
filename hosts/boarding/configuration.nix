@@ -47,7 +47,7 @@ in {
   users.users."${username}" = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$sD7TNPmhg9Zxso6eUqMV9/$Wa/zdt3yOxWfrY3aLlRjbajyqy/6r6oYInvjplj02O9";
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "dialout"];
     packages = with pkgs; [
       fastfetch
       ranger
@@ -62,7 +62,6 @@ in {
 
   security.pki.certificates = [
     ''
-      gitlab
       -----BEGIN CERTIFICATE-----
       MIID8jCCAtqgAwIBAgIQf2rfdCbPbYNBD8XjcvfnYzANBgkqhkiG9w0BAQsFADBs
       MRMwEQYKCZImiZPyLGQBGRYDY29tMR8wHQYKCZImiZPyLGQBGRYPdXh2dGVjaG5v
@@ -89,7 +88,6 @@ in {
       -----END CERTIFICATE-----
     ''
     ''
-      newunifi
       -----BEGIN CERTIFICATE-----
       MIIFrzCCA5egAwIBAgIQTFiWIIeJd6FO4uAMsU5TzjANBgkqhkiG9w0BAQ0FADBe
       MRMwEQYKCZImiZPyLGQBGRYDY29tMR8wHQYKCZImiZPyLGQBGRYPdXh2dGVjaG5v
@@ -125,7 +123,6 @@ in {
       -----END CERTIFICATE-----
     ''
     ''
-      oldunifi
       -----BEGIN CERTIFICATE-----
       MIIDkDCCAzagAwIBAgIQSlhoa8F4+RwSjvAHRy3vlzAKBggqhkjOPQQDAjA7MQsw
       CQYDVQQGEwJVUzEeMBwGA1UEChMVR29vZ2xlIFRydXN0IFNlcnZpY2VzMQwwCgYD
@@ -150,7 +147,6 @@ in {
       -----END CERTIFICATE-----
     ''
     ''
-      guh
       -----BEGIN CERTIFICATE-----
       MIIDjzCCAzagAwIBAgIQb6Zwj0sVUYcQseNz8Ao8JzAKBggqhkjOPQQDAjA7MQsw
       CQYDVQQGEwJVUzEeMBwGA1UEChMVR29vZ2xlIFRydXN0IFNlcnZpY2VzMQwwCgYD
