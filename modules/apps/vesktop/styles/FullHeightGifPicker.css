@@ -1,6 +1,5 @@
 /* Vencord CSS Snippet: https://discord.com/channels/1015060230222131221/1028106818368589824/1233977145076875275 */
 
-[class^="positionContainer_"] {
-  height: calc(100vh - 180px);
+.visual-refresh [class^="positionContainer_"] {
+	height: calc(100vh - 180px);
 }
-
