@@ -42,6 +42,7 @@ in {
     apps-syncthing
     apps-tailscale
     apps-vesktop
+    apps-vmware
     apps-vscode
     apps-waydroid
     containers-hacking
