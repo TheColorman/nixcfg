@@ -77,6 +77,7 @@ in {
       nixpkgs-fmt
       ripgrep
       cachix
+      jq
     ];
   };
   services = {
