@@ -456,11 +456,11 @@
         "unstable": "unstable"
       },
       "locked": {
-        "lastModified": 1744111561,
-        "narHash": "sha256-03f4VWPb3WMAi1cvFbXbFQUNEPK4bLQMcd5iEtY1Ni8=",
+        "lastModified": 1745400596,
+        "narHash": "sha256-6a7nghgpeyBefBaJlvTXBrwyHGqCd5+NWxJnXLNdpAA=",
         "owner": "TheColorman",
         "repo": "nvfcfg",
-        "rev": "aeb151115db068c36e47c5022638c075a8b9f672",
+        "rev": "5864a0573a6d3e886b57640e3ef620ecc6a1813b",
         "type": "github"
       },
       "original": {
