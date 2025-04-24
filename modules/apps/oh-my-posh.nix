@@ -100,7 +100,7 @@ in {
       enableFishIntegration = false;
       enableNushellIntegration = false;
     };
-    programs.zsh.initExtra = ''
+    programs.zsh.initContent = ''
       eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${poshFile})"
     '';
   };

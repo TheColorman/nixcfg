@@ -38,7 +38,7 @@ in {
       ignoreAllDups = true;
       ignoreSpace = true;
     };
-    initExtra = ''
+    initContent = ''
       # === Helpers === #
       function nxrun() {
       	nix run "nixpkgs#$@"

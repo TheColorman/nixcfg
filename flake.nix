@@ -13,7 +13,7 @@
     # == Add-ons ==
     stylix = {
       # Theming
-      url = "github:danth/stylix?ref=release-24.11";
+      url = "github:danth/stylix/master";
       inputs.home-manager.follows = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
