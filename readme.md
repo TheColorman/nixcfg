@@ -1,4 +1,6 @@
 # Nix config
+![hours spent last 30 days](https://waka.colorman.me/api/badge/colorman/interval:30_days/project:nixcfg?label=last%2030d)
+
 
 my nix configs and update script
 
