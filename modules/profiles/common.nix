@@ -2,6 +2,7 @@
 {
   lib,
   inputs,
+  pkgs,
   config,
   ...
 }: let
@@ -25,7 +26,10 @@ in {
     };
 
     # Allow execution of dynamic binaries
-    programs.nix-ld.enable = true;
+    programs.nix-ld = {
+      enable = true;
+      libraries = with pkgs; [libsecret];
+    };
     nixpkgs.config.allowUnfree = true;
 
     # Dynamic symlinks in /bin, useful for shebangs
