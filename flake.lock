@@ -501,11 +501,11 @@
         "unstable": "unstable"
       },
       "locked": {
-        "lastModified": 1745400596,
-        "narHash": "sha256-6a7nghgpeyBefBaJlvTXBrwyHGqCd5+NWxJnXLNdpAA=",
+        "lastModified": 1745629567,
+        "narHash": "sha256-jSRFBizUgMcmu3F33M2dIp/911vrqASmZ11xpUBL8zM=",
         "owner": "TheColorman",
         "repo": "nvfcfg",
-        "rev": "5864a0573a6d3e886b57640e3ef620ecc6a1813b",
+        "rev": "d37343ce218406b60f70ec0072f4a01968e94c0d",
         "type": "github"
       },
       "original": {
