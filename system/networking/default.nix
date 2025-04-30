@@ -9,7 +9,7 @@
   config = {
     nixpkgs.config.packageOverrides = pkgs: {
       wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (oldAttrs: {
-        patches = (oldAttrs.patches or []) ++ [../patches/eduroam.patch];
+        patches = (oldAttrs.patches or []) ++ [./eduroam.patch];
       });
     };
 
@@ -26,8 +26,8 @@
       nameservers = ["192.168.50.58" "1.1.1.1"];
 
       # bitches trying to deauth me n shit
-      wireless.extraConfig = lib.optionalString config.my.network.ignoreDeauth ''
-        ignore_deauth=1
+      wireless.extraConfig = ''
+        ignore_deauth=${builtins.toString config.my.network.ignoreDeauth}
       '';
     };
 

@@ -1,5 +1,4 @@
-{ lib }:
-let
+{lib}: let
   inherit (builtins) readDir;
   inherit (lib.attrsets) mapAttrsToList filterAttrs mapAttrs' nameValuePair;
   inherit (lib.lists) flatten foldl';
@@ -9,20 +8,21 @@ let
   # { dir-subdir-module.nix = "/path/to/dir/subdir/module.nix"; ... }
   recursiveFileSearch = path: friendlyPrefix:
     flatten (mapAttrsToList
-      (fname: type:
-        let
-          filepath = "${path}/${fname}";
-        in
+      (fname: type: let
+        filepath = "${path}/${fname}";
+      in
         if type == "regular"
-        then { "${friendlyPrefix}${fname}" = filepath; }
-        else recursiveFileSearch (filepath) ("${friendlyPrefix}${fname}-"))
+        then {"${friendlyPrefix}${fname}" = filepath;}
+        else recursiveFileSearch filepath "${friendlyPrefix}${fname}-")
       (readDir path));
-  files = foldl' (acc: x: acc // x) { } (recursiveFileSearch ./. "");
+  files = foldl' (acc: x: acc // x) {} (recursiveFileSearch ./.. "");
   nixFiles = filterAttrs (name: _value: hasSuffix ".nix" name) files;
-  modules = mapAttrs'
-    (name: value:
-      nameValuePair (removeSuffix "-default" (removeSuffix ".nix" name)) (import value)
+  modules =
+    mapAttrs'
+    (
+      name: value:
+        nameValuePair (removeSuffix "-default" (removeSuffix ".nix" name)) (import value)
     )
     nixFiles;
 in
-modules
+  modules

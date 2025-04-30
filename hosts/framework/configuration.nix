@@ -9,42 +9,41 @@
 in {
   imports = with outputs.modules; [
     ./hardware-configuration.nix
-    profiles-common
-    profiles-gaming
-    profiles-plasma
-    profiles-shell
-    profiles-stylix
-    profiles-workspace
-    profiles-yubikey
-    system-boot
-    system-display
-    system-emulation
-    system-fonts
-    system-nas_mounts
-    system-networking
-    apps-adb
+    common
+    apps-gaming
+    apps-office
     apps-btop
-    apps-docker
-    apps-fcitx5
     apps-git
-    apps-gpg
     apps-hashcat
-    apps-kanata
-    apps-kdeconnect
     apps-kitty
     apps-mpv
     apps-neovim
     apps-nix
-    apps-oh-my-posh
-    apps-openfortivpn
-    apps-safeeyes
-    apps-sops
-    apps-syncthing
-    apps-tailscale
     apps-vesktop
     apps-vscode
     apps-waydroid
-    containers-hacking
+    services-yubikey
+    services-docker
+    services-fcitx5
+    services-gpg
+    services-kanata
+    services-kdeconnect
+    services-openfortivpn
+    services-safeeyes
+    services-sops
+    services-syncthing
+    services-tailscale
+    system-desktop-plasma
+    system-boot
+    system-display
+    system-fonts
+    system-networking
+    utils-shell
+    utils-stylix
+    utils-emulation
+    utils-nas_mounts
+    utils-adb
+    utils-shell-oh-my-posh
   ];
 
   my.username = username;

@@ -1,10 +1,13 @@
-{ pkgs, outputs, ... }:
 {
-  imports = [ outputs.modules.profiles-xserver ];
+  pkgs,
+  outputs,
+  ...
+}: {
+  imports = [outputs.modules.system-desktop-xserver];
 
   services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
-  environment.systemPackages = with pkgs; [ kdePackages.kwallet-pam ];
+  environment.systemPackages = with pkgs; [kdePackages.kwallet-pam];
 
   # basic graphic
   hardware.graphics = {

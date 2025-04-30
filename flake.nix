@@ -49,7 +49,7 @@
   } @ inputs: let
     inherit (inputs.self) outputs;
   in {
-    modules = import ./modules {
+    modules = import ./lib {
       inherit (inputs.nixpkgs) lib;
     };
 

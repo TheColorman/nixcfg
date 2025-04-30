@@ -7,21 +7,22 @@
   username = "boarder";
 in {
   imports = with outputs.modules; [
+    common
+
     inputs.nixos-wsl.nixosModules.default
 
-    profiles-common
-    profiles-shell
-    system-fonts
     apps-btop
-    apps-docker
     apps-git
-    apps-gpg
     apps-neovim
     apps-nix
-    apps-oh-my-posh
-    apps-sops
-    apps-tmux
-    apps-vscode-server
+    services-docker
+    services-gpg
+    services-sops
+    services-vscode-server
+    system-fonts
+    utils--shell
+    utils-shell-oh-my-posh
+    utils-tmux
   ];
 
   my.username = username;
@@ -30,6 +31,7 @@ in {
   wsl = {
     enable = true;
     wslConf = {
+      # @TODO: Broken
       automount.root = "/mnt";
       interop.appendWindowsPath = false;
       network.generateHosts = false;

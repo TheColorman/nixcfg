@@ -1,30 +1,35 @@
-{ outputs, pkgs, config, ... }: let
+{
+  outputs,
+  pkgs,
+  config,
+  ...
+}: let
   user = "color";
 in {
   imports = with outputs.modules; [
-    profiles-common
-    profiles-shell
-    profiles-stylix
-    system-emulation
+    common
+    apps-btop
+    apps-git
+    apps-neovim
+    services-gpg
+    services-kanata
+    services-sops
+    services-tailscale
     system-fonts
     system-networking
-    apps-btop
-    apps-direnv
-    apps-fzf
-    apps-git
-    apps-gpg
-    apps-kanata
-    apps-neovim
-    apps-oh-my-posh
-    apps-sops
-    apps-tailscale
-    apps-tmux
+    utils-shell
+    utils-stylix
+    utils-emulation
+    utils-direnv
+    utils-fzf
+    utils-shell-oh-my-posh
+    utils-tmux
   ];
 
   my.username = user;
 
-  nixpkgs.hostPlatform = { system = "x86_64-linux"; };
-  
+  nixpkgs.hostPlatform = {system = "x86_64-linux";};
+
   users.users.${user} = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.color_passwd.path;

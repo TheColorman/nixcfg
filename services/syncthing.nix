@@ -5,14 +5,14 @@
   ...
 }: let
   user = config.my.username;
-  secrets = (import "${inputs.nix-secrets}/evaluation-secrets.nix").syncthing.devices;
+  inherit ((import "${inputs.nix-secrets}/evaluation-secrets.nix").syncthing) devices;
 in {
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
     settings.devices = {
       colorcloud = {
-        inherit (secrets.colorcloud) id;
+        inherit (devices.colorcloud) id;
         addresses = [
           "tcp://192.168.50.222:20978"
           "tcp://192.168.50.222:20979"
@@ -22,7 +22,7 @@ in {
       };
 
       colorpixel = {
-        inherit (secrets.colorpixel) id;
+        inherit (devices.colorpixel) id;
         addresses = ["dynamic"];
       };
     };
