@@ -19,8 +19,7 @@ in {
     services-gpg
     services-sops
     services-vscode-server
-    system-fonts
-    utils--shell
+    utils-shell
     utils-shell-oh-my-posh
     utils-tmux
   ];

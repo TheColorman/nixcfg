@@ -36,7 +36,6 @@ in {
     system-desktop-plasma
     system-boot
     system-display
-    system-fonts
     system-networking
     utils-shell
     utils-stylix

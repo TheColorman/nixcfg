@@ -15,7 +15,6 @@ in {
     services-kanata
     services-sops
     services-tailscale
-    system-fonts
     system-networking
     utils-shell
     utils-stylix
