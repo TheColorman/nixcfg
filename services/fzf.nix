@@ -1,5 +1,5 @@
-{ config, ... }: let
-  username = config.my.username;
+{config, ...}: let
+  inherit (config.my) username;
   isEnabled = pkg: config.home-manager.users.${username}.programs.${pkg}.enable;
   zshEnabled = isEnabled "zsh";
   tmuxEnabled = isEnabled "tmux";

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ vmware-workstation ];
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [vmware-workstation];
   virtualisation.vmware.host.enable = true;
 }

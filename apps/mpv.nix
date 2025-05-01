@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
-let
-  username = config.my.username;
-in
 {
+  config,
+  pkgs,
+  ...
+}: let
+  inherit (config.my) username;
+in {
   home-manager.users."${username}" = {
     programs.mpv = {
       enable = true;

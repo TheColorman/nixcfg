@@ -1,11 +1,11 @@
-{ config, ... }: let
-  username = config.my.username;
-  zshEnabled = config.home-manager.users.${username}.programs.zsh.enable;
+{config, ...}: let
+  inherit (config.my) username;
+  inherit (config.home-manager.users.${username}.programs) zsh;
 in {
-  home-manager.users.${username}.programs.direnv = {
+  home-manager.users."${username}".programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
 
-    enableZshIntegration = zshEnabled;
+    enableZshIntegration = zsh.enable;
   };
 }

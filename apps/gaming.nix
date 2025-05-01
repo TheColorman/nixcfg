@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs = {
     steam = {
       enable = true;
@@ -12,7 +16,7 @@
     programs.mangohud.enable = true;
     home = {
       sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-      packages = with pkgs; [ protonup ];
+      packages = with pkgs; [protonup];
     };
   };
 }

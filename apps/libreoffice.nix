@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
-  fonts.packages = with pkgs; [ carlito ];
-  environment.systemPackages = with pkgs; [ libreoffice ];
+{pkgs, ...}: {
+  fonts.packages = with pkgs; [carlito];
+  environment.systemPackages = with pkgs; [libreoffice];
 }

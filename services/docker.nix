@@ -1,7 +1,7 @@
-{ config, ... }: let
-  user = config.my.username;
+{config, ...}: let
+  inherit (config.my) username;
 in {
   virtualisation.docker.enable = true;
 
-  users.users."${user}".extraGroups = [ "docker" ];
+  users.users."${username}".extraGroups = ["docker"];
 }

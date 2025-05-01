@@ -6,11 +6,11 @@
   ...
 }: let
   inherit (lib) getExe;
+  inherit (config.my) username;
 
-  user = config.my.username;
   nvim = inputs.nvfcfg.packages.${pkgs.system}.default;
 in {
-  home-manager.users.${user} = {
+  home-manager.users.${username} = {
     home.packages = [nvim];
     home.sessionVariables = {
       EDITOR = "nvim";

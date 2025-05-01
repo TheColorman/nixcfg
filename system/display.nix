@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   nixpkgs.overlays = [
     (final: prev: {
       displaylink = prev.displaylink.overrideAttrs {
@@ -11,6 +11,5 @@
     })
   ];
 
-
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" "fbdev" ];
+  services.xserver.videoDrivers = ["displaylink" "modesetting" "fbdev"];
 }

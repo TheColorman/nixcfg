@@ -1,12 +1,8 @@
 {
-  lib,
   config,
   pkgs,
-  options,
   ...
 }: let
-  zshEnabled = config.home-manager.users."${config.my.username}".programs.zsh.enable;
-
   poshConfig = ''
     #:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 

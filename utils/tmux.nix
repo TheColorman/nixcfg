@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home-manager.users."${config.my.username}" = {
     programs.tmux = {
       enable = true;
@@ -8,7 +11,7 @@
       keyMode = "vi";
       mouse = true;
       terminal = "screen-256color";
-      plugins = with pkgs.tmuxPlugins; [ urlview tmux-thumbs tmux-fzf ];
+      plugins = with pkgs.tmuxPlugins; [urlview tmux-thumbs tmux-fzf];
       escapeTime = 0;
       historyLimit = 10000;
       prefix = "M-s"; # Alt + s

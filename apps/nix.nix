@@ -1,9 +1,14 @@
-{ pkgs, lib, config, ... }:
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   inherit (lib.meta) getExe;
-  user = config.my.username;
-  script = name: text: pkgs.writeShellApplication { inherit name text; };
-  flakedir = "/home/${user}/nixcfg";
+  inherit (config.my) username;
+
+  script = name: text: pkgs.writeShellApplication {inherit name text;};
+  flakedir = "/home/${username}/nixcfg";
   flake = "--flake ${flakedir}";
 
   gitTagScript = ''
@@ -21,13 +26,12 @@ let
       popd > /dev/null
     fi
   '';
-in
-{
+in {
   environment.systemPackages = [
-    (script "tnix"  "sudo nixos-rebuild test ${flake} -L -v")
+    (script "tnix" "sudo nixos-rebuild test ${flake} -L -v")
     (script "dbnix" "sudo nixos-rebuild dry-build ${flake} -L -v")
     (script "danix" "sudo nixos-rebuild dry-activate ${flake} -L -v")
-    (script "bnix"  ''
+    (script "bnix" ''
       sudo nixos-rebuild boot ${flake}
 
       ${gitTagScript}
@@ -35,7 +39,7 @@ in
     (script "snix" ''
       sudo nixos-rebuild switch ${flake}
 
-      ${gitTagScript} 
+      ${gitTagScript}
     '')
   ];
 }

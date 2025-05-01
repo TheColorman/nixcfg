@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   services.xserver.enable = true;
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -18,7 +18,6 @@
     pulse.enable = true;
   };
   console.useXkbConfig = true;
-
 
   # 32-bit application support
   hardware.graphics.enable32Bit = true;

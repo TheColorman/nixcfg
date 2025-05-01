@@ -5,8 +5,8 @@
 }: let
   inherit (lib) mkIf;
 
-  tmuxEnabled = config.home-manager.users.${config.my.username}.programs.tmux.enable;
-  zshEnabled = config.home-manager.users.${config.my.username}.programs.zsh.enable;
+  inherit (config.home-manager.users.${config.my.username}.programs) tmux;
+  inherit (config.home-manager.users.${config.my.username}.programs) zsh;
 in {
   home-manager.users."${config.my.username}" = {
     programs.kitty = {
@@ -25,15 +25,16 @@ in {
         "ctrl+c" = "copy_or_interrupt";
       };
 
-      shellIntegration.enableZshIntegration = zshEnabled;
+      shellIntegration.enableZshIntegration = zsh.enable;
+
+      startup_session = mkIf tmux.enable "launch.conf";
     };
 
     # Auto start tmux in kitty, with new sessions that share windows
-    xdg.configFile = mkIf tmuxEnabled {
+    xdg.configFile = mkIf tmux.enable {
       "kitty/launch.conf".text = ''
         launch sh -c "tmux new -t main" -2
       '';
     };
-    programs.kitty.settings.startup_session = mkIf tmuxEnabled "launch.conf";
   };
 }

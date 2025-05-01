@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
 {
+  pkgs,
+  config,
+  ...
+}: {
   # This module requires importing apps-sops in configuration.nix to work.
   # See https://github.com/NixOS/nix/issues/7270
   # imports = with outputs.modules; [ apps-sops ];
@@ -14,5 +17,5 @@
     ];
     useRoutingFeatures = "client";
   };
-  environment.systemPackages = with pkgs; [ tailscale ];
+  environment.systemPackages = with pkgs; [tailscale];
 }
