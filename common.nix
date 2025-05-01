@@ -35,7 +35,13 @@ in {
       # from trying to fetch the newest nixpkgs revision every time I try do
       # `nix run nixpkgs#` or `nix shell nixpkgs#`.
       registry = {
-        nixpkgs.flake = inputs.nixpkgs;
+        nixpkgs = {
+          from = {
+            id = "nixpkgs";
+            type = "indirect";
+          };
+          flake = inputs.nixpkgs;
+        };
         nur.to = {
           owner = "nix-community";
           repo = "nur";

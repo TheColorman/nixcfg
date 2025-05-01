@@ -24,9 +24,9 @@ in {
   options.my.vesktop = {
     smol =
       mkEnableOption
-      "Enable to collapse the channel and member list, expanding the available"
-      + " chat space. WARNING: Doesn't currently do anything, as the css that"
-      + " makes this possible has been lost...";
+      ("Enable to collapse the channel and member list, expanding the available"
+        + " chat space. WARNING: Doesn't currently do anything, as the css that"
+        + " makes this possible has been lost...");
   };
 
   config = {

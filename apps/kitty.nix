@@ -19,6 +19,8 @@ in {
         background_blur = 1;
         hide_window_decorations = true;
         cursor_trail = 3;
+
+        startup_session = mkIf tmux.enable "launch.conf";
       };
 
       keybindings = {
@@ -26,8 +28,6 @@ in {
       };
 
       shellIntegration.enableZshIntegration = zsh.enable;
-
-      startup_session = mkIf tmux.enable "launch.conf";
     };
 
     # Auto start tmux in kitty, with new sessions that share windows
