@@ -48,5 +48,10 @@ in {
     stylix.enable = true;
   };
 
+  # idk man
+  system.activationScripts.fix_stylix.text = ''
+    rm /home/color/.gtkrc-2.0 -f
+  '';
+
   specialisation.light.configuration.stylix.polarity = lib.mkForce "light";
 }
