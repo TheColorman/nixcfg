@@ -46,11 +46,6 @@ in {
   ];
 
   my.username = username;
-  my.stylix.heliotheme = {
-    enable = true;
-    latitude = "-33.8582504248224";
-    longitude = "151.21476416121257";
-  };
 
   environment.systemPackages = with pkgs; [fprintd];
   environment.etc.hosts.mode = "0644"; # Make hosts file writable
