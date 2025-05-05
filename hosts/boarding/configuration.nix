@@ -58,6 +58,7 @@ in {
       ripgrep
       alejandra
       nixd
+      jujutsu
     ];
   };
 
