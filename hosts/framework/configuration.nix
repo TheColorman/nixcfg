@@ -15,6 +15,7 @@ in {
     apps-btop
     apps-git
     apps-hashcat
+    apps-jujutsu
     apps-kitty
     apps-mpv
     apps-neovim

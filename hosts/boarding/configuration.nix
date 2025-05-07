@@ -13,6 +13,7 @@ in {
 
     apps-btop
     apps-git
+    apps-jujutsu
     apps-neovim
     apps-nix
     services-docker
@@ -58,7 +59,6 @@ in {
       ripgrep
       alejandra
       nixd
-      jujutsu
     ];
   };
 
