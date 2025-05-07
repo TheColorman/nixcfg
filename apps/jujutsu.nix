@@ -31,6 +31,7 @@ in {
           if ((stringLength editor) != 0)
           then editor
           else "pico";
+        movement.edit = true;
       };
       signing = {
         behavior = "drop";
