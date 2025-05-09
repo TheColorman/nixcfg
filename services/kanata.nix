@@ -36,11 +36,18 @@
         (defalias
           ext (layer-while-held navigation)
           deflt (layer-switch default-layer)
-          ralt (multi (one-shot 500 (layer-while-held right-alt))
-                                    (one-shot 500 ralt))
+          altgr (one-shot 500 (layer-while-held alt-graph))
+          sftgr (layer-while-held alt-graph-shift)
           qwerty (layer-switch qwerty)
           numpad (layer-switch numpad)
 
+          ;; Special keys
+          æ (unicode æ)
+          ø (unicode ø)
+          å (unicode å)
+          Æ (unicode Æ)
+          Ø (unicode Ø)
+          Å (unicode Å)
         )
         (deflayer (default-layer)
           esc
@@ -48,15 +55,23 @@
           tab  q   w   f   p   b   j   l   u   y   ;
           @ext  a   r   s   t   g   m   n   e   i   o
           lsft   x   c   d   v   z   k   h   ,   .   ⁄
-          lctl       ‹⎇           spc          @ralt
+          lctl       ‹⎇           spc          @altgr
         )
-        (deflayer (right-alt)
-         _
+        (deflayer (alt-graph)
+          _
         	_   _   _   _   _   _   _   _   _   _   _
-        	_    _   _   _   _   _   _   _   _   _   _
+        	_    _   @å  _   @ø  _   _   _   _   _   _
         	@ext  _   _   _   _   _   _   _   _   _   _
-        	_      _   _   _   _   _   _   _   _   _   _
-        	@qwerty    _             _           @ralt
+        	@sftgr _   _   _   _   @æ  _   _   _   _   _
+        	@qwerty    _             _           @altgr
+        )
+        (deflayer (alt-graph-shift)
+          _
+        	_   _   _   _   _   _   _   _   _   _   _
+        	_    _   @Å  _   @Ø  _   _   _   _   _   _
+        	@ext  _   _   _   _   _   _   _   _   _   _
+        	_      _   _   _   _   @Æ  _   _   _   _   _
+        	_          _             _           @altgr
         )
         (deflayer (navigation)
           caps
