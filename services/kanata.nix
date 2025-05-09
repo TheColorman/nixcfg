@@ -8,6 +8,7 @@
         ;; https://github.com/mhantsch/maxtend/blob/main/kanata/colemax-maxtend.kbd
         ;; https://github.com/DreymaR/BigBagKbdTrixPKL
         (defsrc
+          esc
           grv 1  2  3  4  5  6  7  8  9  0
           tab  q  w  e  r  t  y  u  i  o  p
           caps  a  s  d  f  g  h  j  k  l  ;
@@ -42,6 +43,7 @@
 
         )
         (deflayer (default-layer)
+          esc
           grv 1   2   3   4   5   6   7   8   9   0
           tab  q   w   f   p   b   j   l   u   y   ;
           @ext  a   r   s   t   g   m   n   e   i   o
@@ -49,6 +51,7 @@
           lctl       ‹⎇           spc          @ralt
         )
         (deflayer (right-alt)
+         _
         	_   _   _   _   _   _   _   _   _   _   _
         	_    _   _   _   _   _   _   _   _   _   _
         	@ext  _   _   _   _   _   _   _   _   _   _
@@ -56,6 +59,7 @@
         	@qwerty    _             _           @ralt
         )
         (deflayer (navigation)
+          caps
           grv _   _   _   _   _   _   _   _   _   _
           tab  ⎋   _   _   _   _   _   ⇤   ⇞   ⇟   ⇥
           @ext  ‹⎇  ‹❖  ‹⇧  ‹⌃  _   _   ◀   ▲   ▼   ▶
@@ -65,6 +69,7 @@
         ;; Since OS already uses colemak-dh, this is essentially a reverse
         ;; mapping back to qwerty
         (deflayer (qwerty)
+          esc
           grv 1  2  3  4  5  6  7  8  9  0
           tab  q  w  e  r  t  y  u  i  o  p
           caps  a  s  d  f  g  h  j  k  l  ;
@@ -72,6 +77,7 @@
           lctl     ‹⎇        spc     @deflt
         )
         (deflayer (numpad)
+          esc
           grv _   _   _   _   _   _   _   _   kp/ kp*
           tab  _   _   _   _   _   _   7   8   9   kp-
           @ext  _   _   _   _   _   _   4   5   6   kp+
