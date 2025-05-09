@@ -48,7 +48,7 @@ in {
 
   my.username = username;
 
-  environment.systemPackages = with pkgs; [fprintd];
+  environment.systemPackages = with pkgs; [fprintd wl-clipboard];
   environment.etc.hosts.mode = "0644"; # Make hosts file writable
   users.users."${username}" = {
     isNormalUser = true;
