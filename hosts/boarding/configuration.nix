@@ -24,8 +24,10 @@ in {
     utils-shell-oh-my-posh
     utils-tmux
   ];
-
-  my.username = username;
+  my = {
+    inherit username;
+    stateVersion = "24.05";
+  };
   networking.hostName = "boarding";
 
   wsl = {
@@ -81,5 +83,4 @@ in {
   };
 
   nixpkgs.hostPlatform = "x86_64-linux";
-  system.stateVersion = "24.05";
 }

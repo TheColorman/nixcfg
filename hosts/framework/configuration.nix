@@ -47,7 +47,10 @@ in {
     utils-shell-oh-my-posh
   ];
 
-  my.username = username;
+  my = {
+    inherit username;
+    stateVersion = "23.11";
+  };
 
   environment.systemPackages = with pkgs; [fprintd wl-clipboard];
   environment.etc.hosts.mode = "0644"; # Make hosts file writable
@@ -99,6 +102,4 @@ in {
 
   # @TODO: do I really need this? Did I add it for hotspots? Do hotspots need ipv4 forwarding? too scared to turn it off...
   boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = true;
-
-  system.stateVersion = "23.11";
 }

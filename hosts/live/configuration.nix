@@ -25,7 +25,10 @@ in {
     utils-tmux
   ];
 
-  my.username = user;
+  my = {
+    username = user;
+    stateVersion = "25.05";
+  };
 
   nixpkgs.hostPlatform = {system = "x86_64-linux";};
 
@@ -60,6 +63,4 @@ in {
     LC_TELEPHONE = "da_DK.UTF-8";
     LC_TIME = "da_DK.UTF-8";
   };
-
-  system.stateVersion = "25.05";
 }

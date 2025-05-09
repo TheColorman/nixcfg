@@ -6,18 +6,24 @@
   config,
   ...
 }: let
-  inherit (config.my) username;
+  cfg = config.my;
 in {
   imports = [inputs.home-manager.nixosModules.default];
 
-  options.my.username = lib.mkOption {
-    default = "color";
-    description = ''
-      Username used for home-manager configuration.
-      It's used in custom modules to allow them to be imported by any user.
-      This module is used as a dependency of any module that requires
-      home-manager.
-    '';
+  options.my = {
+    username = lib.mkOption {
+      default = "color";
+      description = ''
+        Username used for home-manager configuration.
+        It's used in custom modules to allow them to be imported by any user.
+        This module is used as a dependency of any module that requires
+        home-manager.
+      '';
+    };
+    stateVersion = lib.mkOption {
+      type = lib.types.str;
+      description = "System and home-manager state version";
+    };
   };
 
   config = {
@@ -27,7 +33,7 @@ in {
         # flakes
         experimental-features = ["nix-command" "flakes"];
         # allow main user to trust binary caches among other things
-        trusted-users = ["root" username];
+        trusted-users = ["root" cfg.username];
       };
 
       # A flake registry is a repository that contains a nix flake. This
@@ -73,14 +79,14 @@ in {
         inherit inputs;
         inherit (inputs.self) outputs;
       };
-      users."${username}" = {
+      users."${cfg.username}" = {
         programs.home-manager.enable = true;
         home = {
-          inherit username;
-          homeDirectory = "/home/${username}";
-          stateVersion = "23.11";
+          inherit (cfg) username stateVersion;
+          homeDirectory = "/home/${cfg.username}";
         };
       };
     };
+    system.stateVersion = cfg.stateVersion;
   };
 }
