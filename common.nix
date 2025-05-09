@@ -14,11 +14,14 @@ in {
     default = "color";
     description = ''
       Username used for home-manager configuration.
-      It's used in custom modules to allow them to be imported by any user. This module is used as a dependency of any module that requires home-manager.
+      It's used in custom modules to allow them to be imported by any user.
+      This module is used as a dependency of any module that requires
+      home-manager.
     '';
   };
 
   config = {
+    nixpkgs.config.allowUnfree = true;
     nix = {
       settings = {
         # flakes
@@ -49,19 +52,16 @@ in {
         };
       };
     };
-
     # Allow execution of dynamic binaries
     programs.nix-ld = {
       enable = true;
       libraries = with pkgs; [libsecret];
     };
-    nixpkgs.config.allowUnfree = true;
 
-    # Dynamic symlinks in /bin, useful for shebangs
-    services.envfs.enable = true;
+    services.envfs.enable = true; # /bin symlinks for shebangs
+    hardware.graphics.enable32Bit = true; # 32-bit application support
 
     users.mutableUsers = false;
-
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
