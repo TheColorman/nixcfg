@@ -98,9 +98,7 @@ in {
   };
 
   # @TODO: do I really need this? Did I add it for hotspots? Do hotspots need ipv4 forwarding? too scared to turn it off...
-  boot.kernel.sysctl = {
-    "net.ipv4.conf.all.forwarding" = true;
-  };
+  boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = true;
 
   system.stateVersion = "23.11";
 }
