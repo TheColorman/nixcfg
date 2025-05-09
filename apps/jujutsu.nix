@@ -26,7 +26,6 @@ in {
       '';
       ui = {
         log-word-wrap = true;
-        paginate = "never";
         editor =
           if ((stringLength editor) != 0)
           then editor
