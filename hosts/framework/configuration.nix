@@ -25,7 +25,6 @@ in {
     apps-waydroid
     services-yubikey
     services-docker
-    services-fcitx5
     services-gpg
     services-kanata
     services-kdeconnect
@@ -35,7 +34,7 @@ in {
     services-syncthing
     services-tailscale
     system-audio
-    system-desktop-plasma
+    system-desktop-hyprland
     system-boot
     system-display
     system-networking
@@ -50,6 +49,12 @@ in {
   my = {
     inherit username;
     stateVersion = "23.11";
+
+    hyprland.extraMonitorSettings = [
+      "eDP-1,   2256x1504,     0x0, auto"
+      "DVI-I-1, 1920x1200, -1920x0, auto"
+      "DVI-I-2, 1920x1200, -3840x0, auto"
+    ];
   };
 
   environment.systemPackages = with pkgs; [fprintd wl-clipboard];
