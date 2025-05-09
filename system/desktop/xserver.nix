@@ -1,13 +1,7 @@
 {
-  services = {
-    xserver = {
-      enable = true;
-      xkb.layout = "us";
-    };
-
-    # Enable CUPS to print documents.
-    printing.enable = true;
+  services.xserver = {
+    enable = true;
+    xkb.layout = "us";
   };
-
   console.useXkbConfig = true;
 }
