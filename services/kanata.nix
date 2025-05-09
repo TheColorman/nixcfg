@@ -39,7 +39,7 @@
           altgr (one-shot 500 (layer-while-held alt-graph))
           sftgr (layer-while-held alt-graph-shift)
           qwerty (layer-switch qwerty)
-          numpad (layer-switch numpad)
+          numpad (layer-while-held numpad)
 
           ;; Special keys
           æ (unicode æ)
