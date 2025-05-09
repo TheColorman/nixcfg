@@ -1,22 +1,22 @@
-{...}: {
-  services.xserver.enable = true;
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak_dh";
-  };
+{
+  services = {
+    xserver = {
+      enable = true;
+      xkb.layout = "us";
+    };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+    # Enable CUPS to print documents.
+    printing.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+  };
 
   # Enable sound with pipewire.
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
   console.useXkbConfig = true;
 
   # 32-bit application support
