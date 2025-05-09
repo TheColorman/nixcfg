@@ -500,11 +500,11 @@
         "unstable": "unstable"
       },
       "locked": {
-        "lastModified": 1746433574,
-        "narHash": "sha256-sL+EjmPwru3DllffAEtskmjRm1SO8fCHe5BaWyIXVfI=",
+        "lastModified": 1746823845,
+        "narHash": "sha256-JjZGpJsb2eapoyTalz7MioA3DxP26jTB9HYbX5YjC8Q=",
         "owner": "TheColorman",
         "repo": "nvfcfg",
-        "rev": "b2c45f3bf6549b07b2baa2f09ccd1e1ad8514c79",
+        "rev": "b9a8c6e2f6e8db355c2bf6204bb9476e3851017c",
         "type": "github"
       },
       "original": {
