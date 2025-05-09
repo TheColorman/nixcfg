@@ -34,6 +34,7 @@ in {
     services-sops
     services-syncthing
     services-tailscale
+    system-audio
     system-desktop-plasma
     system-boot
     system-display
