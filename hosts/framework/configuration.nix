@@ -51,7 +51,7 @@ in {
     stateVersion = "23.11";
 
     hyprland.extraMonitorSettings = [
-      "eDP-1,   2256x1504,     0x0, auto"
+      "eDP-1,   2256x1504,     0x0, 1.333333"
       "DVI-I-1, 1920x1200, -1920x0, auto"
       "DVI-I-2, 1920x1200, -3840x0, auto"
     ];

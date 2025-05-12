@@ -24,6 +24,10 @@ in {
       withUWSM = true;
     };
 
+    environment.variables = {
+      NIXOS_OZONE_WL = 1;
+    };
+
     home-manager.users."${username}" = {
       home.packages = with pkgs; [
         hyprpicker
@@ -32,8 +36,10 @@ in {
         cliphist
         brightnessctl
       ];
+      services.hyprpaper.enable = true;
       wayland.windowManager.hyprland = {
         enable = true;
+        systemd.enable = false; # Conflicts with uwsm
         settings = let
           term = "kitty";
           fileManager = "dolphin";
@@ -132,7 +138,7 @@ in {
           input = {
             kb_layout = "us";
             follow_mouse = 1;
-            touchpad.natural_scroll = false;
+            touchpad.natural_scroll = true;
             repeat_rate = 55;
             repeat_delay = 225;
           };
@@ -227,7 +233,6 @@ in {
           ];
         };
       };
-      services.hyprpaper.enable = true;
     };
   };
 }
