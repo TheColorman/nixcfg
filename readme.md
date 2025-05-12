@@ -7,7 +7,7 @@ system configurations for all my machines
 ## Layout
 
 - `hosts/` - Configuration for each machine.
-  - `framework/` - My Framework laptop.
+  - `archer/` - My Framework laptop.
   - `boarding/` - WSL.
   - `live/` - WIP live bootable ISO.
 - `lib/` - Reusable Nix functions.

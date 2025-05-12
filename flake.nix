@@ -54,13 +54,13 @@
     };
 
     nixosConfigurations = {
-      framework = inputs.nixpkgs.lib.nixosSystem {
+      archer = inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
-          systemName = "framework";
+          systemName = "archer";
         };
         modules = [
-          ./hosts/framework/configuration.nix
+          ./hosts/archer/configuration.nix
           home-manager.nixosModules.default
           nixos-hardware.nixosModules.framework-13-7040-amd
         ];
