@@ -33,12 +33,8 @@ in {
       # === Autostart ===
       exec-once = let
         waybar = getExe pkgs.waybar;
-        cliphist = getExe pkgs.cliphist;
-        wl-paste = "${pkgs.wl-clipboard}/bin/wl-paste";
       in [
         "${uwsm} ${waybar}"
-        "${uwsm} ${wl-paste} --watch ${cliphist} --max-items 25 store"
-        "${uwsm} ${cliphist}"
       ];
 
       # === Look and feel ===
@@ -129,6 +125,10 @@ in {
         hyprpicker = getExe pkgs.hyprpicker;
         vesktop = getExe pkgs.vesktop;
         firefox = getExe pkgs.firefox;
+        cliphist = getExe pkgs.cliphist;
+        wofi = getExe pkgs.wofi;
+        ifne = "${pkgs.moreutils}/bin/ifne";
+        wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
       in [
         "${mod}, T, exec, ${uwsm} ${term}"
         "${mod} ALT, T, exec, [float; size 50%] ${uwsm} ${term}"
@@ -144,6 +144,7 @@ in {
         "${mod}, J, togglesplit,"
         "${mod} SHIFT, S, exec, ${uwsm} ${hyprshot} --clipboard-only -m region"
         "${mod} SHIFT, C, exec, ${uwsm} ${hyprpicker} --autocopy"
+        "${mod}, V, exec, ${uwsm} ${cliphist} list | ${wofi} -d | ${cliphist} decode | ${ifne} ${wl-copy}"
 
         # Applications
         "${mod} SHIFT, D, exec, ${uwsm} ${vesktop}"
@@ -195,15 +196,12 @@ in {
 
       bindel = let
         wpctl = "${pkgs.wireplumber}/bin/wpctl";
-        brightnessctl = getExe pkgs.brightnessctl;
       in [
         # Laptop multimedia keys for volume and LCD brightness
         ",XF86AudioRaiseVolume, exec, ${uwsm} ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, ${uwsm} ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 6%-"
         ",XF86AudioMute, exec, ${uwsm} ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, ${uwsm} ${wpctl} set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ",XF86MonBrightnessUp, exec, ${uwsm} ${brightnessctl} s 10%+"
-        ",XF86MonBrightnessDown, exec, ${uwsm} ${brightnessctl} s 10%-"
       ];
 
       bindl = let
@@ -253,6 +251,10 @@ in {
         hyprpolkitagent.enable = true;
         mako.enable = true;
         network-manager-applet.enable = true;
+        cliphist = {
+          enable = true;
+          allowImages = true;
+        };
       };
     };
   };
