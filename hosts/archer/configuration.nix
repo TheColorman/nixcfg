@@ -65,11 +65,9 @@ in {
     description = "color";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      google-chrome
       obsidian
       fastfetch
       wireguard-tools
-      firefox
       unzip
       p7zip
       ranger
@@ -81,6 +79,7 @@ in {
       ripgrep
       cachix
       jq
+      floorp
     ];
   };
   services = {

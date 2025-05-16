@@ -124,7 +124,7 @@ in {
         hyprshot = getExe pkgs.hyprshot;
         hyprpicker = getExe pkgs.hyprpicker;
         vesktop = getExe pkgs.vesktop;
-        firefox = getExe pkgs.firefox;
+        browser = getExe pkgs.floorp;
         cliphist = getExe pkgs.cliphist;
         wofi = getExe pkgs.wofi;
         ifne = "${pkgs.moreutils}/bin/ifne";
@@ -148,7 +148,7 @@ in {
 
         # Applications
         "${mod} SHIFT, D, exec, ${uwsm} ${vesktop}"
-        "${mod} SHIFT, B, exec, ${uwsm} ${firefox}"
+        "${mod} SHIFT, B, exec, ${uwsm} ${browser}"
 
         # Move focus with mod + arrow keys
         "${mod}, left, movefocus, l"
