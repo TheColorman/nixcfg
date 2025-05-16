@@ -45,6 +45,10 @@ in {
         private-commits = "description(glob:'temp:*')";
         executable-path = "${getExe git}";
       };
+
+      aliases = {
+        l = ["log" "--reversed"];
+      };
     };
   };
 }
