@@ -32,7 +32,7 @@ in {
           then editor
           else "pico";
         movement.edit = true;
-        default-command = "log";
+        default-command = "l";
       };
       signing = {
         behavior = "drop";
