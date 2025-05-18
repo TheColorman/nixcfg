@@ -52,8 +52,8 @@ in {
 
     hyprland.extraMonitorSettings = [
       "eDP-1,   2256x1504,     0x0, 1.333333"
-      "DVI-I-1, 1920x1200, -1920x0, auto"
-      "DVI-I-2, 1920x1200, -3840x0, auto"
+      "desc:Lenovo Group Limited LEN T25d-10 VKDW2941, 1920x1200, -1920x0, auto"
+      "desc:Lenovo Group Limited LEN T25d-10 VKMB6428, 1920x1200, -3840x0, auto"
     ];
   };
 
