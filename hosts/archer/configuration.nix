@@ -23,16 +23,17 @@ in {
     apps-vesktop
     apps-vscode
     apps-waydroid
-    services-yubikey
     services-docker
     services-gpg
     services-kanata
     services-kdeconnect
     services-openfortivpn
     services-safeeyes
+    services-solaar
     services-sops
     services-syncthing
     services-tailscale
+    services-yubikey
     system-audio
     system-desktop-hyprland
     system-boot
