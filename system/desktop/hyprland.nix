@@ -206,11 +206,14 @@ in {
 
       bindl = let
         playerctl = getExe pkgs.playerctl;
+        brightnessctl = getExe pkgs.brightnessctl;
       in [
         ", XF86AudioNext, exec, ${uwsm} ${playerctl} next"
         ", XF86AudioPause, exec, ${uwsm} ${playerctl} play-pause"
         ", XF86AudioPlay, exec, ${uwsm} ${playerctl} play-pause"
         ", XF86AudioPrev, exec, ${uwsm} ${playerctl} previous"
+        ",XF86MonBrightnessUp, exec, ${uwsm} ${brightnessctl} s 10%+"
+        ",XF86MonBrightnessDown, exec, ${uwsm} ${brightnessctl} s 10%-"
       ];
 
       windowrule = [
