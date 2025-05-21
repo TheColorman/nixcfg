@@ -65,7 +65,7 @@ in {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.color_passwd.path;
     description = "color";
-    extraGroups = ["networkmanager" "wheel" "uinput"];
+    extraGroups = ["networkmanager" "wheel" "uinput" "video"];
     packages = with pkgs; [
       obsidian
       fastfetch
