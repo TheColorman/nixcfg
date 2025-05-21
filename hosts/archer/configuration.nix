@@ -24,6 +24,7 @@ in {
     apps-vscode
     apps-waydroid
     services-docker
+    services-gnome-keyring
     services-gpg
     services-kanata
     services-kdeconnect

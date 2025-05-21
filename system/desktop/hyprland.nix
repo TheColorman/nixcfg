@@ -228,8 +228,6 @@ in {
       withUWSM = true; # https://wiki.hyprland.org/Useful-Utilities/Systemd-start/#uwsm
     };
 
-    services.gnome.gnome-keyring.enable = true;
-
     environment.variables = {
       NIXOS_OZONE_WL = 1; # See https://wiki.nixos.org/wiki/Wayland#Electron_and_Chromium
     };
