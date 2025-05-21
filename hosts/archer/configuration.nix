@@ -82,6 +82,7 @@ in {
       cachix
       jq
       floorp
+      fbterm
     ];
   };
   services = {
