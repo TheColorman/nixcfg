@@ -35,8 +35,8 @@ in {
     services-syncthing
     services-tailscale
     system-audio
-    system-desktop-hyprland
     system-boot
+    system-desktop-hyprland
     system-display
     system-networking
     utils-shell
@@ -44,7 +44,7 @@ in {
     utils-emulation
     utils-nas_mounts
     utils-adb
-    utils-shell-oh-my-posh
+    utils-shell-fish
   ];
 
   my = {
