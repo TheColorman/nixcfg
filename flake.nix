@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # == Add-ons/modules ==
+    # == Add-ons ==
     stylix = {
       # Theming
       url = "github:danth/stylix/master";
@@ -29,11 +29,6 @@
     # WSL
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # Logitech device management
-    solaar = {
-      url = "github:Svenum/Solaar-Flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # == Packages only provided as flake ==

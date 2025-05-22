@@ -23,6 +23,7 @@ in {
     apps-vesktop
     apps-vscode
     apps-waydroid
+    services-yubikey
     services-docker
     services-gnome-keyring
     services-gpg
@@ -30,11 +31,9 @@ in {
     services-kdeconnect
     services-openfortivpn
     services-safeeyes
-    services-solaar
     services-sops
     services-syncthing
     services-tailscale
-    services-yubikey
     system-audio
     system-desktop-hyprland
     system-boot
@@ -65,7 +64,7 @@ in {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.color_passwd.path;
     description = "color";
-    extraGroups = ["networkmanager" "wheel" "uinput" "video"];
+    extraGroups = ["networkmanager" "wheel" "video"];
     packages = with pkgs; [
       obsidian
       fastfetch
