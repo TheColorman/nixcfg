@@ -69,6 +69,8 @@ in {
     };
     hardware.graphics.enable32Bit = true; # 32-bit application support
 
+    environment.systemPackages = [pkgs.uutils-coreutils-noprefix];
+
     users.mutableUsers = false;
     home-manager = {
       useGlobalPkgs = true;
