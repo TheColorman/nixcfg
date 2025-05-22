@@ -17,9 +17,8 @@
     base0E = "e7b9fc";
     base0F = "d69b79";
   };
-  # @TODO: create light mode scheme
   light = {
-    base00 = "99d9e3";
+    base00 = "73b9c4";
     base01 = "fcccb6";
     base02 = "7689a4";
     base03 = "ff7b3b";
