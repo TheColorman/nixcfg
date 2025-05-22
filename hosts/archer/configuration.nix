@@ -44,7 +44,7 @@ in {
     utils-emulation
     utils-nas_mounts
     utils-adb
-    utils-shell-oh-my-posh
+    utils-shell-fish
   ];
 
   my = {
