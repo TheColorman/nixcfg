@@ -21,7 +21,7 @@
     mapAttrs'
     (
       name: value:
-        nameValuePair (removeSuffix "-default" (removeSuffix ".nix" name)) (import value)
+        nameValuePair (removeSuffix "-default" (removeSuffix ".nix" name)) value
     )
     nixFiles;
 in
