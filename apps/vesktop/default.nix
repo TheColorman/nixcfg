@@ -7,8 +7,10 @@
   inherit (builtins) readFile;
   inherit (lib) mkEnableOption;
   inherit (lib.strings) optionalString;
+  inherit (lib.modules) mkIf;
 
   cfg = config.my.vesktop;
+  hasStylix = config ? stylix;
   isDark = config.stylix.polarity == "dark";
 
   themes = "vesktop/themes";
@@ -32,7 +34,7 @@ in {
   config = {
     home-manager.users."${config.my.username}" = {
       home.packages = with pkgs; [vesktop];
-      xdg.configFile = {
+      xdg.configFile = mkIf hasStylix {
         "${themes}/colornix.theme.css".text = with config.lib.stylix.colors; ''
           /**
            * @name colornix

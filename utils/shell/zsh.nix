@@ -23,6 +23,8 @@
   # https://github.com/nix-community/home-manager/blob/086f619dd991a4d355c07837448244029fc2d9ab/modules/programs/direnv.nix#L122
   direnvIntegration = "eval \"$(${getExe direnv.package} hook zsh)\"";
 in {
+  imports = [./default.nix];
+
   # Set as login shell
   programs.zsh.enable = true;
   users.users.${username}.shell = pkgs.zsh;

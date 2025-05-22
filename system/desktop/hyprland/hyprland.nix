@@ -22,7 +22,7 @@ in {
   config = let
     hyprlandConfig = let
       term = getExe pkgs.kitty;
-      fileManager = getExe pkgs.kdePackages.dolphin;
+      fileManager = "${pkgs.kdePackages.dolphin}/bin/dolphin";
       menu = getExe pkgs.walker;
       uwsm = "uwsm app -- ";
       mod = "SUPER";
