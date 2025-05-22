@@ -19,6 +19,11 @@ in {
   stylix = {
     enable = true;
     base16Scheme = (import ./assets/${asset}.nix).${scfg.polarity};
+    cursor = {
+      name = "Banana";
+      package = pkgs.banana-cursor;
+      size = 32;
+    };
     image = ./assets/${asset}.png;
     fonts = with pkgs; {
       serif = {

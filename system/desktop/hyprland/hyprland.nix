@@ -208,10 +208,10 @@ in {
         playerctl = getExe pkgs.playerctl;
         brightnessctl = getExe pkgs.brightnessctl;
       in [
-        ", XF86AudioNext, exec, ${uwsm} ${playerctl} next"
-        ", XF86AudioPause, exec, ${uwsm} ${playerctl} play-pause"
-        ", XF86AudioPlay, exec, ${uwsm} ${playerctl} play-pause"
-        ", XF86AudioPrev, exec, ${uwsm} ${playerctl} previous"
+        ",XF86AudioNext, exec, ${uwsm} ${playerctl} next"
+        ",XF86AudioPause, exec, ${uwsm} ${playerctl} play-pause"
+        ",XF86AudioPlay, exec, ${uwsm} ${playerctl} play-pause"
+        ",XF86AudioPrev, exec, ${uwsm} ${playerctl} previous"
         ",XF86MonBrightnessUp, exec, ${uwsm} ${brightnessctl} s 10%+"
         ",XF86MonBrightnessDown, exec, ${uwsm} ${brightnessctl} s 10%-"
       ];
@@ -228,9 +228,8 @@ in {
       withUWSM = true; # https://wiki.hyprland.org/Useful-Utilities/Systemd-start/#uwsm
     };
 
-    environment.variables = {
-      NIXOS_OZONE_WL = 1; # See https://wiki.nixos.org/wiki/Wayland#Electron_and_Chromium
-    };
+    # See https://wiki.nixos.org/wiki/Wayland#Electron_and_Chromium
+    environment.variables."NIXOS_OZONE_WL" = 1;
 
     # ==== User ====
     home-manager.users."${username}" = {
