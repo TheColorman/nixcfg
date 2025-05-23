@@ -33,6 +33,9 @@ in {
           end
         '';
       };
+      interactiveShellInit = ''
+        set -U fish_greeting
+      '';
       preferAbbrs = true;
       plugins = [
         {

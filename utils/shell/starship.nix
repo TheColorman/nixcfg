@@ -8,7 +8,6 @@
   inherit (lib.modules) mkIf;
   inherit (lib) getExe;
   fishEnabled = config.home-manager.users."${username}".programs.fish.enable;
-  cfg = config.home-manager.users."${username}".programs.starship;
 in {
   home-manager.users."${username}" = {
     programs.starship = {
