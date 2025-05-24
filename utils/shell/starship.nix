@@ -8,12 +8,12 @@
   inherit (lib.modules) mkIf;
   inherit (lib) getExe;
   fishEnabled = config.home-manager.users."${username}".programs.fish.enable;
+  sopsEnabled = config ? sops;
 in {
   home-manager.users."${username}" = {
     programs.starship = {
       enable = true;
       enableInteractive = true;
-      # enableTransience = true;
       settings = {
         format = ''
           $os$hostname$localip$singularity$kubernetes$directory''${custom.jujutsu}$all $line_break $jobs$status$container$netns$shell$shlvl$character
@@ -85,18 +85,27 @@ in {
           detect_folders = [".jj"];
           format = "$output ";
         };
-        custom.lastfm = {
-          command = ''
-            ${getExe pkgs.bkt} --ttl 10s -- ${getExe pkgs.xh} \
-              'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=TheColorman&api_key=32a6e8eeeeb0129fcffbc9db80410589&format=json&limit=1' \
-                | jq ".recenttracks.track[0]" \
-                | jq -r 'if .["@attr"].nowplaying == "true" then "\(.artist["#text"]) - \(.name)" else "" end'
+        custom.lastfm = mkIf sopsEnabled (let
+          lastfm_api_key = config.sops.secrets.lastfm_api_key.path;
+          bkt = getExe pkgs.bkt; # Caching tool
+          xh = getExe pkgs.xh; # HTTP client
+          jq = getExe pkgs.jq; # JSON processor
+          cat = "${pkgs.uutils-coreutils-noprefix}/bin/cat";
+          get_lastfm_state = pkgs.writeShellScript "get_lastfm_state" ''
+            LASTFM_API_KEY="$(${cat} ${lastfm_api_key})"
+            ${bkt} --ttl 10s -- \
+              ${xh} \
+                "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=TheColorman&api_key=$LASTFM_API_KEY&format=json&limit=1" \
+                  | ${jq} ".recenttracks.track[0]" \
+                  | ${jq} -r 'if .["@attr"].nowplaying == "true" then "\(.artist["#text"]) - \(.name)" else "" end'
           '';
-          when = true;
+        in {
+          command = get_lastfm_state;
+          when = ''test -n "$(${get_lastfm_state})"'';
           style = "250";
           symbol = "󰎇 ";
           ignore_timeout = true;
-        };
+        });
       };
       # This adds starship to the interactiveShellInit section which is an
       # issue as I rely on the starship prompt being available to background

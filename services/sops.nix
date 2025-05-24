@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (builtins) toString;
+  inherit (config.my) username;
 in {
   imports = [inputs.sops-nix.nixosModules.sops];
 
@@ -19,8 +20,8 @@ in {
     };
     secrets = {
       color_passwd = {neededForUsers = true;};
-      lastfm_auth = {owner = config.users.users."${config.my.username}".name;};
       tailscale_auth = {};
+      lastfm_api_key = {owner = config.users.users."${username}".name;};
     };
   };
 }
