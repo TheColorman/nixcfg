@@ -82,6 +82,10 @@ in {
             };
           }
           {
+            name = "git";
+            inherit (pkgs.fishPlugins.plugin-git) src;
+          }
+          {
             name = "000-preinit";
             src = pkgs.writeTextDir "conf.d/000-preinit.fish" cfg.preInit;
           }
