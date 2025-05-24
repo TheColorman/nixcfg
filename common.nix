@@ -69,7 +69,16 @@ in {
     };
     hardware.graphics.enable32Bit = true; # 32-bit application support
 
-    environment.systemPackages = [pkgs.uutils-coreutils-noprefix];
+    environment.systemPackages = with pkgs; [
+      uutils-coreutils-noprefix
+      fd
+      bat
+      xh
+      du-dust
+      yazi
+      ripgrep
+      ripgrep-all
+    ];
 
     users.mutableUsers = false;
     home-manager = {

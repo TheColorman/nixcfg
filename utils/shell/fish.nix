@@ -62,6 +62,9 @@ in {
           end
         '';
         preferAbbrs = true;
+        shellAbbrs = {
+          ls = lib.getExe pkgs.eza;
+        };
         plugins = [
           {
             name = "fish-async-prompt";
