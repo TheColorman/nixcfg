@@ -16,7 +16,7 @@ in {
       enableInteractive = true;
       settings = {
         format = ''
-          $os$hostname$localip$singularity$kubernetes$directory''${custom.jujutsu}$all $line_break $jobs$status$container$netns$shell$shlvl$character
+          $os$hostname$localip$singularity$kubernetes$directory''${custom.jujutsu}$all $line_break$jobs$status$container$netns$shell$shlvl$character
         '';
         right_format = ''
           ''${custom.lastfm}$time$battery
