@@ -36,6 +36,13 @@ in {
       interactiveShellInit = ''
         set -U fish_greeting
       '';
+      shellInitLast = ''
+        # disable transient prompt on C-c
+        # instead use custom function that just clears the command line
+        function __transient_ctrl_c_execute
+          commandline ""
+        end
+      '';
       preferAbbrs = true;
       plugins = [
         {
