@@ -47,6 +47,24 @@ in {
     utils-shell-fish
   ];
 
+  # The commit after this one in Hyprland introduces a regression that crashes
+  # any electron application launched with --ozone-platform-hint=auto on my
+  # external monitors.
+  # See https://github.com/hyprwm/Hyprland/discussions/10534
+  nixpkgs.overlays = [
+    (_final: prev: {
+      hyprland = prev.hyprland.overrideAttrs (_finalAttrs: _prevAttrs: {
+        src = pkgs.fetchFromGitHub {
+          owner = "hyprwm";
+          repo = "hyprland";
+          fetchSubmodules = true;
+          rev = "0e521788bcc414c9cf81648d3167757d83deb60f";
+          hash = "sha256-aNAu8VTfOxJFqiNNdshNts39WGyURUkiDefDXlRwL1E=";
+        };
+      });
+    })
+  ];
+
   my = {
     inherit username;
     stateVersion = "23.11";
@@ -58,8 +76,10 @@ in {
     ];
   };
 
-  environment.systemPackages = with pkgs; [fprintd wl-clipboard];
-  environment.etc.hosts.mode = "0644"; # Make hosts file writable
+  environment = {
+    systemPackages = with pkgs; [fprintd wl-clipboard];
+    etc.hosts.mode = "0644"; # Make hosts file writable
+  };
   users.users."${username}" = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.color_passwd.path;
