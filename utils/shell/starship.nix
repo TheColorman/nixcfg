@@ -84,6 +84,7 @@ in {
           '';
           detect_folders = [".jj"];
           format = "$output ";
+          ignore_timeout = true;
         };
         custom.lastfm = mkIf sopsEnabled (let
           lastfm_api_key = config.sops.secrets.lastfm_api_key.path;
