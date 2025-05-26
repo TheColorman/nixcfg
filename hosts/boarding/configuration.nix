@@ -21,7 +21,7 @@ in {
     services-sops
     services-vscode-server
     utils-shell
-    utils-shell-oh-my-posh
+    utils-shell-fish
     utils-tmux
   ];
   my = {
@@ -44,7 +44,7 @@ in {
     # docker-desktop.enable = true;
   };
 
-  home-manager.users.${username}.programs.zsh.shellAliases = {
+  home-manager.users.${username}.programs.fish.shellAbbrs = {
     docker = "/run/current-system/sw/bin/docker";
   };
 
