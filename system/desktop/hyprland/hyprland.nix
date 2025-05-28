@@ -111,7 +111,8 @@ in {
 
       # === Input ===
       input = {
-        kb_layout = "us";
+        kb_layout = "us,us";
+        kb_variant = ",colemak_dh";
         follow_mouse = 1;
         touchpad.natural_scroll = true;
         repeat_rate = 55;
@@ -186,6 +187,8 @@ in {
         # Scroll through existing workspaces with mod + scroll
         "${mod}, mouse_down, workspace, e+1"
         "${mod}, mouse_up, workspace, e-1"
+
+        "Control_R&Shift_R, Space, exec, hyprctl switchxkblayout kanata next"
       ];
 
       bindm = [
