@@ -45,6 +45,19 @@ in {
         private-commits = "description(glob:'temp:*')";
         executable-path = "${getExe git}";
       };
+      # template for showing diff during a jj describe
+      # https://github.com/jj-vcs/jj/issues/1946#issuecomment-2561045057
+      templates.draft_commit_description = ''
+        concat(
+          coalesce(description, default_commit_description, "\n"),
+          surround(
+            "\nJJ: This commit contains the following changes:\n", "",
+            indent("JJ:     ", diff.stat(72)),
+          ),
+          "\nJJ: ignore-rest\n",
+          diff.git(),
+        )
+      '';
 
       aliases = {
         l = ["log" "--reversed"];
