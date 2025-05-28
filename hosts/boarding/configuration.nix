@@ -33,15 +33,11 @@ in {
   wsl = {
     enable = true;
     wslConf = {
-      # @TODO: Broken
-      automount.root = "/mnt";
       interop.appendWindowsPath = false;
       network.generateHosts = false;
     };
     defaultUser = username;
     startMenuLaunchers = true;
-
-    # docker-desktop.enable = true;
   };
 
   home-manager.users.${username}.programs.fish.shellAbbrs = {
