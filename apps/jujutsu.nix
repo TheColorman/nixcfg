@@ -61,6 +61,12 @@ in {
 
       aliases = {
         l = ["log" "--reversed"];
+        d = ["describe"];
+        p = ["prev"];
+        n = ["next"];
+        gp = ["git" "push"];
+        gf = ["git" "fetch"];
+        setmain = ["bookmark" "set" "main" "-r=@-"];
       };
     };
   };
