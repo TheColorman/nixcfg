@@ -59,9 +59,12 @@ in {
       };
     };
     # Allow execution of dynamic binaries
-    programs.nix-ld = {
-      enable = true;
-      libraries = with pkgs; [libsecret];
+    programs = {
+      nix-ld = {
+        enable = true;
+        libraries = with pkgs; [libsecret];
+      };
+      command-not-found.enable = false;
     };
     services = {
       envfs.enable = true; # /bin symlinks for shebangs
@@ -91,7 +94,10 @@ in {
         inherit (inputs.self) outputs;
       };
       users."${cfg.username}" = {
-        programs.home-manager.enable = true;
+        programs = {
+          home-manager.enable = true;
+          nix-index.enable = true;
+        };
         home = {
           inherit (cfg) username stateVersion;
           homeDirectory = "/home/${cfg.username}";
