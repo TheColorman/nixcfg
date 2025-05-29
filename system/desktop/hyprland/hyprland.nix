@@ -113,6 +113,7 @@ in {
       input = {
         kb_layout = "us,us";
         kb_variant = ",colemak_dh";
+        resolve_binds_by_sym = true;
         follow_mouse = 1;
         touchpad.natural_scroll = true;
         repeat_rate = 55;
