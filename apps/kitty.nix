@@ -25,6 +25,8 @@ in {
 
       keybindings = {
         "ctrl+c" = "copy_or_interrupt";
+        "ctrl+shift+u" = ""; # kitty overrides the system unicode input
+        "ctrl+shift+alt+u" = "kitten unicode_input"; # so add alt to the combo
       };
 
       shellIntegration.enableZshIntegration = zsh.enable;
