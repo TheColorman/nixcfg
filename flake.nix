@@ -76,6 +76,18 @@
         ];
       };
 
+      rider = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          systemName = "rider";
+        };
+        modules = [
+          ./hosts/rider/configuration.nix
+          home-manager.nixosModules.default
+          nixos-hardware.nixosModules.raspberry-pi-4
+        ];
+      };
+
       live = inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
