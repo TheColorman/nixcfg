@@ -59,6 +59,7 @@ in {
       ripgrep
       alejandra
       nixd
+      glab
     ];
   };
 
