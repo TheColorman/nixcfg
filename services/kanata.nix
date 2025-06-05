@@ -49,8 +49,8 @@
           Ø (unicode Ø)
           Å (unicode Å)
 
-          ⎈⭾ C-tab
-          ⇪⭾ C-S-tab
+          ⭾ tab
+          ⇪⭾ S-tab
         )
         (deflayer (default-layer)
           esc
@@ -79,7 +79,7 @@
         (deflayer (navigation)
           caps
           grv _   _   _   _   _   _   _   _   _   _
-          tab  ⎋  @⇪⭾ @⎈⭾  _   _   _   ⇤   ⇞   ⇟   ⇥
+          tab  ⎋  @⇪⭾  @⭾  _   _   _   ⇤   ⇞   ⇟   ⇥
           @ext  ‹⎇  ‹❖  ‹⇧  ‹⌃  _   _   ◀   ▲   ▼   ▶
           lsft  C-x C-c C-d C-v C-z  _   ⌫   ⌦   _   _
           lctl    @numpad    enter               ⎇›
