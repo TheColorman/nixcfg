@@ -24,6 +24,7 @@ in {
     apps-vesktop
     apps-vscode
     apps-waydroid
+    profiles-hacking
     services-yubikey
     services-docker
     services-gnome-keyring
@@ -44,7 +45,6 @@ in {
     utils-stylix
     utils-emulation
     utils-nas_mounts
-    utils-adb
     utils-shell-fish
   ];
 
