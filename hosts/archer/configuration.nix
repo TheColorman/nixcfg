@@ -48,6 +48,8 @@ in {
     utils-shell-fish
   ];
 
+  networking.firewall.enable = lib.mkForce false;
+
   nixpkgs.overlays = [
     (_final: prev: {
       hyprland = prev.hyprland.overrideAttrs (_finalAttrs: prevAttrs: {
