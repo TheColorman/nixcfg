@@ -14,6 +14,7 @@ in {
     apps-jujutsu
     apps-neovim
     apps-nix
+    services-anki-sync-server
     services-gpg
     services-sops
     services-tailscale
