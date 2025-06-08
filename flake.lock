@@ -319,10 +319,10 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1748071622,
-        "narHash": "sha256-iHFad5hNkbT5aKhoHsMYf8I0QHe1upSAn3L0Gjv2BfE=",
+        "lastModified": 1749392831,
+        "narHash": "sha256-hyFEhh+LDh3ecw1p0tEjL7Q8fohV1k2SeHJKbFRM05o=",
         "ref": "refs/heads/master",
-        "rev": "01a20cd4eb1f39094992706918be03f6b5c3230e",
+        "rev": "2c5354c3d37d3cd041f6cd0229d15cd71019316e",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/TheColorman/nix-secrets"
