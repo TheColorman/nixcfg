@@ -5,6 +5,13 @@
     #       by all services? Probably not a good idea.
     # TODO: PR this service adding the support for the "PASSWORDS_HASHED"
     #       environment variable.
-    users."colorman".passwordFile = config.sops.secrets.anki_passwd_plaintext.path;
+    users = [
+      {
+        username = "colorman";
+        passwordFile = config.sops.secrets.anki_passwd_plaintext.path;
+      }
+    ];
+    openFirewall = true;
+    address = "0.0.0.0";
   };
 }
