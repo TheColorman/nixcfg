@@ -47,6 +47,7 @@ in {
           sign-on-push = true;
           private-commits = "description(glob:'temp:*')";
           executable-path = "${getExe git}";
+          track-default-bookmark-on-clone = true;
         };
         # template for showing diff during a jj describe
         # https://github.com/jj-vcs/jj/issues/1946#issuecomment-2561045057
