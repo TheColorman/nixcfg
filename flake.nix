@@ -40,6 +40,12 @@
       url = "github:pwndbg/pwndbg?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Nix User Repo
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -80,6 +86,7 @@
         specialArgs = {
           inherit inputs outputs;
           systemName = "rider";
+          systemPlatform = "aarch64-linux";
         };
         modules = [
           ./hosts/rider/configuration.nix

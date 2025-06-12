@@ -16,6 +16,7 @@ in {
     apps-nix
     services-anki-sync-server
     services-gpg
+    services-requestrr
     services-sops
     services-tailscale
     system-networking
