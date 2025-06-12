@@ -23,9 +23,6 @@ in {
       tailscale_auth = {};
       lastfm_api_key = {owner = config.users.users."${username}".name;};
       anki_passwd_plaintext = {};
-
-      fact_bot_danish_token = {};
-      fact_bot_english_token = {};
     };
   };
 }
