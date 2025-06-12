@@ -15,6 +15,7 @@ in {
     apps-neovim
     apps-nix
     services-anki-sync-server
+    services-factbot
     services-gpg
     services-requestrr
     services-sops

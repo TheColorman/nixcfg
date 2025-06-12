@@ -46,6 +46,12 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # discord bot
+    factbot = {
+      url = "github:TheColorman/factbot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
