@@ -52,6 +52,11 @@
       url = "github:TheColorman/factbot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # other discord bot
+    discord-portal = {
+      url = "github:TheColorman/discord-portal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

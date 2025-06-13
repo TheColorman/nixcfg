@@ -67,9 +67,30 @@
         "type": "github"
       }
     },
-    "factbot": {
+    "discord-portal": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750095303,
+        "narHash": "sha256-x/yViaznsXNqsia7FvxIUEp34cGgGDyb9STwEHv1bGM=",
+        "owner": "TheColorman",
+        "repo": "discord-portal",
+        "rev": "54f1a5cdd22f52fb00687aec6cb60f6814e8957e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TheColorman",
+        "repo": "discord-portal",
+        "type": "github"
+      }
+    },
+    "factbot": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -216,6 +237,24 @@
     "flake-utils_2": {
       "inputs": {
         "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_3": {
+      "inputs": {
+        "systems": "systems_3"
       },
       "locked": {
         "lastModified": 1731533236,
@@ -379,10 +418,10 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1749729905,
-        "narHash": "sha256-Wa0mm9mP1bIOvoWrUaNvpCckYO45eVaPx3qibXQMsvM=",
+        "lastModified": 1749739221,
+        "narHash": "sha256-4vuovyCqV4q51QUoBFlLCY5c8iOM1ssN5WFmyZP2fAw=",
         "ref": "refs/heads/master",
-        "rev": "49103b83d6d8d16946e053eb2be645e97ec0b59e",
+        "rev": "88b42c93c0f2e8e98085d9448c175f50c0dc7159",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/TheColorman/nix-secrets"
@@ -539,7 +578,7 @@
           "nvfcfg",
           "nixpkgs"
         ],
-        "systems": "systems_3"
+        "systems": "systems_4"
       },
       "locked": {
         "lastModified": 1747525582,
@@ -557,7 +596,7 @@
     },
     "nvfcfg": {
       "inputs": {
-        "flake-utils": "flake-utils_2",
+        "flake-utils": "flake-utils_3",
         "nixpkgs": "nixpkgs_2",
         "nvf": "nvf",
         "unstable": "unstable"
@@ -652,6 +691,7 @@
     },
     "root": {
       "inputs": {
+        "discord-portal": "discord-portal",
         "factbot": "factbot",
         "home-manager": "home-manager",
         "nix-secrets": "nix-secrets",
@@ -726,7 +766,7 @@
           "nixpkgs"
         ],
         "nur": "nur_2",
-        "systems": "systems_4",
+        "systems": "systems_5",
         "tinted-foot": "tinted-foot",
         "tinted-kitty": "tinted-kitty",
         "tinted-schemes": "tinted-schemes",
@@ -794,6 +834,21 @@
       }
     },
     "systems_4": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_5": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
