@@ -61,14 +61,14 @@
 
   outputs = {
     home-manager,
+    nixpkgs,
     nixos-hardware,
     ...
   } @ inputs: let
     inherit (inputs.self) outputs;
+    cLib = import ./lib {inherit (nixpkgs) lib;};
   in {
-    modules = import ./lib {
-      inherit (inputs.nixpkgs) lib;
-    };
+    modules = cLib.recurseModules ./.;
 
     nixosConfigurations = {
       archer = inputs.nixpkgs.lib.nixosSystem {
