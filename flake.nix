@@ -105,19 +105,6 @@
           nixos-hardware.nixosModules.raspberry-pi-4
         ];
       };
-
-      live = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          systemName = "live";
-        };
-        modules = [
-          ./hosts/live/configuration.nix
-          home-manager.nixosModules.default
-        ];
-      };
     };
-
-    build.live = inputs.self.outputs.nixosConfigurations.live.config.system.build.images.sd-card;
   };
 }
