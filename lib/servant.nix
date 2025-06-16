@@ -18,6 +18,9 @@ Creates a NixOS configuration using format shared by all hosts.
       modules =
         [
           ../hosts/${name}/configuration.nix
+          {
+            nixpkgs.hostPlatform = platform;
+          }
         ]
         ++ extraModules;
     };

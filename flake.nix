@@ -37,6 +37,9 @@
 
         # Desktop
         saber.platform = "x86_64-linux";
+
+        # Server
+        caster.platform = "x86_64-linux";
       };
     };
   };
