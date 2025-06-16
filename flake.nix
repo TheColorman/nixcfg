@@ -60,50 +60,34 @@
   };
 
   outputs = {
-    home-manager,
     nixpkgs,
     nixos-hardware,
+    self,
     ...
-  } @ inputs: let
-    inherit (inputs.self) outputs;
+  }: let
     cLib = import ./lib {inherit (nixpkgs) lib;};
   in {
     modules = cLib.recurseModules ./.;
 
-    nixosConfigurations = {
-      archer = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          systemName = "archer";
-        };
-        modules = [
-          ./hosts/archer/configuration.nix
-          home-manager.nixosModules.default
-          nixos-hardware.nixosModules.framework-13-7040-amd
-        ];
-      };
+    nixosConfigurations = cLib.mkServants {
+      flake = self;
 
-      boarding = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
+      servants = {
+        archer = {
+          platform = "x86_64-linux";
+          extraModules = [
+            nixos-hardware.nixosModules.framework-13-7040-amd
+          ];
         };
-        modules = [
-          ./hosts/boarding/configuration.nix
-          home-manager.nixosModules.default
-        ];
-      };
-
-      rider = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          systemName = "rider";
-          systemPlatform = "aarch64-linux";
+        boarding = {
+          platform = "x86_64-linux";
         };
-        modules = [
-          ./hosts/rider/configuration.nix
-          home-manager.nixosModules.default
-          nixos-hardware.nixosModules.raspberry-pi-4
-        ];
+        rider = {
+          platform = "aarch64-linux";
+          extraModules = [
+            nixos-hardware.nixosModules.raspberry-pi-4
+          ];
+        };
       };
     };
   };

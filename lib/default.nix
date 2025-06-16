@@ -6,4 +6,5 @@
 in
   importLibs [
     ./recurseModules.nix
+    ./servant.nix
   ]
