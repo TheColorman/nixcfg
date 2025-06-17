@@ -34,7 +34,10 @@ in {
 
     home-manager.users."${username}" = {
       home.shell.enableFishIntegration = true;
-      programs.fish = {
+      programs.fish = let
+        inherit (lib.meta) getExe;
+        inherit (pkgs) eza xxd;
+      in {
         enable = true;
         functions = {
           pythonEnv = ''
@@ -50,6 +53,23 @@ in {
               nix-shell -p $ppkgs
             end
           '';
+          randstr = ''
+            function randstr --description 'Generate a random alphanumeric string'
+                set -l default_length 16
+                set -l output_length $default_length
+                if test (count $argv) -ge 1
+                    if string match -q --regex '^[1-9][0-9]*$' -- $argv[1]
+                        set output_length $argv[1]
+                    else
+                        echo "Warning: Invalid length specified. Using default length of $default_length." >&2
+                    end
+                end
+
+                set -l bytes_to_read (math "ceil($output_length / 2)")
+                set -l hex_output (${getExe xxd} -p -l $bytes_to_read /dev/urandom | head -c $output_length)
+                echo (string trim --right $hex_output)
+            end
+          '';
         };
         interactiveShellInit = ''
           set -U fish_greeting
@@ -63,7 +83,7 @@ in {
         '';
         preferAbbrs = true;
         shellAbbrs = {
-          ls = lib.getExe pkgs.eza;
+          ls = getExe eza;
         };
         plugins = [
           {
