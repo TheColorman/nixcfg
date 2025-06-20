@@ -81,8 +81,7 @@ in {
             commandline ""
           end
         '';
-        preferAbbrs = true;
-        shellAbbrs = {
+        shellAliases = {
           ls = getExe eza;
         };
         plugins = [
