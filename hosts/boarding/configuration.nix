@@ -16,6 +16,7 @@ in {
     apps-jujutsu
     apps-neovim
     apps-nix
+    apps-zellij
     services-docker
     services-gpg
     services-sops
