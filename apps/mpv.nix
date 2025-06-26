@@ -11,6 +11,11 @@ in {
       scripts = with pkgs.mpvScripts; [
         videoclip
       ];
+      config = {
+        # These two are for hdr
+        target-colorspace-hint = "yes";
+        vo = "gpu-next";
+      };
     };
     # Mostly copied from videoclip readme
     xdg.configFile."mpv/script-opts/videoclip.conf".text = ''
