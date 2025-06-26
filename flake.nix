@@ -57,6 +57,11 @@
       url = "github:TheColorman/discord-portal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # DE, updated more frequently than nixpkgs
+    hyprland = {
+      url = "github:hyprwm/Hyprland/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

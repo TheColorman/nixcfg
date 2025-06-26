@@ -51,21 +51,6 @@ in {
 
   networking.firewall.enable = lib.mkForce false;
 
-  nixpkgs.overlays = [
-    (_final: prev: {
-      hyprland = prev.hyprland.overrideAttrs (_finalAttrs: prevAttrs: {
-        src = pkgs.fetchFromGitHub {
-          owner = "hyprwm";
-          repo = "hyprland";
-          fetchSubmodules = true;
-          rev = "9b327ddfd1ad4cfef7a04a178e9f0aed16e95e0a";
-          hash = "sha256-e/NQofB1JeBwtrb8mH74lz36nmnzUNpIhAXGoe51UaI=";
-        };
-        mesonFlags = lib.lists.remove "-Dlegacy_renderer=disabled" prevAttrs.mesonFlags;
-      });
-    })
-  ];
-
   my = {
     inherit username;
     stateVersion = "23.11";

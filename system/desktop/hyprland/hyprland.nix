@@ -2,6 +2,8 @@
   config,
   lib,
   pkgs,
+  inputs,
+  systemPlatform,
   ...
 }: let
   inherit (lib.meta) getExe;
@@ -226,6 +228,12 @@ in {
       ];
     };
   in {
+    nixpkgs.overlays = [
+      (_final: _prev: {
+        inherit (inputs.hyprland.packages.${systemPlatform}) hyprland xdg-desktop-portal-hyprland;
+      })
+    ];
+
     # ==== System ====
     programs.hyprland = {
       enable = true;
