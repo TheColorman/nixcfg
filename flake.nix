@@ -33,6 +33,9 @@
         };
         # SD card
         lancer.platform = "x86_64-linux";
+
+        # Desktop
+        saber.platform = "x86_64-linux";
       };
     };
   };
