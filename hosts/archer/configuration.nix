@@ -38,6 +38,7 @@ in {
     services-syncthing
     services-tailscale
     system-audio
+    system-bluetooth
     system-boot
     system-desktop-hyprland
     system-display
@@ -93,7 +94,6 @@ in {
     fprintd.enable = true;
     power-profiles-daemon.enable = true;
   };
-  hardware.bluetooth.enable = true;
 
   time.timeZone = "Europe/Copenhagen";
   i18n.defaultLocale = "en_DK.UTF-8";
