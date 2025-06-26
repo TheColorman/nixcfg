@@ -93,6 +93,7 @@ in {
       jq
       tealdeer
       jjui
+      sd
     ];
 
     users.mutableUsers = false;
