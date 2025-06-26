@@ -4,6 +4,7 @@
   inputs,
   pkgs,
   config,
+  systemPlatform,
   ...
 }: let
   cfg = config.my;
@@ -27,7 +28,10 @@ in {
   };
 
   config = {
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs = {
+      config.allowUnfree = true;
+      hostPlatform = systemPlatform;
+    };
     nix = {
       settings = {
         # flakes

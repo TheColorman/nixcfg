@@ -73,20 +73,27 @@
       flake = self;
 
       servants = {
+        # Laptop
         archer = {
           platform = "x86_64-linux";
           extraModules = [
             nixos-hardware.nixosModules.framework-13-7040-amd
           ];
         };
+        # WSL
         boarding = {
           platform = "x86_64-linux";
         };
+        # rpi 4
         rider = {
           platform = "aarch64-linux";
           extraModules = [
             nixos-hardware.nixosModules.raspberry-pi-4
           ];
+        };
+        # SD card
+        lancer = {
+          platform = "x86_64-linux";
         };
       };
     };

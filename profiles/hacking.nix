@@ -2,6 +2,7 @@
   imports = with outputs.modules; [
     # Networking
     apps-burpsuite
+    apps-hashcat
     apps-httptoolkit
 
     # Android
