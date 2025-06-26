@@ -3,6 +3,7 @@
   lib,
   pkgs,
   inputs,
+  outputs,
   systemPlatform,
   ...
 }: let
@@ -13,6 +14,8 @@
 
   cfg = config.my.hyprland;
 in {
+  imports = [outputs.modules.system-desktop-wayland];
+
   options.my.hyprland = {
     extraMonitorSettings = mkOption {
       type = listOf (either (attrsOf anything) str);
