@@ -60,7 +60,12 @@
   otherHostFolders =
     inputs.self.nixosConfigurations
     |> filterAttrs (host: _: host != systemName)
-    |> mapAttrs (_: module: module.config.my.syncthing.folders or {} |> attrNames)
+    |> mapAttrs (
+      _: module:
+        module.config.my.syncthing.folders or {}
+        |> filterAttrs (folder: opts: opts != null)
+        |> attrNames
+    )
     |> mapAttrsToList (host:
       map (folder: {
         inherit folder host;
@@ -124,7 +129,7 @@ in {
             # Folder is bind mounted to Syncthing's dataDir for easier
             # permission management
             path = "${config.services.syncthing.dataDir}/folders/${value.id}";
-            devices = value.devices ++ otherHostFolders.${name};
+            devices = value.devices ++ otherHostFolders.${name} or [];
           });
 
         gui = {
