@@ -143,9 +143,10 @@ in {
     fwupd.enable = true;
     fprintd.enable = true;
     power-profiles-daemon.enable = true;
+    automatic-timezoned.enable = true;
   };
 
-  time.timeZone = "Europe/Copenhagen";
+  time.timeZone = lib.mkDefault "Europe/Copenhagen";
 
   # @TODO: do I really need this? Did I add it for hotspots? Do hotspots need ipv4 forwarding? too scared to turn it off...
   boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = true;
