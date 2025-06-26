@@ -76,7 +76,7 @@ in {
           };
         };
       };
-      fish.shellAliases.j = "jj";
+      fish.shellAbbrs.j = "jj";
     };
   };
 }
