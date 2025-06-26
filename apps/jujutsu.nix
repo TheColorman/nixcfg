@@ -50,7 +50,7 @@ in {
         };
         git = {
           sign-on-push = true;
-          private-commits = "description(glob:'temp:*')";
+          private-commits = "description(glob:'temp:*') | description(glob:'NO PUSH:*')";
           executable-path = "${getExe git}";
           track-default-bookmark-on-clone = true;
         };
