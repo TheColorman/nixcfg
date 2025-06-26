@@ -11,6 +11,7 @@ in {
   imports = with outputs.modules; [
     ./hardware-configuration.nix
     common
+    apps-claude-code
     apps-gaming
     apps-office
     apps-btop
@@ -136,7 +137,6 @@ in {
       jq
       floorp
       fbterm
-      claude-code
     ];
   };
   services = {
