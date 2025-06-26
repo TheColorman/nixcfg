@@ -137,6 +137,8 @@ in {
       jq
       floorp
       fbterm
+      jftui
+      youtube-music
     ];
   };
   services = {

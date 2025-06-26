@@ -83,6 +83,16 @@ in {
       yazi
       ripgrep
       ripgrep-all
+      fastfetch
+      unzip
+      p7zip
+      aria2
+      killall
+      dig
+      cachix
+      jq
+      tealdeer
+      jjui
     ];
 
     users.mutableUsers = false;
