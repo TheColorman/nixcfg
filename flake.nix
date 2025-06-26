@@ -1,5 +1,41 @@
 {
   description = "Colorman NixOS configuration flake";
+  outputs = {
+    nixpkgs,
+    nixos-hardware,
+    self,
+    ...
+  }: let
+    cLib = import ./lib {inherit (nixpkgs) lib;};
+  in {
+    modules = cLib.recurseModules ./.;
+
+    nixosConfigurations = cLib.mkServants {
+      flake = self;
+
+      servants = {
+        # Laptop
+        archer = {
+          platform = "x86_64-linux";
+          extraModules = [
+            nixos-hardware.nixosModules.framework-13-7040-amd
+          ];
+        };
+        # WSL
+        foreigner.platform = "x86_64-linux";
+
+        # rpi 4
+        rider = {
+          platform = "aarch64-linux";
+          extraModules = [
+            nixos-hardware.nixosModules.raspberry-pi-4
+          ];
+        };
+        # SD card
+        lancer.platform = "x86_64-linux";
+      };
+    };
+  };
 
   inputs = {
     # == Important modules ==
@@ -61,46 +97,6 @@
     hyprland = {
       url = "github:hyprwm/Hyprland/main";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = {
-    nixpkgs,
-    nixos-hardware,
-    self,
-    ...
-  }: let
-    cLib = import ./lib {inherit (nixpkgs) lib;};
-  in {
-    modules = cLib.recurseModules ./.;
-
-    nixosConfigurations = cLib.mkServants {
-      flake = self;
-
-      servants = {
-        # Laptop
-        archer = {
-          platform = "x86_64-linux";
-          extraModules = [
-            nixos-hardware.nixosModules.framework-13-7040-amd
-          ];
-        };
-        # WSL
-        boarding = {
-          platform = "x86_64-linux";
-        };
-        # rpi 4
-        rider = {
-          platform = "aarch64-linux";
-          extraModules = [
-            nixos-hardware.nixosModules.raspberry-pi-4
-          ];
-        };
-        # SD card
-        lancer = {
-          platform = "x86_64-linux";
-        };
-      };
     };
   };
 }
