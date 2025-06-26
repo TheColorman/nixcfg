@@ -81,6 +81,19 @@ in {
           scale=auto
         }
       ''
+      ''
+        {
+          output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047972
+          mode=2560x1440@144
+          position=1128x-1440
+          scale=auto
+          bitdepth=10
+          # > controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
+          # > 2 - fullscreen only, 3 - fullscreen with video or game content type
+          vrr=3
+          supports_wide_color=1
+        }
+      ''
     ];
   };
 
