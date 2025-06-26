@@ -5,5 +5,6 @@ in {
     enable = true;
     attachExistingSession = true;
     exitShellOnExit = true;
+    enableFishIntegration = config.home-manager.users."${username}".programs.fish.enable;
   };
 }
