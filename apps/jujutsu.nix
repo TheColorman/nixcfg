@@ -72,7 +72,18 @@ in {
             n = ["next"];
             gp = ["git" "push"];
             gf = ["git" "fetch"];
-            setmain = ["bookmark" "set" "main" "-r=@-"];
+            r = ["rebase"];
+            # The forkup alias rebases all current forks onto the trunk. Useful
+            # when there are multiple parallel local branches that should all
+            # be kept up to date with the trunk.
+            forkup = [
+              "util"
+              "exec"
+              "--"
+              (getExe config.users.users."${username}".shell)
+              "-c"
+              "jj rebase -s 'all:branchpoints()' -A 'trunk()' && jj simplify-parents"
+            ];
           };
         };
       };
