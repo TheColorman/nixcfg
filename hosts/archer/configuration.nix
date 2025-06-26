@@ -24,6 +24,7 @@ in {
     apps-vesktop
     apps-vscode
     apps-waydroid
+    apps-zellij
     profiles-hacking
     services-yubikey
     services-docker
