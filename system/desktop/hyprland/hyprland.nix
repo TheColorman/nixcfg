@@ -8,14 +8,14 @@
 }: let
   inherit (lib.meta) getExe;
   inherit (lib.options) mkOption;
-  inherit (lib.types) listOf str;
+  inherit (lib.types) either str listOf attrsOf anything;
   inherit (config.my) username;
 
   cfg = config.my.hyprland;
 in {
   options.my.hyprland = {
     extraMonitorSettings = mkOption {
-      type = listOf str;
+      type = listOf (either (attrsOf anything) str);
       default = [];
       description = "Additional monitors to configure";
     };
@@ -29,9 +29,6 @@ in {
       uwsm = "uwsm app -- ";
       mod = "SUPER";
     in {
-      # === Monitors ===
-      monitor = [",preferred,auto,auto"] ++ cfg.extraMonitorSettings;
-
       # === Autostart ===
       exec-once = let
         waybar = getExe pkgs.waybar;
@@ -249,6 +246,20 @@ in {
         enable = true;
         systemd.enable = false; # Conflicts with uwsm
         settings = hyprlandConfig;
+        extraConfig =
+          ''
+            # === Monitors ===
+            monitorv2 {
+              output=
+              mode=preferred
+              position=auto
+              scale=auto
+            }
+          ''
+          + builtins.concatStringsSep "\n" (builtins.map (mon: ''
+              monitorv2 ${mon}
+            '')
+            cfg.extraMonitorSettings);
       };
       xdg.configFile = {
         "uwsm/env".text = ''

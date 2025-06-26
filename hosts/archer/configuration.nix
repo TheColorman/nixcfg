@@ -57,9 +57,30 @@ in {
     stateVersion = "23.11";
 
     hyprland.extraMonitorSettings = [
-      "eDP-1,   2256x1504,     0x0, 1.333333"
-      "desc:Lenovo Group Limited LEN T25d-10 VKDW2941, 1920x1200, -1920x0, auto"
-      "desc:Lenovo Group Limited LEN T25d-10 VKMB6428, 1920x1200, -3840x0, auto"
+      ''
+        {
+          output=eDP-1
+          mode=2256x1504
+          position=0x0
+          scale=1.333333
+        }
+      ''
+      ''
+        {
+          output=desc:Lenovo Group Limited LEN T25d-10 VKDW2941
+          mode=1920x1200
+          position=-1920x0
+          scale=auto
+        }
+      ''
+      ''
+        {
+          output=desc:Lenovo Group Limited LEN T25d-10 VKMB6428
+          mode=1920x1200
+          position=-3840x0
+          scale=auto
+        }
+      ''
     ];
   };
 
