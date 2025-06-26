@@ -23,10 +23,15 @@ in {
           name = "Colorman";
           email = "foss@colorman.me";
         };
-        # Make commits authored by other people immutable
-        revset-aliases."immutable_heads()" = ''
-          builtin_immutable_heads() | (trunk().. & ~mine())
-        '';
+        revset-aliases = {
+          # Make commits authored by other people immutable
+          "immutable_heads()" = ''
+            builtin_immutable_heads() | (trunk().. & ~mine())
+          '';
+          "branchpoints()" = ''
+            roots(::@ ~ ::trunk()) & mine()
+          '';
+        };
         ui = {
           log-word-wrap = true;
           paginate = "never";
