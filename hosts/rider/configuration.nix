@@ -17,6 +17,7 @@ in {
     services-anki-sync-server
     services-discord-portal
     services-factbot
+    services-firefox-syncserver
     services-gpg
     services-requestrr
     services-sops
