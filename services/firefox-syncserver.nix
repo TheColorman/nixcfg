@@ -5,6 +5,7 @@
   ...
 }: let
   cfg = config.services.firefox-syncserver;
+  port = 15468;
 in {
   services = {
     mysql.package = pkgs.mariadb;
@@ -12,10 +13,14 @@ in {
       enable = true;
       singleNode = {
         enable = true;
-        hostname = systemName;
+        hostname = "${systemName}:${builtins.toString port}";
         capacity = 1;
       };
-      settings.port = 15468;
+      settings = {
+        host = "0.0.0.0";
+        inherit port;
+        url = "http://${systemName}:${builtins.toString port}";
+      };
       secrets = config.sops.templates."firefox-syncserver.secrets.env".path;
     };
   };
