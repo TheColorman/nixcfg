@@ -57,9 +57,9 @@ in {
     hyprland.extraMonitorSettings = [
       ''
         {
-          output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047972
-          mode=2560x1440@144
-          position=-2560x0
+          output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047984
+          mode=2560x1440@260
+          position=0x0
           scale=auto
           bitdepth=10
           # > controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
@@ -70,9 +70,9 @@ in {
       ''
       ''
         {
-          output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047984
-          mode=2560x1440@144
-          position=0x0
+          output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047972
+          mode=2560x1440@260
+          position=2560x0
           scale=auto
           bitdepth=10
           # > controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
