@@ -1,17 +1,21 @@
 {
   config,
   systemName,
+  pkgs,
   ...
 }: {
-  services.firefox-syncserver = {
-    enable = true;
-    singleNode = {
+  services = {
+    mysql.package = pkgs.mariadb;
+    firefox-syncserver = {
       enable = true;
-      hostname = systemName;
-      capacity = 1;
+      singleNode = {
+        enable = true;
+        hostname = systemName;
+        capacity = 1;
+      };
+      settings.port = 15468;
+      secrets = config.sops.templates."firefox-syncserver.secrets.env".path;
     };
-    settings.port = 15468;
-    secrets = config.sops.templates."firefox-syncserver.secrets.env".path;
   };
 
   sops = let
