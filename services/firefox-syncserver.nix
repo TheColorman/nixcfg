@@ -3,7 +3,9 @@
   systemName,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.services.firefox-syncserver;
+in {
   services = {
     mysql.package = pkgs.mariadb;
     firefox-syncserver = {
@@ -17,6 +19,7 @@
       secrets = config.sops.templates."firefox-syncserver.secrets.env".path;
     };
   };
+  networking.firewall.allowedTCPPorts = [cfg.settings.port];
 
   sops = let
     master = "services/firefox-syncserver/master_secret";
