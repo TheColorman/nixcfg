@@ -108,30 +108,8 @@ in {
     ];
   };
 
-  sops.secrets = {
-    system-key-pub = {
-      path = "/etc/ssh/ssh_host_ed25519_key.pub";
-      key = "hosts/saber/ssh/pub";
-    };
-    system-key-priv = {
-      path = "/etc/ssh/ssh_host_ed25519_key";
-      key = "hosts/saber/ssh/priv";
-    };
-    user-key-pub = {
-      path = "/home/${username}/.ssh/id_ed25519.pub";
-      key = "hosts/saber/ssh/pub";
-      owner = username;
-    };
-    user-key-priv = {
-      path = "/home/${username}/.ssh/id_ed25519";
-      key = "hosts/saber/ssh/priv";
-      owner = username;
-    };
-    "hosts/saber/sops_key" = {
-      path = "/home/${username}/.config/sops/age/keys.txt";
-      owner = username;
-    };
-  };
+  services.openssh.enable = true;
+
   services.fwupd.enable = true;
 
   time.timeZone = "Europe/Copenhagen";
