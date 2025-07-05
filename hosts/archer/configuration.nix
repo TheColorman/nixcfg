@@ -136,6 +136,7 @@ in {
       jq
       floorp
       fbterm
+      claude-code
     ];
   };
   services = {
