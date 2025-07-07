@@ -141,6 +141,7 @@ in {
         "${mod}, E, exec, ${fileManager}"
         "${mod} ALT, E, exec, [float; size 50%] ${uwsm} ${fileManager}"
         "${mod}, D, togglefloating,"
+        "${mod} SHIFT, D, exec hyprctl dispatch pin"
         "${mod}, F, fullscreen"
         "${mod} SHIFT, F, fullscreenstate, -1, 2"
         "ALT, SPACE, exec, ${uwsm} ${menu}"
