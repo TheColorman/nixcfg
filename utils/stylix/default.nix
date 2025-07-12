@@ -12,13 +12,13 @@
   ...
 }: let
   scfg = config.stylix;
-  asset = "2025-H1";
+  asset = "2025-H2";
 in {
   imports = [inputs.stylix.nixosModules.stylix];
 
   stylix = {
     enable = true;
-    base16Scheme = (import ./assets/${asset}.nix).${scfg.polarity};
+    # base16Scheme = (import ./assets/${asset}.nix).${scfg.polarity};
     cursor = {
       name = "Banana";
       package = pkgs.banana-cursor;
