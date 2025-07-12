@@ -12,16 +12,18 @@
   flake = "--flake ${flakedir}";
 
   gitTagScript = ''
-    fake_generation=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | grep current | awk '{print $1}')
-    generation=$((fake_generation + 323)) # i accidentally reset my generation number :(
-    echo "Built generation $generation."
-    read -r -p "Create git tag? [Y/n]: " choice
+    generation=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | grep current | awk '{print $1}')
+    host=$(hostname)
+    echo "Built generation $generation for $host."
+    tag="$generation-$host"
+    read -r -p "Create git tag ($tag)? [Y/n]: " choice
 
     choice=''${choice:-Y}
 
     if [[ "$choice" == [Yy] ]]; then
       pushd ${flakedir} > /dev/null
-      ${getExe pkgs.git} tag -a "$generation" -m "Build $generation"
+      sha=$(git rev-parse --short HEAD)
+      ${getExe pkgs.git} tag -a "$tag" -m "Build $generation for $host at \\\`github:TheColorman/nixcfg/$sha\\\`"
       ${getExe pkgs.git} push --tag
       popd > /dev/null
     fi
