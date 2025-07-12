@@ -38,6 +38,7 @@ in {
     services-sops
     services-syncthing
     services-tailscale
+    services-waybar
     system-audio
     system-bluetooth
     system-boot

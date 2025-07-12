@@ -49,8 +49,10 @@ in {
   };
 
   home-manager.users."${config.my.username}" = {
-    stylix.autoEnable = true;
-    stylix.enable = true;
+    stylix = {
+      autoEnable = true;
+      enable = true;
+    };
   };
 
   # idk man
