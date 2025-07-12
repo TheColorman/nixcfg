@@ -187,13 +187,17 @@ in {
         "${mod} SHIFT, 8, movetoworkspace, 8"
         "${mod} SHIFT, 9, movetoworkspace, 9"
 
-        # Example special workspace (scratchpad)
+        # Special workspace (scratchpad)
         "${mod}, R, togglespecialworkspace, magic"
         "${mod} SHIFT, R, movetoworkspace, special:magic"
 
         # Scroll through existing workspaces with mod + scroll
         "${mod}, mouse_down, workspace, e+1"
         "${mod}, mouse_up, workspace, e-1"
+
+        # Move workspaces between monitors
+        "CTRL ALT ${mod} SHIFT, comma, movecurrentworkspacetomonitor, l"
+        "CTRL ALT ${mod} SHIFT, period, movecurrentworkspacetomonitor, r"
 
         "Control_R&Shift_R, Space, exec, hyprctl switchxkblayout kanata next"
       ];
