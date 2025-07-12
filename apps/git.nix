@@ -10,6 +10,8 @@ in {
   # See: https://github.com/NixOS/nixpkgs/issues/340361
   # imports = [ outputs.modules.apps-gpg ];
 
+  environment.systemPackages = [pkgs.git];
+
   home-manager.users.${user}.programs = {
     git = {
       enable = true;

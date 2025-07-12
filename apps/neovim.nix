@@ -10,8 +10,9 @@
 
   nvim = inputs.nvfcfg.packages.${pkgs.system}.default;
 in {
+  environment.systemPackages = [nvim];
+
   home-manager.users.${username} = {
-    home.packages = [nvim];
     home.sessionVariables = {
       EDITOR = "nvim";
       MANPAGER = "nvim +Man!";
