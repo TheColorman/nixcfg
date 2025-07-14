@@ -86,7 +86,7 @@ in {
       ''
         {
           output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047972
-          mode=2560x1440@144
+          mode=2560x1440@260
           position=1128x-1440
           scale=auto
           bitdepth=10
@@ -99,7 +99,7 @@ in {
       ''
         {
           output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047984
-          mode=2560x1440@144
+          mode=2560x1440@260
           position=-1128x-1440
           scale=auto
           bitdepth=10
