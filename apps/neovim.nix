@@ -7,10 +7,9 @@
 }: let
   inherit (lib) getExe;
   inherit (config.my) username;
-  inherit (config) stylix;
 
   nvim =
-    if stylix.enable
+    if config ? stylix && config.stylix.enable
     # Override with stylix theme if stylix is enabled
     then
       inputs.nvfcfg.override.${pkgs.system}.default ({lib, ...}:
