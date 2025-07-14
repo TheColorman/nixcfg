@@ -2,6 +2,7 @@
   pkgs,
   outputs,
   inputs,
+  systemName,
   ...
 }: let
   username = "boarder";
@@ -30,7 +31,7 @@ in {
     inherit username;
     stateVersion = "24.05";
   };
-  networking.hostName = "boarding";
+  networking.hostName = systemName;
 
   wsl = {
     enable = true;
