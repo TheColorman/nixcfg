@@ -25,10 +25,6 @@ in {
             email = "foss@colorman.me";
           };
           revset-aliases = {
-            # Make commits authored by other people immutable
-            "immutable_heads()" = ''
-              builtin_immutable_heads() | (trunk().. & ~mine())
-            '';
             "branchpoints()" = ''
               roots(::@ ~ ::trunk()) & mine()
             '';
