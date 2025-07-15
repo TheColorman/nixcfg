@@ -3,14 +3,15 @@ Creates a NixOS configuration using format shared by all hosts.
 */
 {lib}: rec {
   mkServant = {
-    flake,
+    inputs,
+    outputs,
     name,
     platform,
     extraModules ? [],
   }:
     lib.nixosSystem {
       specialArgs = {
-        inherit (flake) inputs outputs;
+        inherit inputs outputs;
         systemName = name;
         systemPlatform = platform;
       };
@@ -22,13 +23,13 @@ Creates a NixOS configuration using format shared by all hosts.
     };
 
   mkServants = {
-    flake,
+    inputs,
+    outputs,
     servants ? {},
   }:
     builtins.mapAttrs (name: servant:
       mkServant {
-        inherit flake;
-        inherit name;
+        inherit inputs outputs name;
         inherit (servant) platform;
         extraModules = servant.extraModules or [];
       })

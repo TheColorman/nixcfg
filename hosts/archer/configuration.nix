@@ -108,9 +108,14 @@ in {
           vrr=3
           supports_wide_color=1
         }
-
       ''
     ];
+    syncthing.folders = {
+      brain = {};
+      CTF = {};
+      Documents = {};
+      # projects = {};
+    };
   };
 
   environment.systemPackages = with pkgs; [fprintd wl-clipboard];
