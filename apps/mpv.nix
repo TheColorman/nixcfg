@@ -64,6 +64,11 @@ in {
       # If using litterbox, time until video expires
       # Available values: 1h, 12h, 24h, 72h
       litterbox_expire=72h
+
+      # Cache settings
+      # Set readahead to 2GiB and backbuffer to 500 MiB
+      demuxer-max-bytes=2147483648 # 2 GiB
+      demuxer-max-back-bytes=524288000 # 500 MiB
     '';
   };
 }
