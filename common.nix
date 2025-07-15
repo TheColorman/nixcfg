@@ -35,7 +35,7 @@ in {
     nix = {
       settings = {
         # flakes
-        experimental-features = ["nix-command" "flakes"];
+        experimental-features = ["nix-command" "flakes" "pipe-operators"];
         # allow main user to trust binary caches among other things
         trusted-users = ["root" cfg.username];
       };

@@ -81,6 +81,12 @@ in {
         }
       ''
     ];
+    syncthing.folders = {
+      brain = {};
+      CTF = {};
+      Documents = {};
+      # projects = {};
+    };
   };
 
   environment.etc.hosts.mode = "0644"; # Make hosts file writable

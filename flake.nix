@@ -5,13 +5,14 @@
     nixos-hardware,
     self,
     ...
-  }: let
+  } @ inputs: let
     cLib = import ./lib {inherit (nixpkgs) lib;};
   in {
     modules = cLib.recurseModules ./.;
 
     nixosConfigurations = cLib.mkServants {
-      flake = self;
+      inherit inputs;
+      inherit (self) outputs;
 
       servants = {
         # Laptop
