@@ -41,7 +41,7 @@ in {
               then editor
               else "pico";
             movement.edit = true;
-            default-command = "l";
+            default-command = ["l" "-r" "wip()"];
           };
           signing = {
             behavior = "drop";
