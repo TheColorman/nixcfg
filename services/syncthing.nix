@@ -211,11 +211,7 @@ in {
             "force-group=syncthing"
             "create-for-user=${username}"
             "create-for-group=syncthing"
-            "chmod-ignore"
             # others
-            "chown-ignore"
-            "chgrp-ignore"
-            "xattr-none"
             "x-gvfs-hide"
             "x-gdu.hide"
             "multithreaded"
