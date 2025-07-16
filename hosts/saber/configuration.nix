@@ -26,6 +26,7 @@ in {
     apps-waydroid
     apps-zellij
     profiles-hacking
+    services-caelestia
     services-docker
     services-gnome-keyring
     services-gpg
@@ -35,7 +36,6 @@ in {
     services-sops
     services-syncthing
     services-tailscale
-    services-waybar
     services-yubikey
     system-audio
     system-bluetooth
