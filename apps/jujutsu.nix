@@ -28,6 +28,10 @@ in {
             "branchpoints()" = ''
               roots(::@ ~ ::trunk()) & mine()
             '';
+            # Shows all mutable (+ trunk) changes up to oldest forkpoint
+            "wip()" = ''
+              fork_point(mutable() | trunk())::(mutable() | trunk())
+            '';
           };
           ui = {
             log-word-wrap = true;
