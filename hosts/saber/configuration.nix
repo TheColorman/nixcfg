@@ -25,6 +25,7 @@ in {
     apps-vscode
     apps-waydroid
     apps-zellij
+    apps-zen-browser
     profiles-hacking
     services-caelestia
     services-docker

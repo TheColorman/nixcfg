@@ -25,6 +25,11 @@ in {
       type = lib.types.str;
       description = "System and home-manager state version";
     };
+    browser = lib.mkOption {
+      type = lib.types.package;
+      default = pkgs.floorp;
+      description = "Browser to use in the system";
+    };
   };
 
   config = {

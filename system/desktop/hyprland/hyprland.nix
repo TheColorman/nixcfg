@@ -125,7 +125,7 @@ in {
         hyprshot = getExe pkgs.hyprshot;
         hyprpicker = getExe pkgs.hyprpicker;
         vesktop = getExe pkgs.vesktop;
-        browser = getExe pkgs.floorp;
+        browser = getExe config.my.browser;
         cliphist = getExe pkgs.cliphist;
         wofi = getExe pkgs.wofi;
         ifne = "${pkgs.moreutils}/bin/ifne";
