@@ -209,10 +209,8 @@ in {
           options = concatStringsSep "," [
             "force-user=syncthing"
             "force-group=syncthing"
-            "perms=750"
             "create-for-user=${username}"
             "create-for-group=syncthing"
-            "create-with-perms=770"
             "chmod-ignore"
             # others
             "chown-ignore"
