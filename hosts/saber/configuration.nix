@@ -111,6 +111,8 @@ in {
       cachix
       jq
       floorp
+      jftui
+      youtube-music
     ];
   };
 
