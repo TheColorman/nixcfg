@@ -1,5 +1,12 @@
-{config, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   inherit (config.my) username;
+  inherit (lib.strings) optionalString;
+
+  stylixEnabled = config.stylix.enable or false;
 in {
   home-manager.users."${username}" = {
     programs.zellij = {
@@ -233,6 +240,8 @@ in {
       }
 
       scroll_buffer_size 100000
+
+      ${optionalString (!stylixEnabled) ''theme "gruvbox-light"''}
     '';
   };
 }
