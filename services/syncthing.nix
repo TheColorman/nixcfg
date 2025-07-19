@@ -49,6 +49,11 @@
       defaultPath = "/home/${username}/Documents";
       devices = ["colorcloud" "assassin"];
     };
+    projects = {
+      id = "projects-e2cd04";
+      defaultPath = "/home/${username}/projects";
+      devices = ["colorcloud"];
+    };
   };
 
   # Looks through my hosts config to find any other hosts that also use the

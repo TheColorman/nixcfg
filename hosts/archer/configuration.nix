@@ -115,7 +115,7 @@ in {
       CTF = {};
       Documents = {};
       ITU = {};
-      # projects = {};
+      projects = {};
     };
   };
 

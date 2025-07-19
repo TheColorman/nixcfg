@@ -85,7 +85,7 @@ in {
       brain = {};
       CTF = {};
       Documents = {};
-      # projects = {};
+      projects = {};
     };
   };
 
