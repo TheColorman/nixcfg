@@ -51,7 +51,7 @@ in {
           };
           git = {
             sign-on-push = true;
-            private-commits = "description(glob:'temp:*') | description(glob:'NO PUSH:*')";
+            private-commits = "description(glob-i:'wip:*') | description(glob-i:'no push:*')";
             executable-path = "${getExe git}";
             track-default-bookmark-on-clone = true;
           };
