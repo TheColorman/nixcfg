@@ -62,6 +62,7 @@ in {
       alejandra
       nixd
       glab
+      wslu
     ];
   };
 
