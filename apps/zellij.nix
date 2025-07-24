@@ -241,6 +241,8 @@ in {
 
       scroll_buffer_size 100000
 
+      pane_frames false
+
       ${optionalString (!stylixEnabled) ''theme "gruvbox-light"''}
     '';
   };
