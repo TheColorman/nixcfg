@@ -97,22 +97,23 @@ in {
     description = "color";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      obsidian
-      fastfetch
-      wireguard-tools
-      unzip
-      p7zip
-      ranger
       aria2
-      killall
       bottles
-      dig
-      nixpkgs-fmt
-      ripgrep
       cachix
-      jq
+      dig
+      fastfetch
       floorp
       jftui
+      jq
+      killall
+      nixpkgs-fmt
+      obsidian
+      p7zip
+      ranger
+      ripgrep
+      speed-cloudflare-cli
+      unzip
+      wireguard-tools
       youtube-music
     ];
   };
