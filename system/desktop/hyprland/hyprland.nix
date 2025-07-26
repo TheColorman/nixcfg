@@ -150,7 +150,7 @@ in {
         "ALT, SPACE, exec, ${uwsm} ${menu}"
         "${mod}, P, pseudo,"
         "${mod}, J, togglesplit,"
-        "${mod} SHIFT, S, exec, ${uwsm} ${hyprshot} --clipboard-only -m region"
+        "${mod} SHIFT, S, exec, ${uwsm} ${hyprshot} --freeze --clipboard-only -m region"
         "${mod} SHIFT, C, exec, ${uwsm} ${hyprpicker} --autocopy"
         "${mod}, V, exec, ${uwsm} ${cliphist} list | ${wofi} -d | ${cliphist} decode | ${ifne} ${wl-copy}"
 
