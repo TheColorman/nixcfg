@@ -43,7 +43,7 @@ in {
       applications = 0.5;
       desktop = 0.5;
       popups = 0.7;
-      terminal = 0.6;
+      terminal = 0.7;
     };
     polarity = "dark";
   };
