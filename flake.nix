@@ -42,7 +42,7 @@
   };
 
   inputs = {
-    # == Important modules ==
+    # == Primary modules ==
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager = {
@@ -71,7 +71,8 @@
       url = "github:nix-community/NixOS-WSL?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # == Packages only provided as flake ==
+
+    # == Packages provided as flakes ==
     # My nvf config
     nvfcfg.url = "github:TheColorman/nvfcfg";
 
@@ -106,6 +107,12 @@
     # Desktop shell dots
     caelestia-cli = {
       url = "github:caelestia-dots/cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Zen browser
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

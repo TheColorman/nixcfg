@@ -2,6 +2,7 @@
 {
   lib,
   inputs,
+  outputs,
   pkgs,
   config,
   systemPlatform,
@@ -9,7 +10,10 @@
 }: let
   cfg = config.my;
 in {
-  imports = [inputs.home-manager.nixosModules.default];
+  imports = [
+    inputs.home-manager.nixosModules.default
+    outputs.modules.apps-zen-browser
+  ];
 
   options.my = {
     username = lib.mkOption {
@@ -27,7 +31,7 @@ in {
     };
     browser = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.floorp;
+      default = pkgs.zen-browser;
       description = "Browser to use in the system";
     };
   };
