@@ -104,6 +104,7 @@ in {
       jjui
       sd
       file
+      nh
     ];
 
     users.mutableUsers = false;
