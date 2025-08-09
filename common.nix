@@ -103,6 +103,7 @@ in {
       tealdeer
       jjui
       sd
+      file
     ];
 
     users.mutableUsers = false;
