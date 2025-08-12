@@ -30,7 +30,7 @@ in {
             '';
             # Shows all mutable (+ trunk) changes up to oldest forkpoint
             "wip()" = ''
-              fork_point(mutable() | trunk())::(mutable() | trunk())
+              fork_point(mutable() | trunk()) | (mutable() | trunk())
             '';
           };
           ui = {
