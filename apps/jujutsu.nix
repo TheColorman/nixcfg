@@ -28,9 +28,14 @@ in {
             "branchpoints()" = ''
               roots(::@ ~ ::trunk()) & mine()
             '';
-            # Shows all mutable (+ trunk) changes up to oldest forkpoint
+            # Shows all mutable (+ trunk) changes up to youngest forkpoint,
+            # skipping immutable changes
             "wip()" = ''
               fork_point(mutable() | trunk()) | (mutable() | trunk())
+            '';
+            # Shows all mutable heads
+            "h()" = ''
+              heads(mutable() | trunk())
             '';
           };
           ui = {
