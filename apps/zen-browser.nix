@@ -45,6 +45,7 @@ in {
               "text/html"
             ]);
         in {
+          enable = true;
           associations.added = associations;
           defaultApplications = associations;
         };
