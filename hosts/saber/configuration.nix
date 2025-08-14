@@ -104,7 +104,6 @@ in {
       cachix
       dig
       fastfetch
-      floorp
       jftui
       jq
       killall
