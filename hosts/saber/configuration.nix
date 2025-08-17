@@ -68,6 +68,12 @@ in {
           # > 2 - fullscreen only, 3 - fullscreen with video or game content type
           vrr=3
           supports_wide_color=1
+          supports_hdr=1
+          sdr_min_luminance=0.005
+          sdr_max_luminance=200
+          min_luminance=0.5
+          max_luminance=400
+          max_avg_luminance=350
         }
       ''
       ''
@@ -81,6 +87,12 @@ in {
           # > 2 - fullscreen only, 3 - fullscreen with video or game content type
           vrr=3
           supports_wide_color=1
+          supports_hdr=1
+          sdr_min_luminance=0.005
+          sdr_max_luminance=200
+          min_luminance=0.5
+          max_luminance=400
+          max_avg_luminance=350
         }
       ''
     ];
