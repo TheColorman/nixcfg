@@ -3,7 +3,6 @@
   inputs,
   systemPlatform,
   lib,
-  pkgs,
   ...
 }: let
   inherit (config.my) username;
@@ -26,7 +25,7 @@ in {
         zen = inputs.zen-browser.packages.${systemPlatform}.twilight;
         associations = listToAttrs (map (name: {
             inherit name;
-            value = zen.meta.desktopFile;
+            value = "${zen.desktopItem}";
           }) [
             "application/x-extension-shtml"
             "application/x-extension-xhtml"
