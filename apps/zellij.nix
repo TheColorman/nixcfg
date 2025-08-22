@@ -16,11 +16,11 @@ in {
     {
       programs.zellij = {
         enable = true;
-        attachExistingSession = true;
-        exitShellOnExit = true;
         # Doesn't work in kitty, does work in tty
         # which makes uwsm angry
         enableFishIntegration = false;
+        # attachExistingSession = true;
+        # exitShellOnExit = true;
       };
     }
 
