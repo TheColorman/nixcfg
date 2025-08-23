@@ -4,9 +4,13 @@
   ...
 }: let
   inherit (lib) mkIf;
+  inherit (config.my) username;
 
-  inherit (config.home-manager.users.${config.my.username}.programs) tmux;
-  inherit (config.home-manager.users.${config.my.username}.programs) zsh;
+  home = config.home-manager.users."${username}";
+
+  inherit (home.programs) tmux zsh;
+
+  hasLaunchConfig = home.xdg.configFile."kitty/launch.conf".enable or false;
 in {
   home-manager.users."${config.my.username}" = {
     programs.kitty = {
@@ -20,7 +24,7 @@ in {
         hide_window_decorations = true;
         cursor_trail = 3;
 
-        startup_session = mkIf tmux.enable "launch.conf";
+        startup_session = mkIf hasLaunchConfig "launch.conf";
       };
 
       keybindings = {
