@@ -114,6 +114,7 @@ in {
       aria2
       bottles
       cachix
+      chromium
       dig
       fastfetch
       jftui
