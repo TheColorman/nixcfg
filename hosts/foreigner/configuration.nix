@@ -42,7 +42,7 @@ in {
     startMenuLaunchers = true;
   };
 
-  home-manager.users.${username}.programs.fish.shellAbbrs = {
+  home-manager.users.${username}.programs.fish.shellAliases = {
     docker = "/run/current-system/sw/bin/docker";
   };
 
