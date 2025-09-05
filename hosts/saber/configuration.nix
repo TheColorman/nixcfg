@@ -126,6 +126,7 @@ in {
       ranger
       ripgrep
       speed-cloudflare-cli
+      telegram-desktop
       unzip
       wireguard-tools
       youtube-music
