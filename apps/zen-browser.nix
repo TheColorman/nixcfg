@@ -25,7 +25,7 @@ in {
         zen = inputs.zen-browser.packages.${systemPlatform}.twilight;
         associations = listToAttrs (map (name: {
             inherit name;
-            value = "${zen.desktopItem}";
+            value = "${zen.desktopItem}/share/applications/zen-twilight.desktop";
           }) [
             "application/x-extension-shtml"
             "application/x-extension-xhtml"
