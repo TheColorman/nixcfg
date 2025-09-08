@@ -15,7 +15,7 @@ in {
 
   home-manager.users."${username}".wayland.windowManager.hyprland.settings = lib.mkIf hyprland.enable {
     exec-once = [
-      "uwsm app -- ${caelestia} pip -d"
+      "uwsm app -- ${caelestia} resizer -d"
       "uwsm app -- ${caelestia} shell -d"
     ];
   };
