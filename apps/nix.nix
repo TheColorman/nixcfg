@@ -30,16 +30,16 @@
   '';
 in {
   environment.systemPackages = [
-    (script "tnix" "sudo nixos-rebuild test ${flake} -L -v")
-    (script "dbnix" "sudo nixos-rebuild dry-build ${flake} -L -v")
-    (script "danix" "sudo nixos-rebuild dry-activate ${flake} -L -v")
+    (script "tnix" "sudo pixos-rebuild test ${flake} -L -v")
+    (script "dbnix" "sudo pixos-rebuild dry-build ${flake} -L -v")
+    (script "danix" "sudo pixos-rebuild dry-activate ${flake} -L -v")
     (script "bnix" ''
-      sudo nixos-rebuild boot ${flake}
+      sudo pixos-rebuild boot ${flake}
 
       ${gitTagScript}
     '')
     (script "snix" ''
-      sudo nixos-rebuild switch ${flake}
+      sudo pixos-rebuild switch ${flake}
 
       ${gitTagScript}
     '')
