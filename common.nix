@@ -12,8 +12,8 @@
 in {
   imports = [
     inputs.home-manager.nixosModules.default
-    inputs.nix-index-database.nixosModules.nix-index
     outputs.modules.apps-zen-browser
+    outputs.modules.apps-comma
   ];
 
   options.my = {
