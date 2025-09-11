@@ -120,5 +120,11 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Pacman inspired Nix wrapper
+    pinix = {
+      url = "github:remi-dupre/pinix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
