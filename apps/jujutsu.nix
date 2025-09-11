@@ -98,7 +98,22 @@ in {
           };
         };
       };
-      fish.shellAbbrs.j = "jj";
+
+      fish = {
+        shellAbbrs.j = "jj";
+
+        plugins = [
+          {
+            name = "jj";
+            src = pkgs.fetchFromGitHub {
+              owner = "jhillyerd";
+              repo = "plugin-git";
+              rev = "d6950214b6b2392d3dbb2cb670f2a5f240090038";
+              hash = "sha256-0uEKw+7EXkf5u3p3hfthSfQO/2rr3wl35ela7P2vB0Q=";
+            };
+          }
+        ];
+      };
     };
   };
 }
