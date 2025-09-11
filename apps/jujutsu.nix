@@ -98,7 +98,22 @@ in {
           };
         };
       };
-      fish.shellAbbrs.j = "jj";
+
+      fish = {
+        shellAbbrs.j = "jj";
+
+        plugins = [
+          {
+            name = "jj";
+            src = pkgs.fetchFromGitHub {
+              owner = "kapsmudit";
+              repo = "plugin-jj";
+              rev = "593e00baaabac6a306b367103b5bea73316cc241";
+              hash = "sha256-XMk5UquaBFOLwHnC4yFSjykU8LZymk0a0gbBQX5Ga80=";
+            };
+          }
+        ];
+      };
     };
   };
 }
