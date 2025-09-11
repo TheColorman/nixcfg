@@ -53,16 +53,17 @@ in {
     hashedPassword = "$y$j9T$sD7TNPmhg9Zxso6eUqMV9/$Wa/zdt3yOxWfrY3aLlRjbajyqy/6r6oYInvjplj02O9";
     extraGroups = ["wheel" "dialout"];
     packages = with pkgs; [
-      attic-client
-      fastfetch
-      ranger
-      aria2
-      killall
-      dig
-      ripgrep
       alejandra
-      nixd
+      aria2
+      attic-client
+      dig
+      fastfetch
       glab
+      killall
+      nixd
+      ranger
+      ripgrep
+      wl-clipboard
       wslu
     ];
   };
