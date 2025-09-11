@@ -98,7 +98,22 @@ in {
           };
         };
       };
-      fish.shellAbbrs.j = "jj";
+
+      fish = {
+        shellAbbrs.j = "jj";
+
+        plugins = [
+          {
+            name = "jj";
+            src = pkgs.fetchFromGitHub {
+              owner = "ShawnMcCool";
+              repo = "plugin-jj";
+              rev = "7cd34c07009a4d502709dacfcd0b8b7f561b32d2";
+              hash = "sha256-FUZ9uRDEJOFo47Rtj1ObwMpUcZkFA/qtoDfV/ZabHdE=";
+            };
+          }
+        ];
+      };
     };
   };
 }
