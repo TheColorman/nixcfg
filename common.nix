@@ -85,27 +85,27 @@ in {
     hardware.graphics.enable32Bit = true; # 32-bit application support
 
     environment.systemPackages = with pkgs; [
-      uutils-coreutils-noprefix
-      fd
+      aria2
       bat
-      xh
+      cachix
+      dig
       du-dust
-      yazi
+      fastfetch
+      fd
+      file
+      jjui
+      jq
+      killall
+      nh
+      p7zip
       ripgrep
       ripgrep-all
-      fastfetch
-      unzip
-      p7zip
-      aria2
-      killall
-      dig
-      cachix
-      jq
-      tealdeer
-      jjui
       sd
-      file
-      nh
+      tealdeer
+      unzip
+      uutils-coreutils-noprefix
+      xh
+      yazi
     ];
 
     users.mutableUsers = false;
