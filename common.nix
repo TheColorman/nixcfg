@@ -93,7 +93,6 @@ in {
       fastfetch
       fd
       file
-      jjui
       jq
       killall
       nh

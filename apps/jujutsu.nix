@@ -15,7 +15,7 @@
 in {
   home-manager.users.${username} = {
     # fs monitor
-    home.packages = [pkgs.watchman];
+    home.packages = with pkgs; [jjui watchman];
     programs = {
       jujutsu = {
         enable = true;
