@@ -88,6 +88,7 @@ in {
       aria2
       bat
       cachix
+      comma
       dig
       du-dust
       fastfetch
