@@ -117,6 +117,7 @@ in {
       chromium
       dig
       fastfetch
+      grayjay
       jftui
       jq
       killall
