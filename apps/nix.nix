@@ -30,9 +30,9 @@
   '';
 in {
   environment.systemPackages = [
-    (script "tnix" "sudo pixos-rebuild test ${flake} -L -v")
-    (script "dbnix" "sudo pixos-rebuild dry-build ${flake} -L -v")
-    (script "danix" "sudo pixos-rebuild dry-activate ${flake} -L -v")
+    (script "tnix" "sudo pixos-rebuild test ${flake}")
+    (script "dbnix" "sudo pixos-rebuild dry-build ${flake}")
+    (script "danix" "sudo pixos-rebuild dry-activate ${flake}")
     (script "bnix" ''
       sudo pixos-rebuild boot ${flake}
 
