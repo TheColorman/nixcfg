@@ -22,10 +22,9 @@ in {
       imports = [inputs.zen-browser.homeModules.twilight];
 
       xdg.mimeApps = let
-        zen = inputs.zen-browser.packages.${systemPlatform}.twilight;
         associations = listToAttrs (map (name: {
             inherit name;
-            value = "${zen.desktopItem}/share/applications/zen-twilight.desktop";
+            value = "zen-twilight.desktop";
           }) [
             "application/x-extension-shtml"
             "application/x-extension-xhtml"
