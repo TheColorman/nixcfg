@@ -26,7 +26,6 @@ in {
     hyprlandConfig = let
       term = getExe pkgs.kitty;
       fileManager = "${pkgs.kdePackages.dolphin}/bin/dolphin";
-      menu = getExe pkgs.walker;
       uwsm = "uwsm app -- ";
       mod = "SUPER";
     in {
@@ -122,14 +121,9 @@ in {
       gestures.workspace_swipe = true;
 
       bind = let
-        hyprshot = getExe pkgs.hyprshot;
         hyprpicker = getExe pkgs.hyprpicker;
         vesktop = getExe pkgs.vesktop;
         browser = getExe config.my.browser;
-        cliphist = getExe pkgs.cliphist;
-        wofi = getExe pkgs.wofi;
-        ifne = "${pkgs.moreutils}/bin/ifne";
-        wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
       in [
         "${mod}, T, exec, ${uwsm} ${term}"
         "${mod} ALT, T, exec, [float; size 50%] ${uwsm} ${term}"
@@ -141,12 +135,9 @@ in {
         "${mod} SHIFT, D, exec, hyprctl dispatch pin"
         "${mod}, F, fullscreen"
         "${mod} SHIFT, F, fullscreenstate, -1, 2"
-        "ALT, SPACE, exec, ${uwsm} ${menu}"
         "${mod}, P, pseudo,"
         "${mod}, J, togglesplit,"
-        "${mod} SHIFT, S, exec, ${uwsm} ${hyprshot} --freeze --clipboard-only -m region"
         "${mod} SHIFT, C, exec, ${uwsm} ${hyprpicker} --autocopy"
-        "${mod}, V, exec, ${uwsm} ${cliphist} list | ${wofi} -d | ${cliphist} decode | ${ifne} ${wl-copy}"
 
         # Applications
         "${mod} SHIFT, D, exec, ${uwsm} ${vesktop}"

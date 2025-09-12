@@ -104,8 +104,8 @@
     };
 
     # Desktop shell dots
-    caelestia-cli = {
-      url = "github:caelestia-dots/cli";
+    caelestia = {
+      url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
