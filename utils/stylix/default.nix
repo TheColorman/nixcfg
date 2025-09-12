@@ -4,6 +4,7 @@
 # 2024-H1: Wallpaper Engine wallpaper (https://steamcommunity.com/sharedfiles/filedetails/?id=1288111061), by Jacket (https://steamcommunity.com/id/bloody_jacket)
 # 2024-H2: Vicky Bawangun (https://vickyb18.artstation.com/)
 # 2025-H1: nemupan (https://linktr.ee/nemupan). Extended using Photoshop to fit my aspect ratio
+# 2025-H2: 夏の影 (https://pixiv.net/artworks/90877153) by あきま (https://pixiv.net/users/19301797)
 {
   lib,
   config,
