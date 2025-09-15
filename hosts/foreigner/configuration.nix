@@ -63,7 +63,6 @@ in {
       nixd
       ranger
       ripgrep
-      wl-clipboard
       wslu
     ];
   };
