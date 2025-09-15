@@ -34,12 +34,7 @@ in {
 
   wsl = {
     enable = true;
-    wslConf = {
-      interop.appendWindowsPath = false;
-      network.generateHosts = false;
-    };
     defaultUser = username;
-    startMenuLaunchers = true;
   };
 
   home-manager.users.${username}.programs.fish.shellAliases = {
