@@ -109,7 +109,7 @@ in {
     #   inputs.pinix.packages.${systemPlatform}.default
     # ];
 
-    # users.mutableUsers = false;
+    users.mutableUsers = false;
     # home-manager = {
     #   useGlobalPkgs = true;
     #   useUserPackages = true;
