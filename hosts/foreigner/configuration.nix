@@ -5,48 +5,50 @@
   systemName,
   ...
 }: let
-  username = "boarder";
+  username = "nixos";
 in {
   imports = with outputs.modules; [
     inputs.nixos-wsl.nixosModules.default
-    common
-    apps-btop
-    apps-claude-code
-    apps-git
-    apps-jujutsu
-    apps-neovim
-    apps-nix
-    apps-zellij
-    services-docker
-    services-gpg
-    services-sops
-    services-vscode-server
-    system-locale-danish
-    utils-shell
-    utils-shell-fish
-    utils-tmux
+    # common
+    # apps-btop
+    # apps-claude-code
+    # apps-git
+    # apps-jujutsu
+    # apps-neovim
+    # apps-nix
+    # apps-zellij
+    # services-docker
+    # services-gpg
+    # services-sops
+    # services-vscode-server
+    # system-locale-danish
+    # utils-shell
+    # utils-shell-fish
+    # utils-tmux
   ];
-  my = {
-    inherit username;
-    stateVersion = "24.05";
-  };
-  networking.hostName = systemName;
+  # my = {
+  #   inherit username;
+  #   stateVersion = "24.05";
+  # };
+  system.stateVersion = "24.05";
+  # networking.hostName = systemName;
+  networking.hostName = "nixos";
 
   wsl = {
     enable = true;
-    wslConf = {
-      interop.appendWindowsPath = false;
-      network.generateHosts = false;
-    };
+    # wslConf = {
+    #   interop.appendWindowsPath = false;
+    #   network.generateHosts = false;
+    # };
     defaultUser = username;
-    startMenuLaunchers = true;
+    # startMenuLaunchers = true;
   };
 
-  home-manager.users.${username}.programs.fish.shellAliases = {
-    docker = "/run/current-system/sw/bin/docker";
-  };
+  # home-manager.users.${username}.programs.fish.shellAliases = {
+  #   docker = "/run/current-system/sw/bin/docker";
+  # };
 
-  services.gnome.gnome-keyring.enable = true;
+  # services.gnome.gnome-keyring.enable = true;
 
   users.users."${username}" = {
     isNormalUser = true;
