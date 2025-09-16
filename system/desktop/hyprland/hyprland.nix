@@ -119,8 +119,6 @@ in {
         repeat_delay = 225;
       };
 
-      gestures.workspace_swipe = true;
-
       bind = let
         hyprpicker = getExe pkgs.hyprpicker;
         vesktop = getExe pkgs.vesktop;
