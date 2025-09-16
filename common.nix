@@ -78,10 +78,10 @@ in {
       libraries = with pkgs; [libsecret];
     };
 
-    # services = {
-    #   envfs.enable = true; # /bin symlinks for shebangs
-    #   printing.enable = true;
-    # };
+    services = {
+      envfs.enable = true; # /bin symlinks for shebangs
+      printing.enable = true;
+    };
     # hardware.graphics.enable32Bit = true; # 32-bit application support
 
     # environment.systemPackages = with pkgs; [
