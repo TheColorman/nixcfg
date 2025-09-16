@@ -11,8 +11,8 @@
   cfg = config.my;
 in {
   imports = [
-    inputs.home-manager.nixosModules.default
-    outputs.modules.apps-zen-browser
+    # inputs.home-manager.nixosModules.default
+    # outputs.modules.apps-zen-browser
     outputs.modules.apps-comma
   ];
 
@@ -73,61 +73,61 @@ in {
       };
     };
     # Allow execution of dynamic binaries
-    programs.nix-ld = {
-      enable = true;
-      libraries = with pkgs; [libsecret];
-    };
+    # programs.nix-ld = {
+    #   enable = true;
+    #   libraries = with pkgs; [libsecret];
+    # };
 
-    services = {
-      envfs.enable = true; # /bin symlinks for shebangs
-      printing.enable = true;
-    };
-    hardware.graphics.enable32Bit = true; # 32-bit application support
+    # services = {
+    #   envfs.enable = true; # /bin symlinks for shebangs
+    #   printing.enable = true;
+    # };
+    # hardware.graphics.enable32Bit = true; # 32-bit application support
 
-    environment.systemPackages = with pkgs; [
-      aria2
-      bat
-      cachix
-      dig
-      du-dust
-      fastfetch
-      fd
-      file
-      jq
-      killall
-      nh
-      p7zip
-      ripgrep
-      ripgrep-all
-      sd
-      tealdeer
-      unzip
-      uutils-coreutils-noprefix
-      xh
-      yazi
+    # environment.systemPackages = with pkgs; [
+    #   aria2
+    #   bat
+    #   cachix
+    #   dig
+    #   du-dust
+    #   fastfetch
+    #   fd
+    #   file
+    #   jq
+    #   killall
+    #   nh
+    #   p7zip
+    #   ripgrep
+    #   ripgrep-all
+    #   sd
+    #   tealdeer
+    #   unzip
+    #   uutils-coreutils-noprefix
+    #   xh
+    #   yazi
+    #
+    #   inputs.pinix.packages.${systemPlatform}.default
+    # ];
 
-      inputs.pinix.packages.${systemPlatform}.default
-    ];
-
-    users.mutableUsers = false;
-    home-manager = {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      backupFileExtension = "hm-backup";
-
-      extraSpecialArgs = {
-        inherit inputs;
-        inherit (inputs.self) outputs;
-      };
-      users."${cfg.username}" = {
-        programs.home-manager.enable = true;
-
-        home = {
-          inherit (cfg) username stateVersion;
-          homeDirectory = "/home/${cfg.username}";
-        };
-      };
-    };
+    # users.mutableUsers = false;
+    # home-manager = {
+    #   useGlobalPkgs = true;
+    #   useUserPackages = true;
+    #   backupFileExtension = "hm-backup";
+    #
+    #   extraSpecialArgs = {
+    #     inherit inputs;
+    #     inherit (inputs.self) outputs;
+    #   };
+    #   users."${cfg.username}" = {
+    #     programs.home-manager.enable = true;
+    #
+    #     home = {
+    #       inherit (cfg) username stateVersion;
+    #       homeDirectory = "/home/${cfg.username}";
+    #     };
+    #   };
+    # };
     system.stateVersion = cfg.stateVersion;
   };
 }
