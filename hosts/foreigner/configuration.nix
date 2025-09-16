@@ -9,7 +9,7 @@
 in {
   imports = with outputs.modules; [
     inputs.nixos-wsl.nixosModules.default
-    # common
+    common
     # apps-btop
     # apps-claude-code
     # apps-git
@@ -26,11 +26,10 @@ in {
     # utils-shell-fish
     # utils-tmux
   ];
-  # my = {
-  #   inherit username;
-  #   stateVersion = "24.05";
-  # };
-  system.stateVersion = "24.05";
+  my = {
+    inherit username;
+    stateVersion = "24.05";
+  };
   # networking.hostName = systemName;
   networking.hostName = "nixos";
 
