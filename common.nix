@@ -73,10 +73,10 @@ in {
       };
     };
     # Allow execution of dynamic binaries
-    # programs.nix-ld = {
-    #   enable = true;
-    #   libraries = with pkgs; [libsecret];
-    # };
+    programs.nix-ld = {
+      enable = true;
+      libraries = with pkgs; [libsecret];
+    };
 
     # services = {
     #   envfs.enable = true; # /bin symlinks for shebangs
