@@ -53,28 +53,28 @@ in {
   users.users."${username}" = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$sD7TNPmhg9Zxso6eUqMV9/$Wa/zdt3yOxWfrY3aLlRjbajyqy/6r6oYInvjplj02O9";
-    extraGroups = ["wheel" "dialout"];
+    extraGroups = ["wheel"];
     packages = with pkgs; [
-      alejandra
-      aria2
-      attic-client
-      dig
-      fastfetch
-      glab
-      killall
-      nixd
-      ranger
-      ripgrep
-      wl-clipboard
-      wslu
+      # alejandra
+      # aria2
+      # attic-client
+      # dig
+      # fastfetch
+      # glab
+      # killall
+      # nixd
+      # ranger
+      # ripgrep
+      # wl-clipboard
+      # wslu
     ];
   };
 
-  security.pki.certificates = [
-    (import "${inputs.nix-secrets}/evaluation-secrets.nix").boarding.extraCerts
-  ];
+  # security.pki.certificates = [
+  #   (import "${inputs.nix-secrets}/evaluation-secrets.nix").boarding.extraCerts
+  # ];
 
-  time.timeZone = "Europe/Copenhagen";
+  # time.timeZone = "Europe/Copenhagen";
 
   nixpkgs.hostPlatform = "x86_64-linux";
 }
