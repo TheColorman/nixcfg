@@ -68,7 +68,7 @@
     };
     # WSL
     nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL/5ba6e59ec2fed4e0dac586ebfa7354a1d4b9d4f7";
+      url = "github:nix-community/NixOS-WSL/572e9d85663f2f9d53995a8668ad28a9b343ff68";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
