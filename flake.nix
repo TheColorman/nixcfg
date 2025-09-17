@@ -43,7 +43,7 @@
 
   inputs = {
     # == Primary modules ==
-    nixpkgs.url = "github:nixos/nixpkgs/1fd8bada0b6117e6c7eb54aad5813023eed37ccb";
+    nixpkgs.url = "github:nixos/nixpkgs/1d95cb5fa7a38717172e090d54338ca8daef8a86";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager = {
       url = "github:nix-community/home-manager?ref=master";
