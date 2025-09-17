@@ -43,8 +43,7 @@
 
   inputs = {
     # == Primary modules ==
-    # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs.follows = "nixos-wsl/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/ed29f002b6d6e5e7e32590deb065c34a31dc3e91";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager = {
       url = "github:nix-community/home-manager?ref=master";
@@ -69,7 +68,7 @@
     # WSL
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/d4f8c56576624230fbc3a37002109402327bba70";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # == Packages provided as flakes ==
