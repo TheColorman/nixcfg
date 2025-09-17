@@ -3,6 +3,7 @@
   outputs,
   inputs,
   systemName,
+  lib,
   ...
 }: let
   username = "boarder";
@@ -34,13 +35,11 @@ in {
 
   wsl = {
     enable = true;
-    wslConf = {
-      interop.appendWindowsPath = false;
-      network.generateHosts = false;
-    };
     defaultUser = username;
-    startMenuLaunchers = true;
   };
+
+  # envfs is broken in wsl - makes system unbootable
+  services.envfs.enable = lib.mkForce false;
 
   home-manager.users.${username}.programs.fish.shellAliases = {
     docker = "/run/current-system/sw/bin/docker";
