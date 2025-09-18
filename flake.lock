@@ -616,11 +616,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1757919296,
-        "narHash": "sha256-5VqYJfAmmr1hWBr3RwemdJd0FgMvW1dUfpaYyrwdc44=",
+        "lastModified": 1758192335,
+        "narHash": "sha256-Uv2rMNs3QDNKm32u8VJiSu5+5fEBN4VlqL9WIqxP3xE=",
         "owner": "TheColorman",
         "repo": "nvfcfg",
-        "rev": "be77fb1470c456e09813cc0b33a40dc15e377e89",
+        "rev": "897cb92ffd765a7aa2db23b40779aac4507b7ca9",
         "type": "github"
       },
       "original": {
