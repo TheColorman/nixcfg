@@ -142,7 +142,6 @@ in {
       ripgrep
       cachix
       jq
-      floorp
       fbterm
       jftui
       youtube-music
