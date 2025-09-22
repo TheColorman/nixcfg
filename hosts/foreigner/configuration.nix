@@ -57,6 +57,7 @@ in {
       attic-client
       dig
       fastfetch
+      git-cliff
       glab
       killall
       nixd
