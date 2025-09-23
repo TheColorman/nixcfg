@@ -18,8 +18,8 @@
         ;; I use symbols cause they're not as wide as the text versions.
         ;; See https://github.com/jtroo/kanata/blob/main/docs/fancy_symbols.md
 
-        ;; This is the setup for using home-row mods. Disabled for now, but I'l
-        ;; try it again when I get a split keyboard.
+        ;; This is the setup for using home-row mods. Disabled for now, but
+        ;; I'll try it again when I get a split keyboard.
         ;; (defvar
         ;;   left-hand-keys (
         ;;     q  w  f  p  b
@@ -35,10 +35,11 @@
 
         (defalias
           ext (layer-while-held navigation)
-          deflt (layer-switch default-layer)
-          altgr (layer-while-held alt-graph)
-          sftgr (layer-while-held alt-graph-shift)
-          qwerty (layer-switch qwerty)
+          deflt  (layer-switch     default-layer)
+          alt    (layer-while-held alt)
+          altgr  (layer-while-held alt-graph)
+          sftgr  (layer-while-held alt-graph-shift)
+          qwerty (layer-switch     qwerty)
           numpad (layer-while-held numpad)
 
           ;; Special keys
@@ -58,7 +59,15 @@
           tab  q   w   f   p   b   j   l   u   y   ;
           @ext  a   r   s   t   g   m   n   e   i   o
           lsft   x   c   d   v   z   k   h   ,   .   ⁄
-          lctl       ‹⎇           spc          @altgr
+          lctl     @alt           spc          @altgr
+        )
+        (deflayer (alt)
+          _
+          _   _   _   _   _   _   _   _   _   _   _
+          _    ;   y   u   l   j   _   _   _   _   _
+          _     o   i   e   n   m   _   _   _   _   _
+          ⌫      .   ,   h   k   z   _   _   _   _   _
+          _        @alt           _            _
         )
         (deflayer (alt-graph)
           _
