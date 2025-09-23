@@ -52,6 +52,23 @@
 
           ⭾ tab
           ⇪⭾ S-tab
+
+          ;; Keys that should not be ALT-ed on the ALt layer
+          ;x (multi (release-key alt) ;)
+          yx (multi (release-key alt) y)
+          ux (multi (release-key alt) u)
+          lx (multi (release-key alt) l)
+          jx (multi (release-key alt) j)
+          ox (multi (release-key alt) o)
+          ix (multi (release-key alt) i)
+          ex (multi (release-key alt) e)
+          nx (multi (release-key alt) n)
+          mx (multi (release-key alt) m)
+          .x (multi (release-key alt) .)
+          ,x (multi (release-key alt) ,)
+          hx (multi (release-key alt) h)
+          kx (multi (release-key alt) k)
+          zx (multi (release-key alt) z)
         )
         (deflayer (default-layer)
           esc
@@ -61,25 +78,27 @@
           lsft   x   c   d   v   z   k   h   ,   .   ⁄
           lctl     @alt           spc          @altgr
         )
+        ;; Right-hand mirror layer
         (deflayer (alt)
           _
           _   _   _   _   _   _   _   _   _   _   _
-          _    ;   y   u   l   j   _   _   _   _   _
-          _     o   i   e   n   m   _   _   _   _   _
-          ⌫      .   ,   h   k   z   _   _   _   _   _
+          _   @;x @yx @ux @lx @jx   _   _   _   _  _
+          ⌫    @ox @ix @ex @nx  @mx  _   _   _   _   _
+          _     @.x @,x @hx @kx   _   _   _   _   _   _
           _        @alt           _            _
         )
-        (deflayer (alt-graph)
+        ;; Left-hand mirror layer
+        (delayr (alt-graph)
           _
-        	_   _   _   _   _   _   _   _   _   _   _
+        	_   _   _      _   _  _   _   _   _   _
         	_    _   @å  _   @ø  _   b   p   f   w   q
-        	@ext  _   _   _   _   _   g   t   s   r   a
-        	@sftgr _   _   _   _   @æ  v   d   c   x   z
+        	@ext  _   _   _   _   _   g   t   s   r  a
+        	@sftgr _   _   _   _   @æ  v   d   c   x  z
         	@qwerty    _             _           @altgr
         )
         (deflayer (alt-graph-shift)
           _
-        	_   _   _   _   _   _   _   _   _   _   _
+          _   _   _   _   _   _   _   _      _   _
         	_    _   @Å  _   @Ø  _   _   _   _   _   _
         	@ext  _   _   _   _   _   _   _   _   _   _
         	_      _   _   _   _   @Æ  _   _   _   _   _
