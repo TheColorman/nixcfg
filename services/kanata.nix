@@ -63,9 +63,9 @@
         (deflayer (alt-graph)
           _
         	_   _   _   _   _   _   _   _   _   _   _
-        	_    _   @å  _   @ø  _   _   _   _   _   _
-        	@ext  _   _   _   _   _   _   _   _   _   _
-        	@sftgr _   _   _   _   @æ  _   _   _   _   _
+        	_    _   @å  _   @ø  _   b   p   f   w   q
+        	@ext  _   _   _   _   _   g   t   s   r   a
+        	@sftgr _   _   _   _   @æ  v   d   c   x   z
         	@qwerty    _             _           @altgr
         )
         (deflayer (alt-graph-shift)
