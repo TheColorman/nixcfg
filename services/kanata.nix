@@ -90,7 +90,7 @@
         ;; Left-hand mirror layer
         (deflayer (alt-graph)
           _
-        	_   _   _      _   _  _   _   _   _   _
+        	_   _   _   _   _   _   _   _   _   _   _
         	_    _   @å  _   @ø  _   b   p   f   w   q
         	@ext  _   _   _   _   _   g   t   s   r  a
         	@sftgr _   _   _   _   @æ  v   d   c   x  z
@@ -98,7 +98,7 @@
         )
         (deflayer (alt-graph-shift)
           _
-          _   _   _   _   _   _   _   _      _   _
+          _   _   _   _   _   _   _   _   _   _   _
         	_    _   @Å  _   @Ø  _   _   _   _   _   _
         	@ext  _   _   _   _   _   _   _   _   _   _
         	_      _   _   _   _   @Æ  _   _   _   _   _
