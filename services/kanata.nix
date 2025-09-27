@@ -36,7 +36,7 @@
         (defalias
           ext (layer-while-held navigation)
           deflt  (layer-switch     default-layer)
-          alt    (layer-while-held alt)
+          alt    (multi lalt (layer-while-held alt))
           altgr  (layer-while-held alt-graph)
           sftgr  (layer-while-held alt-graph-shift)
           qwerty (layer-switch     qwerty)
