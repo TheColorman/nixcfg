@@ -10,6 +10,7 @@ in {
       enable = true;
       scripts = with pkgs.mpvScripts; [
         videoclip
+        mpris
       ];
       config = {
         # These two are for hdr
