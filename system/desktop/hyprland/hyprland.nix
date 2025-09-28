@@ -277,7 +277,6 @@ in {
       services = {
         hyprpaper.enable = true;
         hyprpolkitagent.enable = true;
-        network-manager-applet.enable = true;
         cliphist = {
           enable = true;
           allowImages = true;
