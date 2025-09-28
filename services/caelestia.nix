@@ -43,6 +43,7 @@ in {
         "ALT, SPACE, global, caelestia:launcher"
 
         # Misc
+        "Super, L, global, caelestia:lock"
 
         # Utilities
         "Super+Shift, S, global, caelestia:screenshotFreeze" # Capture region (freeze)
