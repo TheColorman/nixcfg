@@ -46,6 +46,10 @@ in {
         layout = "dwindle";
       };
 
+      # Fixes issues where the mouse is not detecting at the edges of the
+      # screen, breaking e.g. the mouse gestures in Caelestia
+      cursor.hotspot_padding = 1;
+
       decoration = {
         rounding = 10;
         rounding_power = 2;
