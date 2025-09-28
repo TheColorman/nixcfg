@@ -44,6 +44,7 @@ in {
 
         # Misc
         "Super, L, global, caelestia:lock"
+        "Super, N, exec, caelestia shell drawers toggle sidebar"
 
         # Utilities
         "Super+Shift, S, global, caelestia:screenshotFreeze" # Capture region (freeze)
