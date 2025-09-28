@@ -273,7 +273,6 @@ in {
       services = {
         hyprpaper.enable = true;
         hyprpolkitagent.enable = true;
-        mako.enable = true;
         network-manager-applet.enable = true;
         cliphist = {
           enable = true;
