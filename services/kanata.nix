@@ -36,7 +36,6 @@
         (defalias
           ext (layer-while-held navigation)
           deflt  (layer-switch     default-layer)
-          alt    (multi lalt (layer-while-held alt))
           altgr  (layer-while-held alt-graph)
           sftgr  (layer-while-held alt-graph-shift)
           qwerty (layer-switch     qwerty)
@@ -52,23 +51,6 @@
 
           ⭾ tab
           ⇪⭾ S-tab
-
-          ;; Keys that should not be ALT-ed on the ALt layer
-          ;x (multi (release-key alt) ;)
-          yx (multi (release-key alt) y)
-          ux (multi (release-key alt) u)
-          lx (multi (release-key alt) l)
-          jx (multi (release-key alt) j)
-          ox (multi (release-key alt) o)
-          ix (multi (release-key alt) i)
-          ex (multi (release-key alt) e)
-          nx (multi (release-key alt) n)
-          mx (multi (release-key alt) m)
-          .x (multi (release-key alt) .)
-          ,x (multi (release-key alt) ,)
-          hx (multi (release-key alt) h)
-          kx (multi (release-key alt) k)
-          zx (multi (release-key alt) z)
         )
         (deflayer (default-layer)
           esc
@@ -76,18 +58,9 @@
           tab  q   w   f   p   b   j   l   u   y   ;
           @ext  a   r   s   t   g   m   n   e   i   o
           lsft   x   c   d   v   z   k   h   ,   .   ⁄
-          lctl     @alt           spc          @altgr
+          lctl      ‹⎇           spc          @altgr
         )
         ;; Right-hand mirror layer
-        (deflayer (alt)
-          _
-          _   _   _   _   _   _   _   _   _   _   _
-          _   @;x @yx @ux @lx @jx   _   _   _   _  _
-          ⌫    @ox @ix @ex @nx  @mx  _   _   _   _   _
-          _     @.x @,x @hx @kx   _   _   _   _   _   _
-          _        @alt           _            _
-        )
-        ;; Left-hand mirror layer
         (deflayer (alt-graph)
           _
         	_   _   _   _   _   _   _   _   _   _   _
