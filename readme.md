@@ -10,6 +10,7 @@ system configurations for all my machines
   - `archer/` - My Framework laptop.
   - `boarding/` - WSL.
   - `live/` - WIP live bootable ISO.
+  - `saber/` - Desktop computer.
 - `lib/` - Reusable Nix functions.
 - `apps/` - Applications I use interactively. Git, neovim, mpv.
 - `services/` - Background services with no direct influence tools. Docker,
