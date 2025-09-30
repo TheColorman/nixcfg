@@ -127,6 +127,7 @@ in {
         hyprpicker = getExe pkgs.hyprpicker;
         vesktop = getExe pkgs.vesktop;
         browser = getExe config.my.browser;
+        music = getExe pkgs.youtube-music;
       in [
         "${mod}, T, exec, ${uwsm} ${term}"
         "${mod} ALT, T, exec, [float; size 50%] ${uwsm} ${term}"
@@ -145,6 +146,7 @@ in {
         # Applications
         "${mod} SHIFT, D, exec, ${uwsm} ${vesktop}"
         "${mod} SHIFT, B, exec, ${uwsm} ${browser}"
+        "${mod} SHIFT, M, exec, ${uwsm} ${music}"
 
         # Move focus with mod + arrow keys
         "${mod}, left, movefocus, l"
