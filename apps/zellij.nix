@@ -6,9 +6,10 @@
 }: let
   inherit (config.my) username;
   inherit (lib.strings) optionalString;
-  inherit (lib.modules) mkMerge;
+  inherit (lib.modules) mkMerge mkIf;
   inherit (lib.meta) getExe;
 
+  desktopPortalEnabled = config.xdg.portal.enable or false;
   stylixEnabled = config.stylix.enable or false;
 in {
   home-manager.users."${username}" = mkMerge [
@@ -16,11 +17,11 @@ in {
     {
       programs.zellij = {
         enable = true;
-        # Doesn't work in kitty, does work in tty
-        # which makes uwsm angry
-        enableFishIntegration = false;
-        # attachExistingSession = true;
-        # exitShellOnExit = true;
+        enableFishIntegration = true;
+        # If I have a desktop portal, then I don't expect to have Zellij in the
+        # TTY. If I do not have one, I do want zellij in TTY.
+        attachExistingSession = mkIf (!desktopPortalEnabled) true;
+        exitShellOnExit = mkIf (!desktopPortalEnabled) true;
       };
     }
 
