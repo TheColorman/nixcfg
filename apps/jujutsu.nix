@@ -47,6 +47,7 @@ in {
               else "pico";
             movement.edit = true;
             default-command = ["l" "-r" "wip()"];
+            diff-editor = ":builtin";
           };
           signing = {
             behavior = "drop";
