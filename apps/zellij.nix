@@ -17,9 +17,9 @@ in {
     {
       programs.zellij = {
         enable = true;
-        enableFishIntegration = true;
         # If I have a desktop portal, then I don't expect to have Zellij in the
         # TTY. If I do not have one, I do want zellij in TTY.
+        enableFishIntegration = mkIf (!desktopPortalEnabled) true;
         attachExistingSession = mkIf (!desktopPortalEnabled) true;
         exitShellOnExit = mkIf (!desktopPortalEnabled) true;
       };
