@@ -63,19 +63,38 @@ in {
             executable-path = "${getExe git}";
             track-default-bookmark-on-clone = true;
           };
-          # template for showing diff during a jj describe
-          # https://github.com/jj-vcs/jj/issues/1946#issuecomment-2561045057
-          templates.draft_commit_description = ''
-            concat(
-              coalesce(description, default_commit_description, "\n"),
-              surround(
-                "\nJJ: This commit contains the following changes:\n", "",
-                indent("JJ:     ", diff.stat(72)),
-              ),
-              "\nJJ: ignore-rest\n",
-              diff.git(),
-            )
-          '';
+          templates = {
+            # template for showing diff during a jj describe
+            # https://github.com/jj-vcs/jj/issues/1946#issuecomment-2561045057
+            draft_commit_description = ''
+              concat(
+                coalesce(description, default_commit_description, "\n"),
+                surround(
+                  "\nJJ: This commit contains the following changes:\n", "",
+                  indent("JJ:     ", diff.stat(72)),
+                ),
+                "\nJJ: ignore-rest\n",
+                diff.git(),
+              )
+            '';
+            # Names branches created by `jj git push -c` based on latest commit
+            # message. Replaced all non-alphanumeric with -.
+            # "feat(shopping): add the amazing button" ->
+            # "feat/shopping-add-amazing-button"
+            git_push_bookmark = ''
+              description
+                .first_line()
+                .replace(
+                  regex:"[^a-zA-Z0-9]+",
+                  "-"
+                )
+                .replace(
+                  "-",
+                  "/",
+                  1
+                )
+            '';
+          };
 
           aliases = {
             l = ["log" "--reversed"];
