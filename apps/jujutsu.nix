@@ -113,6 +113,7 @@ in {
           j = "jj";
           jrt = "jj rebase -d 'trunk()'";
           jfx = "jj fix";
+          jbs = "jj bookmark set";
         };
 
         plugins = [
