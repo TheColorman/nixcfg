@@ -109,7 +109,10 @@ in {
       };
 
       fish = {
-        shellAbbrs.j = "jj";
+        shellAbbrs = {
+          j = "jj";
+          jrt = "jj rebase -d 'trunk()'";
+        };
 
         plugins = [
           {
