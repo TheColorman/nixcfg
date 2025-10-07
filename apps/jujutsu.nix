@@ -112,6 +112,7 @@ in {
         shellAbbrs = {
           j = "jj";
           jrt = "jj rebase -d 'trunk()'";
+          jfx = "jj fix";
         };
 
         plugins = [
