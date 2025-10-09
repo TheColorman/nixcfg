@@ -27,6 +27,8 @@ in {
         lg = "lg1";
         aa = "!git add -A && git status";
       };
+      userEmail = "foss@colorman.me";
+      userName = "Colorman";
       extraConfig = {
         diff = {
           algorithm = "histogram";
@@ -63,15 +65,6 @@ in {
           updateRefs = true;
           fsmonitor = true;
         };
-        # @TODO: Remove user email, add GPG key shared between devices?
-        # user = {
-        #   email = "github@colorman.me";
-        #   name = "TheColorman";
-        #   signingKey = "AB110475B417291D"; # @TODO: Can this key be created dynamically?
-        # };
-        # commit = {
-        #   gpgsign = true;
-        # };
       };
     };
     gh = {
