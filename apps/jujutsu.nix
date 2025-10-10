@@ -111,7 +111,7 @@ in {
       fish = {
         shellAbbrs = {
           j = "jj";
-          jrt = "jj rebase -d 'trunk()'";
+          jrt = "jj rebase -d 'trunk()' && jj simplify-parents";
           jfx = "jj fix";
           jbs = "jj bookmark set";
         };
