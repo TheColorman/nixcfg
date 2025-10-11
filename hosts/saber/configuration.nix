@@ -133,9 +133,14 @@ in {
     ];
   };
 
-  services.openssh.enable = true;
-
-  services.fwupd.enable = true;
+  services = {
+    openssh.enable = true;
+    fwupd.enable = true;
+  };
 
   time.timeZone = "Europe/Copenhagen";
+
+  # Overrides
+  # Saber does not have a battery.
+  home-manager.users."${username}".programs.caelestia.settings.bar.status.showBattery = false;
 }

@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  pkgs,
   ...
 }: let
   inherit (config.my) username;
@@ -8,10 +9,29 @@ in {
   home-manager.users."${username}" = {
     imports = [inputs.caelestia.homeManagerModules.default];
 
+    home.packages = with pkgs; [pavucontrol];
+
     programs.caelestia = {
       enable = true;
       systemd.enable = false; # Managed by UWSM
       cli.enable = true;
+
+      settings = {
+        general.apps = {
+          terminal = ["kitty"];
+          explorer = ["kitty" "yazi"];
+        };
+        background = {
+          visualiser = {
+            enabled = true;
+            autoHide = false;
+          };
+        };
+        bar = {
+          status.showAudio = true;
+          workspaces.activeTrail = true;
+        };
+      };
     };
 
     wayland.windowManager.hyprland.settings = {
