@@ -54,6 +54,11 @@
       defaultPath = "/home/${username}/projects";
       devices = ["colorcloud"];
     };
+    Games = {
+      id = "games-4db32c";
+      defaultPath = "/home/${username}/Games";
+      devices = ["colorcloud"];
+    };
   };
 
   # Looks through my hosts config to find any other hosts that also use the

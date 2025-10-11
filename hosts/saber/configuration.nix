@@ -101,6 +101,7 @@ in {
       CTF = {};
       Documents = {};
       projects = {};
+      Games = {};
     };
   };
 
