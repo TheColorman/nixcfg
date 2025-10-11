@@ -231,6 +231,7 @@ in {
             "vesktop"
             "com.github.th_ch.youtube_music"
             "zen-twilight"
+            "steam"
           ]
           |> builtins.concatStringsSep "|";
         rule = "opacity 0.9 0.8, class:^(${classes})$";
