@@ -145,6 +145,7 @@ in {
       fbterm
       jftui
       youtube-music
+      chromium
     ];
   };
   services = {
