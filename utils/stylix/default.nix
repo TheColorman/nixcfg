@@ -12,7 +12,6 @@
   pkgs,
   ...
 }: let
-  scfg = config.stylix;
   asset = "2025-H2";
 in {
   imports = [inputs.stylix.nixosModules.stylix];
@@ -44,7 +43,7 @@ in {
       applications = 0.5;
       desktop = 0.5;
       popups = 0.7;
-      terminal = 0.7;
+      terminal = 0.8;
     };
     polarity = "dark";
   };
