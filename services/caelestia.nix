@@ -27,10 +27,7 @@ in {
             autoHide = false;
           };
         };
-        bar = {
-          status.showAudio = true;
-          workspaces.activeTrail = true;
-        };
+        bar.status.showAudio = true;
       };
     };
 
