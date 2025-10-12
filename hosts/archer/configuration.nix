@@ -120,8 +120,11 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs; [fprintd wl-clipboard];
-  environment.etc.hosts.mode = "0644"; # Make hosts file writable
+  environment = {
+    systemPackages = with pkgs; [fprintd wl-clipboard];
+    # Make hosts file writable
+    etc.hosts.mode = "0644";
+  };
   users.users."${username}" = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.color_passwd.path;
@@ -153,10 +156,8 @@ in {
     fprintd.enable = true;
     power-profiles-daemon.enable = true;
     automatic-timezoned.enable = true;
+    upower.enable = true;
   };
 
   time.timeZone = lib.mkDefault "Europe/Copenhagen";
-
-  # @TODO: do I really need this? Did I add it for hotspots? Do hotspots need ipv4 forwarding? too scared to turn it off...
-  boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = true;
 }
