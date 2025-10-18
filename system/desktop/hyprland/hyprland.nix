@@ -203,7 +203,7 @@ in {
       in [
         # Laptop multimedia keys for volume and LCD brightness
         ",XF86AudioRaiseVolume, exec, ${uwsm} ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, ${uwsm} ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 6%-"
+        ",XF86AudioLowerVolume, exec, ${uwsm} ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute, exec, ${uwsm} ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute, exec, ${uwsm} ${wpctl} set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ];
