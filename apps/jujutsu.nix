@@ -46,7 +46,7 @@ in {
               then editor
               else "pico";
             movement.edit = true;
-            default-command = ["l" "-r" "wip()"];
+            default-command = ["l" "-r" "wip() | latest(tags())"];
             diff-editor = ":builtin";
           };
           signing = {
