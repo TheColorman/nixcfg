@@ -29,7 +29,6 @@ in {
     profiles-hacking
     services-caelestia
     services-docker
-    services-gnome-keyring
     services-gpg
     services-kanata
     services-kdeconnect
