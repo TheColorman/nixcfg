@@ -1,15 +1,12 @@
 {
   config,
   inputs,
-  pkgs,
   ...
 }: let
   inherit (config.my) username;
 in {
   home-manager.users."${username}" = {
     imports = [inputs.caelestia.homeManagerModules.default];
-
-    home.packages = with pkgs; [pavucontrol];
 
     programs.caelestia = {
       enable = true;
@@ -22,6 +19,7 @@ in {
           explorer = ["kitty" "yazi"];
         };
         background = {
+          # TODO: This might be causing performance issues? Need to test.
           visualiser = {
             enabled = true;
             autoHide = false;
