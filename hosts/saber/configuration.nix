@@ -143,5 +143,5 @@ in {
 
   # Overrides
   # Saber does not have a battery.
-  home-manager.users."${username}".programs.caelestia.settings.bar.status.showBattery = false;
+  # home-manager.users."${username}".programs.caelestia.settings.bar.status.showBattery = false;
 }
