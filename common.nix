@@ -89,7 +89,7 @@ in {
       bat
       cachix
       dig
-      du-dust
+      dust
       fastfetch
       fd
       file
