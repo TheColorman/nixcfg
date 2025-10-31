@@ -22,6 +22,7 @@ in {
           # TODO: This might be causing performance issues? Need to test.
           visualiser = {
             enabled = true;
+            blur = true;
             autoHide = false;
           };
         };
