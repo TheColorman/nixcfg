@@ -15,4 +15,9 @@
     "dotnet-sdk-6.0.428"
     "aspnetcore-runtime-6.0.36"
   ];
+
+  networking.firewall = {
+    allowedTCPPorts = [4545];
+    allowedUDPPorts = [4545];
+  };
 }

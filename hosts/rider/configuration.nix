@@ -58,13 +58,6 @@ in {
 
   time.timeZone = "Europe/Copenhagen";
 
-  # networking.interfaces."end0".ipv4.addresses = [
-  #   {
-  #     address = "192.168.50.58";
-  #     prefixLength = 24;
-  #   }
-  # ];
-
   hardware.enableRedistributableFirmware = true;
 
   boot = {
