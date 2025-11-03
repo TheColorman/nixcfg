@@ -3,6 +3,7 @@
   inputs,
   config,
   lib,
+  systemPlatform,
   ...
 }: let
   inherit (lib) getExe;
@@ -12,7 +13,7 @@
     if config ? stylix && config.stylix.enable
     # Override with stylix theme if stylix is enabled
     then
-      inputs.nvfcfg.override.${pkgs.system}.default ({lib, ...}:
+      inputs.nvfcfg.override.${systemPlatform}.default ({lib, ...}:
         with config.lib.stylix.colors; {
           vim = {
             theme = {
@@ -51,7 +52,7 @@
           };
         })
     # Else use default theme
-    else inputs.nvfcfg.packages.${pkgs.system}.default;
+    else inputs.nvfcfg.packages.${systemPlatform}.default;
 in {
   environment.systemPackages = [nvim];
 
