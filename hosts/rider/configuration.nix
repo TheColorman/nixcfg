@@ -68,4 +68,10 @@ in {
       generic-extlinux-compatible.enable = true;
     };
   };
+
+  # Rider has started depending on rocm-smi during the evaluation of its system
+  # config, but rocm-smi only supports x86_64. How this dependency was
+  # introduced I have no idea, but compiling rocm-smi on aarch64 works just
+  # fine, so perhaps someone should add it to the supported systems?
+  nixpkgs.config.allowUnsupportedSystem = true;
 }
