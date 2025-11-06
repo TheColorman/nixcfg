@@ -85,8 +85,16 @@ in {
               description
                 .first_line()
                 .replace(
+                  regex:"['\"]",
+                  ""
+                )
+                .replace(
                   regex:"[^a-zA-Z0-9]+",
                   "-"
+                )
+                .replace(
+                  regex:"-+$",
+                  ""
                 )
                 .replace(
                   "-",
