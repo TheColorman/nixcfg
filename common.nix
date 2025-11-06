@@ -95,6 +95,8 @@ in {
       file
       jq
       killall
+      noto-fonts
+      noto-fonts-cjk-sans
       nh
       p7zip
       ripgrep
