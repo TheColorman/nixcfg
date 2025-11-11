@@ -48,6 +48,7 @@ in {
             movement.edit = true;
             default-command = ["l" "-r" "wip() | latest(tags())"];
             diff-editor = ":builtin";
+            merge-editor = "nvim";
           };
           signing = {
             behavior = "drop";
@@ -112,6 +113,18 @@ in {
             gp = ["git" "push"];
             gf = ["git" "fetch"];
             r = ["rebase"];
+          };
+
+          merge-tools.nvim = {
+            merge-args = [
+              "$output"
+              "-M"
+              "-c"
+              "set modifiable"
+              "-c"
+              "set write"
+            ];
+            merge-tool-edits-conflict-markers = true;
           };
         };
       };
