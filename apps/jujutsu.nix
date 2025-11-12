@@ -113,6 +113,18 @@ in {
             gp = ["git" "push"];
             gf = ["git" "fetch"];
             r = ["rebase"];
+
+            # Move nearest ancestor bookmark to parent change
+            tug = [
+              "bookmark"
+              "move"
+              "--from"
+              "heads(::@- & bookmarks())"
+              "--to"
+              "@-"
+            ];
+            # Rebase all mutable roots onto the trunk
+            rebase-all = ["rebase" "--source" "roots(trunk()..mutable())" "--destination" "trunk()"];
           };
 
           merge-tools.nvim = {
