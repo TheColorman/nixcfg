@@ -46,18 +46,18 @@
 
   inputs = {
     # == Primary modules ==
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     home-manager = {
-      url = "github:nix-community/home-manager?ref=master";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # == Add-ons ==
     stylix = {
       # Theming
-      url = "github:danth/stylix/master";
+      url = "github:nix-community/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Secrets
