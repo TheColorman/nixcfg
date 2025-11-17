@@ -43,6 +43,21 @@ in {
   my = {
     inherit username;
     stateVersion = "25.05";
+    syncthing = {
+      # Disable creating syncthing folders in ${username}'s home directory and
+      # bindfs mounting those into the Syncthing dataDir.
+      enableMounts = false;
+      folders = {
+        brain = {};
+        "Creative Cloud" = {};
+        ITU = {};
+        nbns = {};
+        Documents = {};
+        CTF = {};
+        Games = {};
+        projects = {};
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [vim];

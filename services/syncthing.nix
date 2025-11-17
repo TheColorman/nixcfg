@@ -34,32 +34,38 @@
     brain = {
       id = "yedar-6vrrr";
       defaultPath = "/home/${username}/brain";
-      devices = ["colorcloud" "assassin"];
+      devices = ["assassin"];
+    };
+    "Creative Cloud" = {
+      id = "jdkuz-qjawg";
+      defaultPath = "/home/${username}/CreativeCloud";
     };
     CTF = {
       id = "dh6gy-zxqu6";
       defaultPath = "/home/${username}/CTF";
-      devices = ["colorcloud"];
     };
     ITU = {
       id = "yc39s-4wtgc";
       defaultPath = "/home/${username}/ITU";
-      devices = ["colorcloud"];
+    };
+    nbns = {
+      id = "lnicf-melst";
+      defaultPath = "/home/${username}/nbns";
+      type = "receiveencrypted";
+      devices = ["nbns-desktop"];
     };
     Documents = {
       id = "wt32c-t7rkv";
       defaultPath = "/home/${username}/Documents";
-      devices = ["colorcloud" "assassin"];
+      devices = ["assassin"];
     };
     projects = {
       id = "projects-e2cd04";
       defaultPath = "/home/${username}/projects";
-      devices = ["colorcloud"];
     };
     Games = {
       id = "games-4db32c";
       defaultPath = "/home/${username}/Games";
-      devices = ["colorcloud"];
     };
   };
 
@@ -125,6 +131,15 @@ in {
                 default = folderOpts.devices or [];
                 readOnly = true;
               };
+              type = mkOption {
+                type = types.enum [
+                  "sendreceive"
+                  "sendonly"
+                  "receiveonly"
+                  "receiveencrypted"
+                ];
+                default = folderOpts.type or "sendreceive";
+              };
             };
           });
           default = null;
@@ -150,7 +165,7 @@ in {
         folders =
           activeFolders
           |> builtins.mapAttrs (name: value: {
-            inherit (value) id;
+            inherit (value) id type;
             # Folder is bind mounted to Syncthing's dataDir for easier
             # permission management
             path = "${config.services.syncthing.dataDir}/folders/${value.id}";
