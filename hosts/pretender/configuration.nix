@@ -24,7 +24,7 @@
         services-kanata
         services-sops
         system-boot
-        system-desktop-plasma
+        system-desktop-hyprland
         system-display
         system-locale-danish
         utils-shell-fish
