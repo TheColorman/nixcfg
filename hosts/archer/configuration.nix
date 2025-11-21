@@ -1,11 +1,7 @@
 { self, ... }:
 {
   flake.nixosModules.archer-configuration =
-    {
-      config,
-      pkgs,
-      ...
-    }:
+    { config, pkgs, ... }:
     let
       cfg = config.my;
     in
@@ -94,7 +90,7 @@
           nixpkgs-fmt
           obsidian
           p7zip
-          pear-desktop
+          youtube-music
           ripgrep
           telegram-desktop
           unzip

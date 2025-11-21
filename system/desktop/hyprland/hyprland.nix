@@ -202,7 +202,7 @@
                   hyprpicker = getExe pkgs.hyprpicker;
                   vesktop = getExe pkgs.vesktop;
                   browser = getExe (pkgs.zen-browser or pkgs.ungoogled-chromium);
-                  music = getExe pkgs.pear-desktop;
+                  music = getExe pkgs.youtube-music;
                   wpctl = getExe' pkgs.wireplumber "wpctl";
                 in
                 [
