@@ -5,11 +5,8 @@
     {
       imports = [ self.nixosModules.system-desktop-wayland ];
 
-      services = {
-        desktopManager.plasma6.enable = true;
-        displayManager.plasma-login-manager.enable = true;
-      };
-
+      services.displayManager.sddm.wayland.enable = true;
+      services.desktopManager.plasma6.enable = true;
       environment.systemPackages = with pkgs; [ kdePackages.kwallet-pam ];
     };
 }

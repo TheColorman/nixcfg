@@ -88,7 +88,6 @@
           nixpkgs-fmt
           obsidian
           p7zip
-          pear-desktop
           prismlauncher
           ripgrep
           signal-desktop
@@ -96,6 +95,7 @@
           telegram-desktop
           unzip
           wireguard-tools
+          youtube-music
         ];
       };
 
