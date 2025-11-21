@@ -89,7 +89,7 @@ in {
       nixpkgs-fmt
       obsidian
       p7zip
-      pear-desktop
+      youtube-music
       ripgrep
       telegram-desktop
       unzip
