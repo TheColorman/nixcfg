@@ -1,4 +1,4 @@
-# TODO: This should be removed and replaced by Traefik as
+# TODO: This should be removed and replaced by nginx as
 # 1. These tunnels are managed imperatively through the Cloudflare Web UI. The
 #    only reason I have manually defined systemd units for cloudflared is
 #    because Nix doesn't seem to support this imperative management using
