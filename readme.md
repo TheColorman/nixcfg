@@ -8,8 +8,10 @@ system configurations for all my machines
 
 - `hosts/` - Configuration for each machine.
   - `archer/` - My Framework laptop.
-  - `boarding/` - WSL.
-  - `live/` - WIP live bootable ISO.
+  - `caster/` - Media + general purpose server.
+  - `foreigner/` - WSL.
+  - `lancer/` - WIP live bootable ISO (NixOS is probably too big for this...).
+  - `rider/` - Raspberry Pi 4B.
   - `saber/` - Desktop computer.
 - `lib/` - Reusable Nix functions.
 - `apps/` - Applications I use interactively. Git, neovim, mpv.
@@ -18,3 +20,11 @@ system configurations for all my machines
 - `system/` - System settings. Boot, desktop environment, networking.
 - `utils/` - Applications that have a more indirect impact on my workflow, but
   still in the foreground. Shells, mounts, terminals.
+
+## Branches
+
+I only have 2 branches `main` and `stable`. `main` runs `nixos-unstable`,
+whereas `stable` runs whatever the stable version of nixpkgs is at the moment.
+As of writing, this is `25.05`. The only host I build from `stable` is Caster as
+the applications running there are at a higher risk of breaking during major
+updates. Running stable allows me to plan my updates better.
