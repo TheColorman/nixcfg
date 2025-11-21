@@ -139,7 +139,7 @@
                   hyprpicker = getExe pkgs.hyprpicker;
                   vesktop = getExe pkgs.vesktop;
                   browser = getExe pkgs.zen-browser;
-                  music = getExe pkgs.pear-desktop;
+                  music = getExe pkgs.youtube-music;
                 in
                 [
                   "${mod}, T, exec, ${uwsm} ${term}"
