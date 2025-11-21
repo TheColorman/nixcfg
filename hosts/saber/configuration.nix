@@ -85,7 +85,6 @@ in {
       nixpkgs-fmt
       obsidian
       p7zip
-      pear-desktop
       prismlauncher
       ranger
       ripgrep
@@ -94,6 +93,7 @@ in {
       telegram-desktop
       unzip
       wireguard-tools
+      youtube-music
     ];
   };
 
