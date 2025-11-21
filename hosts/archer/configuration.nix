@@ -88,7 +88,7 @@ in {
       nixpkgs-fmt
       obsidian
       p7zip
-      pear-desktop
+      youtube-music
       ranger
       ripgrep
       telegram-desktop
