@@ -17,6 +17,8 @@
   inherit (lib) types;
   inherit (lib.attrsets) filterAttrs mapAttrsToList mapAttrs' nameValuePair;
   inherit (lib.options) mkOption;
+  inherit (lib.lists) optionals;
+  inherit (lib.modules) mkMerge mkIf;
   inherit (utils) escapeSystemdPath;
 
   inherit (config.my) username;
@@ -32,32 +34,38 @@
     brain = {
       id = "yedar-6vrrr";
       defaultPath = "/home/${username}/brain";
-      devices = ["colorcloud" "assassin"];
+      devices = ["assassin"];
+    };
+    "Creative Cloud" = {
+      id = "jdkuz-qjawg";
+      defaultPath = "/home/${username}/CreativeCloud";
     };
     CTF = {
       id = "dh6gy-zxqu6";
       defaultPath = "/home/${username}/CTF";
-      devices = ["colorcloud"];
     };
     ITU = {
       id = "yc39s-4wtgc";
       defaultPath = "/home/${username}/ITU";
-      devices = ["colorcloud"];
+    };
+    nbns = {
+      id = "lnicf-melst";
+      defaultPath = "/home/${username}/nbns";
+      type = "receiveencrypted";
+      devices = ["nbns-desktop"];
     };
     Documents = {
       id = "wt32c-t7rkv";
       defaultPath = "/home/${username}/Documents";
-      devices = ["colorcloud" "assassin"];
+      devices = ["assassin"];
     };
     projects = {
       id = "projects-e2cd04";
       defaultPath = "/home/${username}/projects";
-      devices = ["colorcloud"];
     };
     Games = {
       id = "games-4db32c";
       defaultPath = "/home/${username}/Games";
-      devices = ["colorcloud"];
     };
   };
 
@@ -73,7 +81,7 @@
     |> mapAttrs (
       _: module:
         module.config.my.syncthing.folders or {}
-        |> filterAttrs (folder: opts: opts != null)
+        |> filterAttrs (_folder: opts: opts != null)
         |> attrNames
     )
     |> mapAttrsToList (host:
@@ -82,39 +90,61 @@
       }))
     |> concatLists
     |> groupBy (s: s.folder)
-    |> mapAttrs (folder: builtins.foldl' (hosts: hostSet: hosts ++ [hostSet.host]) []);
+    |> mapAttrs (_folder: builtins.foldl' (hosts: hostSet: hosts ++ [hostSet.host]) []);
 
   syncthingSops = "services/syncthing/${systemName}";
 in {
   imports = [outputs.modules.services-sops];
+  options.my.syncthing = {
+    enableMounts = mkOption {
+      default = true;
+      description = ''
+        Whether to enable creating folder mounts in the users home directory.
+        This will create folders in the users home directory which will be bind
+        mounted into Syncthings dataDir. This option is enabled by default. If
+        this option is enabled, all synced folders in the Syncthing dataDir
+        will be deleted.
+      '';
+      type = types.bool;
+    };
 
-  options.my.syncthing.folders =
-    folders
-    |> builtins.mapAttrs (_: folderOpts:
-      mkOption {
-        type = types.nullOr (types.submodule {
-          options = {
-            path = mkOption {
-              type = types.path;
-              default = folderOpts.defaultPath;
-              description = ''
-                Path to place the folder at.
-              '';
+    folders =
+      folders
+      |> builtins.mapAttrs (_: folderOpts:
+        mkOption {
+          type = types.nullOr (types.submodule {
+            options = {
+              path = mkOption {
+                type = types.path;
+                default = folderOpts.defaultPath;
+                description = ''
+                  Path to place the folder at.
+                '';
+              };
+              id = mkOption {
+                type = types.str;
+                default = folderOpts.id;
+                readOnly = true;
+              };
+              devices = mkOption {
+                type = types.listOf types.str;
+                default = folderOpts.devices or [];
+                readOnly = true;
+              };
+              type = mkOption {
+                type = types.enum [
+                  "sendreceive"
+                  "sendonly"
+                  "receiveonly"
+                  "receiveencrypted"
+                ];
+                default = folderOpts.type or "sendreceive";
+              };
             };
-            id = mkOption {
-              type = types.str;
-              default = folderOpts.id;
-              readOnly = true;
-            };
-            devices = mkOption {
-              type = types.listOf types.str;
-              default = folderOpts.devices;
-              readOnly = true;
-            };
-          };
+          });
+          default = null;
         });
-        default = null;
-      });
+  };
 
   config = {
     services.syncthing = {
@@ -135,7 +165,7 @@ in {
         folders =
           activeFolders
           |> builtins.mapAttrs (name: value: {
-            inherit (value) id;
+            inherit (value) id type;
             # Folder is bind mounted to Syncthing's dataDir for easier
             # permission management
             path = "${config.services.syncthing.dataDir}/folders/${value.id}";
@@ -164,64 +194,77 @@ in {
       services.syncthing = {
         after =
           ["systemd-tmpfiles-setup.service"]
-          ++ (activeFolders
+          ++
+          # Only wait for mounts if mounting is enabled
+          (optionals cfg.enableMounts (activeFolders
             |> mapAttrsToList (
-              folder: opts: escapeSystemdPath "${config.services.syncthing.dataDir}/folders/${opts.id}.mount"
-            ));
+              _folder: opts: escapeSystemdPath "${config.services.syncthing.dataDir}/folders/${opts.id}.mount"
+            )));
+
+        # Only require mounts if mounting is enabled
         requires =
-          activeFolders
-          |> mapAttrsToList (
-            folder: opts: escapeSystemdPath "${config.services.syncthing.dataDir}/folders/${opts.id}.mount"
-          );
+          optionals cfg.enableMounts
+          (activeFolders
+            |> mapAttrsToList (
+              _folder: opts: escapeSystemdPath "${config.services.syncthing.dataDir}/folders/${opts.id}.mount"
+            ));
       };
 
       # Create the target folders, owned by main user
-      tmpfiles.settings = {
-        # Bindfs mountpoints that the Syncthing service will use
-        "syncthing-mountpoints" =
-          activeFolders
-          |> mapAttrs' (folder: opts:
-            nameValuePair "${config.services.syncthing.dataDir}/folders/${opts.id}" {
-              d = {
-                user = "syncthing";
-                group = "syncthing";
-                mode = "0750";
-              };
-            });
+      tmpfiles.settings = mkMerge [
+        {
+          # Bindfs mountpoints that the Syncthing service will use
+          # When mounts are disabled these are just the regular data folders.
+          "syncthing-mountpoints" =
+            activeFolders
+            |> mapAttrs' (folder: opts:
+              nameValuePair "${config.services.syncthing.dataDir}/folders/${opts.id}" {
+                d = {
+                  user = "syncthing";
+                  group = "syncthing";
+                  mode = "0750";
+                };
+              });
+        }
 
-        # Actual folders the user will use
-        "syncthing-folders" =
-          activeFolders
-          |> mapAttrs' (folder: opts:
-            nameValuePair opts.path {
-              d = {
-                user = username;
-                group = "users";
-                mode = "0750";
-              };
-            });
-      };
+        # Only create home folders if mounts are enabled
+        (mkIf cfg.enableMounts {
+          # Actual folders the user will use
+          "syncthing-folders" =
+            activeFolders
+            |> mapAttrs' (folder: opts:
+              nameValuePair opts.path {
+                d = {
+                  user = username;
+                  group = "users";
+                  mode = "0750";
+                };
+              });
+        })
+      ];
 
       # Set up bind mounts to mount the folders into Syncthing's directory
       mounts =
-        activeFolders
-        |> mapAttrsToList (folder: opts: {
-          # Source folder
-          what = opts.path;
-          # Where to bind mount
-          where = "${config.services.syncthing.dataDir}/folders/${opts.id}";
-          type = "fuse.bindfs";
-          options = concatStringsSep "," [
-            "force-user=syncthing"
-            "force-group=syncthing"
-            "create-for-user=${username}"
-            "create-for-group=syncthing"
-            # others
-            "x-gvfs-hide"
-            "x-gdu.hide"
-            "multithreaded"
-          ];
-        });
+        # Only mount if mounting is enabled
+        optionals cfg.enableMounts
+        (activeFolders
+          |> mapAttrsToList (_folder: opts: {
+            # Source folder
+            what = opts.path;
+            # Where to bind mount
+            where = "${config.services.syncthing.dataDir}/folders/${opts.id}";
+            type = "fuse.bindfs";
+            options = concatStringsSep "," [
+              "force-user=syncthing"
+              "force-group=syncthing"
+              "create-for-user=${username}"
+              "create-for-group=syncthing"
+              # others
+              "x-gvfs-hide"
+              "x-gdu.hide"
+              "multithreaded"
+            ];
+          }));
     };
 
     # key setup

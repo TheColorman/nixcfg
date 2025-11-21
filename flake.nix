@@ -37,23 +37,26 @@
 
         # Desktop
         saber.platform = "x86_64-linux";
+
+        # Server
+        caster.platform = "x86_64-linux";
       };
     };
   };
 
   inputs = {
     # == Primary modules ==
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
-      url = "github:nix-community/home-manager?ref=master";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # == Add-ons ==
     stylix = {
       # Theming
-      url = "github:danth/stylix/master";
+      url = "github:nix-community/stylix/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Secrets
@@ -67,7 +70,7 @@
     };
     # WSL
     nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL?ref=main";
+      url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -77,7 +80,7 @@
 
     # Binary debugger
     pwndbg = {
-      url = "github:pwndbg/pwndbg?ref=dev";
+      url = "github:pwndbg/pwndbg/dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
