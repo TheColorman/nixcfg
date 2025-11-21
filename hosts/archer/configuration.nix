@@ -135,7 +135,7 @@ in {
       wireguard-tools
       unzip
       p7zip
-      pear-desktop
+      youtube-music
       ranger
       aria2
       killall
