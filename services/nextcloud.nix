@@ -15,10 +15,6 @@ in {
       # Pinned
       package = pkgs.nextcloud31;
       webfinger = true;
-      notify_push = {
-        enable = true;
-        bendDomainToLocalhost = true;
-      };
       maxUploadSize = "16G";
       https = true;
       hostName = evalSecrets.hostname;
@@ -35,18 +31,12 @@ in {
         adminuser = "admin";
         adminpassFile = config.sops.secrets."services/nextcloud/adminpass".path;
       };
+      caching.redis = true;
 
       database.createLocally = true;
 
       secretFile = config.sops.templates."nextcloud.settings.json".path;
     };
-
-    nginx.virtualHosts."${evalSecrets.hostname}".listen = [
-      {
-        addr = "127.0.0.1";
-        port = 52531;
-      }
-    ];
   };
 
   my.cloudflared.tunnels.nextcloud.tokenFile = config.sops.secrets."services/nextcloud/tunnel_token".path;
