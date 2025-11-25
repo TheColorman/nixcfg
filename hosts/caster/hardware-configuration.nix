@@ -29,9 +29,25 @@
       options = ["fmask=0077" "dmask=0077"];
     };
 
-    "/var/lib" = {
+    "/mnt/appsies" = {
       device = "/dev/disk/by-uuid/5a7d1612-db24-464b-9314-2bb957bdf8e8";
       fsType = "ext4";
+      neededForBoot = true;
+    };
+
+    "/var/lib" = {
+      depends = ["/mnt/appsies"];
+      device = "/mnt/appsies/var/lib";
+      fsType = "none";
+      options = ["bind"];
+    };
+
+    "/nix" = {
+      depends = ["/mnt/appsies"];
+      device = "/mnt/appsies/nix";
+      fsType = "none";
+      options = ["bind" "noatime"];
+      neededForBoot = true;
     };
   };
 
