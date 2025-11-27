@@ -260,7 +260,7 @@ in {
             about location="zellij:about"
         }
 
-        scroll_buffer_size 100000
+        scroll_buffer_size 2000
 
         pane_frames false
 
