@@ -20,6 +20,7 @@ in {
     services-hedgedoc
     services-immich
     services-jellyfin
+    services-jellyseerr
     services-nextcloud
     services-prowlarr
     services-qbittorrent
