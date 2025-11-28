@@ -46,7 +46,7 @@ in {
               then editor
               else "pico";
             movement.edit = true;
-            default-command = ["l" "-r" "wip() | latest(tags())"];
+            default-command = ["l" "-r" "wip() | latest(tags()) | bookmarks()"];
             diff-editor = ":builtin";
             merge-editor = "nvim";
           };
