@@ -22,6 +22,7 @@ in {
     services-requestrr
     services-sops
     services-tailscale
+    services-technitium
     system-locale-danish
     system-networking
     utils-shell
