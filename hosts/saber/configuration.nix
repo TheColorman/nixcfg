@@ -141,6 +141,15 @@ in {
 
   time.timeZone = "Europe/Copenhagen";
 
+  # Kernel commit 6e223d5d (drm/amd/display: Add fallback path for YCBCR422)
+  # broke Hyprland for me :(
+  boot.kernelPatches = [
+    {
+      patch = ./revert-6e223d5d.patch;
+      name = "revert-6e223d5d";
+    }
+  ];
+
   # Overrides
   # Saber does not have a battery.
   home-manager.users."${username}".programs.caelestia.settings.bar.status.showBattery = false;
