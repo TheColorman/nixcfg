@@ -31,6 +31,7 @@ in {
         adminuser = "admin";
         adminpassFile = config.sops.secrets."services/nextcloud/adminpass".path;
       };
+      configureRedis = true;
       caching.redis = true;
 
       database.createLocally = true;
