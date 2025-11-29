@@ -7,9 +7,19 @@
   inherit (lib.meta) getExe;
   inherit (config.my) username;
 
-  script = name: text: pkgs.writeShellApplication {inherit name text;};
   flakedir = "/home/${username}/nixcfg";
   flake = "--flake ${flakedir}";
+
+  rebuildScript = name: text:
+    pkgs.writeShellApplication {
+      inherit name;
+      text = ''
+        # Build the system
+        nom build ${flakedir} --no-link
+
+        ${text}
+      '';
+    };
 
   gitTagScript = ''
     generation=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | grep current | awk '{print $1}')
@@ -30,16 +40,17 @@
   '';
 in {
   environment.systemPackages = [
-    (script "tnix" "sudo pixos-rebuild test ${flake}")
-    (script "dbnix" "sudo pixos-rebuild dry-build ${flake}")
-    (script "danix" "sudo pixos-rebuild dry-activate ${flake}")
-    (script "bnix" ''
-      sudo pixos-rebuild boot ${flake}
+    pkgs.nix-output-monitor
+    (rebuildScript "tnix" "sudo nixos-rebuild test ${flake}")
+    (rebuildScript "dbnix" "sudo nixos-rebuild dry-build ${flake}")
+    (rebuildScript "danix" "sudo nixos-rebuild dry-activate ${flake}")
+    (rebuildScript "bnix" ''
+      sudo nixos-rebuild boot ${flake}
 
       ${gitTagScript}
     '')
-    (script "snix" ''
-      sudo pixos-rebuild switch ${flake}
+    (rebuildScript "snix" ''
+      sudo nixos-rebuild switch ${flake}
 
       ${gitTagScript}
     '')
