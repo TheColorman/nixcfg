@@ -13,7 +13,7 @@ in {
     nextcloud = {
       enable = true;
       # Pinned
-      package = pkgs.nextcloud31;
+      package = pkgs.nextcloud32;
       webfinger = true;
       maxUploadSize = "16G";
       https = true;
