@@ -1,10 +1,3 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  home-manager.users."${config.my.username}".programs.btop = {
-    enable = true;
-    package = pkgs.btop-rocm;
-  };
+{config, ...}: {
+  home-manager.users."${config.my.username}".programs.btop.enable = true;
 }
