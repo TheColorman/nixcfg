@@ -13,15 +13,14 @@ in {
     nextcloud = {
       enable = true;
       # Pinned
-      package = pkgs.nextcloud31;
+      package = pkgs.nextcloud32;
       webfinger = true;
       maxUploadSize = "16G";
       https = true;
       hostName = evalSecrets.hostname;
       extraApps = {
         inherit
-          (pkgs.nextcloud31Packages.apps)
-          app_api
+          (pkgs.nextcloud32Packages.apps)
           end_to_end_encryption
           notify_push
           ;
