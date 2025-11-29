@@ -151,6 +151,11 @@ in {
   ];
 
   # Overrides
-  # Saber does not have a battery.
-  home-manager.users."${username}".programs.caelestia.settings.bar.status.showBattery = false;
+  home-manager.users."${username}".programs = {
+    # Saber does not have a battery.
+    caelestia.settings.bar.status.showBattery = false;
+
+    # btop rocm for AMD GPU
+    btop.package = pkgs.btop-rocm;
+  };
 }
