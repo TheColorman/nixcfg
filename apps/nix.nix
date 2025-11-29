@@ -15,7 +15,7 @@
     generation=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | grep current | awk '{print $1}')
     host=$(hostname)
     echo "Built generation $generation for $host."
-    tag="$generation-$host"
+    tag="$host-$generation"
     read -r -p "Create git tag ($tag)? [Y/n]: " choice
 
     choice=''${choice:-Y}
