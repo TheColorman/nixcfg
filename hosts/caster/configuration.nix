@@ -36,6 +36,7 @@ in {
     services-wakapi
     services-znc
     system-boot
+    system-certs
     system-locale-danish
     system-networking
     utils-shell
