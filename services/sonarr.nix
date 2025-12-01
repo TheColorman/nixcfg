@@ -11,12 +11,11 @@ in {
   imports = [
     outputs.modules.services-sops
   ];
+
   services = {
     sonarr = {
       enable = true;
       environmentFiles = [config.sops.templates."sonarr.env".path];
-
-      openFirewall = true;
     };
 
     nginx.virtualHosts."${domain}" = {
@@ -27,8 +26,6 @@ in {
       sslCertificate = crtCfg.crt.path;
     };
   };
-
-  users.users."nginx".extraGroups = ["certboy"];
 
   my.certificates.certs."${domain}" = {};
 
