@@ -60,7 +60,7 @@ in {
       ''
         {
           output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047984
-          mode=2560x1440@260
+          mode=2560x1440@240
           position=0x0
           scale=auto
           bitdepth=10
@@ -79,7 +79,7 @@ in {
       ''
         {
           output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047972
-          mode=2560x1440@260
+          mode=2560x1440@240
           position=2560x0
           scale=auto
           bitdepth=10
@@ -140,15 +140,6 @@ in {
   };
 
   time.timeZone = "Europe/Copenhagen";
-
-  # Kernel commit 6e223d5d (drm/amd/display: Add fallback path for YCBCR422)
-  # broke Hyprland for me :(
-  boot.kernelPatches = [
-    {
-      patch = ./revert-6e223d5d.patch;
-      name = "revert-6e223d5d";
-    }
-  ];
 
   # Overrides
   home-manager.users."${username}".programs = {
