@@ -3,7 +3,10 @@
   config,
   ...
 }: let
+  domain = "torrent.color";
   port = 10095;
+
+  crtCfg = config.my.certificates.certs."${domain}";
 in {
   imports = [
     outputs.modules.services-sops
@@ -18,7 +21,7 @@ in {
       "/mnt/neodata/autobrr:/autobrr"
     ];
     ports = [
-      "0.0.0.0:${builtins.toString port}:8080"
+      "127.0.0.1:${builtins.toString port}:8080"
     ];
     image = "binhex/arch-qbittorrentvpn";
     hostname = "qbittorrentvpn";
@@ -42,7 +45,15 @@ in {
     ];
   };
 
-  networking.firewall.allowedTCPPorts = [port];
+  services.nginx.virtualHosts."${domain}" = {
+    locations."/".proxyPass = "http://127.0.0.1:${toString port}";
+    forceSSL = true;
+
+    sslCertificateKey = crtCfg.key.path;
+    sslCertificate = crtCfg.crt.path;
+  };
+
+  my.certificates.certs."${domain}" = {};
 
   sops = {
     secrets = {

@@ -2,10 +2,16 @@
   outputs,
   config,
   ...
-}: {
+}: let
+  domain = "vault.color";
+  port = 8000;
+
+  crtCfg = config.my.certificates.certs."${domain}";
+in {
   imports = [
     outputs.modules.services-sops
   ];
+
   services = {
     vaultwarden = {
       enable = true;
@@ -14,8 +20,8 @@
         signupsAllowed = false;
         databaseUrl = "postgresql://vaultwarden@%2Frun%2Fpostgresql/vaultwarden";
 
-        rocketAddress = "0.0.0.0";
-        rocketPort = 8000;
+        rocketAddress = "127.0.0.1";
+        rocketPort = port;
       };
       dbBackend = "postgresql";
     };
@@ -30,9 +36,17 @@
       ];
       ensureDatabases = ["vaultwarden"];
     };
+
+    nginx.virtualHosts."${domain}" = {
+      locations."/".proxyPass = "http://127.0.0.1:${toString port}";
+      forceSSL = true;
+
+      sslCertificateKey = crtCfg.key.path;
+      sslCertificate = crtCfg.crt.path;
+    };
   };
 
-  networking.firewall.allowedTCPPorts = [8000];
+  my.certificates.certs."${domain}" = {};
 
   sops = {
     secrets."services/vaultwarden/adminToken" = {};

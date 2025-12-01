@@ -46,7 +46,7 @@ in {
       };
     };
 
-    users.users."nginx".extraGroups = ["acme"];
+    users.users."nginx".extraGroups = ["acme" "certboy"];
 
     sops = {
       secrets."services/acme/cloudflareDnsApiToken" = {};

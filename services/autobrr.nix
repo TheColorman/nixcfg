@@ -4,7 +4,10 @@
   systemPlatform,
   ...
 }: let
-  port = 7474;
+  domain = "autobrr.color";
+
+  cfg = config.services.autobrr;
+  crtCfg = config.my.certificates.certs."${domain}";
 in {
   imports = [
     outputs.modules.services-sops
@@ -29,18 +32,22 @@ in {
     })
   ];
 
-  services.autobrr = {
-    enable = true;
-    secretFile = config.sops.secrets."services/autobrr/sessionSecret".path;
-    settings = {
-      host = "0.0.0.0";
-      inherit port;
-      logLevel = "DEBUG";
-      checkForUpdates = true;
+  services = {
+    autobrr = {
+      enable = true;
+      secretFile = config.sops.secrets."services/autobrr/sessionSecret".path;
+    };
+
+    nginx.virtualHosts."${domain}" = {
+      locations."/".proxyPass = "http://127.0.0.1:${toString cfg.settings.port}";
+      forceSSL = true;
+
+      sslCertificateKey = crtCfg.key.path;
+      sslCertificate = crtCfg.crt.path;
     };
   };
 
-  networking.firewall.allowedTCPPorts = [port];
+  my.certificates.certs."${domain}" = {};
 
   sops.secrets."services/autobrr/sessionSecret" = {
     reloadUnits = ["autobrr.service"];
