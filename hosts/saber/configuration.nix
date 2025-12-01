@@ -74,6 +74,7 @@ in {
           min_luminance=0.5
           max_luminance=400
           max_avg_luminance=350
+          bitdepth=8
         }
       ''
       ''
@@ -93,6 +94,7 @@ in {
           min_luminance=0.5
           max_luminance=400
           max_avg_luminance=350
+          bitdepth=8
         }
       ''
     ];
@@ -143,12 +145,12 @@ in {
 
   # Kernel commit 6e223d5d (drm/amd/display: Add fallback path for YCBCR422)
   # broke Hyprland for me :(
-  boot.kernelPatches = [
-    {
-      patch = ./revert-6e223d5d.patch;
-      name = "revert-6e223d5d";
-    }
-  ];
+  # boot.kernelPatches = [
+  #   {
+  #     patch = ./revert-6e223d5d.patch;
+  #     name = "revert-6e223d5d";
+  #   }
+  # ];
 
   # Overrides
   home-manager.users."${username}".programs = {
