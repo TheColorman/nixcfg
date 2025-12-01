@@ -22,6 +22,7 @@ in {
     services-jellyfin
     services-jellyseerr
     services-nextcloud
+    services-nginx
     services-prowlarr
     services-qbittorrent
     services-radarr
