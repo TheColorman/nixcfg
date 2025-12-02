@@ -95,6 +95,7 @@ in {
       file
       jq
       killall
+      nix-output-monitor
       noto-fonts
       noto-fonts-cjk-sans
       nh
