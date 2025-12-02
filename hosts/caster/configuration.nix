@@ -15,6 +15,8 @@ in {
     apps-neovim
     apps-nix
     services-autobrr
+    services-beszel-agent
+    services-beszel-hub
     services-cross-seed
     services-gpg
     services-hedgedoc
@@ -46,6 +48,15 @@ in {
   my = {
     inherit username;
     stateVersion = "25.05";
+    beszel = {
+      sopsSecrets = {
+        key = "services/beszel/agent/caster/key";
+        token = "services/beszel/agent/caster/token";
+      };
+      extraEnvironment = {
+        EXTRA_FILESYSTEMS = "/mnt/neodata/default,/mnt/appsies";
+      };
+    };
     syncthing = {
       # Disable creating syncthing folders in ${username}'s home directory and
       # bindfs mounting those into the Syncthing dataDir.
