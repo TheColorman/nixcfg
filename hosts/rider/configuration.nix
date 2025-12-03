@@ -15,6 +15,7 @@ in {
     apps-neovim
     apps-nix
     services-anki-sync-server
+    services-beszel-agent
     services-discord-portal
     services-factbot
     services-firefox-syncserver
@@ -33,6 +34,11 @@ in {
   my = {
     inherit username;
     stateVersion = "25.05";
+
+    beszel.sopsSecrets = {
+      key = "services/beszel/agent/rider/key";
+      token = "services/beszel/agent/rider/token";
+    };
   };
 
   environment.systemPackages = with pkgs; [vim];
