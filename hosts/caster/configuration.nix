@@ -18,6 +18,7 @@ in {
     services-beszel-agent
     services-beszel-hub
     services-cross-seed
+    services-ersatztv
     services-gpg
     services-hedgedoc
     services-immich
