@@ -43,6 +43,8 @@ in {
     devices = [
       "/dev/net/tun"
     ];
+
+    privileged = true;
   };
 
   services.nginx.virtualHosts."${domain}" = {
