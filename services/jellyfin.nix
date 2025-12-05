@@ -27,6 +27,10 @@
     in
       pkgs-unstable.jellyfin;
   };
+  networking.firewall = {
+    allowedTCPPorts = [8096];
+    allowedUDPPorts = [8096];
+  };
 
   my.cloudflared.tunnels.jellyfin.tokenFile = config.sops.secrets."services/jellyfin/tunnel_token".path;
 
