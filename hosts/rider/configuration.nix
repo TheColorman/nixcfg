@@ -15,6 +15,7 @@ in {
     apps-neovim
     apps-nix
     services-anki-sync-server
+    services-argonone
     services-beszel-agent
     services-discord-portal
     services-factbot
