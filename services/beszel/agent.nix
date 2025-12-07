@@ -55,6 +55,8 @@ in {
       AmbientCapabilities = "CAP_SYS_RAWIO CAP_SYS_ADMIN";
       CapabilityBoundingSet = "CAP_SYS_RAWIO CAP_SYS_ADMIN";
       SupplementaryGroups = "disk";
+      # systemd data
+      BusName = "org.freedesktop.systemd1";
     };
 
     sops = {
