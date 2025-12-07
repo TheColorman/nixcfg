@@ -55,6 +55,19 @@ in {
       AmbientCapabilities = "CAP_SYS_RAWIO CAP_SYS_ADMIN";
       CapabilityBoundingSet = "CAP_SYS_RAWIO CAP_SYS_ADMIN";
       SupplementaryGroups = "disk";
+      # systemd data
+      DynamicUser = lib.mkForce false;
+      User = "beszel-agent";
+      Group = "beszel-agent";
+      BusName = "org.freedesktop.systemd1";
+    };
+
+    users = {
+      users."beszel-agent" = {
+        isSystemUser = true;
+        group = "beszel-agent";
+      };
+      groups."beszel-agent" = {};
     };
 
     sops = {
