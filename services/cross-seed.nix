@@ -52,6 +52,10 @@ in {
     };
   };
 
+  networking.firewall.interfaces."podman0".allowedTCPPorts = [
+    config.services.cross-seed.settings.port
+  ];
+
   # FIXME: (upstream) linkDirs require write access to create hardlinks
   systemd.services.cross-seed.serviceConfig.ReadWritePaths = cfg.settings.linkDirs;
 
