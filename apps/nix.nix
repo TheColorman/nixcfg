@@ -8,16 +8,18 @@
   inherit (config.my) username;
 
   flakedir = "/home/${username}/nixcfg";
-  flake = "--flake ${flakedir}";
 
   rebuildScript = name: text:
     pkgs.writeShellApplication {
       inherit name;
       text = ''
         # Build the system
-        nom build \
+        outpath="$(nom build \
           ${flakedir}\#nixosConfigurations."$(hostname)".config.system.build.toplevel \
-          --no-link
+          --no-link \
+          --print-out-paths)"
+
+        switch_cmd="''${outpath}/bin/switch-to-configuration"
 
         ${text}
       '';
@@ -43,16 +45,22 @@
 in {
   environment.systemPackages = [
     pkgs.nix-output-monitor
-    (rebuildScript "tnix" "sudo nixos-rebuild test ${flake}")
-    (rebuildScript "dbnix" "sudo nixos-rebuild dry-build ${flake}")
-    (rebuildScript "danix" "sudo nixos-rebuild dry-activate ${flake}")
+    (rebuildScript "tnix" ''
+      sudo "$switch_cmd" test
+    '')
+    (rebuildScript "dbnix" ''
+      sudo "$switch_cmd" dry-build
+    '')
+    (rebuildScript "danix" ''
+      sudo "$switch_cmd" dry-activate
+    '')
     (rebuildScript "bnix" ''
-      sudo nixos-rebuild boot ${flake}
+      sudo "$switch_cmd" boot
 
       ${gitTagScript}
     '')
     (rebuildScript "snix" ''
-      sudo nixos-rebuild switch ${flake}
+      sudo "$switch_cmd" switch
 
       ${gitTagScript}
     '')
