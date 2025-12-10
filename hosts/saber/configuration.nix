@@ -127,6 +127,7 @@ in {
       p7zip
       ranger
       ripgrep
+      signal-desktop
       speed-cloudflare-cli
       telegram-desktop
       unzip
