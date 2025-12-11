@@ -12,7 +12,6 @@
 in {
   imports = [
     inputs.home-manager.nixosModules.default
-    outputs.modules.apps-zen-browser
     outputs.modules.apps-comma
   ];
 
