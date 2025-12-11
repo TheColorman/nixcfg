@@ -216,8 +216,8 @@ in {
         ",XF86AudioPause, exec, ${uwsm} ${playerctl} play-pause"
         ",XF86AudioPlay, exec, ${uwsm} ${playerctl} play-pause"
         ",XF86AudioPrev, exec, ${uwsm} ${playerctl} previous"
-        ",XF86MonBrightnessUp, exec, ${uwsm} ${brightnessctl} s 10%+"
-        ",XF86MonBrightnessDown, exec, ${uwsm} ${brightnessctl} s 10%-"
+        ",XF86MonBrightnessUp, exec, ${uwsm} ${brightnessctl} s 2%+"
+        ",XF86MonBrightnessDown, exec, ${uwsm} ${brightnessctl} s 2%-"
       ];
 
       windowrule = [
