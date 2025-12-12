@@ -19,7 +19,6 @@ in {
     enable = true;
     settingsFile = config.sops.templates."cross-seed.settings.json".path;
     settings = {
-      host = "0.0.0.0";
       useClientTorrents = true;
       delay = 60;
       dataDirs = [];
@@ -33,8 +32,10 @@ in {
       matchMode = "partial";
       skipRecheck = true;
       autoResumeMaxDownload = 52428800; # 50 MiB
+      ignoreNonRelevantFilesToResume = false;
       maxDataDepth = 2;
       torrentDir = null;
+      outputDir = "${cfg.configDir}/output";
       includeSingleEpisodes = false;
       includeNonVideos = false;
       seasonFromEpisodes = 1;
@@ -43,10 +44,10 @@ in {
       excludeRecentSearch = "1 week";
       action = "inject";
       duplicateCategories = false;
-      rssCadence = "30 minutes";
+      rssCadence = "1 hour";
       searchCadence = "1 day";
       snatchTimeout = "30 seconds";
-      searchTimeout = "2 minutes";
+      searchTimeout = "3 minutes";
       searchLimit = 400;
       blockList = [];
     };
@@ -70,16 +71,20 @@ in {
     };
     templates."cross-seed.settings.json".content = let
       crossSeedKey = config.sops.placeholder."services/cross-seed/apiKey";
-      prowlarrPort = builtins.toString prowlarrCfg.settings.server.port;
+      prowlarrPort = toString prowlarrCfg.settings.server.port;
       prowlarrKey = config.sops.placeholder."services/prowlarr/apiKey";
-      sonarrPort = builtins.toString sonarrCfg.settings.server.port;
+      sonarrPort = toString sonarrCfg.settings.server.port;
       sonarrKey = config.sops.placeholder."services/sonarr/apiKey";
-      radarrPort = builtins.toString radarrCfg.settings.server.port;
+      radarrPort = toString radarrCfg.settings.server.port;
       radarrKey = config.sops.placeholder."services/radarr/apiKey";
       qbitUser = config.sops.placeholder."services/qbittorrentvpn/webuiUser";
       qbitPass = config.sops.placeholder."services/qbittorrentvpn/webuiPass";
     in
       builtins.toJSON {
+        host = "127.0.0.1";
+        port = 2468;
+        notificationWebhookUrls = [];
+
         apiKey = crossSeedKey;
         torznab = [
           "http://127.0.0.1:${prowlarrPort}/6/api?apikey=${prowlarrKey}"
@@ -93,7 +98,10 @@ in {
         radarr =
           optional radarrCfg.enable
           "http://127.0.0.1:${radarrPort}?apikey=${radarrKey}";
-        qbittorrentUrl = "http://${qbitUser}:${qbitPass}@127.0.0.1:10095";
+
+        torrentClients = [
+          "qbittorrent:http://${qbitUser}:${qbitPass}@127.0.0.1:10095"
+        ];
       };
   };
 }
