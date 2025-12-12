@@ -23,13 +23,17 @@ in {
     ports = [
       "127.0.0.1:${port}:8080"
     ];
-    image = "binhex/arch-qbittorrentvpn";
+    image = "binhex/arch-qbittorrentvpn:5.1.4-1-01";
     hostname = "qbittorrentvpn";
     environment = {
       VPN_ENABLED = "yes";
       STRICT_PORT_FORWARD = "yes";
       LAN_NETWORK = "10.0.0.0/24";
       UMASK = "000";
+      ENABLE_STARTUP_SCRIPTS = "no";
+      WEBUI_PORT = "8080";
+      PUID = "568";
+      PGID = "568";
     };
     environmentFiles = [
       config.sops.templates."qbittorrentvpn.env".path
@@ -45,6 +49,15 @@ in {
     ];
 
     privileged = true;
+  };
+
+  users = {
+    users."qbittorrent" = {
+      isSystemUser = true;
+      uid = 568;
+      group = "qbittorrent";
+    };
+    groups.qbittorrent.gid = 568;
   };
 
   services.nginx.virtualHosts."${domain}" = {
