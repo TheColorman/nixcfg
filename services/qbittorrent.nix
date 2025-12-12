@@ -21,7 +21,7 @@ in {
       "/mnt/neodata/autobrr:/mnt/neodata/autobrr"
     ];
     ports = [
-      "127.0.0.1:${port}:8080"
+      "127.0.0.1:${port}:${port}"
     ];
     image = "binhex/arch-qbittorrentvpn:5.1.4-1-01";
     hostname = "qbittorrentvpn";
@@ -31,7 +31,7 @@ in {
       LAN_NETWORK = "10.0.0.0/24";
       UMASK = "000";
       ENABLE_STARTUP_SCRIPTS = "no";
-      WEBUI_PORT = "8080";
+      WEBUI_PORT = "${port}";
       PUID = "568";
       PGID = "568";
     };
