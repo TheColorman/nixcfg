@@ -192,6 +192,22 @@
         "type": "github"
       }
     },
+    "fish-plugin-jj": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765536815,
+        "narHash": "sha256-ig+jRuSuMZP6jx2W6oLHsp87f6oc8sAtMb/x8frz0n8=",
+        "owner": "TheColorman",
+        "repo": "plugin-jj",
+        "rev": "1a9635fb2698be0e60812026cd40fa406bc08110",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TheColorman",
+        "repo": "plugin-jj",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -753,6 +769,7 @@
         "discord-portal": "discord-portal",
         "disko": "disko",
         "factbot": "factbot",
+        "fish-plugin-jj": "fish-plugin-jj",
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nix-secrets": "nix-secrets",

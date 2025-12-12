@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: let
   inherit (config.my) username;
@@ -145,19 +146,13 @@ in {
         shellAbbrs = {
           j = "jj";
           jrt = "jj rebase -d 'trunk()' && jj simplify-parents";
-          jfx = "jj fix";
-          jbs = "jj bookmark set";
+          jri = "jj rebase -A 'trunk()' -B 'merge' -r";
         };
 
         plugins = [
           {
             name = "jj";
-            src = pkgs.fetchFromGitHub {
-              owner = "ShawnMcCool";
-              repo = "plugin-jj";
-              rev = "7cd34c07009a4d502709dacfcd0b8b7f561b32d2";
-              hash = "sha256-FUZ9uRDEJOFo47Rtj1ObwMpUcZkFA/qtoDfV/ZabHdE=";
-            };
+            src = inputs.fish-plugin-jj;
           }
         ];
       };

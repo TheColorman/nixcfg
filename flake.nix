@@ -129,5 +129,11 @@
       url = "github:remi-dupre/pinix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Fish jj plugin
+    fish-plugin-jj = {
+      url = "github:TheColorman/plugin-jj";
+      flake = false;
+    };
   };
 }
