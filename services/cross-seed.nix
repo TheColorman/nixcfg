@@ -19,6 +19,9 @@ in {
     enable = true;
     settingsFile = config.sops.templates."cross-seed.settings.json".path;
     settings = {
+      host = "0.0.0.0";
+      port = 2468;
+
       useClientTorrents = true;
       delay = 60;
       dataDirs = [];
@@ -58,7 +61,10 @@ in {
   ];
 
   # FIXME: (upstream) linkDirs require write access to create hardlinks
-  systemd.services.cross-seed.serviceConfig.ReadWritePaths = cfg.settings.linkDirs;
+  systemd.services.cross-seed.serviceConfig.ReadWritePaths = [
+    "/mnt/neodata/default/Vault/Torrents"
+    "/mnt/neodata/autobrr/cross-seed"
+  ];
 
   sops = {
     secrets = {
@@ -81,8 +87,6 @@ in {
       qbitPass = config.sops.placeholder."services/qbittorrentvpn/webuiPass";
     in
       builtins.toJSON {
-        host = "0.0.0.0";
-        port = 2468;
         notificationWebhookUrls = [];
 
         apiKey = crossSeedKey;
