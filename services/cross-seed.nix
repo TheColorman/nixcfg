@@ -81,7 +81,7 @@ in {
       qbitPass = config.sops.placeholder."services/qbittorrentvpn/webuiPass";
     in
       builtins.toJSON {
-        host = "127.0.0.1";
+        host = "0.0.0.0";
         port = 2468;
         notificationWebhookUrls = [];
 
