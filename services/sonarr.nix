@@ -1,6 +1,8 @@
 {
   outputs,
   config,
+  pkgs,
+  lib,
   ...
 }: let
   domain = "sonarr.color";
@@ -16,6 +18,17 @@ in {
     sonarr = {
       enable = true;
       environmentFiles = [config.sops.templates."sonarr.env".path];
+
+      package = pkgs.sonarr.overrideAttrs (_final: prev: {
+        src = pkgs.applyPatches {
+          inherit (prev) src;
+          patches = lib.singleton (pkgs.fetchpatch {
+            name = "discord-timestamp-iso-8601-culture-fix";
+            url = "https://github.com/TheColorman/Sonarr/commit/aa85e83a8a3f8acf31426a08f3ff508d40bc3e65.patch";
+            hash = "sha256-Pt0fwubSMC4n8Cf+srpfjMDGq53Pms6FC+2QbXim738=";
+          });
+        };
+      });
     };
 
     nginx.virtualHosts."${domain}" = {
