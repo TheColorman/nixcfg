@@ -25,6 +25,7 @@ in {
     services-sops
     services-tailscale
     services-technitium
+    system-certs
     system-locale-danish
     system-networking
     utils-shell
