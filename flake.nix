@@ -3,6 +3,7 @@
   outputs = {
     nixpkgs,
     nixos-hardware,
+    deploy-rs,
     self,
     ...
   } @ inputs: let
@@ -41,6 +42,17 @@
         # Server
         caster.platform = "x86_64-linux";
       };
+    };
+
+    deploy.nodes.rider = {
+      hostname = "rider";
+      profiles.system = {
+        user = "root";
+        path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.rider;
+      };
+      interactiveSudo = true;
+      fastConnection = true;
+      remoteBuild = false; # underpowered piece of shit
     };
   };
 
@@ -134,6 +146,12 @@
     fish-plugin-jj = {
       url = "github:TheColorman/plugin-jj";
       flake = false;
+    };
+
+    # Deployment tooling
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 }
