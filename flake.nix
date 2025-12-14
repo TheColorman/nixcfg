@@ -33,8 +33,6 @@
             nixos-hardware.nixosModules.raspberry-pi-4
           ];
         };
-        # SD card
-        lancer.platform = "x86_64-linux";
 
         # Desktop
         saber.platform = "x86_64-linux";
