@@ -372,7 +372,6 @@ in {
               trash_ids = [
                 "b4a1b3d705159cdca36d71e57ca86871" # Anime Raws
                 "e3515e519f3b1360cbfc17651944354c" # Anime LQ Groups
-                "15a05bc7c1a36e2b57fd628f8977e2fc" # AV1
                 "9c14d194486c4014d422adc64092d794" # Dubs Only
                 "07a32f77690263bb9fda1842db7e273f" # VOSTFR
               ];
