@@ -12,7 +12,10 @@
 
   cfg = config.my.hyprland;
 in {
-  imports = [outputs.modules.system-desktop-wayland];
+  imports = with outputs.modules; [
+    apps-zen-browser
+    system-desktop-wayland
+  ];
 
   options.my.hyprland = {
     extraMonitorSettings = mkOption {
@@ -126,7 +129,7 @@ in {
       bind = let
         hyprpicker = getExe pkgs.hyprpicker;
         vesktop = getExe pkgs.vesktop;
-        browser = getExe config.my.browser;
+        browser = getExe pkgs.zen-browser;
         music = getExe pkgs.youtube-music;
       in [
         "${mod}, T, exec, ${uwsm} ${term}"
