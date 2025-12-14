@@ -7,9 +7,11 @@
 
   crtCfg = config.my.certificates.certs."${domain}";
 in {
-  imports = [
-    outputs.modules.services-cloudflared
+  imports = with outputs.modules; [
+    services-cloudflared
+    services-sops
   ];
+
   services = {
     # https://jellyfin.org/docs/general/post-install/networking/
     # Port  Protocol  Configurable  Description

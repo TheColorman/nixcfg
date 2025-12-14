@@ -213,6 +213,7 @@ in {
             echo "Finished generating certificates!"
           '';
         };
+
         "certboy-renew" = {
           description = "Ensure all self-signed certificates are renewed";
           after = ["certboy-generate.service"];
@@ -307,9 +308,11 @@ in {
 
             ${certRenewScripts}
 
-            echo "Finished reniewing certificates!"
+            echo "Finished renewing certificates!"
           '';
         };
+
+        nginx.wants = ["certboy-generate.service"];
       };
 
       sops.secrets."certs/ca-key".owner = "certboy";
