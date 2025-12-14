@@ -26,6 +26,8 @@
     settingsFile = config.sops.templates."anchorr.config.json".path;
   };
 
+  networking.firewall.allowedTCPPorts = [8282];
+
   sops = {
     secrets = {
       "services/anchorr/botToken" = {};
