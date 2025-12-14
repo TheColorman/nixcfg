@@ -7,7 +7,8 @@
     self,
     ...
   } @ inputs: let
-    cLib = import ./lib {inherit (nixpkgs) lib;};
+    inherit (nixpkgs) lib;
+    cLib = import ./lib {inherit lib;};
   in {
     modules = cLib.recurseModules ./.;
 
@@ -42,16 +43,19 @@
       };
     };
 
-    deploy.nodes.rider = {
-      hostname = "rider";
+    deploy.nodes = lib.genAttrs ["rider" "caster"] (name: let
+      system = self.nixosConfigurations.${name};
+      inherit (system._module.specialArgs) systemPlatform;
+    in {
+      hostname = name;
       profiles.system = {
         user = "root";
-        path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.rider;
+        path = deploy-rs.lib.${systemPlatform}.activate.nixos system;
       };
       interactiveSudo = true;
       fastConnection = true;
-      remoteBuild = false; # underpowered piece of shit
-    };
+      remoteBuild = false;
+    });
   };
 
   inputs = {
