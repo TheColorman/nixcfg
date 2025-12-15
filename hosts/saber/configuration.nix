@@ -10,7 +10,6 @@ in {
   imports = with outputs.modules; [
     ./hardware-configuration.nix
     common
-    apps-claude-code
     apps-gaming
     apps-office
     apps-btop

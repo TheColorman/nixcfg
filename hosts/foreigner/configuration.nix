@@ -12,7 +12,6 @@ in {
     inputs.nixos-wsl.nixosModules.default
     common
     apps-btop
-    apps-claude-code
     apps-git
     apps-jujutsu
     apps-neovim
