@@ -22,6 +22,7 @@ in {
     services-gpg
     services-hedgedoc
     services-immich
+    services-isponsorblocktv
     services-jellyfin
     services-jellyseerr
     services-nextcloud
