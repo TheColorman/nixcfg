@@ -1,6 +1,7 @@
 {
   outputs,
   config,
+  systemPlatform,
   ...
 }: let
   domain = "jellyfin.color";
@@ -18,7 +19,20 @@ in {
     # 8096  TCP        ✔️           Default HTTP
     # 8920  TCP        ✔️           Default HTTPS
     # 7359  UDP        ❌           Client Discovery
-    jellyfin.enable = true;
+    jellyfin = {
+      enable = true;
+      # TODO: remove once stable has 10.11.4
+      package = let
+        pkgs-unstable =
+          import (fetchTarball {
+            url = "https://github.com/nixos/nixpkgs/archive/addf7cf5f383a3101ecfba091b98d0a1263dc9b8.tar.gz";
+            sha256 = "sha256:1zv083l3n5n4s7x2hcqki29s5gyspn7f1y6xyl6avmd94sxv9kc4";
+          }) {
+            system = systemPlatform;
+          };
+      in
+        pkgs-unstable.jellyfin;
+    };
 
     nginx.virtualHosts."${domain}" = {
       locations."/".proxyPass = "http://127.0.0.1:30013";
