@@ -51,6 +51,15 @@ in {
     privileged = true;
   };
 
+  # Need myself some kernel modules for that container to work
+  boot.kernelModules = [
+    "ip_tables"
+    "iptable_filter"
+    "iptable_nat"
+    "iptable_mangle"
+    "iptable_raw"
+  ];
+
   users = {
     users."qbittorrent" = {
       isSystemUser = true;
