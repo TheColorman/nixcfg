@@ -134,6 +134,7 @@ in {
       wireguard-tools
       unzip
       p7zip
+      pear-desktop
       ranger
       aria2
       killall
@@ -145,7 +146,6 @@ in {
       jq
       fbterm
       jftui
-      youtube-music
       chromium
     ];
   };

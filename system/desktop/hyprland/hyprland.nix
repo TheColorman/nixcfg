@@ -130,7 +130,7 @@ in {
         hyprpicker = getExe pkgs.hyprpicker;
         vesktop = getExe pkgs.vesktop;
         browser = getExe pkgs.zen-browser;
-        music = getExe pkgs.youtube-music;
+        music = getExe pkgs.pear-desktop;
       in [
         "${mod}, T, exec, ${uwsm} ${term}"
         "${mod} ALT, T, exec, [float; size 50%] ${uwsm} ${term}"
