@@ -2,6 +2,7 @@
   services.minecraft-server = {
     enable = true;
     eula = true;
+    openFirewall = true;
     package = let
       # Get newest release, 1.21.11
       pkgs-unstable =
