@@ -148,171 +148,185 @@ in {
         };
         groups.certboy = {};
       };
+      systemd = {
+        services = {
+          "certboy-generate" = {
+            description = "Ensure all self-signed certificates are generated";
+            wantedBy = ["multi-user.target"];
 
-      systemd.services = {
-        "certboy-generate" = {
-          description = "Ensure all self-signed certificates are generated";
-          wantedBy = ["multi-user.target"];
+            # Whenever this service starts (on boot, through dependencies, through
+            # changes) we trigger the certboy-renew service to give it a chance
+            # to catch up with the potentially changed config.
+            wants = [
+              "certboy-renew.service"
+            ];
+            before = ["certboy-renew.service"];
 
-          # Whenever this service starts (on boot, through dependencies, through
-          # changes) we trigger the certboy-renew service to give it a chance
-          # to catch up with the potentially changed config.
-          wants = [
-            "certboy-renew.service"
-          ];
-          before = ["certboy-renew.service"];
+            restartTriggers = [config.systemd.services."certboy-renew".script];
 
-          restartTriggers = [config.systemd.services."certboy-renew".script];
+            path = with pkgs; [cfssl];
 
-          path = with pkgs; [cfssl];
+            serviceConfig =
+              commonServiceConfig
+              // {
+                UMask = "0027";
+                RemainAfterExit = true;
+                StateDirectory = "certboy";
+              };
 
-          serviceConfig =
-            commonServiceConfig
-            // {
-              UMask = "0027";
-              RemainAfterExit = true;
-              StateDirectory = "certboy";
-            };
-
-          script = let
-            certGenScripts =
-              cfg
-              |> builtins.attrValues
-              |> map ({
-                key,
-                crt,
-                domain,
-                directory,
-                csr,
-                ...
-              }: ''
-                # Check if .key and .crt file exists
-                if [[ -f "${key.path}" && -f "${crt.path}" ]]; then
-                  echo "Skipping ${domain} as key and cert exist."
-                else
-                  echo "Generating certificate for ${domain} at ${directory}"
-                  mkdir -p "${directory}"
-
-                  cfssl gencert \
-                    -loglevel 2 \
-                    -ca ${./ca.pem} \
-                    -ca-key ${config.sops.secrets."certs/ca-key".path} \
-                    -config ${caConfig} \
-                    "${csr.path}" \
-                    | cfssljson -bare "${directory}/${domain}"
-                fi
-              '')
-              |> lib.concatLines;
-          in ''
-            set -ex
-
-            echo "Generating certificates"
-
-            ${certGenScripts}
-
-            echo "Finished generating certificates!"
-          '';
-        };
-
-        "certboy-renew" = {
-          description = "Ensure all self-signed certificates are renewed";
-          after = ["certboy-generate.service"];
-          wants = ["certboy-generate.service"];
-
-          path = with pkgs; [cfssl jq];
-
-          serviceConfig =
-            commonServiceConfig
-            // {
-              RestartSec = 15 * 60; # 60s * 15m = 15m
-
-              ExecStartPost = let
-                renewPostrunScript =
-                  cfg
-                  |> builtins.attrValues
-                  |> map ({
-                    directory,
-                    reloadServices,
-                    group,
-                    ...
-                  }: ''
-                    cd "${directory}"
-                    if [ -e renewed ]; then
-                      rm renewed
-                      ${lib.optionalString (
-                        reloadServices != []
-                      ) "systemctl --no-block try-reload-or-restart ${
-                        lib.escapeShellArgs reloadServices
-                      }"}
-                    fi
-
-                    chmod -R u=rwX,g=rX,o= "${directory}"
-                    chown -R certboy:${group} "${directory}"
-                  '')
-                  |> lib.concatLines;
-              in
-                "+"
-                + (pkgs.writeShellScript "certboy-renew-postrun"
-                  renewPostrunScript);
-            };
-
-          script = let
-            certRenewScripts =
-              cfg
-              |> builtins.attrValues
-              |> map (
-                {
+            script = let
+              certGenScripts =
+                cfg
+                |> builtins.attrValues
+                |> map ({
                   key,
                   crt,
                   domain,
-                  csr,
                   directory,
+                  csr,
                   ...
                 }: ''
                   # Check if .key and .crt file exists
                   if [[ -f "${key.path}" && -f "${crt.path}" ]]; then
-                    expiry="$(cfssl certinfo -cert "${crt.path}" | jq -r '.not_after')"
-                    expiry_epoch="$(date -d "$expiry" +%s)"
-                    time_until_expiry="$((expiry_epoch - NOW_EPOCH))"
-
-                    echo "${domain} expires at $expiry (in $((time_until_expiry / 86400)) days)"
-
-                    if [ $time_until_expiry -lt $SEVEN_DAYS ]; then
-                      echo "Certificate expires in less than 7 days. Renewing..."
-                      cfssl gencert \
-                        -loglevel 2 \
-                        -ca ${./ca.pem} \
-                        -ca-key ${config.sops.secrets."certs/ca-key".path} \
-                        -config ${caConfig} \
-                        "${csr.path}" \
-                        | cfssljson -bare ${directory}/${domain}
-
-                      touch renewed
-                    else
-                      echo "Skipping ${domain} as it is valid for more than 7 days"
-                    fi
-
+                    echo "Skipping ${domain} as key and cert exist."
                   else
-                    echo "Skipping ${domain} as key or cert does not exist."
+                    echo "Generating certificate for ${domain} at ${directory}"
+                    mkdir -p "${directory}"
+
+                    cfssl gencert \
+                      -loglevel 2 \
+                      -ca ${./ca.pem} \
+                      -ca-key ${config.sops.secrets."certs/ca-key".path} \
+                      -config ${caConfig} \
+                      "${csr.path}" \
+                      | cfssljson -bare "${directory}/${domain}"
                   fi
-                ''
-              )
-              |> lib.concatLines;
-          in ''
-            set -euo pipefail
+                '')
+                |> lib.concatLines;
+            in ''
+              set -ex
 
-            echo "Renewing certificates"
+              echo "Generating certificates"
 
-            NOW_EPOCH="$(date +%s)"
-            SEVEN_DAYS="$((7 * 24 * 60 * 60))"
+              ${certGenScripts}
 
-            ${certRenewScripts}
+              echo "Finished generating certificates!"
+            '';
+          };
 
-            echo "Finished renewing certificates!"
-          '';
+          "certboy-renew" = {
+            description = "Ensure all self-signed certificates are renewed";
+            after = ["certboy-generate.service"];
+            wants = ["certboy-generate.service"];
+
+            path = with pkgs; [cfssl jq];
+
+            serviceConfig =
+              commonServiceConfig
+              // {
+                RestartSec = 15 * 60; # 60s * 15m = 15m
+
+                ExecStartPost = let
+                  renewPostrunScript =
+                    cfg
+                    |> builtins.attrValues
+                    |> map ({
+                      directory,
+                      reloadServices,
+                      group,
+                      ...
+                    }: ''
+                      cd "${directory}"
+                      if [ -e renewed ]; then
+                        rm renewed
+                        ${lib.optionalString (
+                          reloadServices != []
+                        ) "systemctl --no-block try-reload-or-restart ${
+                          lib.escapeShellArgs reloadServices
+                        }"}
+                      fi
+
+                      chmod -R u=rwX,g=rX,o= "${directory}"
+                      chown -R certboy:${group} "${directory}"
+                    '')
+                    |> lib.concatLines;
+                in
+                  "+"
+                  + (pkgs.writeShellScript "certboy-renew-postrun"
+                    renewPostrunScript);
+              };
+
+            script = let
+              certRenewScripts =
+                cfg
+                |> builtins.attrValues
+                |> map (
+                  {
+                    key,
+                    crt,
+                    domain,
+                    csr,
+                    directory,
+                    ...
+                  }: ''
+                    # Check if .key and .crt file exists
+                    if [[ -f "${key.path}" && -f "${crt.path}" ]]; then
+                      expiry="$(cfssl certinfo -cert "${crt.path}" | jq -r '.not_after')"
+                      expiry_epoch="$(date -d "$expiry" +%s)"
+                      time_until_expiry="$((expiry_epoch - NOW_EPOCH))"
+
+                      echo "${domain} expires at $expiry (in $((time_until_expiry / 86400)) days)"
+
+                      if [ $time_until_expiry -lt $SEVEN_DAYS ]; then
+                        echo "Certificate expires in less than 7 days. Renewing..."
+                        cfssl gencert \
+                          -loglevel 2 \
+                          -ca ${./ca.pem} \
+                          -ca-key ${config.sops.secrets."certs/ca-key".path} \
+                          -config ${caConfig} \
+                          "${csr.path}" \
+                          | cfssljson -bare ${directory}/${domain}
+
+                        touch renewed
+                      else
+                        echo "Skipping ${domain} as it is valid for more than 7 days"
+                      fi
+
+                    else
+                      echo "Skipping ${domain} as key or cert does not exist."
+                    fi
+                  ''
+                )
+                |> lib.concatLines;
+            in ''
+              set -euo pipefail
+
+              echo "Renewing certificates"
+
+              NOW_EPOCH="$(date +%s)"
+              SEVEN_DAYS="$((7 * 24 * 60 * 60))"
+
+              ${certRenewScripts}
+
+              echo "Finished renewing certificates!"
+            '';
+          };
+
+          nginx.wants = ["certboy-generate.service"];
         };
 
-        nginx.wants = ["certboy-generate.service"];
+        timers."certboy-renew" = {
+          description = "Renew self-signed certificates";
+          wantedBy = ["timers.target"];
+          # Only start explicitly
+          # See: https://github.com/NixOS/nixpkgs/blob/cad22e7d996aea55ecab064e84834289143e44a0/nixos/modules/security/acme/default.nix#L318
+          unitConfig."X-OnlyManualStart" = true;
+          timerConfig = {
+            OnCalendar = "daily";
+            Unit = "certboy-renew.service";
+            Persistent = "yes";
+          };
+        };
       };
 
       sops.secrets."certs/ca-key".owner = "certboy";
