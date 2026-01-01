@@ -287,7 +287,7 @@ in {
                           "${csr.path}" \
                           | cfssljson -bare ${directory}/${domain}
 
-                        touch renewed
+                        touch ${directory}/renewed
                       else
                         echo "Skipping ${domain} as it is valid for more than 7 days"
                       fi
