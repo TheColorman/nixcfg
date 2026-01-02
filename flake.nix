@@ -138,12 +138,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Pacman inspired Nix wrapper
-    pinix = {
-      url = "github:remi-dupre/pinix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Fish jj plugin
     fish-plugin-jj = {
       url = "github:TheColorman/plugin-jj";

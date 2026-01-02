@@ -102,8 +102,6 @@ in {
       uutils-coreutils-noprefix
       xh
       yazi
-
-      inputs.pinix.packages.${systemPlatform}.default
     ];
 
     users.mutableUsers = false;
