@@ -1,17 +1,36 @@
 {
   config,
   pkgs,
+  systemPlatform,
   ...
 }: let
   inherit (config.my) username;
+
+  # TODO: Pinned to 0.40.0 due to
+  # https://github.com/mpv-player/mpv/issues/17204
+  pinned-pkgs =
+    import (fetchTarball {
+      url = "https://github.com/nixos/nixpkgs/archive/52cd1feb965915e2675a2f41aa911c2522a9ec70.tar.gz";
+      sha256 = "sha256:0py2nsq8ddxj5wkiwdhyni8x95aiychfl33jcmm3ayzcpa1f44js";
+    }) {
+      system = systemPlatform;
+    };
+  pinned-mpv = pinned-pkgs.mpv.override {
+    scripts = with pkgs.mpvScripts; [
+      videoclip
+      mpris
+    ];
+  };
 in {
   home-manager.users."${username}" = {
     programs.mpv = {
+      package = pinned-mpv;
       enable = true;
-      scripts = with pkgs.mpvScripts; [
-        videoclip
-        mpris
-      ];
+      # TODO: Re-enable scripts when package override is gone
+      # scripts = with pkgs.mpvScripts; [
+      #   videoclip
+      #   mpris
+      # ];
       config = {
         # These two are for hdr
         target-colorspace-hint = "yes";

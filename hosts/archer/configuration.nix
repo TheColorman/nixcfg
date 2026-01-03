@@ -16,6 +16,7 @@ in {
     apps-btop
     apps-git
     apps-hashcat
+    apps-jftui
     apps-jujutsu
     apps-kitty
     apps-mpv
@@ -145,7 +146,6 @@ in {
       cachix
       jq
       fbterm
-      jftui
       chromium
     ];
   };
