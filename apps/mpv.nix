@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  systemPlatform,
   ...
 }: let
   inherit (config.my) username;
@@ -8,10 +9,23 @@ in {
   home-manager.users."${username}" = {
     programs.mpv = {
       enable = true;
-      scripts = with pkgs.mpvScripts; [
-        videoclip
-        mpris
-      ];
+      # Pinned to 0.40.0 due to https://github.com/mpv-player/mpv/issues/17204
+      package = (import (fetchTarball {
+          url = "https://github.com/nixos/nixpkgs/archive/52cd1feb965915e2675a2f41aa911c2522a9ec70.tar.gz";
+          sha256 = "sha256:0py2nsq8ddxj5wkiwdhyni8x95aiychfl33jcmm3ayzcpa1f44js";
+        }) {
+          system = systemPlatform;
+        }).mpv.override {
+        scripts = with pkgs.mpvScripts; [
+          videoclip
+          mpris
+        ];
+      };
+      # Re-enable scripts when package override is gone
+      # scripts = with pkgs.mpvScripts; [
+      #   videoclip
+      #   mpris
+      # ];
       config = {
         # These two are for hdr
         target-colorspace-hint = "yes";
