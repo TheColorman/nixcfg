@@ -224,8 +224,21 @@ in {
       ];
 
       windowrule = [
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+        {
+          name = "no-auto-maximize";
+          "match:class" = ".*";
+          suppress_event = "maximize";
+        }
+        {
+          name = "no-focus-floating-xwayland";
+          "match:class" = "^$";
+          "match:title" = "^$";
+          "match:xwayland" = true;
+          "match:float" = true;
+          "match:fullscreen" = false;
+          "match:pin" = false;
+          no_focus = true;
+        }
       ];
 
       windowrulev2 = let
@@ -237,7 +250,7 @@ in {
             "steam"
           ]
           |> builtins.concatStringsSep "|";
-        rule = "opacity 0.9 0.8, class:^(${classes})$";
+        rule = "opacity 0.9 0.8, match:class ^(${classes})$";
       in
         rule;
     };
