@@ -56,8 +56,11 @@ in {
       attic-client
       dig
       fastfetch
+      fluxcd
       git-cliff
       glab
+      kubectl
+      kubernetes-helm
       killall
       nixd
       ranger
