@@ -38,6 +38,9 @@ in {
             "h()" = ''
               heads(mutable() | trunk())
             '';
+            "default()" = ''
+              wip() | latest(tags()) | bookmarks()
+            '';
           };
           ui = {
             log-word-wrap = true;
@@ -47,7 +50,7 @@ in {
               then editor
               else "pico";
             movement.edit = true;
-            default-command = ["l" "-r" "wip() | latest(tags()) | bookmarks()"];
+            default-command = ["l" "-r" "default()"];
             diff-editor = ":builtin";
             merge-editor = "nvim";
           };
