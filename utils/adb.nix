@@ -1,6 +1,12 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   user = config.my.username;
 in {
-  programs.adb.enable = true;
+  environment.systemPackages = [
+    pkgs.android-tools
+  ];
   users.users.${user}.extraGroups = ["adbusers"];
 }
