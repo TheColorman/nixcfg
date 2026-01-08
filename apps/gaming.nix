@@ -22,4 +22,15 @@
       packages = with pkgs; [protonup-ng];
     };
   };
+
+  # Allow Steam Local Network Game Transfers
+  networking.firewall = {
+    allowedTCPPorts = [27040];
+    allowedUDPPortRanges = [
+      {
+        from = 27031;
+        to = 27036;
+      }
+    ];
+  };
 }
