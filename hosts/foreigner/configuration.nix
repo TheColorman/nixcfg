@@ -42,6 +42,7 @@ in {
 
   home-manager.users.${username}.programs.fish.shellAliases = {
     docker = "/run/current-system/sw/bin/docker";
+    k = "kubectl";
   };
 
   services.gnome.gnome-keyring.enable = true;
