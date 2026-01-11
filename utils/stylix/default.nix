@@ -5,6 +5,7 @@
 # 2024-H2: Vicky Bawangun (https://vickyb18.artstation.com/)
 # 2025-H1: nemupan (https://linktr.ee/nemupan). Extended using Photoshop to fit my aspect ratio
 # 2025-H2: 夏の影 (https://pixiv.net/artworks/90877153) by あきま (https://pixiv.net/users/19301797)
+# 2026-H1: Crescent #4 (https://pixiv.net/artworks/120894232) by DDal (https://pixiv.net/users/267137)
 {
   config,
   inputs,
@@ -12,7 +13,7 @@
   lib,
   ...
 }: let
-  asset = "2025-H2";
+  asset = "2026-H1.jpg";
 in {
   imports = [inputs.stylix.nixosModules.stylix];
 
@@ -24,7 +25,7 @@ in {
       package = pkgs.banana-cursor;
       size = 32;
     };
-    image = ./assets/${asset}.png;
+    image = ./assets/${asset};
     fonts = with pkgs; {
       serif = {
         package = nerd-fonts.caskaydia-cove;
