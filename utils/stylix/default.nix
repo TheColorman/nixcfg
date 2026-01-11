@@ -9,6 +9,7 @@
   config,
   inputs,
   pkgs,
+  lib,
   ...
 }: let
   asset = "2025-H2";
@@ -46,6 +47,8 @@ in {
     };
     polarity = "dark";
   };
+
+  specialisation.light.configuration.stylix.polarity = lib.mkForce "light";
 
   home-manager.users."${config.my.username}" = {
     stylix = {
