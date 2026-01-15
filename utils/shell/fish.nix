@@ -30,7 +30,11 @@ in {
     '';
 
     programs.fish.enable = true;
-    users.users."${username}".shell = fish;
+    users.users = {
+      "${username}".shell = fish;
+      # Root can have a little fish
+      root.shell = fish;
+    };
 
     home-manager.users."${username}" = {
       home.shell.enableFishIntegration = true;
