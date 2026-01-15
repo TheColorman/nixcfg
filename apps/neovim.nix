@@ -54,14 +54,15 @@
     # Else use default theme
     else inputs.nvfcfg.packages.${systemPlatform}.default;
 in {
-  environment.systemPackages = [nvim];
-
-  home-manager.users.${username} = {
-    home.sessionVariables = {
+  environment = {
+    systemPackages = [nvim];
+    variables = {
       EDITOR = "nvim";
       MANPAGER = "nvim +Man!";
     };
+  };
 
+  home-manager.users.${username} = {
     # Kitty integrations
     programs.kitty = {
       settings = {
