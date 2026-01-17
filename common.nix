@@ -123,6 +123,12 @@ in {
         };
       };
     };
-    system.stateVersion = cfg.stateVersion;
+    system = {
+      inherit (cfg) stateVersion;
+      configurationRevision =
+        inputs.self.rev or (builtins.warn
+          "Git tree may be dirty, build will not have a tracked revision!"
+          null);
+    };
   };
 }
