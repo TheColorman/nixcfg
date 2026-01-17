@@ -28,6 +28,7 @@ in {
     services-minecraft-server
     services-nextcloud
     services-nginx
+    services-playit
     services-prowlarr
     services-qbittorrent
     services-radarr
