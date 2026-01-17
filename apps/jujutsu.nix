@@ -12,6 +12,7 @@
 
   editor =
     config.home-manager.users."${username}".home.sessionVariables.EDITOR
+    or config.environment.sessionVariables.EDITOR
     or "";
 in {
   home-manager.users.${username} = {
