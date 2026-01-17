@@ -149,5 +149,11 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Port exposer for games
+    playit-nixos-module = {
+      url = "github:pedorich-n/playit-nixos-module";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
