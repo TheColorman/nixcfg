@@ -9,18 +9,12 @@
 
   flakedir = "/home/${username}/nixcfg";
   flake = "--flake ${flakedir}";
+  logToNom = "--log-format internal-json |& nom --json";
 
-  rebuildScript = name: text:
+  script = name: text:
     pkgs.writeShellApplication {
-      inherit name;
-      text = ''
-        # Build the system
-        nom build \
-          ${flakedir}\#nixosConfigurations."$(hostname)".config.system.build.toplevel \
-          --no-link
-
-        ${text}
-      '';
+      runtimeInputs = [pkgs.nix-output-monitor];
+      inherit name text;
     };
 
   gitTagScript = ''
@@ -43,16 +37,16 @@
 in {
   environment.systemPackages = [
     pkgs.nix-output-monitor
-    (rebuildScript "tnix" "sudo nixos-rebuild test ${flake}")
-    (rebuildScript "dbnix" "sudo nixos-rebuild dry-build ${flake}")
-    (rebuildScript "danix" "sudo nixos-rebuild dry-activate ${flake}")
-    (rebuildScript "bnix" ''
-      sudo nixos-rebuild boot ${flake}
+    (script "tnix" "sudo nixos-rebuild test ${flake} ${logToNom}")
+    (script "dbnix" "sudo nixos-rebuild dry-build ${flake} ${logToNom}")
+    (script "danix" "sudo nixos-rebuild dry-activate ${flake} ${logToNom}")
+    (script "bnix" ''
+      sudo nixos-rebuild boot ${flake} ${logToNom}
 
       ${gitTagScript}
     '')
-    (rebuildScript "snix" ''
-      sudo nixos-rebuild switch ${flake}
+    (script "snix" ''
+      sudo nixos-rebuild switch ${flake} ${logToNom}
 
       ${gitTagScript}
     '')
