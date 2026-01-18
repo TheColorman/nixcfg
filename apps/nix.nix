@@ -37,15 +37,17 @@
 in {
   environment.systemPackages = [
     pkgs.nix-output-monitor
-    (script "tnix" "sudo nixos-rebuild test ${flake} ${logToNom}")
-    (script "dbnix" "sudo nixos-rebuild dry-build ${flake} ${logToNom}")
-    (script "danix" "sudo nixos-rebuild dry-activate ${flake} ${logToNom}")
+    (script "tnix" "sudo -v && sudo nixos-rebuild test ${flake} ${logToNom}")
+    (script "dbnix" "sudo -v && sudo nixos-rebuild dry-build ${flake} ${logToNom}")
+    (script "danix" "sudo -v && sudo nixos-rebuild dry-activate ${flake} ${logToNom}")
     (script "bnix" ''
+      sudo -v
       sudo nixos-rebuild boot ${flake} ${logToNom}
 
       ${gitTagScript}
     '')
     (script "snix" ''
+      sudo -v
       sudo nixos-rebuild switch ${flake} ${logToNom}
 
       ${gitTagScript}
