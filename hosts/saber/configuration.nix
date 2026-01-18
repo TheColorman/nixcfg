@@ -126,6 +126,7 @@ in {
       obsidian
       p7zip
       pear-desktop
+      prismlauncher
       ranger
       ripgrep
       signal-desktop
