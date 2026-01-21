@@ -13,6 +13,7 @@ in {
   imports = [
     inputs.home-manager.nixosModules.default
     outputs.modules.apps-comma
+    outputs.modules.apps-nix-output-monitor
   ];
 
   options.my = {
@@ -89,7 +90,6 @@ in {
       file
       jq
       killall
-      nix-output-monitor
       noto-fonts
       noto-fonts-cjk-sans
       nh
