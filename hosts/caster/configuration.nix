@@ -40,6 +40,7 @@ in {
     services-thelounge
     services-vaultwarden
     services-wakapi
+    services-zfdash
     services-znc
     system-boot
     system-certs
