@@ -161,5 +161,8 @@
       url = "github:maralorn/nix-output-monitor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # ZFS dashbaord - not following nixpkgs due to dependency issues
+    zfdash-nix-flake.url = "github:TheColorman/zfdash-nix-flake";
   };
 }
