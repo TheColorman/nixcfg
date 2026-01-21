@@ -149,6 +149,7 @@ in {
       fish = {
         shellAbbrs = {
           j = "jj";
+          jt = "jj tug";
           jrt = "jj rebase -d 'trunk()' && jj simplify-parents";
           jri = "jj rebase -A 'trunk()' -B 'merge' -r";
         };
