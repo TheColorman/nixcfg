@@ -20,6 +20,8 @@ in {
   services = {
     homepage-dashboard = {
       enable = true;
+      allowedHosts = domain;
+
       settings = {
         title = "all the things...";
         background = {
