@@ -21,6 +21,7 @@ in {
     services-ersatztv
     services-gpg
     services-hedgedoc
+    services-homepage
     services-immich
     services-isponsorblocktv
     services-jellyfin
