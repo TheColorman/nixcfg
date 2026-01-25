@@ -2,6 +2,7 @@
   outputs,
   lib,
   config,
+  pkgs,
   ...
 }: let
   domain = "home.color";
@@ -9,6 +10,7 @@
   cfg = config.services.homepage-dashboard;
   crtCfg = config.my.certificates.certs."${domain}";
 
+  backgroundImage = ../utils/stylix/assets/2026-H1.jpg;
   hosts =
     outputs.nixosConfigurations
     |> builtins.attrValues
@@ -20,17 +22,26 @@ in {
   services = {
     homepage-dashboard = {
       enable = true;
+      package = pkgs.homepage-dashboard.overrideAttrs (oldAttrs: {
+        postInstall =
+          (oldAttrs.postInstall or "")
+          + ''
+            mkdir -p $out/share/homepage/public/images
+            ln -s ${backgroundImage} $out/share/homepage/public/images/${builtins.baseNameOf backgroundImage}
+          '';
+      });
       allowedHosts = domain;
 
       settings = {
         title = "all the things...";
+        description = "all the things...";
         background = {
-          image = ./background.jpg;
-          blur = "sm";
-          saturate = 50;
+          image = "images/${builtins.baseNameOf backgroundImage}";
+          # saturate = 50;
           brightness = 50;
-          opacity = 50;
+          # opacity = 80;
         };
+        theme = "dark";
         color = "amber";
         quicklaunch = {
           provider = "custom";
@@ -41,16 +52,6 @@ in {
         showStats = true;
         statusStyle = "dot";
       };
-
-      bookmarks = [
-        {
-          Services =
-            hosts
-            |> map (host: {
-              "${host}".href = host;
-            });
-        }
-      ];
 
       widgets = [
         {
@@ -83,14 +84,14 @@ in {
       ];
     };
 
-    nginx.virtualHosts."${domain}" = {
-      locations."/".proxyPass = "http://127.0.0.1:${toString cfg.listenPort}";
-      forceSSL = true;
-
-      sslCertificateKey = crtCfg.key.path;
-      sslCertificate = crtCfg.crt.path;
-    };
+    # nginx.virtualHosts."${domain}" = {
+    #   locations."/".proxyPass = "http://127.0.0.1:${toString cfg.listenPort}";
+    #   forceSSL = true;
+    #
+    #   sslCertificateKey = crtCfg.key.path;
+    #   sslCertificate = crtCfg.crt.path;
+    # };
   };
 
-  my.certificates.certs."${domain}" = {};
+  # my.certificates.certs."${domain}" = {};
 }
