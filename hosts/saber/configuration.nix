@@ -57,47 +57,6 @@ in {
   my = {
     inherit username;
     stateVersion = "24.05";
-
-    hyprland.extraMonitorSettings = [
-      ''
-        {
-          output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047984
-          mode=2560x1440@240
-          position=0x0
-          scale=auto
-          bitdepth=10
-          # > controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
-          # > 2 - fullscreen only, 3 - fullscreen with video or game content type
-          vrr=3
-          supports_wide_color=1
-          supports_hdr=1
-          sdr_min_luminance=0.005
-          sdr_max_luminance=200
-          min_luminance=0.5
-          max_luminance=400
-          max_avg_luminance=350
-        }
-      ''
-      ''
-        {
-          output=desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047972
-          mode=2560x1440@240
-          position=2560x0
-          scale=auto
-          bitdepth=10
-          # > controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
-          # > 2 - fullscreen only, 3 - fullscreen with video or game content type
-          vrr=3
-          supports_wide_color=1
-          supports_hdr=1
-          sdr_min_luminance=0.005
-          sdr_max_luminance=200
-          min_luminance=0.5
-          max_luminance=400
-          max_avg_luminance=350
-        }
-      ''
-    ];
     syncthing.folders = {
       brain = {};
       CTF = {};
@@ -143,13 +102,52 @@ in {
   };
 
   time.timeZone = "Europe/Copenhagen";
+  home-manager = {
+    users."${username}" = {
+      programs = {
+        # Saber does not have a battery.
+        caelestia.settings.bar.status.showBattery = false;
 
-  # Overrides
-  home-manager.users."${username}".programs = {
-    # Saber does not have a battery.
-    caelestia.settings.bar.status.showBattery = false;
+        # btop rocm for AMD GPU
+        btop.package = pkgs.btop-rocm;
+      };
 
-    # btop rocm for AMD GPU
-    btop.package = pkgs.btop-rocm;
+      wayland.windowManager.hyprland.settings.monitorv2 = [
+        {
+          output = "desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047984";
+          mode = "2560x1440@240";
+          position = "0x0";
+          scale = "auto";
+          bitdepth = 10;
+          # controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
+          # 2 - fullscreen only, 3 - fullscreen with video or game content type
+          vrr = 3;
+          supports_wide_color = 1;
+          supports_hdr = 1;
+          sdr_min_luminance = 0.005;
+          sdr_max_luminance = 200;
+          min_luminance = 0.5;
+          max_luminance = 400;
+          max_avg_luminance = 350;
+        }
+        {
+          output = "desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047972";
+          mode = "2560x1440@240";
+          position = "2560x0";
+          scale = "auto";
+          bitdepth = 10;
+          # controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
+          # 2 - fullscreen only, 3 - fullscreen with video or game content type
+          vrr = 3;
+          supports_wide_color = 1;
+          supports_hdr = 1;
+          sdr_min_luminance = 0.005;
+          sdr_max_luminance = 200;
+          min_luminance = 0.5;
+          max_luminance = 400;
+          max_avg_luminance = 350;
+        }
+      ];
+    };
   };
 }

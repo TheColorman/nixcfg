@@ -9,8 +9,6 @@
   inherit (lib.options) mkOption;
   inherit (lib.types) either str listOf attrsOf anything;
   inherit (config.my) username;
-
-  cfg = config.my.hyprland;
 in {
   imports = with outputs.modules; [
     apps-zen-browser
@@ -253,6 +251,15 @@ in {
         rule = "opacity 0.9 0.8, match:class ^(${classes})$";
       in
         rule;
+
+      monitorv2 = [
+        {
+          output = "";
+          mode = "preferred";
+          position = "auto";
+          scale = "auto";
+        }
+      ];
     };
   in {
     # ==== System ====
@@ -270,20 +277,6 @@ in {
         enable = true;
         systemd.enable = false; # Conflicts with uwsm
         settings = hyprlandConfig;
-        extraConfig =
-          ''
-            # === Monitors ===
-            monitorv2 {
-              output=
-              mode=preferred
-              position=auto
-              scale=auto
-            }
-          ''
-          + builtins.concatStringsSep "\n" (builtins.map (mon: ''
-              monitorv2 ${mon}
-            '')
-            cfg.extraMonitorSettings);
       };
       xdg.configFile = {
         "uwsm/env".text = ''
