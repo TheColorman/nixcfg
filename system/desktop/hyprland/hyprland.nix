@@ -237,20 +237,20 @@ in {
           "match:pin" = false;
           no_focus = true;
         }
-      ];
+        {
+          name = "transparency";
+          "match:class" =
+            [
+              "vesktop"
+              "com.github.th_ch.youtube_music"
+              "zen-twilight"
+              "steam"
+            ]
+            |> builtins.concatStringsSep "|";
 
-      windowrulev2 = let
-        classes =
-          [
-            "vesktop"
-            "com.github.th_ch.youtube_music"
-            "zen-twilight"
-            "steam"
-          ]
-          |> builtins.concatStringsSep "|";
-        rule = "opacity 0.9 0.8, match:class ^(${classes})$";
-      in
-        rule;
+          opacity = "0.9 0.8";
+        }
+      ];
 
       monitorv2 = [
         {
