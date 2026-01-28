@@ -10,7 +10,6 @@ system configurations for all my machines
   - `archer/` - My Framework laptop.
   - `caster/` - Media + general purpose server.
   - `foreigner/` - WSL.
-  - `lancer/` - WIP live bootable ISO (NixOS is probably too big for this...).
   - `rider/` - Raspberry Pi 4B.
   - `saber/` - Desktop computer.
 - `lib/` - Reusable Nix functions.
