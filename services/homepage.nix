@@ -84,14 +84,14 @@ in {
       ];
     };
 
-    # nginx.virtualHosts."${domain}" = {
-    #   locations."/".proxyPass = "http://127.0.0.1:${toString cfg.listenPort}";
-    #   forceSSL = true;
-    #
-    #   sslCertificateKey = crtCfg.key.path;
-    #   sslCertificate = crtCfg.crt.path;
-    # };
+    nginx.virtualHosts."${domain}" = {
+      locations."/".proxyPass = "http://127.0.0.1:${toString cfg.listenPort}";
+      forceSSL = true;
+
+      sslCertificateKey = crtCfg.key.path;
+      sslCertificate = crtCfg.crt.path;
+    };
   };
 
-  # my.certificates.certs."${domain}" = {};
+  my.certificates.certs."${domain}" = {};
 }
