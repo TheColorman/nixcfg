@@ -9,34 +9,32 @@
 in {
   imports = [outputs.modules.services-cloudflared];
 
-  services = {
-    nextcloud = {
-      enable = true;
-      # Pinned
-      package = pkgs.nextcloud32;
-      webfinger = true;
-      maxUploadSize = "16G";
-      https = true;
-      hostName = evalSecrets.hostname;
-      extraApps = {
-        inherit
-          (pkgs.nextcloud32Packages.apps)
-          end_to_end_encryption
-          notify_push
-          ;
-      };
-      config = {
-        dbtype = "pgsql";
-        adminuser = "admin";
-        adminpassFile = config.sops.secrets."services/nextcloud/adminpass".path;
-      };
-      configureRedis = true;
-      caching.redis = true;
-
-      database.createLocally = true;
-
-      secretFile = config.sops.templates."nextcloud.settings.json".path;
+  services.nextcloud = {
+    enable = true;
+    # Pinned
+    package = pkgs.nextcloud32;
+    webfinger = true;
+    maxUploadSize = "16G";
+    https = true;
+    hostName = evalSecrets.hostname;
+    extraApps = {
+      inherit
+        (pkgs.nextcloud32Packages.apps)
+        end_to_end_encryption
+        notify_push
+        ;
     };
+    config = {
+      dbtype = "pgsql";
+      adminuser = "admin";
+      adminpassFile = config.sops.secrets."services/nextcloud/adminpass".path;
+    };
+    configureRedis = true;
+    caching.redis = true;
+
+    database.createLocally = true;
+
+    secretFile = config.sops.templates."nextcloud.settings.json".path;
   };
 
   my.cloudflared.tunnels.nextcloud.tokenFile = config.sops.secrets."services/nextcloud/tunnel_token".path;
