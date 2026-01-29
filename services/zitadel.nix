@@ -66,7 +66,7 @@ in {
     config.sops.secrets."services/zitadel/tunnelToken".path;
 
   sops.secrets = {
-    "services/zitadel/encryptionKey" = {};
+    "services/zitadel/encryptionKey".owner = cfg.user;
     "services/zitadel/tunnelToken" = {};
   };
 }
