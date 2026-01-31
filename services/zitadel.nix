@@ -54,6 +54,13 @@ in {
             SSL.Mode = "disable";
           };
         };
+        DefaultInstance.SMTPConfiguration = {
+          SMTP.Host = "127.0.0.1:25";
+          TLS = false;
+          From = "no-reply@${evalSecrets.emailDomain}";
+          FromName = "ColorLab";
+          ReplyToAddress = "support@${evalSecrets.emailDomain}";
+        };
       };
     };
 
