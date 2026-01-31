@@ -30,6 +30,7 @@ in {
     services-nextcloud
     services-nginx
     services-playit
+    services-postfix
     services-prowlarr
     services-qbittorrent
     services-radarr
