@@ -13,6 +13,7 @@ in {
   imports = [
     outputs.modules.services-sops
   ];
+
   services = {
     radarr = {
       enable = true;
