@@ -76,24 +76,24 @@ in {
     description = "color";
     extraGroups = ["networkmanager" "wheel" "video"];
     packages = with pkgs; [
-      obsidian
+      aria2
+      bottles
+      cachix
+      chromium
+      dig
       fastfetch
-      wireguard-tools
-      unzip
+      fbterm
+      jq
+      killall
+      nixpkgs-fmt
+      obsidian
       p7zip
       pear-desktop
       ranger
-      aria2
-      killall
-      bottles
-      dig
-      nixpkgs-fmt
       ripgrep
-      cachix
-      jq
-      fbterm
-      chromium
       telegram-desktop
+      unzip
+      wireguard-tools
     ];
   };
 
