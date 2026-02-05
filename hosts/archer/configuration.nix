@@ -32,7 +32,6 @@ in {
     services-gpg
     services-kanata
     services-kdeconnect
-    services-openfortivpn
     services-safeeyes
     services-sops
     services-syncthing
