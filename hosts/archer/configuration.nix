@@ -11,8 +11,6 @@ in {
   imports = with outputs.modules; [
     ./hardware-configuration.nix
     common
-    apps-gaming
-    apps-office
     apps-btop
     apps-git
     apps-hashcat
@@ -26,7 +24,9 @@ in {
     apps-vscode
     apps-waydroid
     apps-zellij
+    profiles-gaming
     profiles-hacking
+    profiles-office
     services-caelestia
     services-docker
     services-gpg
@@ -44,11 +44,11 @@ in {
     system-display
     system-locale-danish
     system-networking
-    utils-shell
-    utils-stylix
     utils-emulation
     utils-nas_mounts
+    utils-shell
     utils-shell-fish
+    utils-stylix
   ];
 
   networking.firewall.enable = lib.mkForce false;

@@ -10,10 +10,8 @@ in {
   imports = with outputs.modules; [
     ./hardware-configuration.nix
     common
-    apps-deploy-rs
-    apps-gaming
-    apps-office
     apps-btop
+    apps-deploy-rs
     apps-git
     apps-hashcat
     apps-jftui
@@ -27,7 +25,9 @@ in {
     apps-waydroid
     apps-zellij
     apps-zen-browser
+    profiles-gaming
     profiles-hacking
+    profiles-office
     services-caelestia
     services-docker
     services-gnome-keyring
@@ -47,11 +47,11 @@ in {
     system-display
     system-locale-danish
     system-networking
-    utils-shell
-    utils-stylix
     utils-emulation
     utils-nas_mounts
+    utils-shell
     utils-shell-fish
+    utils-stylix
   ];
 
   my = {
