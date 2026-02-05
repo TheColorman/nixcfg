@@ -42,7 +42,6 @@ in {
     services-thelounge
     services-vaultwarden
     services-wakapi
-    services-zitadel
     services-znc
     system-boot
     system-certs
