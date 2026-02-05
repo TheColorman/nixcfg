@@ -26,6 +26,7 @@ in {
     services-isponsorblocktv
     services-jellyfin
     services-jellyseerr
+    services-keycloak
     services-minecraft-server
     services-nextcloud
     services-nginx
