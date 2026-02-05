@@ -93,6 +93,7 @@ in {
       jq
       fbterm
       chromium
+      telegram-desktop
     ];
   };
 
