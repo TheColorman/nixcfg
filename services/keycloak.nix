@@ -12,12 +12,6 @@ in {
     database = {
       type = "postgresql";
       host = "/run/postgresql";
-      # Not sure why I need to do this, should be set to false automatically
-      # based on the host
-      useSSL = false;
-      # Database has no password as I use socket connection, but this option
-      # still needs to be set
-      passwordFile = "/dev/null";
     };
     plugins = with pkgs; [
       junixsocket-common.passthru.jar
