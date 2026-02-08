@@ -105,6 +105,8 @@ in {
     upower.enable = true;
   };
 
+  programs.evince.enable = true;
+
   home-manager = {
     users."${username}" = {
       wayland.windowManager.hyprland.settings.monitorv2 = [
