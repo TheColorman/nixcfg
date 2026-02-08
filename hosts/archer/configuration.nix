@@ -12,6 +12,7 @@ in {
     ./hardware-configuration.nix
     common
     apps-btop
+    apps-evince
     apps-git
     apps-hashcat
     apps-jftui
