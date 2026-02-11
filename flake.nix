@@ -164,5 +164,8 @@
 
     # ZFS dashbaord - not following nixpkgs due to dependency issues
     zfdash-nix-flake.url = "github:TheColorman/zfdash-nix-flake";
+
+    # Authentik packaged as a NixOS module instead of a Docker image
+    authentik-nix.url = "github:nix-community/authentik-nix";
   };
 }
