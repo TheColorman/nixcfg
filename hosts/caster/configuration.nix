@@ -14,6 +14,7 @@ in {
     apps-jujutsu
     apps-neovim
     apps-nix
+    services-authentik
     services-autobrr
     services-beszel-agent
     services-beszel-hub
