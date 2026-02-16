@@ -30,6 +30,9 @@ in {
     nginx.virtualHosts."${domain}" = {
       locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
       forceSSL = true;
+      extraConfig = ''
+        client_max_body_size 0;
+      '';
 
       sslCertificateKey = crtCfg.key.path;
       sslCertificate = crtCfg.crt.path;
