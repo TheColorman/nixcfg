@@ -19,6 +19,8 @@ in {
       enable = true;
       host = evalSecrets.domain;
     };
+
+    environmentFile = config.sops.templates."authentik.env".path;
   };
 
   my.cloudflared.tunnels.authentik.tokenFile =
