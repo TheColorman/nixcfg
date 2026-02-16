@@ -2,10 +2,16 @@
   outputs,
   config,
   ...
-}: {
+}: let
+  domain = "photos.color";
+
+  cfg = config.services.immich;
+  crtCfg = config.my.certificates.certs."${domain}";
+in {
   imports = [
     outputs.modules.services-cloudflared
   ];
+
   services = {
     immich = {
       enable = true;
@@ -20,9 +26,20 @@
 
       openFirewall = true;
     };
+
+    nginx.virtualHosts."${domain}" = {
+      locations."/".proxyPass = "http://127.0.0.1:${toString cfg.port}";
+      forceSSL = true;
+
+      sslCertificateKey = crtCfg.key.path;
+      sslCertificate = crtCfg.crt.path;
+    };
   };
 
-  my.cloudflared.tunnels.immich.tokenFile = config.sops.secrets."services/immich/tunnel_token".path;
+  my = {
+    cloudflared.tunnels.immich.tokenFile = config.sops.secrets."services/immich/tunnel_token".path;
+    certificates.certs."${domain}" = {};
+  };
 
   sops.secrets."services/immich/tunnel_token" = {};
 }
