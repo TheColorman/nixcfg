@@ -20,7 +20,7 @@ in {
             --prefix PATH : ${makeBinPath (with pkgs; [
             alsa-utils
             wlrctl
-            xorg.xprop
+            xprop
           ])}
           )
         '';
