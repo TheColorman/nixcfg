@@ -11,6 +11,7 @@ in {
     ./hardware-configuration.nix
     common
     apps-btop
+    apps-evince
     apps-deploy-rs
     apps-git
     apps-hashcat
