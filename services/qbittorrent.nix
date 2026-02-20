@@ -28,7 +28,7 @@ in {
     environment = {
       VPN_ENABLED = "yes";
       STRICT_PORT_FORWARD = "yes";
-      LAN_NETWORK = "10.0.0.0/24";
+      LAN_NETWORK = "10.0.0.0/8";
       UMASK = "000";
       ENABLE_STARTUP_SCRIPTS = "no";
       WEBUI_PORT = "${port}";
@@ -49,6 +49,8 @@ in {
     ];
 
     privileged = true;
+
+    networks = ["podman"];
   };
 
   # Need myself some kernel modules for that container to work

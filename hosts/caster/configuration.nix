@@ -33,6 +33,7 @@ in {
     services-playit
     services-postfix
     services-prowlarr
+    services-qbit-manage
     services-qbittorrent
     services-radarr
     services-recyclarr
