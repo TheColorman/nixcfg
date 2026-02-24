@@ -90,7 +90,6 @@ in {
       obsidian
       p7zip
       pear-desktop
-      ranger
       ripgrep
       telegram-desktop
       unzip

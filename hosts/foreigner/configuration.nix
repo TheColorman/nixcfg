@@ -64,7 +64,6 @@ in {
       kubernetes-helm
       killall
       nixd
-      ranger
       ripgrep
       wl-clipboard
       wslu
