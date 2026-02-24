@@ -13,6 +13,7 @@ in {
     apps-btop
     apps-evince
     apps-deploy-rs
+    apps-feh
     apps-git
     apps-hashcat
     apps-jftui
