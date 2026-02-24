@@ -50,7 +50,6 @@ in {
     system-locale-danish
     system-networking
     utils-emulation
-    utils-nas_mounts
     utils-shell
     utils-shell-fish
     utils-stylix
