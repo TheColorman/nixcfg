@@ -1,7 +1,5 @@
 {config, ...}: let
   inherit (config.my) username;
-
-  cfg = config.programs.evince;
 in {
   programs.evince.enable = true;
   xdg.mime = {
