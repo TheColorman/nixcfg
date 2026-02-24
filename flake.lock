@@ -246,11 +246,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768664001,
-        "narHash": "sha256-Rze+hMGke8tsBZd9c1wUwE9JTwgpkqAZTpo5xlonDlM=",
+        "lastModified": 1771959714,
+        "narHash": "sha256-uNYhB2O7RGgnzVGPLLCc+W/0o9/NwxWU7ErxROXO8IE=",
         "owner": "TheColorman",
         "repo": "factbot",
-        "rev": "5fbbcf2fb548f78058e35f639a882466b2a42098",
+        "rev": "507ba9097f5a827c40830e9df5e7920c59189a6e",
         "type": "github"
       },
       "original": {
