@@ -10,6 +10,7 @@ in {
   imports = with outputs.modules; [
     ./hardware-configuration.nix
     common
+    apps-affinity
     apps-btop
     apps-evince
     apps-deploy-rs
