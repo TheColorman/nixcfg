@@ -167,5 +167,11 @@
 
     # Authentik packaged as a NixOS module instead of a Docker image
     authentik-nix.url = "github:nix-community/authentik-nix";
+
+    # Free Photoshop-like program by Canva
+    affinity-nix = {
+      url = "github:mrshmllow/affinity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
