@@ -43,6 +43,19 @@ in {
         experimental-features = ["nix-command" "flakes" "pipe-operators"];
         # allow main user to trust binary caches among other things
         trusted-users = ["root" cfg.username];
+
+        trusted-substituters = [
+          "https://cache.nixos.org"
+          "https://hyprland.cachix.org"
+          "https://cache.garnix.io"
+          "https://cache.flox.dev"
+        ];
+        trusted-public-keys = [
+          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+          "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+          "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
+        ];
       };
 
       # A flake registry is a repository that contains a nix flake. This
