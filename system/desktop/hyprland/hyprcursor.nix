@@ -1,8 +1,10 @@
-{config, ...}: let
-  inherit (config.my) username;
-in {
-  home-manager.users."${username}".home.pointerCursor = {
-    enable = true;
-    hyprcursor.enable = true;
+{
+  flake.nixosModules.system-desktop-hyprland-hyprcursor = {config, ...}: let
+    inherit (config.my) username;
+  in {
+    home-manager.users."${username}".home.pointerCursor = {
+      enable = true;
+      hyprcursor.enable = true;
+    };
   };
 }

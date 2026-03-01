@@ -1,15 +1,11 @@
 {
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (config.my) username;
-in {
-  nixpkgs.config.allowUnfree = true;
+  flake.nixosModules.apps-burpsuite = {
+    config,
+    pkgs,
+    ...
+  }: {
+    nixpkgs.config.allowUnfree = true;
 
-  home-manager.users.${username} = {
-    home.packages = [
-      pkgs.burpsuite
-    ];
+    home-manager.users."${config.my.username}".home.packages = [pkgs.burpsuite];
   };
 }

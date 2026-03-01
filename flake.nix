@@ -1,62 +1,15 @@
 {
   description = "Colorman NixOS configuration flake";
-  outputs = {
-    nixpkgs,
-    nixos-hardware,
-    deploy-rs,
-    self,
-    ...
-  } @ inputs: let
-    inherit (nixpkgs) lib;
-    cLib = import ./lib {inherit lib;};
-  in {
-    modules = cLib.recurseModules ./.;
 
-    nixosConfigurations = cLib.mkServants {
-      inherit inputs;
-      inherit (self) outputs;
-
-      servants = {
-        # Laptop
-        archer = {
-          platform = "x86_64-linux";
-          extraModules = [
-            nixos-hardware.nixosModules.framework-13-7040-amd
-          ];
-        };
-        # WSL
-        foreigner.platform = "x86_64-linux";
-
-        # rpi 4
-        rider = {
-          platform = "aarch64-linux";
-          extraModules = [
-            nixos-hardware.nixosModules.raspberry-pi-4
-          ];
-        };
-
-        # Desktop
-        saber.platform = "x86_64-linux";
-
-        # Server
-        caster.platform = "x86_64-linux";
-      };
-    };
-
-    deploy.nodes = lib.genAttrs ["rider" "caster"] (name: let
-      system = self.nixosConfigurations.${name};
-      inherit (system._module.specialArgs) systemPlatform;
-    in {
-      hostname = name;
-      profiles.system = {
-        user = "root";
-        path = deploy-rs.lib.${systemPlatform}.activate.nixos system;
-      };
-      interactiveSudo = true;
-      fastConnection = true;
-      remoteBuild = false;
-    });
-  };
+  outputs = inputs:
+  # Create a flake-parts module..
+    inputs.flake-parts.lib.mkFlake {inherit inputs;}
+    # ..by taking the current directory..
+    (./.
+      # ..and importing the entire filetree..
+      |> inputs.import-tree.filterNot
+      # ..except the `flake.nix` file itself
+      (inputs.nixpkgs.lib.hasSuffix "flake.nix"));
 
   inputs = {
     # == Primary modules ==
@@ -66,6 +19,8 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
 
     # == Add-ons ==
     stylix = {
@@ -172,6 +127,15 @@
     affinity-nix = {
       url = "github:mrshmllow/affinity-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Anchorr arr discord bot
+    anchorr = {
+      url = "github:TheColorman/anchorr-nix-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
     };
   };
 }
