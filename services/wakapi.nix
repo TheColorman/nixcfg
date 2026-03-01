@@ -25,7 +25,7 @@
 
       database.createLocally = true;
 
-      passwordSaltFile = config.sops.templates."wakapi.env".path;
+      environmentFiles = [config.sops.templates."wakapi.env".path];
     };
 
     my.cloudflared.tunnels.wakapi.tokenFile = config.sops.secrets."services/wakapi/tunnel_token".path;
