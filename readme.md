@@ -2,7 +2,8 @@
 
 ![hours spent last 30 days](https://waka.colorman.me/api/badge/colorman/interval:30_days/project:nixcfg?label=last%2030d)
 
-system configurations for all my machines
+[dendritic](https://github.com/mightyiam/dendritic) system configurations for
+all my machines
 
 ## Layout
 
@@ -12,7 +13,6 @@ system configurations for all my machines
   - `foreigner/` - WSL.
   - `rider/` - Raspberry Pi 4B.
   - `saber/` - Desktop computer.
-- `lib/` - Reusable Nix functions.
 - `apps/` - Applications I use interactively. Git, neovim, mpv.
 - `services/` - Background services with no direct influence tools. Docker,
   tailscale, kanata.

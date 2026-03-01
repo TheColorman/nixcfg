@@ -1,111 +1,109 @@
-# configuration.nix
-{
-  config,
-  pkgs,
-  outputs,
-  ...
-}: let
-  username = "color";
-in {
-  imports = with outputs.modules; [
-    ./hardware-configuration.nix
-    common
-    apps-affinity
-    apps-btop
-    apps-evince
-    apps-deploy-rs
-    apps-feh
-    apps-git
-    apps-hashcat
-    apps-jftui
-    apps-jujutsu
-    apps-kitty
-    apps-mpv
-    apps-neovim
-    apps-nix
-    apps-vesktop
-    apps-virt-manager
-    apps-vscode
-    apps-waydroid
-    apps-zellij
-    apps-zen-browser
-    profiles-gaming
-    profiles-hacking
-    profiles-office
-    services-caelestia
-    services-docker
-    services-gnome-keyring
-    services-gpg
-    services-kanata
-    services-kdeconnect
-    services-safeeyes
-    services-sops
-    services-syncthing
-    services-tailscale
-    services-yubikey
-    system-audio
-    system-bluetooth
-    system-boot
-    system-certs
-    system-desktop-hyprland
-    system-display
-    system-locale-danish
-    system-networking
-    utils-emulation
-    utils-shell
-    utils-shell-fish
-    utils-stylix
-  ];
-
-  my = {
-    inherit username;
-    stateVersion = "24.05";
-    syncthing.folders = {
-      brain = {};
-      CTF = {};
-      Documents = {};
-      projects = {};
-      Games = {};
-    };
-  };
-
-  environment.etc.hosts.mode = "0644"; # Make hosts file writable
-  users.users."${username}" = {
-    isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets.color_passwd.path;
-    description = "color";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      aria2
-      bottles
-      cachix
-      chromium
-      dig
-      fastfetch
-      jq
-      killall
-      nixpkgs-fmt
-      obsidian
-      p7zip
-      pear-desktop
-      prismlauncher
-      ripgrep
-      signal-desktop
-      speed-cloudflare-cli
-      telegram-desktop
-      unzip
-      wireguard-tools
+{self, ...}: {
+  flake.nixosModules.saber-configuration = {
+    config,
+    pkgs,
+    ...
+  }: let
+    cfg = config.my;
+  in {
+    imports = with self.nixosModules; [
+      common
+      apps-affinity
+      apps-btop
+      apps-evince
+      apps-deploy-rs
+      apps-feh
+      apps-git
+      apps-hashcat
+      apps-jftui
+      apps-jujutsu
+      apps-kitty
+      apps-mpv
+      apps-neovim
+      apps-nix
+      apps-vesktop
+      apps-virt-manager
+      apps-vscode
+      apps-waydroid
+      apps-zellij
+      apps-zen-browser
+      profiles-gaming
+      profiles-hacking
+      profiles-office
+      services-caelestia
+      services-docker
+      services-gnome-keyring
+      services-gpg
+      services-kanata
+      services-kdeconnect
+      services-safeeyes
+      services-sops
+      services-syncthing
+      services-tailscale
+      services-yubikey
+      system-audio
+      system-bluetooth
+      system-boot
+      system-certs
+      system-desktop-hyprland
+      system-display
+      system-locale-danish
+      system-networking
+      utils-emulation
+      utils-shell
+      utils-shell-fish
+      utils-stylix
     ];
-  };
 
-  services = {
-    openssh.enable = true;
-    fwupd.enable = true;
-  };
+    my = {
+      username = "color";
+      stateVersion = "24.05";
+      syncthing.folders = {
+        brain = {};
+        CTF = {};
+        Documents = {};
+        projects = {};
+        Games = {};
+      };
+    };
 
-  time.timeZone = "Europe/Copenhagen";
-  home-manager = {
-    users."${username}" = {
+    environment.etc.hosts.mode = "0644"; # Make hosts file writable
+    users.users."${cfg.username}" = {
+      isNormalUser = true;
+      hashedPasswordFile = config.sops.secrets.color_passwd.path;
+      description = "color";
+      extraGroups = ["networkmanager" "wheel"];
+      packages = with pkgs; [
+        aria2
+        bottles
+        cachix
+        chromium
+        dig
+        fastfetch
+        jq
+        killall
+        nixpkgs-fmt
+        obsidian
+        p7zip
+        pear-desktop
+        prismlauncher
+        ripgrep
+        signal-desktop
+        speed-cloudflare-cli
+        telegram-desktop
+        unzip
+        wireguard-tools
+      ];
+    };
+
+    services = {
+      openssh.enable = true;
+      fwupd.enable = true;
+    };
+
+    time.timeZone = "Europe/Copenhagen";
+
+    home-manager.users."${cfg.username}" = {
       programs = {
         # Saber does not have a battery.
         caelestia.settings.bar.status.showBattery = false;

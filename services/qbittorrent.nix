@@ -1,100 +1,94 @@
 {
-  outputs,
-  config,
-  ...
-}: let
-  domain = "torrent.color";
-  port = "10095";
+  flake.nixosModules.services-qbittorrent = {config, ...}: let
+    domain = "torrent.color";
+    port = "10095";
 
-  crtCfg = config.my.certificates.certs."${domain}";
-in {
-  imports = [
-    outputs.modules.services-sops
-  ];
+    crtCfg = config.my.certificates.certs."${domain}";
+  in {
+    virtualisation.oci-containers.containers.qbittorrentvpn = {
+      volumes = [
+        "/var/lib/qbittorrentvpn/data:/data"
+        "/var/lib/qbittorrentvpn/config:/config"
+        "/etc/localtime:/etc/localtime:ro"
+        "/mnt/neodata/default/Vault/Torrents:/mnt/neodata/default/Vault/Torrents"
+        "/mnt/neodata/autobrr:/mnt/neodata/autobrr"
+      ];
+      ports = [
+        "127.0.0.1:${port}:${port}"
+      ];
+      image = "binhex/arch-qbittorrentvpn:5.1.4-1-01";
+      hostname = "qbittorrentvpn";
+      environment = {
+        VPN_ENABLED = "yes";
+        STRICT_PORT_FORWARD = "yes";
+        LAN_NETWORK = "10.0.0.0/24";
+        UMASK = "000";
+        ENABLE_STARTUP_SCRIPTS = "no";
+        WEBUI_PORT = "${port}";
+        PUID = "568";
+        PGID = "568";
+      };
+      environmentFiles = [
+        config.sops.templates."qbittorrentvpn.env".path
+      ];
 
-  virtualisation.oci-containers.containers.qbittorrentvpn = {
-    volumes = [
-      "/var/lib/qbittorrentvpn/data:/data"
-      "/var/lib/qbittorrentvpn/config:/config"
-      "/etc/localtime:/etc/localtime:ro"
-      "/mnt/neodata/default/Vault/Torrents:/mnt/neodata/default/Vault/Torrents"
-      "/mnt/neodata/autobrr:/mnt/neodata/autobrr"
-    ];
-    ports = [
-      "127.0.0.1:${port}:${port}"
-    ];
-    image = "binhex/arch-qbittorrentvpn:5.1.4-1-01";
-    hostname = "qbittorrentvpn";
-    environment = {
-      VPN_ENABLED = "yes";
-      STRICT_PORT_FORWARD = "yes";
-      LAN_NETWORK = "10.0.0.0/24";
-      UMASK = "000";
-      ENABLE_STARTUP_SCRIPTS = "no";
-      WEBUI_PORT = "${port}";
-      PUID = "568";
-      PGID = "568";
-    };
-    environmentFiles = [
-      config.sops.templates."qbittorrentvpn.env".path
-    ];
+      capabilities = {
+        NET_ADMIN = true;
+        NET_RAW = true;
+        SYS_MODULE = true;
+      };
+      devices = [
+        "/dev/net/tun"
+      ];
 
-    capabilities = {
-      NET_ADMIN = true;
-      NET_RAW = true;
-      SYS_MODULE = true;
-    };
-    devices = [
-      "/dev/net/tun"
-    ];
-
-    privileged = true;
-  };
-
-  # Need myself some kernel modules for that container to work
-  boot.kernelModules = [
-    "ip_tables"
-    "iptable_filter"
-    "iptable_nat"
-    "iptable_mangle"
-    "iptable_raw"
-  ];
-
-  users = {
-    users."qbittorrent" = {
-      isSystemUser = true;
-      uid = 568;
-      group = "qbittorrent";
-    };
-    groups.qbittorrent.gid = 568;
-  };
-
-  services.nginx.virtualHosts."${domain}" = {
-    locations."/".proxyPass = "http://127.0.0.1:${port}";
-    forceSSL = true;
-
-    sslCertificateKey = crtCfg.key.path;
-    sslCertificate = crtCfg.crt.path;
-  };
-
-  my.certificates.certs."${domain}" = {};
-
-  sops = {
-    secrets = {
-      "services/qbittorrentvpn/vpnUser" = {};
-      "services/qbittorrentvpn/vpnPass" = {};
-      "services/qbittorrentvpn/vpnProv" = {};
-      "services/qbittorrentvpn/vpnClient" = {};
+      privileged = true;
     };
 
-    templates."qbittorrentvpn.env" = {
-      content = ''
-        VPN_USER=${config.sops.placeholder."services/qbittorrentvpn/vpnUser"}
-        VPN_PASS=${config.sops.placeholder."services/qbittorrentvpn/vpnPass"}
-        VPN_PROV=${config.sops.placeholder."services/qbittorrentvpn/vpnProv"}
-        VPN_CLIENT=${config.sops.placeholder."services/qbittorrentvpn/vpnClient"}
-      '';
-      restartUnits = ["podman-qbittorrentvpn.service"];
+    # Need myself some kernel modules for that container to work
+    boot.kernelModules = [
+      "ip_tables"
+      "iptable_filter"
+      "iptable_nat"
+      "iptable_mangle"
+      "iptable_raw"
+    ];
+
+    users = {
+      users."qbittorrent" = {
+        isSystemUser = true;
+        uid = 568;
+        group = "qbittorrent";
+      };
+      groups.qbittorrent.gid = 568;
+    };
+
+    services.nginx.virtualHosts."${domain}" = {
+      locations."/".proxyPass = "http://127.0.0.1:${port}";
+      forceSSL = true;
+
+      sslCertificateKey = crtCfg.key.path;
+      sslCertificate = crtCfg.crt.path;
+    };
+
+    my.certificates.certs."${domain}" = {};
+
+    sops = {
+      secrets = {
+        "services/qbittorrentvpn/vpnUser" = {};
+        "services/qbittorrentvpn/vpnPass" = {};
+        "services/qbittorrentvpn/vpnProv" = {};
+        "services/qbittorrentvpn/vpnClient" = {};
+      };
+
+      templates."qbittorrentvpn.env" = {
+        content = ''
+          VPN_USER=${config.sops.placeholder."services/qbittorrentvpn/vpnUser"}
+          VPN_PASS=${config.sops.placeholder."services/qbittorrentvpn/vpnPass"}
+          VPN_PROV=${config.sops.placeholder."services/qbittorrentvpn/vpnProv"}
+          VPN_CLIENT=${config.sops.placeholder."services/qbittorrentvpn/vpnClient"}
+        '';
+        restartUnits = ["podman-qbittorrentvpn.service"];
+      };
     };
   };
 }

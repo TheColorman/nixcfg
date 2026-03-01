@@ -1,22 +1,17 @@
-{
-  config,
-  inputs,
-  outputs,
-  systemPlatform,
-  ...
-}: {
-  imports = [
-    inputs.discord-portal.modules."${systemPlatform}".default
-    outputs.modules.services-sops
-  ];
+{inputs, ...}: {
+  flake.nixosModules.services-discord-portal = {config, ...}: {
+    imports = [
+      inputs.discord-portal.nixosModules.default
+    ];
 
-  services.discord-portal.instances.main = {
-    enable = true;
-    tokenFile = config.sops.secrets.portal_token.path;
-  };
+    services.discord-portal.instances.main = {
+      enable = true;
+      tokenFile = config.sops.secrets.portal_token.path;
+    };
 
-  sops.secrets.portal_token = {
-    reloadUnits = ["discord-portal-main.service"];
-    path = "/var/lib/discord-portal-main/token";
+    sops.secrets.portal_token = {
+      reloadUnits = ["discord-portal-main.service"];
+      path = "/var/lib/discord-portal-main/token";
+    };
   };
 }

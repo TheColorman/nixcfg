@@ -1,7 +1,9 @@
 {
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
+  flake.nixosModules.system-desktop-xserver = {
+    services.xserver = {
+      enable = true;
+      xkb.layout = "us";
+    };
+    console.useXkbConfig = true;
   };
-  console.useXkbConfig = true;
 }
