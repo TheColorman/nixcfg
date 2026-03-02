@@ -15,7 +15,7 @@ in {
     apps-neovim
     apps-nix
     services-anchorr
-    services-anki-sync-server
+    # services-anki-sync-server
     services-argonone
     services-beszel-agent
     services-discord-portal
