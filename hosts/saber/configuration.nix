@@ -1,11 +1,7 @@
 { self, ... }:
 {
   flake.nixosModules.saber-configuration =
-    {
-      config,
-      pkgs,
-      ...
-    }:
+    { config, pkgs, ... }:
     let
       cfg = config.my;
     in
@@ -21,6 +17,7 @@
         apps-hashcat
         apps-jftui
         apps-jujutsu
+        apps-ki
         apps-kitty
         apps-mpv
         apps-neovim
