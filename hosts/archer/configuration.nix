@@ -22,6 +22,7 @@
       apps-vscode
       apps-waydroid
       apps-zellij
+      apps-zen-browser
       profiles-gaming
       profiles-hacking
       profiles-office
