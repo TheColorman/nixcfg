@@ -44,7 +44,6 @@
       system-locale-danish
       system-networking
       utils-emulation
-      utils-shell
       utils-shell-fish
       utils-stylix
     ];
