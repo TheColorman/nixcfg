@@ -26,6 +26,8 @@
       stateVersion = "25.11";
     };
 
+    services.openssh.enable = true;
+
     users.users."${cfg.username}" = {
       isNormalUser = true;
       hashedPasswordFile = config.sops.secrets.color_passwd.path;
