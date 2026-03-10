@@ -13,6 +13,7 @@
       apps-jujutsu
       apps-neovim
       apps-nix
+      apps-zellij
       services-gpg
       services-kanata
       services-sops
