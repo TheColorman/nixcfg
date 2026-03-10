@@ -29,6 +29,7 @@
       utils-shell-fish
       utils-tmux
     ];
+
     my = {
       username = "boarder";
       stateVersion = "24.05";
@@ -39,15 +40,20 @@
       defaultUser = cfg.username;
     };
 
-    # envfs is broken in wsl - makes system unbootable
-    services.envfs.enable = lib.mkForce false;
+    services = {
+      # envfs is broken in wsl - makes system unbootable
+      envfs.enable = lib.mkForce false;
+      gnome.gnome-keyring.enable = true;
+    };
 
     home-manager.users."${cfg.username}".programs.fish.shellAliases = {
       docker = "/run/current-system/sw/bin/docker";
       k = "kubectl";
     };
 
-    services.gnome.gnome-keyring.enable = true;
+    environment.systemPackages = [
+      pkgs.kmod
+    ];
 
     users.users."${cfg.username}" = {
       isNormalUser = true;
