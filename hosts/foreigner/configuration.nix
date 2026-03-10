@@ -62,6 +62,7 @@
         fluxcd
         git-cliff
         glab
+        kmod
         kubectl
         kubernetes-helm
         killall
