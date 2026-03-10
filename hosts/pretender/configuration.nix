@@ -34,13 +34,14 @@
       hashedPasswordFile = config.sops.secrets.color_passwd.path;
       extraGroups = ["networkmanager" "wheel"];
       packages = with pkgs; [
-        fastfetch
-        killall
-        dig
-        ripgrep
-        cachix
         attic-client
+        cachix
+        dig
+        fastfetch
         jq
+        killall
+        ripgrep
+        usbutils
       ];
     };
 
