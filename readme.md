@@ -11,6 +11,7 @@ all my machines
   - `archer/` - My Framework laptop.
   - `caster/` - Media + general purpose server.
   - `foreigner/` - WSL.
+  - `pretender/` - Mini PC.
   - `rider/` - Raspberry Pi 4B.
   - `saber/` - Desktop computer.
 - `apps/` - Applications I use interactively. Git, neovim, mpv.
