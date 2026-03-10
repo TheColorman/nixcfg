@@ -25,7 +25,6 @@
       services-sops
       services-vscode-server
       system-locale-danish
-      utils-shell
       utils-shell-fish
       utils-tmux
     ];
