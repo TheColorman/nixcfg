@@ -71,6 +71,7 @@
         kubernetes-helm
         killall
         nixd
+        nixfmt
         ripgrep
         wl-clipboard
         wslu
