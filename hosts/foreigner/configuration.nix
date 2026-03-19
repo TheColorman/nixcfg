@@ -17,6 +17,7 @@
       apps-btop
       apps-git
       apps-jujutsu
+      apps-ki
       apps-neovim
       apps-nix
       services-docker
