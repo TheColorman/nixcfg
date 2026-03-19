@@ -2,7 +2,8 @@
   inputs,
   self,
   ...
-}: {
+}:
+{
   flake.nixosConfigurations.caster = inputs.nixpkgs.lib.nixosSystem {
     modules = with self.nixosModules; [
       caster-configuration

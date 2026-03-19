@@ -2,7 +2,8 @@
   inputs,
   self,
   ...
-}: {
+}:
+{
   flake.nixosConfigurations.rider = inputs.nixpkgs.lib.nixosSystem {
     modules = with self.nixosModules; [
       rider-configuration

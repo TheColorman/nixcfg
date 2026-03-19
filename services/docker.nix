@@ -1,9 +1,12 @@
 {
-  flake.nixosModules.services-docker = {config, ...}: let
-    inherit (config.my) username;
-  in {
-    virtualisation.docker.enable = true;
+  flake.nixosModules.services-docker =
+    { config, ... }:
+    let
+      inherit (config.my) username;
+    in
+    {
+      virtualisation.docker.enable = true;
 
-    users.users."${username}".extraGroups = ["docker"];
-  };
+      users.users."${username}".extraGroups = [ "docker" ];
+    };
 }

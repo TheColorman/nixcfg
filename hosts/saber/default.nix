@@ -2,7 +2,8 @@
   inputs,
   self,
   ...
-}: {
+}:
+{
   flake.nixosConfigurations.saber = inputs.nixpkgs.lib.nixosSystem {
     modules = with self.nixosModules; [
       saber-configuration

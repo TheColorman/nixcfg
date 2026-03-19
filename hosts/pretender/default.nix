@@ -2,7 +2,8 @@
   inputs,
   self,
   ...
-}: {
+}:
+{
   flake.nixosConfigurations.pretender = inputs.nixpkgs.lib.nixosSystem {
     modules = with self.nixosModules; [
       pretender-configuration

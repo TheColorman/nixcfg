@@ -1,10 +1,12 @@
 {
-  flake.nixosModules.services-gpg = {pkgs, ...}: {
-    environment.systemPackages = [pkgs.gnupg];
-    programs.gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-      pinentryPackage = pkgs.pinentry-qt;
+  flake.nixosModules.services-gpg =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = [ pkgs.gnupg ];
+      programs.gnupg.agent = {
+        enable = true;
+        enableSSHSupport = true;
+        pinentryPackage = pkgs.pinentry-qt;
+      };
     };
-  };
 }

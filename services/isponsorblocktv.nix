@@ -5,7 +5,7 @@
       volumes = [
         "/var/lib/isponsorblocktv:/app/data"
       ];
-      extraOptions = ["--network=host"];
+      extraOptions = [ "--network=host" ];
     };
   };
 }

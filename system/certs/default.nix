@@ -1,4 +1,5 @@
-{self, ...}: {
+{ self, ... }:
+{
   flake.nixosModules.system-certs = {
     imports = with self.nixosModules; [
       system-certs-certificateService
@@ -6,6 +7,6 @@
     ];
 
     # Include self-signed CA
-    security.pki.certificateFiles = [./ca.pem];
+    security.pki.certificateFiles = [ ./ca.pem ];
   };
 }

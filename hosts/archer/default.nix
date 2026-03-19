@@ -2,7 +2,8 @@
   inputs,
   self,
   ...
-}: {
+}:
+{
   flake.nixosConfigurations.archer = inputs.nixpkgs.lib.nixosSystem {
     modules = with self.nixosModules; [
       archer-configuration

@@ -1,4 +1,5 @@
-{self, ...}: {
+{ self, ... }:
+{
   flake.nixosModules.profiles-hacking = {
     imports = with self.nixosModules; [
       # Networking

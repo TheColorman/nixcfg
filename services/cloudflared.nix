@@ -5,16 +5,17 @@
 #    tokens.
 # 2. I don't want to use Cloudflare anymore.
 {
-  flake.nixosModules.services-cloudflared = {
-    lib,
-    config,
-    ...
-  }: {
-    options.my.cloudflared.tunnels = lib.mkOption {
-      description = "Cloudflare tunnels.";
-      type = lib.types.attrsOf (
-        lib.types.submodule (
-          _: {
+  flake.nixosModules.services-cloudflared =
+    {
+      lib,
+      config,
+      ...
+    }:
+    {
+      options.my.cloudflared.tunnels = lib.mkOption {
+        description = "Cloudflare tunnels.";
+        type = lib.types.attrsOf (
+          lib.types.submodule (_: {
             options = {
               tokenFile = lib.mkOption {
                 type = lib.types.path;
@@ -25,36 +26,39 @@
                 '';
               };
             };
-          }
-        )
-      );
+          })
+        );
 
-      default = {};
-    };
+        default = { };
+      };
 
-    config.systemd.services =
-      lib.mapAttrs' (
+      config.systemd.services = lib.mapAttrs' (
         name: tunnel:
-          lib.nameValuePair "cloudflared-tunnel-${name}" {
-            after = ["network.target" "network-online.target"];
-            wants = ["network.target" "network-online.target"];
-            wantedBy = ["multi-user.target"];
-            serviceConfig = {
-              RuntimeDirectory = "cloudflared-tunnel-${name}";
-              RuntimeDirectoryMode = "0400";
-              LoadCredential = [
-                "tokenFile:${tunnel.tokenFile}"
-              ];
+        lib.nameValuePair "cloudflared-tunnel-${name}" {
+          after = [
+            "network.target"
+            "network-online.target"
+          ];
+          wants = [
+            "network.target"
+            "network-online.target"
+          ];
+          wantedBy = [ "multi-user.target" ];
+          serviceConfig = {
+            RuntimeDirectory = "cloudflared-tunnel-${name}";
+            RuntimeDirectoryMode = "0400";
+            LoadCredential = [
+              "tokenFile:${tunnel.tokenFile}"
+            ];
 
-              ExecStart = ''
-                ${config.services.cloudflared.package}/bin/cloudflared tunnel run \
-                  --token-file "/run/credentials/cloudflared-tunnel-${name}.service/tokenFile"
-              '';
-              Restart = "on-failure";
-              DynamicUser = true;
-            };
-          }
-      )
-      config.my.cloudflared.tunnels;
-  };
+            ExecStart = ''
+              ${config.services.cloudflared.package}/bin/cloudflared tunnel run \
+                --token-file "/run/credentials/cloudflared-tunnel-${name}.service/tokenFile"
+            '';
+            Restart = "on-failure";
+            DynamicUser = true;
+          };
+        }
+      ) config.my.cloudflared.tunnels;
+    };
 }

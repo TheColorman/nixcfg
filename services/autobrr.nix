@@ -1,29 +1,32 @@
 {
-  flake.nixosModules.services-autobrr = {config, ...}: let
-    domain = "autobrr.color";
+  flake.nixosModules.services-autobrr =
+    { config, ... }:
+    let
+      domain = "autobrr.color";
 
-    cfg = config.services.autobrr;
-    crtCfg = config.my.certificates.certs."${domain}";
-  in {
-    services = {
-      autobrr = {
-        enable = true;
-        secretFile = config.sops.secrets."services/autobrr/sessionSecret".path;
+      cfg = config.services.autobrr;
+      crtCfg = config.my.certificates.certs."${domain}";
+    in
+    {
+      services = {
+        autobrr = {
+          enable = true;
+          secretFile = config.sops.secrets."services/autobrr/sessionSecret".path;
+        };
+
+        nginx.virtualHosts."${domain}" = {
+          locations."/".proxyPass = "http://127.0.0.1:${toString cfg.settings.port}";
+          forceSSL = true;
+
+          sslCertificateKey = crtCfg.key.path;
+          sslCertificate = crtCfg.crt.path;
+        };
       };
 
-      nginx.virtualHosts."${domain}" = {
-        locations."/".proxyPass = "http://127.0.0.1:${toString cfg.settings.port}";
-        forceSSL = true;
+      my.certificates.certs."${domain}" = { };
 
-        sslCertificateKey = crtCfg.key.path;
-        sslCertificate = crtCfg.crt.path;
+      sops.secrets."services/autobrr/sessionSecret" = {
+        reloadUnits = [ "autobrr.service" ];
       };
     };
-
-    my.certificates.certs."${domain}" = {};
-
-    sops.secrets."services/autobrr/sessionSecret" = {
-      reloadUnits = ["autobrr.service"];
-    };
-  };
 }
