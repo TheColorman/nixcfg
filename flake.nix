@@ -137,5 +137,13 @@
         flake-parts.follows = "flake-parts";
       };
     };
+    
+    # Modal text editor
+    ki-editor = {
+      url = "github:ki-editor/ki-editor";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
 }
