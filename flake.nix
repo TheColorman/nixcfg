@@ -1,19 +1,17 @@
 {
   description = "Colorman NixOS configuration flake";
 
-  outputs =
-    inputs:
-    # Create a flake-parts module..
-    inputs.flake-parts.lib.mkFlake { inherit inputs; }
-      # ..by taking the current directory..
-      (
-        ./.
-        # ..and importing the entire filetree..
-        |>
-          inputs.import-tree.filterNot
-            # ..except the `flake.nix` file itself
-            (inputs.nixpkgs.lib.hasSuffix "flake.nix")
-      );
+  outputs = inputs:
+  # Create a flake-parts module..
+    inputs.flake-parts.lib.mkFlake {inherit inputs;}
+    # ..by taking the current directory..
+    (
+      ./.
+      # ..and importing the entire filetree..
+      |> inputs.import-tree.filterNot
+      # ..except the `flake.nix` file itself
+      (inputs.nixpkgs.lib.hasSuffix "flake.nix")
+    );
 
   inputs = {
     # == Primary modules ==
@@ -142,12 +140,7 @@
       };
     };
 
-    # Modal text editor
-    ki-editor = {
-      url = "github:ki-editor/ki-editor";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
+    # Combinatoric text editor
+    ki-editor.url = "github:ki-editor/ki-editor";
   };
 }
