@@ -1,11 +1,7 @@
 { self, ... }:
 {
   flake.nixosModules.archer-configuration =
-    {
-      config,
-      pkgs,
-      ...
-    }:
+    { config, pkgs, ... }:
     let
       cfg = config.my;
     in
@@ -43,6 +39,7 @@
         system-audio
         system-bluetooth
         system-boot
+        system-certs
         system-desktop-hyprland
         system-display
         system-locale-danish
