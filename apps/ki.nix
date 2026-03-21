@@ -11,7 +11,7 @@
       ];
 
       home-manager.users."${username}".xdg.configFile."ki/config.json".text = builtins.toJSON {
-        keyboard_layout = "ColemakAnsiDh";
+        keyboard_layout = "COLEMAK-DH (ANSI)";
         languages = { };
         theme = "Gruvbox Dark Soft";
       };
