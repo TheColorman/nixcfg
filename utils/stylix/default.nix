@@ -32,16 +32,16 @@
         image = ./_assets/${asset};
         fonts = with pkgs; {
           serif = {
-            package = nerd-fonts.caskaydia-cove;
-            name = "CaskaydiaCove Nerd Font Propo";
+            package = maple-mono.NF-unhinted;
+            name = "Maple Mono Nerd Font";
           };
           sansSerif = {
-            package = nerd-fonts.caskaydia-cove;
-            name = "CaskaydiaCove Nerd Font Propo";
+            package = maple-mono.NF-unhinted;
+            name = "Maple Mono Nerd Font";
           };
           monospace = {
-            package = nerd-fonts.caskaydia-cove;
-            name = "CaskaydiaCove Nerd Font";
+            package = maple-mono.NF-unhinted;
+            name = "Maple Mono Nerd Font";
           };
         };
         opacity = {
