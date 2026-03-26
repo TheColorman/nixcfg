@@ -15,14 +15,20 @@
         apps-btop
         apps-git
         apps-jujutsu
+        apps-kitty
         apps-neovim
         apps-nix
+        apps-zen-browser
+        services-caelestia
         services-gpg
         services-kanata
         services-sops
         system-boot
+        system-desktop-hyprland
+        system-display
         system-locale-danish
         utils-shell-fish
+        utils-stylix
       ];
 
       my = {
