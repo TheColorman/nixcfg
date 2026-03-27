@@ -18,8 +18,6 @@
         apps-kitty
         apps-neovim
         apps-nix
-        apps-zen-browser
-        services-caelestia
         services-gpg
         services-kanata
         services-sops
@@ -28,7 +26,6 @@
         system-display
         system-locale-danish
         utils-shell-fish
-        utils-stylix
       ];
 
       my = {
@@ -48,6 +45,7 @@
         packages = with pkgs; [
           attic-client
           cachix
+          chromium
           dig
           fastfetch
           jq
