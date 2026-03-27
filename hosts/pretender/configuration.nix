@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, inputs, ... }:
 {
   flake.nixosModules.pretender-configuration =
     {
@@ -56,6 +56,10 @@
           usbutils
         ];
       };
+
+      security.pki.certificates = [
+        (import "${inputs.nix-secrets}/evaluation-secrets.nix").pretender.extraCerts
+      ];
 
       time.timeZone = "Europe/Copenhagen";
 
