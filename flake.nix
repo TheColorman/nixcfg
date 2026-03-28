@@ -144,5 +144,14 @@
 
     # Combinatoric text editor
     ki-editor.url = "github:ki-editor/ki-editor";
+
+    # Seadex downloader
+    seadexarr = {
+      url = "github:TheColorman/seadexarr-nix-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
   };
 }

@@ -1766,6 +1766,7 @@
         "nvfcfg": "nvfcfg",
         "playit-nixos-module": "playit-nixos-module",
         "pwndbg": "pwndbg",
+        "seadexarr": "seadexarr",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "zen-browser": "zen-browser",
@@ -1807,6 +1808,29 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "seadexarr": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774746760,
+        "narHash": "sha256-g6U7EW1LTvSYaEnwrgwnUMNATK3aeNiATFtsL/u6lJ0=",
+        "owner": "TheColorman",
+        "repo": "seadexarr-nix-flake",
+        "rev": "9a8ef20c6f9879694bfbd864cf5d230aa5e74f37",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TheColorman",
+        "repo": "seadexarr-nix-flake",
         "type": "github"
       }
     },
