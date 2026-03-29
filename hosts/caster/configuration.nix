@@ -1,11 +1,7 @@
 { self, ... }:
 {
   flake.nixosModules.caster-configuration =
-    {
-      pkgs,
-      config,
-      ...
-    }:
+    { pkgs, config, ... }:
     let
       cfg = config.my;
     in
@@ -41,6 +37,7 @@
         services-qbittorrent
         services-radarr
         services-recyclarr
+        services-seadexarr
         services-sonarr
         services-sops
         services-syncthing
