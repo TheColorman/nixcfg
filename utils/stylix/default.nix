@@ -66,9 +66,13 @@
         gtk.gtk4.theme = config.home-manager.users.${username}.gtk.theme;
       };
 
-      # idk man
+      # idk man, these files keep blocking hm
       system.activationScripts.fix_stylix.text = ''
-        rm /home/color/.gtkrc-2.0 -f
+        rm -f /home/color/.gtkrc-2.0
+        rm -f /home/color/.config/gtk-3.0/gtk.css.hm-backup
+        rm -f /home/color/.config/gtk-4.0/gtk.css.hm-backup
+        rm -f /home/color/.config/qt5ct/qt5ct.conf.hm-backup
+        rm -f /home/color/.config/qt6ct/qt6ct.conf.hm-backup
       '';
     };
 }
