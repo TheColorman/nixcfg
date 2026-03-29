@@ -33,15 +33,15 @@
         fonts = with pkgs; {
           serif = {
             package = maple-mono.NF-unhinted;
-            name = "Maple Mono Nerd Font";
+            name = "Maple Mono NF";
           };
           sansSerif = {
             package = maple-mono.NF-unhinted;
-            name = "Maple Mono Nerd Font";
+            name = "Maple Mono NF";
           };
           monospace = {
             package = maple-mono.NF-unhinted;
-            name = "Maple Mono Nerd Font";
+            name = "Maple Mono NF";
           };
         };
         opacity = {
