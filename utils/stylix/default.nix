@@ -17,6 +17,8 @@
     }:
     let
       asset = "2026-H1.jpg";
+
+      inherit (config.my) username;
     in
     {
       imports = [ inputs.stylix.nixosModules.stylix ];
@@ -55,11 +57,13 @@
 
       specialisation.light.configuration.stylix.polarity = lib.mkForce "light";
 
-      home-manager.users."${config.my.username}" = {
+      home-manager.users."${username}" = {
         stylix = {
           autoEnable = true;
           enable = true;
         };
+
+        gtk.gtk4.theme = config.home-manager.users.${username}.gtk.theme;
       };
 
       # idk man

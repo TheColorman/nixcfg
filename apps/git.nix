@@ -71,6 +71,7 @@
               fsmonitor = true;
             };
           };
+          signing.format = "openpgp";
         };
         gh = {
           enable = true;
