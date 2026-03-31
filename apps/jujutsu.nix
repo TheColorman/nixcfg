@@ -183,7 +183,7 @@
               j = "jj";
               jt = "jj tug";
               jtp = "jj tug && jj git push";
-              jrt = "jj rebase -d 'trunk()' && jj simplify-parents";
+              jrt = "jj rebase --simplify-parents -d 'trunk()'";
               jri = "jj rebase -A 'trunk()' -B 'merge' -r";
             };
 
