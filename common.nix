@@ -117,6 +117,7 @@
           noto-fonts
           noto-fonts-cjk-sans
           nh
+          nil
           nixfmt
           p7zip
           ripgrep
