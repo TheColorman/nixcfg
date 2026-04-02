@@ -43,6 +43,11 @@
             "dmask=0077"
           ];
         };
+
+        "/mnt/drive" = {
+          device = "/dev/disk/by-uuid/11e5a88f-323b-4ba7-8d01-7ea786b0eea5";
+          fsType = "ext4";
+        };
       };
 
       swapDevices = [ ];
