@@ -36,6 +36,8 @@
             torrent_tags = [ "seadex" ];
 
             inherit (evalSecrets) trackers;
+
+            nyaa_host = "nyaa.iss.ink";
           };
         settingsFile = config.sops.templates."seadexarr.config.yaml".path;
 
