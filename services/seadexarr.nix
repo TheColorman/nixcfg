@@ -1,7 +1,7 @@
 { inputs, lib, ... }:
 {
   flake.nixosModules.services-seadexarr =
-    { config, ... }:
+    { config, pkgs, ... }:
     let
       evalSecrets = (import "${inputs.nix-secrets}/evaluation-secrets.nix").services.seadexarr;
 
@@ -13,6 +13,14 @@
 
       services.seadexarr."main" = {
         enable = true;
+        package = pkgs.seadexarr.overrideAttrs {
+          src = pkgs.fetchFromGitHub {
+            owner = "TheColorman";
+            repo = "seadexarr";
+            rev = "3d24f06d";
+            hash = "sha256-CtuhYBRqtYbw+TlTLo2bCi413sqPNJPaZDqKCrBXxCU=";
+          };
+        };
         settings =
           let
             sonarrPort = toString sonarrCfg.settings.server.port;
