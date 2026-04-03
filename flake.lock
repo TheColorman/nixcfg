@@ -1821,15 +1821,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1774746760,
-        "narHash": "sha256-g6U7EW1LTvSYaEnwrgwnUMNATK3aeNiATFtsL/u6lJ0=",
+        "lastModified": 1775227090,
+        "narHash": "sha256-a1BhwhmEM+4JOh97oA8VpIi7jI+2HI3cfy48Q/I7164=",
         "owner": "TheColorman",
         "repo": "seadexarr-nix-flake",
-        "rev": "9a8ef20c6f9879694bfbd864cf5d230aa5e74f37",
+        "rev": "49ca1fbaffde3e76fda74a3b21534e768ce8c75e",
         "type": "github"
       },
       "original": {
         "owner": "TheColorman",
+        "ref": "unstable",
         "repo": "seadexarr-nix-flake",
         "type": "github"
       }

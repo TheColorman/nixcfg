@@ -147,7 +147,7 @@
 
     # Seadex downloader
     seadexarr = {
-      url = "github:TheColorman/seadexarr-nix-flake";
+      url = "github:TheColorman/seadexarr-nix-flake/unstable";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
