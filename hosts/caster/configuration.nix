@@ -50,7 +50,6 @@
         system-certs
         system-locale-danish
         system-networking
-        utils-shell
         utils-shell-fish
       ];
 
