@@ -12,7 +12,7 @@
       imports = [ inputs.seadexarr.nixosModules.default ];
 
       services.seadexarr."main" = {
-        enable = true;
+        enable = false;
         package = pkgs.seadexarr.overrideAttrs {
           src = pkgs.fetchFromGitHub {
             owner = "TheColorman";
