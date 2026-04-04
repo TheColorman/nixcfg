@@ -31,8 +31,8 @@
             ignore_movies_in_radarr = true;
             radarr_url = "http://127.0.0.1:${radarrPort}";
 
-            sonarr_torrent_category = "sonarr-imported";
-            radarr_torrent_category = "radarr-imported";
+            sonarr_torrent_category = "sonarr";
+            radarr_torrent_category = "radarr";
             torrent_tags = [ "seadex" ];
 
             inherit (evalSecrets) trackers;
