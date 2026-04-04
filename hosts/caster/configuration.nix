@@ -43,6 +43,7 @@
         services-syncthing
         services-tailscale
         services-thelounge
+        services-unpackerr
         services-vaultwarden
         services-wakapi
         services-znc

@@ -15,13 +15,25 @@
         description = "Unpackerr";
         after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];
+
         serviceConfig = {
           Type = "simple";
           User = "unpackerr";
           Group = "unpackerr";
 
-          ExecStart = "${lib.getExe pkgs.unpackerr} -c ${config.sops.templates."unpackerr.conf".path}";
+          LoadCredential = "unpackerr-conf:${config.sops.templates."unpackerr.conf".path}";
+
           Restart = "on-failure";
+
+          ReadWritePaths = [ "/mnt/neodata/default/Vault/Torrents/.data" ];
+
+          ExecStartPre = [
+            "+${pkgs.acl}/bin/setfacl -Rm u:unpackerr:rwX /mnt/neodata/default/Vault/Torrents/.data"
+            "+${pkgs.acl}/bin/setfacl -m d:u:unpackerr:rwX /mnt/neodata/default/Vault/Torrents/.data"
+          ];
+          ExecStart = ''
+            ${lib.getExe pkgs.unpackerr} -c="''${CREDENTIALS_DIRECTORY}/unpackerr-conf"
+          '';
         };
       };
 
