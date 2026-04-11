@@ -24,6 +24,7 @@
         apps-neovim
         apps-nix
         apps-vesktop
+        apps-virt-manager
         apps-vscode
         apps-waydroid
         apps-zellij
