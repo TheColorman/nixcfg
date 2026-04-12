@@ -67,6 +67,10 @@
               "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
               "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
             ];
+
+            # Automatically replace duplicate /nix/store files with hardlinks
+            # as they are added to the store
+            auto-optimise-store = true;
           };
 
           # A flake registry is a repository that contains a nix flake. This
