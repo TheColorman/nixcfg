@@ -42,11 +42,17 @@
         enable = true;
         defaultUser = cfg.username;
       };
-
       services = {
         # envfs is broken in wsl - makes system unbootable
         envfs.enable = lib.mkForce false;
         gnome.gnome-keyring.enable = true;
+
+        xserver.videoDrivers = [ "nvidia" ];
+      };
+
+      hardware = {
+        graphics.enable = true;
+        nvidia.open = true;
       };
 
       home-manager.users."${cfg.username}".programs.fish.shellAliases = {
