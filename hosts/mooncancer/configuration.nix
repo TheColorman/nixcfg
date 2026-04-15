@@ -53,6 +53,7 @@
       hardware = {
         graphics.enable = true;
         nvidia.open = true;
+        nvidia-container-toolkit.enable = true;
       };
 
       home-manager.users."${cfg.username}".programs.fish.shellAliases = {
@@ -60,8 +61,9 @@
         k = "kubectl";
       };
 
-      environment.systemPackages = [
-        pkgs.kmod
+      environment.systemPackages = with pkgs; [
+        kmod
+        nvidia-container-toolkit
       ];
 
       users.users."${cfg.username}" = {
