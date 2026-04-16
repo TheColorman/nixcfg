@@ -99,7 +99,7 @@
 
     # Fish jj plugin
     fish-plugin-jj = {
-      url = "github:TheColorman/plugin-jj";
+      url = "github:TheColorman/fish-plugin-jj";
       flake = false;
     };
 

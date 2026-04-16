@@ -410,16 +410,16 @@
     "fish-plugin-jj": {
       "flake": false,
       "locked": {
-        "lastModified": 1774940876,
-        "narHash": "sha256-KVp0zNyZfdpwLfFMyM7foaNflIKBP8J2nuhe74taqfk=",
+        "lastModified": 1776337464,
+        "narHash": "sha256-3rVtikndq4MsGteuvvcb/cLve0fUIdPJORGsjXaW/8o=",
         "owner": "TheColorman",
-        "repo": "plugin-jj",
-        "rev": "f56c5747c09b031c5a0831d27189181bccb62c7e",
+        "repo": "fish-plugin-jj",
+        "rev": "007ea592a29fee92ae04a639ef88a4f0d4fa1e1e",
         "type": "github"
       },
       "original": {
         "owner": "TheColorman",
-        "repo": "plugin-jj",
+        "repo": "fish-plugin-jj",
         "type": "github"
       }
     },
