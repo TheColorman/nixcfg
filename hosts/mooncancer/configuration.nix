@@ -53,7 +53,8 @@
       hardware = {
         graphics.enable = true;
         nvidia.open = true;
-        nvidia-container-toolkit.enable = true;
+        # TODO: haven't been able to get this to work in WSL yet
+        # nvidia-container-toolkit.enable = true;
       };
 
       home-manager.users."${cfg.username}".programs.fish.shellAliases = {
