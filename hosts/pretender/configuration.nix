@@ -4,6 +4,7 @@
     {
       pkgs,
       config,
+      lib,
       ...
     }:
     let
@@ -37,6 +38,8 @@
       };
 
       services.openssh.enable = true;
+
+      networking.firewall.enable = lib.mkForce false;
 
       users.users."${cfg.username}" = {
         isNormalUser = true;
