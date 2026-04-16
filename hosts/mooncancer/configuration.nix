@@ -79,7 +79,7 @@
           attic-client
           dig
           fastfetch
-          fluxcd
+          fluxcd-operator
           git-cliff
           glab
           kubectl
