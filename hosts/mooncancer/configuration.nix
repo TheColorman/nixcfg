@@ -24,6 +24,7 @@
         apps-ki
         apps-neovim
         apps-nix
+        profiles-language-servers
         services-docker
         services-gpg
         services-sops
