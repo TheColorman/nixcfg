@@ -51,8 +51,10 @@
           chromium
           dig
           fastfetch
+          iperf
           jq
           killall
+          python313
           ripgrep
           usbutils
         ];
