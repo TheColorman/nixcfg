@@ -10,7 +10,9 @@
     in
     {
       users.users.${username}.packages = with pkgs; [
+        # Bash/shell
         bash-language-server
+        shfmt
       ];
     };
 }
