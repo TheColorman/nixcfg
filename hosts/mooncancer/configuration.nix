@@ -87,6 +87,7 @@
           kubectl
           kubernetes-helm
           killall
+          niks3
           nixd
           nixfmt
           ripgrep
