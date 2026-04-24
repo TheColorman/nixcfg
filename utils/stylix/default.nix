@@ -63,6 +63,8 @@
           enable = true;
         };
 
+        home.pointerCursor.enable = true;
+
         gtk.gtk4.theme = config.home-manager.users.${username}.gtk.theme;
       };
 
