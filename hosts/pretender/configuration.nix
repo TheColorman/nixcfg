@@ -60,6 +60,8 @@
         ];
       };
 
+      fonts.packages = [ pkgs.noto-fonts ];
+
       security.pki.certificates = [
         (import "${inputs.nix-secrets}/evaluation-secrets.nix").pretender.extraCerts
       ];
