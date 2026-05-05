@@ -78,7 +78,6 @@
         ];
         packages = with pkgs; [
           aria2
-          bottles
           cachix
           chromium
           dig
