@@ -19,6 +19,7 @@
         apps-jujutsu
         apps-ki
         apps-kitty
+        apps-lutris
         apps-mpv
         apps-neovim
         apps-nix
