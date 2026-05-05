@@ -7,8 +7,10 @@
       ...
     }:
     {
+      nixpkgs.overlays = [ inputs.affinity-nix.overlays.default ];
+
       home-manager.users."${config.my.username}".home.packages = [
-        inputs.affinity-nix.packages.${pkgs.stdenv.hostPlatform.system}.v3
+        pkgs.affinity-v3
       ];
     };
 }
