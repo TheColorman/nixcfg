@@ -111,60 +111,68 @@
         upower.enable = true;
       };
 
-      # Override the laptop monitor config to work with my various docks/desks
-      home-manager.users."${cfg.username}".wayland.windowManager.hyprland.settings.monitorv2 = [
-        {
-          output = "eDP-1";
-          mode = "2256x1504";
-          position = "0x0";
-          scale = "1.333333";
-        }
-        {
-          output = "desc:Lenovo Group Limited LEN T25d-10 VKDW2941";
-          mode = "1920x1200";
-          position = "1920x0";
-          scale = "auto";
-        }
-        {
-          output = "desc:Lenovo Group Limited LEN T25d-10 VKMB6428";
-          mode = "1920x1200";
-          position = "3840x0";
-          scale = "auto";
-        }
-        {
-          output = "desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047984";
-          mode = "2560x1440@240";
-          position = "1128x-1440";
-          scale = "auto";
-          bitdepth = 10;
-          # controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
-          # 2 - fullscreen only, 3 - fullscreen with video or game content type
-          vrr = 3;
-          supports_wide_color = 1;
-          supports_hdr = 1;
-          sdr_min_luminance = 0.005;
-          sdr_max_luminance = 200;
-          min_luminance = 0.5;
-          max_luminance = 400;
-          max_avg_luminance = 350;
-        }
-        {
-          output = "desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047972";
-          mode = "2560x1440@240";
-          position = "-1128x-1440";
-          scale = "auto";
-          bitdepth = 10;
-          # controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
-          # 2 - fullscreen only, 3 - fullscreen with video or game content type
-          vrr = 3;
-          supports_wide_color = 1;
-          supports_hdr = 1;
-          sdr_min_luminance = 0.005;
-          sdr_max_luminance = 200;
-          min_luminance = 0.5;
-          max_luminance = 400;
-          max_avg_luminance = 350;
-        }
-      ];
+      home-manager.users."${cfg.username}" = {
+        programs.caelestia.settings.bar.status = {
+          # Archer has a battery and Wi-Fi.
+          showBattery = true;
+          showWifi = true;
+        };
+
+        # Override the laptop monitor config to work with my various docks/desks
+        wayland.windowManager.hyprland.settings.monitorv2 = [
+          {
+            output = "eDP-1";
+            mode = "2256x1504";
+            position = "0x0";
+            scale = "1.333333";
+          }
+          {
+            output = "desc:Lenovo Group Limited LEN T25d-10 VKDW2941";
+            mode = "1920x1200";
+            position = "1920x0";
+            scale = "auto";
+          }
+          {
+            output = "desc:Lenovo Group Limited LEN T25d-10 VKMB6428";
+            mode = "1920x1200";
+            position = "3840x0";
+            scale = "auto";
+          }
+          {
+            output = "desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047984";
+            mode = "2560x1440@240";
+            position = "1128x-1440";
+            scale = "auto";
+            bitdepth = 10;
+            # controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
+            # 2 - fullscreen only, 3 - fullscreen with video or game content type
+            vrr = 3;
+            supports_wide_color = 1;
+            supports_hdr = 1;
+            sdr_min_luminance = 0.005;
+            sdr_max_luminance = 200;
+            min_luminance = 0.5;
+            max_luminance = 400;
+            max_avg_luminance = 350;
+          }
+          {
+            output = "desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047972";
+            mode = "2560x1440@240";
+            position = "-1128x-1440";
+            scale = "auto";
+            bitdepth = 10;
+            # controls the VRR (Adaptive Sync) of your monitors. 0 - off, 1 - on,
+            # 2 - fullscreen only, 3 - fullscreen with video or game content type
+            vrr = 3;
+            supports_wide_color = 1;
+            supports_hdr = 1;
+            sdr_min_luminance = 0.005;
+            sdr_max_luminance = 200;
+            min_luminance = 0.5;
+            max_luminance = 400;
+            max_avg_luminance = 350;
+          }
+        ];
+      };
     };
 }

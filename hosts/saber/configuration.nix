@@ -107,13 +107,8 @@
       time.timeZone = "Europe/Copenhagen";
 
       home-manager.users."${cfg.username}" = {
-        programs = {
-          # Saber does not have a battery.
-          caelestia.settings.bar.status.showBattery = false;
-
-          # btop rocm for AMD GPU
-          btop.package = pkgs.btop-rocm;
-        };
+        # btop rocm for AMD GPU
+        programs.btop.package = pkgs.btop-rocm;
 
         wayland.windowManager.hyprland.settings.monitorv2 = [
           {

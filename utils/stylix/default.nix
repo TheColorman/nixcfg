@@ -6,7 +6,7 @@
 # 2025-H1: nemupan (https://linktr.ee/nemupan). Extended using Photoshop to fit my aspect ratio
 # 2025-H2: 夏の影 (https://pixiv.net/artworks/90877153) by あきま (https://pixiv.net/users/19301797)
 # 2026-H1: Crescent #4 (https://pixiv.net/artworks/120894232) by DDal (https://pixiv.net/users/267137)
-{ inputs, ... }:
+{ inputs, self, ... }:
 {
   flake.nixosModules.utils-stylix =
     {
@@ -21,7 +21,10 @@
       inherit (config.my) username;
     in
     {
-      imports = [ inputs.stylix.nixosModules.stylix ];
+      imports = [
+        inputs.stylix.nixosModules.stylix
+        self.nixosModules.utils-stylix-caelestia
+      ];
 
       stylix = {
         enable = true;
