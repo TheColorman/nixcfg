@@ -95,6 +95,8 @@
         ];
       };
 
+      boot.kernel.sysctl."fs.inotify.max_user_watches" = 524288;
+
       security.pki.certificates = [
         (import "${inputs.nix-secrets}/evaluation-secrets.nix").boarding.extraCerts
       ];
