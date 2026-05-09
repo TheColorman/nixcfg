@@ -30,6 +30,7 @@
                 enabled = true;
                 desktopClock = {
                   enabled = true;
+                  background.enabled = false;
                   invertColors = false;
                   position = "bottom-right";
                   shadow.enabled = true;
