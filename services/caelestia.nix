@@ -67,6 +67,8 @@
 
               launcher.enableDangerousActions = true;
 
+              services.showLyrics = true;
+
               utilities = {
                 toasts.nowPlaying = true;
                 vpn.provider = lib.optional config.services.tailscale.enable {
