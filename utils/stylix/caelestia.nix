@@ -9,7 +9,7 @@
     {
       config = lib.mkIf caelestiaEnabled {
         home-manager.users."${username}".programs.caelestia.settings = {
-          appearance.font = {
+          appearance.font.family = {
             mono = config.stylix.fonts.monospace.name;
             sans = config.stylix.fonts.sansSerif.name;
           };

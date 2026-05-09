@@ -30,10 +30,6 @@
                 enabled = true;
                 desktopClock = {
                   enabled = true;
-                  background = {
-                    enabled = true;
-                    blur = true;
-                  };
                   invertColors = false;
                   position = "bottom-right";
                   shadow.enabled = true;
