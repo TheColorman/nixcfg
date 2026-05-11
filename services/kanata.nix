@@ -81,8 +81,8 @@
           (deflayer (navigation)
             caps
             grv _   _   _   _   _   _   _   _   _   _
-            tab  ⎋  @⇪⭾  @⭾  _   _   _   ⇤   ⇞   ⇟   ⇥
-            @ext  ‹⎇  ‹❖  ‹⇧  ‹⌃  _   _   ◀   ▲   ▼   ▶
+            tab  ⎋  @⇪⭾  @⭾  _   _   ⇤   ⇞   ▲   ⇟   ⇥
+            @ext  ‹⎇  ‹❖  ‹⇧  ‹⌃  _   _   ◀   ▼   ▶   _
             lsft  C-x C-c C-d C-v C-z  _   ⌫   ⌦   _   _
             lctl    @numpad    enter               ⎇›
           )
