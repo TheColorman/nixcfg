@@ -13,6 +13,8 @@
         # Bash/shell
         bash-language-server
         shfmt
+        # Markdown
+        marksman
       ];
     };
 }
