@@ -24,6 +24,8 @@
             shfmt
             # JavaScript/TypeScript/JSON/Markdown etc.
             prettierd
+            # Rust
+            rust-analyzer
           ]
         );
     };
