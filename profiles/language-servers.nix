@@ -9,12 +9,22 @@
       inherit (config.my) username;
     in
     {
-      users.users.${username}.packages = with pkgs; [
-        # Bash/shell
-        bash-language-server
-        shfmt
-        # Markdown
-        marksman
-      ];
+      users.users.${username}.packages =
+        with pkgs;
+        (
+          # Language servers
+          [
+            # Bash/shell
+            bash-language-server
+            # Markdown
+            marksman
+          ]
+          ++ [
+            # Bash/shell
+            shfmt
+            # JavaScript/TypeScript/JSON/Markdown etc.
+            prettierd
+          ]
+        );
     };
 }
