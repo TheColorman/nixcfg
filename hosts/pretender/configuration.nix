@@ -16,6 +16,7 @@
         apps-btop
         apps-git
         apps-jujutsu
+        apps-ki
         apps-kitty
         apps-neovim
         apps-nix
