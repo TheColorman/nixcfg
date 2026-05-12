@@ -45,6 +45,7 @@
         extraGroups = [
           "networkmanager"
           "wheel"
+          "plugdev"
         ];
         packages = with pkgs; [
           attic-client
@@ -70,6 +71,9 @@
 
       time.timeZone = "Europe/Copenhagen";
 
-      hardware.enableRedistributableFirmware = true;
+      hardware = {
+        enableRedistributableFirmware = true;
+        rtl-sdr.enable = true;
+      };
     };
 }
