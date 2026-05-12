@@ -49,6 +49,7 @@
           attic-client
           cachix
           chromium
+          deskflow
           dig
           fastfetch
           iperf
