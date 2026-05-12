@@ -73,7 +73,10 @@
 
       hardware = {
         enableRedistributableFirmware = true;
-        rtl-sdr.enable = true;
+        rtl-sdr = {
+          enable = true;
+          package = pkgs.rtl-sdr-osmocom;
+        };
       };
     };
 }
