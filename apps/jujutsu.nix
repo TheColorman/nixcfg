@@ -125,6 +125,18 @@
                   ];
                   patterns = [ "glob:'**/*.nix'" ];
                 };
+                csharpier = {
+                  command = [
+                    "dotnet"
+                    "csharpier"
+                    "format"
+                    "--stdin-path=$path"
+                  ];
+                  patterns = [
+                    "glob:'**/*.cs'"
+                    "glob:'**/*.csproj'"
+                  ];
+                };
               };
 
               aliases = {
