@@ -94,59 +94,71 @@
             # submap = "global";
 
             # See https://github.com/caelestia-dots/caelestia/blob/main/hypr/hyprland/keybinds.conf#L1-L39
-            bindin = [
-              # Launcher
-              # "Super, catchall, global, caelestia:launcherInterrupt"
-              "Super, mouse:272, global, caelestia:launcherInterrupt"
-              "Super, mouse:273, global, caelestia:launcherInterrupt"
-              "Super, mouse:274, global, caelestia:launcherInterrupt"
-              "Super, mouse:275, global, caelestia:launcherInterrupt"
-              "Super, mouse:276, global, caelestia:launcherInterrupt"
-              "Super, mouse:277, global, caelestia:launcherInterrupt"
-              "Super, mouse_up, global, caelestia:launcherInterrupt"
-              "Super, mouse_down, global, caelestia:launcherInterrupt"
-            ];
-            bind = [
-              # Launcher
-              "ALT, SPACE, global, caelestia:launcher"
+            bind =
+              let
+                mkBindR = key: lua: rules: {
+                  _args = [
+                    key
+                    (lib.generators.mkLuaInline lua)
+                    rules
+                  ];
+                };
+                mkBind = key: lua: mkBindR key lua { };
+                mkBindCmdR =
+                  key: cmd: rules:
+                  mkBindR key "hl.dsp.exec_cmd(${builtins.toJSON cmd})" rules;
+                mkBindCmd = key: cmd: mkBindCmdR key cmd { };
+              in
+              [
+                # Launcher
+                (mkBind "ALT + Space" ''hl.dsp.global("caelestia:launcher")'')
 
-              # Misc
-              "Super, L, global, caelestia:lock"
-              "Super, N, exec, caelestia shell drawers toggle sidebar"
+                # Misc
+                (mkBind "SUPER + L" ''hl.dsp.global("caelestia:lock")'')
+                (mkBindCmd "SUPER + N" "caelestia shell drawers toggle sidebar")
 
-              # Utilities
-              "Super+Shift, S, global, caelestia:screenshotFreeze" # Capture region (freeze)
-              "Super+Shift+Alt, S, global, caelestia:screenshot" # Capture region
-              "Super+Alt, R, exec, caelestia record -s" # Record screen with sound
-              "Ctrl+Alt, R, exec, caelestia record" # Record screen
-              "Super+Shift+Alt, R, exec, caelestia record -r" # Record region
+                # Utilities
+                #   Capture region (freeze)
+                (mkBind "SUPER + SHIFT + S" ''hl.dsp.global("caelestia:screenshotFreeze")'')
+                #   Capture region
+                (mkBind "SUPER + SHIFT + ALT + S" ''hl.dsp.global("caelestia:screenshot")'')
+                #   Record screen with sound
+                (mkBindCmd "SUPER + ALT + R" "caelestia record -s")
+                #   Record screen
+                (mkBindCmd "CTRL + ALT + R" "caelestia record")
+                #   Record region
+                (mkBindCmd "SUPER + SHIFT + ALT + R" "caelestia record -r")
 
-              # Clipboard and emoji picker
-              "Super, V, exec, pkill fuzzel || caelestia clipboard"
-              "Super+Alt, V, exec, pkill fuzzel || caelestia clipboard -d"
-              "Super, Period, exec, pkill fuzzel || caelestia emoji -p"
-            ];
-            bindl = [
-              # Brightness
-              ", XF86MonBrightnessUp, global, caelestia:brightnessUp"
-              ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
+                # Clipboard and emoji picker
+                (mkBindCmd "SUPER + V" "pkill fuzzel || caelestia clipboard")
+                (mkBindCmd "SUPER + ALT + V" "pkill fuzzel || caelestia clipboard -d")
+                (mkBindCmd "SUPER + Period" "pkill fuzzel || caelestia emoji -p")
+                #   Alternate paste
+                (mkBindCmdR "CTRL + SHIFT + ALT + V"
+                  ''sleep 0.5s && ydotool type -d 1 "$(cliphist list | head -1 | cliphist decode)"''
+                  { locked = true; }
+                )
 
-              # Media
-              "Ctrl+Super, Space, global, caelestia:mediaToggle"
-              ", XF86AudioPlay, global, caelestia:mediaToggle"
-              ", XF86AudioPause, global, caelestia:mediaToggle"
-              "Ctrl+Super, Equal, global, caelestia:mediaNext"
-              ", XF86AudioNext, global, caelestia:mediaNext"
-              "Ctrl+Super, Minus, global, caelestia:mediaPrev"
-              ", XF86AudioPrev, global, caelestia:mediaPrev"
-              ", XF86AudioStop, global, caelestia:mediaStop"
+                # Brightness
+                (mkBindR "XF86MonBrightnessUp" ''hl.dsp.global("caelestia:brightnessUp")'' { locked = true; })
+                (mkBindR "XF86MonBrightnessDown" ''hl.dsp.global("caelestia:brightnessDown")'' {
+                  locked = true;
+                })
 
-              # Utilities
-              ", Print, exec, caelestia screenshot" # Full screen capture > clipboard
+                # Media
+                (mkBindR "CTRL + SUPER + Space" ''hl.dsp.global("caelestia:mediaToggle")'' { locked = true; })
+                (mkBindR "XF86AudioPlay" ''hl.dsp.global("caelestia:mediaToggle ")'' { locked = true; })
+                (mkBindR "XF86AudioPause" ''hl.dsp.global("caelestia:mediaToggle ")'' { locked = true; })
+                (mkBindR "CTRL + SUPER + Equal" ''hl.dsp.global("caelestia:mediaNext ")'' { locked = true; })
+                (mkBindR "XF86AudioNext" ''hl.dsp.global("caelestia:mediaNext ")'' { locked = true; })
+                (mkBindR "CTRL + SUPER + Minus" ''hl.dsp.global("caelestia:mediaPrev ")'' { locked = true; })
+                (mkBindR "XF86AudioPrev" ''hl.dsp.global("caelestia:mediaPrev ")'' { locked = true; })
+                (mkBindR "XF86AudioStop" ''hl.dsp.global("caelestia:mediaStop ")'' { locked = true; })
 
-              # Clipboard and emoji picker
-              ''Ctrl+Shift+Alt, V, exec, sleep 0.5s && ydotool type -d 1 "$(cliphist list | head -1 | cliphist decode)"'' # Alternate paste
-            ];
+                # Utilities
+                #   Full screen capture > clipboard
+                (mkBindCmdR "Print" "caelestia screenshot" { locked = true; })
+              ];
           };
 
           services.cliphist = {

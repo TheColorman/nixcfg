@@ -37,221 +37,266 @@
               term = getExe pkgs.kitty;
               fileManager = "${pkgs.kdePackages.dolphin}/bin/dolphin";
               uwsm = "uwsm app -- ";
-              mod = "SUPER";
             in
             {
               # === Autostart ===
-              exec-once = config.my.autostart |> map (cmd: "uwsm app -- ${cmd}");
+              on._args = [
+                "hyprland.start"
+                (lib.generators.mkLuaInline ''
+                  function()
+                    ${
+                      config.my.autostart
+                      |> map (cmd: builtins.toJSON "uwsm app -- ${cmd}")
+                      |> lib.concatMapStringsSep "\n" (cmd: "hl.exec_cmd(${cmd})")
+                    }
+                  end
+                '')
+              ];
 
-              # === Look and feel ===
-              general = {
-                gaps_in = 5;
-                gaps_out = 10;
+              config = {
+                # === Look and feel ===
+                general = {
+                  gaps_in = 5;
+                  gaps_out = 10;
 
-                border_size = 2;
+                  border_size = 2;
 
-                resize_on_border = false;
+                  resize_on_border = false;
 
-                allow_tearing = false;
+                  allow_tearing = false;
 
-                layout = "dwindle";
-              };
-
-              # Fixes issues where the mouse is not detecting at the edges of the
-              # screen, breaking e.g. the mouse gestures in Caelestia
-              cursor.hotspot_padding = 1;
-
-              decoration = {
-                rounding = 10;
-                rounding_power = 2;
-
-                active_opacity = 1.0;
-                inactive_opacity = 1.0;
-
-                shadow = {
-                  enabled = true;
-                  range = 4;
-                  render_power = 3;
+                  layout = "dwindle";
                 };
 
-                # https://wiki.hyprland.org/Configuring/Variables/#blur
-                blur = {
-                  enabled = true;
-                  size = 3;
-                  passes = 2;
-                  new_optimizations = true;
+                # Fixes issues where the mouse is not detecting at the edges of the
+                # screen, breaking e.g. the mouse gestures in Caelestia
+                cursor.hotspot_padding = 1;
 
-                  vibrancy = 0.1696;
+                decoration = {
+                  rounding = 10;
+                  rounding_power = 2;
+
+                  active_opacity = 1.0;
+                  inactive_opacity = 1.0;
+
+                  shadow = {
+                    enabled = true;
+                    range = 4;
+                    render_power = 3;
+                  };
+
+                  # https://wiki.hyprland.org/Configuring/Variables/#blur
+                  blur = {
+                    enabled = true;
+                    size = 3;
+                    passes = 2;
+                    new_optimizations = true;
+
+                    vibrancy = 0.1696;
+                  };
                 };
+
+                dwindle.preserve_split = true;
+
+                # === Input ===
+                input = {
+                  kb_layout = "us,us";
+                  kb_variant = ",colemak_dh";
+                  resolve_binds_by_sym = true;
+                  follow_mouse = 1;
+                  touchpad = {
+                    natural_scroll = true;
+                    scroll_factor = .6;
+                  };
+                  repeat_rate = 55;
+                  repeat_delay = 225;
+                };
+
               };
 
-              animations = {
-                enabled = true;
-                bezier = [
-                  "easeOutQuint,0.23,1,0.32,1"
-                  "easeInOutCubic,0.65,0.05,0.36,1"
-                  "linear,0,0,1,1"
-                  "almostLinear,0.5,0.5,0.75,1.0"
-                  "quick,0.15,0,0.1,1"
+              animation =
+                let
+                  mkAnimSt = leaf: speed: bezier: style: {
+                    inherit
+                      leaf
+                      speed
+                      bezier
+                      style
+                      ;
+                    enabled = true;
+                  };
+                  mkAnim = leaf: speed: bezier: {
+                    inherit leaf speed bezier;
+                    enabled = true;
+                  };
+                in
+                [
+                  (mkAnim "global" 10 "default")
+                  (mkAnim "border" 5.39 "easeOutQuint")
+                  (mkAnim "windows" 4.79 "easeOutQuint")
+                  (mkAnimSt "windowsIn" 4.1 "easeOutQuint" "popin 87%")
+                  (mkAnimSt "windowsOut" 1.49 "linear" "popin 87%")
+                  (mkAnim "fadeIn" 1.73 "almostLinear")
+                  (mkAnim "fadeOut" 1.46 "almostLinear")
+                  (mkAnim "fade" 3.03 "quick")
+                  (mkAnim "layers" 3.81 "easeOutQuint")
+                  (mkAnimSt "layersIn" 4 "easeOutQuint" "fade")
+                  (mkAnimSt "layersOut" 1.5 "linear" "fade")
+                  (mkAnim "fadeLayersIn" 1.79 "almostLinear")
+                  (mkAnim "fadeLayersOut" 1.39 "almostLinear")
+                  (mkAnimSt "workspaces" 1.94 "almostLinear" "fade")
+                  (mkAnimSt "workspacesIn" 1.21 "almostLinear" "fade")
+                  (mkAnimSt "workspacesOut" 1.94 "almostLinear" "fade")
                 ];
 
-                animation = [
-                  "global, 1, 10, default"
-                  "border, 1, 5.39, easeOutQuint"
-                  "windows, 1, 4.79, easeOutQuint"
-                  "windowsIn, 1, 4.1, easeOutQuint, popin 87%"
-                  "windowsOut, 1, 1.49, linear, popin 87%"
-                  "fadeIn, 1, 1.73, almostLinear"
-                  "fadeOut, 1, 1.46, almostLinear"
-                  "fade, 1, 3.03, quick"
-                  "layers, 1, 3.81, easeOutQuint"
-                  "layersIn, 1, 4, easeOutQuint, fade"
-                  "layersOut, 1, 1.5, linear, fade"
-                  "fadeLayersIn, 1, 1.79, almostLinear"
-                  "fadeLayersOut, 1, 1.39, almostLinear"
-                  "workspaces, 1, 1.94, almostLinear, fade"
-                  "workspacesIn, 1, 1.21, almostLinear, fade"
-                  "workspacesOut, 1, 1.94, almostLinear, fade"
+              curve =
+                let
+                  mkBezier = name: x0: y0: x1: y1: {
+                    _args = [
+                      name
+                      {
+                        type = "bezier";
+                        points = [
+                          [
+                            x0
+                            y0
+                          ]
+                          [
+                            x1
+                            y1
+                          ]
+                        ];
+                      }
+                    ];
+                  };
+                in
+                [
+                  (mkBezier "easeOutQuint" 0.23 1 0.32 1)
+                  (mkBezier "easeInOutCubic" 0.65 0.05 0.36 1)
+                  (mkBezier "linear" 0 0 1 1)
+                  (mkBezier "almostLinear" 0.5 0.5 0.75 1)
+                  (mkBezier "quick" 0.15 0 0.1 1)
                 ];
-              };
-
-              dwindle.preserve_split = true;
-
-              # === Input ===
-              input = {
-                kb_layout = "us,us";
-                kb_variant = ",colemak_dh";
-                resolve_binds_by_sym = true;
-                follow_mouse = 1;
-                touchpad = {
-                  natural_scroll = true;
-                  scroll_factor = .6;
-                };
-                repeat_rate = 55;
-                repeat_delay = 225;
-              };
 
               bind =
                 let
+                  mkBindR = key: lua: rules: {
+                    _args = [
+                      key
+                      (lib.generators.mkLuaInline lua)
+                      rules
+                    ];
+                  };
+                  mkBind = key: lua: {
+                    _args = [
+                      key
+                      (lib.generators.mkLuaInline lua)
+                    ];
+                  };
+                  mkBindCmd = key: cmd: mkBind key "hl.dsp.exec_cmd(${builtins.toJSON cmd})";
+                  mkBindCmdR =
+                    key: cmd: execRules:
+                    mkBind key "hl.dsp.exec_cmd(${builtins.toJSON cmd}, ${lib.generators.toLua { } execRules})";
+
                   hyprpicker = getExe pkgs.hyprpicker;
                   vesktop = getExe pkgs.vesktop;
                   browser = getExe (pkgs.zen-browser or pkgs.ungoogled-chromium);
                   music = getExe pkgs.pear-desktop;
                 in
                 [
-                  "${mod}, T, exec, ${uwsm} ${term}"
-                  "${mod} ALT, T, exec, [float; size 50%] ${uwsm} ${term}"
-                  "${mod}, Q, killactive,"
-                  "${mod}, M, exec, uwsm stop"
-                  "${mod}, E, exec, ${fileManager}"
-                  "${mod} ALT, E, exec, [float; size 50%] ${uwsm} ${fileManager}"
-                  "${mod}, D, togglefloating,"
-                  "${mod} SHIFT, D, exec, hyprctl dispatch pin"
-                  "${mod}, F, fullscreen"
-                  "${mod} SHIFT, F, fullscreenstate, -1, 2"
-                  "${mod}, P, pseudo,"
-                  "${mod} SHIFT, C, exec, ${uwsm} ${hyprpicker} --autocopy"
+                  (mkBindCmd "SUPER + T" "${uwsm} ${term}")
+                  (mkBindCmdR "SUPER + ALT + T" "${uwsm} ${term}" {
+                    float = true;
+                    size = "50%";
+                  })
+                  (mkBind "SUPER + Q" "hl.dsp.window.close()")
+                  (mkBindCmd "SUPER + M" "uwsm stop")
+                  (mkBindCmd "SUPER + E" "${uwsm} ${fileManager}")
+                  (mkBindCmdR "SUPER + ALT + E" "${uwsm} ${fileManager}" {
+                    float = true;
+                    size = "50%";
+                  })
+                  (mkBind "SUPER + D" "hl.dsp.window.float({ action = \"toggle\" })")
+                  (mkBind "SUPER + SHIFT + D" "hl.dsp.window.pin()")
+                  (mkBind "SUPER + F" "hl.dsp.window.fullscreen({ action = \"toggle\" })")
+                  (mkBindCmd "SUPER + SHIFT + C" "${uwsm} ${hyprpicker} --autocopy")
 
                   # Applications
-                  "${mod} SHIFT, D, exec, ${uwsm} ${vesktop}"
-                  "${mod} SHIFT, B, exec, ${uwsm} ${browser}"
-                  "${mod} SHIFT, M, exec, ${uwsm} ${music}"
+                  (mkBindCmd "SUPER + SHIFT + D" "${uwsm} ${vesktop}")
+                  (mkBindCmd "SUPER + SHIFT + B" "${uwsm} ${browser}")
+                  (mkBindCmd "SUPER + SHIFT + M" "${uwsm} ${music}")
 
                   # Move focus with mod + arrow keys
-                  "${mod}, left, movefocus, l"
-                  "${mod}, right, movefocus, r"
-                  "${mod}, up, movefocus, u"
-                  "${mod}, down, movefocus, d"
+                  (mkBind "SUPER + left" "hl.dsp.focus({ direction = \"l\" })")
+                  (mkBind "SUPER + right" "hl.dsp.focus({ direction = \"r\" })")
+                  (mkBind "SUPER + up" "hl.dsp.focus({ direction = \"u\" })")
+                  (mkBind "SUPER + down" "hl.dsp.focus({ direction = \"d\" })")
 
                   # Switch workspaces with mod + [0-9]
-                  "${mod}, 1, workspace, 1"
-                  "${mod}, 2, workspace, 2"
-                  "${mod}, 3, workspace, 3"
-                  "${mod}, 4, workspace, 4"
-                  "${mod}, 5, workspace, 5"
-                  "${mod}, 6, workspace, 6"
-                  "${mod}, 7, workspace, 7"
-                  "${mod}, 8, workspace, 8"
-                  "${mod}, 9, workspace, 9"
-                  "${mod}, 0, workspace, 10"
+                  (mkBind "SUPER + 1" "hl.dsp.focus({ workspace = 1 })")
+                  (mkBind "SUPER + 2" "hl.dsp.focus({ workspace = 2 })")
+                  (mkBind "SUPER + 3" "hl.dsp.focus({ workspace = 3 })")
+                  (mkBind "SUPER + 4" "hl.dsp.focus({ workspace = 4 })")
+                  (mkBind "SUPER + 5" "hl.dsp.focus({ workspace = 5 })")
+                  (mkBind "SUPER + 6" "hl.dsp.focus({ workspace = 6 })")
+                  (mkBind "SUPER + 7" "hl.dsp.focus({ workspace = 7 })")
+                  (mkBind "SUPER + 8" "hl.dsp.focus({ workspace = 8 })")
+                  (mkBind "SUPER + 9" "hl.dsp.focus({ workspace = 9 })")
+                  (mkBind "SUPER + 0" "hl.dsp.focus({ workspace = 10 })")
 
                   # Move active window to a workspace with mod + SHIFT + [0-9]
-                  "${mod} SHIFT, 1, movetoworkspace, 1"
-                  "${mod} SHIFT, 2, movetoworkspace, 2"
-                  "${mod} SHIFT, 3, movetoworkspace, 3"
-                  "${mod} SHIFT, 4, movetoworkspace, 4"
-                  "${mod} SHIFT, 5, movetoworkspace, 5"
-                  "${mod} SHIFT, 6, movetoworkspace, 6"
-                  "${mod} SHIFT, 7, movetoworkspace, 7"
-                  "${mod} SHIFT, 8, movetoworkspace, 8"
-                  "${mod} SHIFT, 9, movetoworkspace, 9"
+                  (mkBind "SUPER + SHIFT + 1" "hl.dsp.window.move({ workspace = 1 })")
+                  (mkBind "SUPER + SHIFT + 2" "hl.dsp.window.move({ workspace = 2 })")
+                  (mkBind "SUPER + SHIFT + 3" "hl.dsp.window.move({ workspace = 3 })")
+                  (mkBind "SUPER + SHIFT + 4" "hl.dsp.window.move({ workspace = 4 })")
+                  (mkBind "SUPER + SHIFT + 5" "hl.dsp.window.move({ workspace = 5 })")
+                  (mkBind "SUPER + SHIFT + 6" "hl.dsp.window.move({ workspace = 6 })")
+                  (mkBind "SUPER + SHIFT + 7" "hl.dsp.window.move({ workspace = 7 })")
+                  (mkBind "SUPER + SHIFT + 8" "hl.dsp.window.move({ workspace = 8 })")
+                  (mkBind "SUPER + SHIFT + 9" "hl.dsp.window.move({ workspace = 9 })")
+                  (mkBind "SUPER + SHIFT + 0" "hl.dsp.window.move({ workspace = 10 })")
 
                   # Special workspace (scratchpad)
-                  "${mod}, R, togglespecialworkspace, magic"
-                  "${mod} SHIFT, R, movetoworkspace, special:magic"
+                  (mkBind "SUPER + R" "hl.dsp.workspace.toggle_special(\"magic\")")
+                  (mkBind "SUPER + SHIFT + R" "hl.dsp.workspace.toggle_special(\"magic\")")
 
                   # Scroll through existing workspaces with mod + scroll
-                  "${mod}, mouse_down, workspace, e+1"
-                  "${mod}, mouse_up, workspace, e-1"
+                  (mkBind "SUPER + mouse_down" "hl.dsp.focus({ workspace = \"e+1\" })")
+                  (mkBind "SUPER + mouse_up" "hl.dsp.focus({ workspace = \"e-1\" })")
 
                   # Move workspaces between monitors
-                  "CTRL ALT ${mod} SHIFT, comma, movecurrentworkspacetomonitor, l"
-                  "CTRL ALT ${mod} SHIFT, period, movecurrentworkspacetomonitor, r"
+                  (mkBind "CTRL + ALT + SUPER + SHIFT + comma" "hl.dsp.workspace.move({ monitor = \"l\" })")
+                  (mkBind "CTRL + ALT + SUPER + SHIFT + period" "hl.dsp.workspace.move({ monitor = \"r\" })")
 
-                  "Control_R&Shift_R, Space, exec, hyprctl switchxkblayout kanata next"
+                  # Keyboard layout
+                  (mkBindCmd "Control_R + Shift_R + Space" "hyprctl switchxkblayout kanata next")
+
+                  # Move/resize windows with mod + LMG/RMG and dragging
+                  (mkBindR "SUPER + mouse:272" "hl.dsp.window.drag()" { mouse = true; })
+                  (mkBindR "SUPER + mouse:273" "hl.dsp.window.resize()" { mouse = true; })
                 ];
 
-              bindm = [
-                # Move/resize windows with mod + LMG/RMG and dragging
-                "${mod}, mouse:272, movewindow"
-                "${mod}, mouse:273, resizewindow"
-              ];
-
-              bindel =
-                let
-                  wpctl = "${pkgs.wireplumber}/bin/wpctl";
-                in
-                [
-                  # Laptop multimedia keys for volume and LCD brightness
-                  ",XF86AudioRaiseVolume, exec, ${uwsm} ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-                  ",XF86AudioLowerVolume, exec, ${uwsm} ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-                  ",XF86AudioMute, exec, ${uwsm} ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"
-                  ",XF86AudioMicMute, exec, ${uwsm} ${wpctl} set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-                ];
-
-              bindl =
-                let
-                  playerctl = getExe pkgs.playerctl;
-                  brightnessctl = getExe pkgs.brightnessctl;
-                in
-                [
-                  ",XF86AudioNext, exec, ${uwsm} ${playerctl} next"
-                  ",XF86AudioPause, exec, ${uwsm} ${playerctl} play-pause"
-                  ",XF86AudioPlay, exec, ${uwsm} ${playerctl} play-pause"
-                  ",XF86AudioPrev, exec, ${uwsm} ${playerctl} previous"
-                  ",XF86MonBrightnessUp, exec, ${uwsm} ${brightnessctl} s 2%+"
-                  ",XF86MonBrightnessDown, exec, ${uwsm} ${brightnessctl} s 2%-"
-                ];
-
-              windowrule = [
+              window_rule = [
                 {
                   name = "no-auto-maximize";
-                  "match:class" = ".*";
+                  match.class = ".*";
                   suppress_event = "maximize";
                 }
                 {
                   name = "no-focus-floating-xwayland";
-                  "match:class" = "^$";
-                  "match:title" = "^$";
-                  "match:xwayland" = true;
-                  "match:float" = true;
-                  "match:fullscreen" = false;
-                  "match:pin" = false;
+                  match = {
+                    class = "^$";
+                    title = "^$";
+                    xwayland = true;
+                    float = true;
+                    fullscreen = false;
+                    pin = false;
+                  };
                   no_focus = true;
                 }
                 {
                   name = "transparency";
-                  "match:class" =
+                  match.class =
                     [
                       "vesktop"
                       "com.github.th_ch.youtube_music"
@@ -259,12 +304,11 @@
                       "steam"
                     ]
                     |> builtins.concatStringsSep "|";
-
                   opacity = "0.9 0.8";
                 }
               ];
 
-              monitorv2 = [
+              monitor = [
                 {
                   output = "";
                   mode = "preferred";
@@ -289,6 +333,7 @@
             wayland.windowManager.hyprland = {
               enable = true;
               systemd.enable = false; # Conflicts with uwsm
+              configType = "lua";
               settings = hyprlandConfig;
             };
             xdg.configFile = {

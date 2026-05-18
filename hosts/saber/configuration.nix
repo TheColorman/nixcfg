@@ -122,7 +122,7 @@
         # btop rocm for AMD GPU
         programs.btop.package = pkgs.btop-rocm;
 
-        wayland.windowManager.hyprland.settings.monitorv2 = [
+        wayland.windowManager.hyprland.settings.monitor = [
           {
             output = "desc:ASUSTek COMPUTER INC VG27AQM1A T1LMQS047984";
             mode = "2560x1440@240";

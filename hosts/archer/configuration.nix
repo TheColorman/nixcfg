@@ -118,7 +118,7 @@
         };
 
         # Override the laptop monitor config to work with my various docks/desks
-        wayland.windowManager.hyprland.settings.monitorv2 = [
+        wayland.windowManager.hyprland.settings.monitor = [
           {
             output = "eDP-1";
             mode = "2256x1504";
