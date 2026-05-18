@@ -115,10 +115,7 @@
                 ];
               };
 
-              dwindle = {
-                pseudotile = true;
-                preserve_split = true;
-              };
+              dwindle.preserve_split = true;
 
               # === Input ===
               input = {
@@ -153,7 +150,6 @@
                   "${mod}, F, fullscreen"
                   "${mod} SHIFT, F, fullscreenstate, -1, 2"
                   "${mod}, P, pseudo,"
-                  "${mod}, J, togglesplit,"
                   "${mod} SHIFT, C, exec, ${uwsm} ${hyprpicker} --autocopy"
 
                   # Applications
