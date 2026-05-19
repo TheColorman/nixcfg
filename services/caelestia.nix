@@ -9,7 +9,13 @@
       options.my.markers.caelestia.enable = lib.mkEnableOption "Caelestia shell";
 
       config = {
-        my.markers.caelestia.enable = true;
+        my = {
+          markers.caelestia.enable = true;
+          autostart = [
+            "caelestia resizer -d"
+            "caelestia shell -d"
+          ];
+        };
 
         home-manager.users."${username}" = {
           imports = [ inputs.caelestia.homeManagerModules.default ];
@@ -82,11 +88,6 @@
           };
 
           wayland.windowManager.hyprland.settings = {
-            exec-once = [
-              "uwsm app -- caelestia resizer -d"
-              "uwsm app -- caelestia shell -d"
-            ];
-
             # exec = [
             #   "hyprctl dispatch submap global"
             # ];

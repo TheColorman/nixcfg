@@ -41,7 +41,7 @@
             in
             {
               # === Autostart ===
-              exec-once = [ ];
+              exec-once = config.my.autostart |> map (cmd: "uwsm app -- ${cmd}");
 
               # === Look and feel ===
               general = {

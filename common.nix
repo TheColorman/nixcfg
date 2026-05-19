@@ -36,6 +36,11 @@
           type = lib.types.str;
           description = "System and home-manager state version";
         };
+        autostart = lib.mkOption {
+          default = [ ];
+          type = with lib.types; listOf str;
+          description = "Commands to run on startup. Only valid with Hyprland.";
+        };
       };
 
       config = {

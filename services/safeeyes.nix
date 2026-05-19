@@ -1,18 +1,6 @@
 {
   flake.nixosModules.services-safeeyes =
-    {
-      lib,
-      pkgs,
-      config,
-      ...
-    }:
-    let
-      inherit (config.my) username;
-      inherit (config.home-manager.users."${username}".wayland.windowManager)
-        hyprland
-        ;
-      inherit (lib) makeBinPath getExe optional;
-    in
+    { lib, pkgs, ... }:
     {
       nixpkgs.overlays = [
         (_final: prev: {
@@ -21,7 +9,7 @@
               makeWrapperArgs+=(
                 "''${gappsWrapperArgs[@]}"
                 --prefix PATH : ${
-                  makeBinPath (
+                  lib.makeBinPath (
                     with pkgs;
                     [
                       alsa-utils
@@ -37,9 +25,7 @@
       ];
       environment.systemPackages = [ pkgs.safeeyes ];
 
-      # Enable for Hyprland
-      home-manager.users."${username}".wayland.windowManager.hyprland.settings = {
-        exec-once = optional hyprland.enable "uwsm app -- ${getExe pkgs.safeeyes}";
-      };
+      # Enable autostart
+      my.autostart = [ (lib.getExe pkgs.safeeyes) ];
     };
 }
