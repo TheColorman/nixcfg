@@ -23,6 +23,7 @@
         apps-mpv
         apps-neovim
         apps-nix
+        apps-pano-scrobbler
         apps-vesktop
         apps-virt-manager
         apps-vscode
