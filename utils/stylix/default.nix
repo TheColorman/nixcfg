@@ -58,8 +58,6 @@
         polarity = "dark";
       };
 
-      specialisation.light.configuration.stylix.polarity = lib.mkForce "light";
-
       home-manager.users."${username}" = {
         stylix = {
           autoEnable = true;
