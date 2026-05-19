@@ -1552,6 +1552,27 @@
         "type": "github"
       }
     },
+    "pano-scrobbler": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779217523,
+        "narHash": "sha256-kKkxiuGMZu4kUaVbwtXOQmNcJYUgF1b7RhlRxwSsV2U=",
+        "owner": "TheColorman",
+        "repo": "pano-scrobbler-flake",
+        "rev": "a68b82d290f9100aa8ef72149eefd39e60879d0d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TheColorman",
+        "ref": "fix/add-missing-GIO-EXTRA-MODULES-environment-variable",
+        "repo": "pano-scrobbler-flake",
+        "type": "github"
+      }
+    },
     "playit-nixos-module": {
       "inputs": {
         "flake-parts": "flake-parts_8",
@@ -1806,6 +1827,7 @@
         "nixpkgs": "nixpkgs_5",
         "nur": "nur",
         "nvfcfg": "nvfcfg",
+        "pano-scrobbler": "pano-scrobbler",
         "playit-nixos-module": "playit-nixos-module",
         "pwndbg": "pwndbg",
         "seadexarr": "seadexarr",

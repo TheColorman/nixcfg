@@ -153,5 +153,11 @@
         flake-parts.follows = "flake-parts";
       };
     };
+
+    # Music scrobbler to e.g. Last.fm
+    pano-scrobbler = {
+      url = "github:TheColorman/pano-scrobbler-flake/fix/add-missing-GIO-EXTRA-MODULES-environment-variable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
