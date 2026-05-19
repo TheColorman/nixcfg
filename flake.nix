@@ -156,7 +156,7 @@
 
     # Music scrobbler to e.g. Last.fm
     pano-scrobbler = {
-      url = "github:TheColorman/pano-scrobbler-flake/fix/add-missing-GIO-EXTRA-MODULES-environment-variable";
+      url = "github:kawaiiDango/pano-scrobbler-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

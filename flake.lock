@@ -1559,16 +1559,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1779217523,
+        "lastModified": 1779223942,
         "narHash": "sha256-kKkxiuGMZu4kUaVbwtXOQmNcJYUgF1b7RhlRxwSsV2U=",
-        "owner": "TheColorman",
+        "owner": "kawaiiDango",
         "repo": "pano-scrobbler-flake",
-        "rev": "a68b82d290f9100aa8ef72149eefd39e60879d0d",
+        "rev": "3ff1d8297256b99b81639903005fcc671c20bcd5",
         "type": "github"
       },
       "original": {
-        "owner": "TheColorman",
-        "ref": "fix/add-missing-GIO-EXTRA-MODULES-environment-variable",
+        "owner": "kawaiiDango",
         "repo": "pano-scrobbler-flake",
         "type": "github"
       }
