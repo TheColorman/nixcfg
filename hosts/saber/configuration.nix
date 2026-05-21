@@ -97,6 +97,7 @@
           jq
           killall
           nixpkgs-fmt
+          nixpkgs-review
           obsidian
           p7zip
           pear-desktop
