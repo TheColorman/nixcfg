@@ -15,7 +15,8 @@
         systemPackages = [
           inputs.ki-editor.packages.${pkgs.stdenv.hostPlatform.system}.default
         ];
-        variables.EDITOR = lib.mkForce "ki";
+        # TODO: re-enable when I figure out how to enable WakaTime in Ki
+        # variables.EDITOR = lib.mkForce "ki";
       };
 
       home-manager.users."${username}".xdg.configFile."ki/config.json".text = builtins.toJSON {
