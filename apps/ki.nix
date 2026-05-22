@@ -21,6 +21,8 @@
       home-manager.users."${username}".xdg.configFile."ki/config.json".text = builtins.toJSON {
         keyboard_layout = "COLEMAK-DH (ANSI)";
         languages = { };
+        # TODO: generate Stylix theme, see https://ki-editor.org/docs/themes
+        theme = "Tokyo Night";
         wakatime = {
           enabled = true;
           cli_path = lib.getExe pkgs.wakatime-cli;
