@@ -22,6 +22,10 @@
       home-manager.users."${username}".xdg.configFile."ki/config.json".text = builtins.toJSON {
         keyboard_layout = "COLEMAK-DH (ANSI)";
         languages = { };
+        wakatime = {
+          enabled = true;
+          cli_path = lib.getExe pkgs.wakatime-cli;
+        };
       };
     };
 }

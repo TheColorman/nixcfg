@@ -143,7 +143,7 @@
     };
 
     # Combinatoric text editor
-    ki-editor.url = "github:ki-editor/ki-editor";
+    ki-editor.url = "github:TheColorman/ki-editor"; # Fork with WakaTime support
 
     # Seadex downloader
     seadexarr = {

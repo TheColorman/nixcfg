@@ -1036,15 +1036,15 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1779181508,
-        "narHash": "sha256-YsepyjPPuyQXswnISbeZ4byY3F1NjD+eWfAX7gMR9ww=",
-        "owner": "ki-editor",
+        "lastModified": 1779462721,
+        "narHash": "sha256-W83QlJhd4IuCUuDAkja+yumTAPUlOIqeDUEEWwCT1WI=",
+        "owner": "TheColorman",
         "repo": "ki-editor",
-        "rev": "bf00ff4d9dd016bb44cdf08a7456e582ed08f361",
+        "rev": "42ca90c9635b1082fe8a86cd11ca2e524aabdb2b",
         "type": "github"
       },
       "original": {
-        "owner": "ki-editor",
+        "owner": "TheColorman",
         "repo": "ki-editor",
         "type": "github"
       }
