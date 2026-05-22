@@ -28,7 +28,6 @@
         apps-virt-manager
         apps-vscode
         apps-waydroid
-        apps-zellij
         apps-zen-browser
         profiles-gaming
         profiles-hacking
