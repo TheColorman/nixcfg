@@ -12,7 +12,6 @@
     {
       config,
       pkgs,
-      lib,
       ...
     }:
     let
@@ -24,6 +23,7 @@
       imports = [
         inputs.stylix.nixosModules.stylix
         self.nixosModules.utils-stylix-caelestia
+        self.nixosModules.utils-stylix-ki
       ];
 
       stylix = {
