@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
   flake.nixosModules.rider-hardware-configuration =
     {
@@ -8,6 +9,7 @@
     {
       imports = [
         (modulesPath + "/installer/scan/not-detected.nix")
+        inputs.nixos-hardware.nixosModules.raspberry-pi-4
       ];
 
       boot = {
