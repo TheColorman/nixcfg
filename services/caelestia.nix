@@ -111,7 +111,8 @@
               in
               [
                 # Launcher
-                (mkBind "ALT + Space" ''hl.dsp.global("caelestia:launcher")'')
+                # FIXME: Can't get the `caelestia:launcher` dispatch to work
+                (mkBindCmd "ALT + SPACE" "caelestia shell drawers toggle launcher")
 
                 # Misc
                 (mkBind "SUPER + L" ''hl.dsp.global("caelestia:lock")'')
