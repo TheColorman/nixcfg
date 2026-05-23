@@ -8,7 +8,7 @@
       ...
     }:
     let
-      inherit (lib.meta) getExe;
+      inherit (lib.meta) getExe getExe';
       inherit (lib.options) mkOption;
       inherit (lib.types)
         either
@@ -198,10 +198,12 @@
                     key: cmd: execRules:
                     mkBind key "hl.dsp.exec_cmd(${builtins.toJSON cmd}, ${lib.generators.toLua { } execRules})";
 
+                  # EXEs
                   hyprpicker = getExe pkgs.hyprpicker;
                   vesktop = getExe pkgs.vesktop;
                   browser = getExe (pkgs.zen-browser or pkgs.ungoogled-chromium);
                   music = getExe pkgs.pear-desktop;
+                  wpctl = getExe' pkgs.wireplumber "wpctl";
                 in
                 [
                   (mkBindCmd "SUPER + T" "${uwsm} ${term}")
@@ -258,7 +260,7 @@
 
                   # Special workspace (scratchpad)
                   (mkBind "SUPER + R" "hl.dsp.workspace.toggle_special(\"magic\")")
-                  (mkBind "SUPER + SHIFT + R" "hl.dsp.workspace.toggle_special(\"magic\")")
+                  (mkBind "SUPER + SHIFT + R" "hl.dsp.window.move({ workspace = \"special:magic\" })")
 
                   # Scroll through existing workspaces with mod + scroll
                   (mkBind "SUPER + mouse_down" "hl.dsp.focus({ workspace = \"e+1\" })")
@@ -274,6 +276,13 @@
                   # Move/resize windows with mod + LMG/RMG and dragging
                   (mkBindR "SUPER + mouse:272" "hl.dsp.window.drag()" { mouse = true; })
                   (mkBindR "SUPER + mouse:273" "hl.dsp.window.resize()" { mouse = true; })
+
+                  # Multimedia keys
+                  (mkBindCmd "XF86AudioRaiseVolume" "${uwsm} ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+")
+                  (mkBindCmd "XF86AudioLowerVolume" "${uwsm} ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-")
+                  (mkBindCmd "XF86AudioMute" "${uwsm} ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle")
+                  (mkBindCmd "XF86AudioMicMute" "${uwsm} ${wpctl} set-mute @DEFAULT_AUDIO_SOURCE@ toggle")
+
                 ];
 
               window_rule = [
