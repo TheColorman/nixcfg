@@ -47,16 +47,6 @@
           }
           // cfg.extraEnvironment;
           extraPath = with pkgs; [ smartmontools ];
-
-          # TODO: remove once stable has 0.16.1
-          package =
-            let
-              pkgs-unstable = import (fetchTarball {
-                url = "https://github.com/nixos/nixpkgs/archive/addf7cf5f383a3101ecfba091b98d0a1263dc9b8.tar.gz";
-                sha256 = "sha256:1zv083l3n5n4s7x2hcqki29s5gyspn7f1y6xyl6avmd94sxv9kc4";
-              }) { inherit (pkgs.stdenv.hostPlatform) system; };
-            in
-            pkgs-unstable.beszel;
         };
 
         systemd.services.beszel-agent.serviceConfig = {
