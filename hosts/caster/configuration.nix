@@ -29,7 +29,6 @@
         services-jellyseerr
         services-nextcloud
         services-nginx
-        services-playit
         services-postfix
         services-prowlarr
         services-qbit-manage
