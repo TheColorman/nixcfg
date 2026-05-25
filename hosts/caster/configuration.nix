@@ -27,7 +27,6 @@
         services-isponsorblocktv
         services-jellyfin
         services-jellyseerr
-        services-minecraft-server
         services-nextcloud
         services-nginx
         services-playit
