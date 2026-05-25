@@ -203,6 +203,7 @@
                   vesktop = getExe pkgs.vesktop;
                   browser = getExe (pkgs.zen-browser or pkgs.ungoogled-chromium);
                   music = getExe pkgs.pear-desktop;
+                  pano = getExe pkgs.pano-scrobbler;
                   wpctl = getExe' pkgs.wireplumber "wpctl";
                 in
                 [
@@ -226,7 +227,7 @@
                   # Applications
                   (mkBindCmd "SUPER + SHIFT + D" "${uwsm} ${vesktop}")
                   (mkBindCmd "SUPER + SHIFT + B" "${uwsm} ${browser}")
-                  (mkBindCmd "SUPER + SHIFT + M" "${uwsm} ${music}")
+                  (mkBindCmd "SUPER + SHIFT + M" "${uwsm} ${music} & ${uwsm} ${pano}")
 
                   # Move focus with mod + arrow keys
                   (mkBind "SUPER + left" "hl.dsp.focus({ direction = \"l\" })")

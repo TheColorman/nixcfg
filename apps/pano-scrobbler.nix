@@ -4,7 +4,6 @@
     {
       pkgs,
       config,
-      lib,
       ...
     }:
     let
@@ -18,7 +17,5 @@
       ];
 
       home-manager.users."${username}".home.packages = [ pkgs.pano-scrobbler ];
-
-      my.autostart = [ (lib.getExe pkgs.pano-scrobbler) ];
     };
 }
