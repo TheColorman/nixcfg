@@ -45,6 +45,7 @@
         services-unpackerr
         services-vaultwarden
         services-wakapi
+        services-zenith-proxy
         services-znc
         system-boot
         system-certs
