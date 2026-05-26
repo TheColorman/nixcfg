@@ -58,7 +58,7 @@
         # nvidia-container-toolkit.enable = true;
       };
       home-manager.users."${cfg.username}".programs = {
-        ki.settings.theme = lib.mkForce "Claude Light";
+        ki.settings.theme = lib.mkForce "VS Code (Light)";
         fish.shellAliases = {
           docker = "/run/current-system/sw/bin/docker";
           k = "kubectl";
