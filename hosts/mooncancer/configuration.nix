@@ -57,10 +57,12 @@
         # TODO: haven't been able to get this to work in WSL yet
         # nvidia-container-toolkit.enable = true;
       };
-
-      home-manager.users."${cfg.username}".programs.fish.shellAliases = {
-        docker = "/run/current-system/sw/bin/docker";
-        k = "kubectl";
+      home-manager.users."${cfg.username}".programs = {
+        ki.settings.theme = lib.mkForce "Claude Light";
+        fish.shellAliases = {
+          docker = "/run/current-system/sw/bin/docker";
+          k = "kubectl";
+        };
       };
 
       environment.systemPackages = with pkgs; [
