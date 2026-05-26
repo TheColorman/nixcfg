@@ -92,6 +92,7 @@
           niks3
           nixd
           nixfmt
+          opencode
           ripgrep
           wl-clipboard
         ];
