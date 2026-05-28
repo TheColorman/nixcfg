@@ -54,6 +54,7 @@
           deskflow
           dig
           fastfetch
+          gnss-sdr
           iperf
           jq
           killall
