@@ -63,6 +63,8 @@
         ];
       };
 
+      home-manager.users."${cfg.username}".programs.ki.settings.theme = lib.mkForce "VS Code (Light)";
+
       fonts.packages = [ pkgs.noto-fonts ];
 
       security.pki.certificates = [
