@@ -58,6 +58,7 @@
           iperf
           jq
           killall
+          opencode
           python313
           ripgrep
           usbutils
