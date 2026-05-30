@@ -81,7 +81,6 @@
           nixfmt
           ripgrep
           wl-clipboard
-          wslu
         ];
       };
 
