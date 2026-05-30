@@ -3,6 +3,7 @@
     {
       config,
       lib,
+      pkgs,
       ...
     }:
     let
@@ -16,6 +17,14 @@
     {
       services.cross-seed = {
         enable = true;
+        # TOOD: Remove when #526078 hits nixos-26.06
+        # https://github.com/NixOS/nixpkgs/pull/526078
+        package =
+          (import (fetchTarball {
+            url = "https://github.com/nixos/nixpkgs/archive/59858ee78d38d11b985afbe3cae425e78b9dd1d4.tar.gz";
+            sha256 = "sha256:0yp8fcandr4d7cbmbwm1v2zgzc7lcy6nlb9nlpbj9n09j4fkk1i6";
+          }) { inherit (pkgs.stdenv.hostPlatform) system; }).cross-seed;
+
         settingsFile = config.sops.templates."cross-seed.settings.json".path;
         settings = {
           host = "0.0.0.0";
