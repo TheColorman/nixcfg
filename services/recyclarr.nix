@@ -17,11 +17,6 @@
         "services/radarr/apiKey" = { };
       };
 
-      systemd.services.recyclarr.serviceConfig.LoadCredential = [
-        "sonarr-api_key:${config.sops.secrets."services/sonarr/apiKey".path}"
-        "radarr-api_key:${config.sops.secrets."services/radarr/apiKey".path}"
-      ];
-
       # TODO: This needs to be redone completely and manually instead of using an
       # outdated template.
       services.recyclarr = {
@@ -43,7 +38,7 @@
           sonarr = mkIf sonarrCfg.enable {
             anime-sonarr-v4 = {
               base_url = "http://127.0.0.1:${builtins.toString sonarrCfg.settings.server.port}";
-              api_key._secret = "/run/credentials/recyclarr.service/sonarr-api_key";
+              api_key._secret = "${config.sops.secrets."services/sonarr/apiKey".path}";
 
               # Quality Definition
               # This section defines the Quality Definitions that will be used in your Sonarr instance
@@ -534,7 +529,7 @@
           radarr = {
             anime-radarr = {
               base_url = "http://127.0.0.1:${builtins.toString radarrCfg.settings.server.port}";
-              api_key._secret = "/run/credentials/recyclarr.service/radarr-api_key";
+              api_key._secret = "${config.sops.secrets."services/radarr/apiKey".path}";
 
               # Quality Definition
               # This section defines the Quality Definitions that will be used in your Radarr instance
