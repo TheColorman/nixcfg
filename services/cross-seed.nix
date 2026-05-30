@@ -94,7 +94,7 @@
               "http://127.0.0.1:${prowlarrPort}/6/api?apikey=${prowlarrKey}"
               "http://127.0.0.1:${prowlarrPort}/12/api?apikey=${prowlarrKey}"
               "http://127.0.0.1:${prowlarrPort}/15/api?apikey=${prowlarrKey}"
-              "http://127.0.0.1:${prowlarrPort}/16/api?apikey=${prowlarrKey}"
+              "http://127.0.0.1:${prowlarrPort}/17/api?apikey=${prowlarrKey}"
             ];
             sonarr = optional sonarrCfg.enable "http://127.0.0.1:${sonarrPort}?apikey=${sonarrKey}";
             radarr = optional radarrCfg.enable "http://127.0.0.1:${radarrPort}?apikey=${radarrKey}";
