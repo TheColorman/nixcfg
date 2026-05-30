@@ -13,13 +13,13 @@
       services.nextcloud = {
         enable = true;
         # Pinned
-        package = pkgs.nextcloud32;
+        package = pkgs.nextcloud33;
         webfinger = true;
         maxUploadSize = "16G";
         https = true;
         hostName = evalSecrets.hostname;
         extraApps = {
-          inherit (pkgs.nextcloud32Packages.apps)
+          inherit (pkgs.nextcloud33Packages.apps)
             end_to_end_encryption
             notify_push
             ;
@@ -29,6 +29,7 @@
           adminuser = "admin";
           adminpassFile = config.sops.secrets."services/nextcloud/adminpass".path;
         };
+        settings.serverid = 444;
         configureRedis = true;
         caching.redis = true;
 
