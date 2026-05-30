@@ -50,78 +50,79 @@
               # Only one set of Quality Definitions can be used per instance
               # Documentation: https://recyclarr.dev/wiki/yaml/config-reference/#quality-def-settings
               delete_old_custom_formats = true;
-              replace_existing_custom_formats = true;
 
               # Quality Profiles
               # This section creates and/or updates Quality Profile(s) in your Sonarr instance
               # Documentation: https://recyclarr.dev/wiki/yaml/config-reference/#quality-profiles
               quality_profiles = [
                 {
+                  trash_id = "20e0fc959f1f1704bed501f23bdae76f";
                   name = "Remux-1080p - Anime";
                   reset_unmatched_scores.enabled = true;
-                  upgrade = {
-                    allowed = true;
-                    until_quality = "Bluray-1080p";
-                    until_score = 10000;
-                  };
-                  min_format_score = 100;
-                  quality_sort = "top";
-                  qualities = [
-                    {
-                      name = "Bluray-1080p";
-                      qualities = [
-                        "Bluray-1080p Remux"
-                        "Bluray-1080p"
-                      ];
-                    }
-                    {
-                      name = "WEB 1080p";
-                      qualities = [
-                        "WEBDL-1080p"
-                        "WEBRip-1080p"
-                        "HDTV-1080p"
-                      ];
-                    }
-                    { name = "Bluray-720p"; }
-                    {
-                      name = "WEB 720p";
-                      qualities = [
-                        "WEBDL-720p"
-                        "WEBRip-720p"
-                        "HDTV-720p"
-                      ];
-                    }
-                    { name = "Bluray-480p"; }
-                    {
-                      name = "WEB 480p";
-                      qualities = [
-                        "WEBDL-480p"
-                        "WEBRip-480p"
-                      ];
-                    }
-                    { name = "DVD"; }
-                    { name = "SDTV"; }
-                  ];
+                  # upgrade = {
+                  #   allowed = true;
+                  #   until_quality = "Bluray-1080p";
+                  #   until_score = 10000;
+                  # };
+                  # min_format_score = 100;
+                  # quality_sort = "top";
+                  # qualities = [
+                  #   {
+                  #     name = "Bluray-1080p";
+                  #     qualities = [
+                  #       "Bluray-1080p Remux"
+                  #       "Bluray-1080p"
+                  #     ];
+                  #   }
+                  #   {
+                  #     name = "WEB 1080p";
+                  #     qualities = [
+                  #       "WEBDL-1080p"
+                  #       "WEBRip-1080p"
+                  #       "HDTV-1080p"
+                  #     ];
+                  #   }
+                  #   { name = "Bluray-720p"; }
+                  #   {
+                  #     name = "WEB 720p";
+                  #     qualities = [
+                  #       "WEBDL-720p"
+                  #       "WEBRip-720p"
+                  #       "HDTV-720p"
+                  #     ];
+                  #   }
+                  #   { name = "Bluray-480p"; }
+                  #   {
+                  #     name = "WEB 480p";
+                  #     qualities = [
+                  #       "WEBDL-480p"
+                  #       "WEBRip-480p"
+                  #     ];
+                  #   }
+                  #   { name = "DVD"; }
+                  #   { name = "SDTV"; }
+                  # ];
                 }
                 {
+                  trash_id = "72dae194fc92bf828f32cde7744e51a1";
                   name = "WEB-1080p - TV";
                   reset_unmatched_scores.enabled = true;
-                  upgrade = {
-                    allowed = true;
-                    until_quality = "WEB 1080p";
-                    until_score = 15000;
-                  };
-                  min_format_score = 0;
-                  quality_sort = "top";
-                  qualities = [
-                    {
-                      name = "WEB 1080p";
-                      qualities = [
-                        "WEBDL-1080p"
-                        "WEBRip-1080p"
-                      ];
-                    }
-                  ];
+                  # upgrade = {
+                  #   allowed = true;
+                  #   until_quality = "WEB 1080p";
+                  #   until_score = 15000;
+                  # };
+                  # min_format_score = 0;
+                  # quality_sort = "top";
+                  # qualities = [
+                  #   {
+                  #     name = "WEB 1080p";
+                  #     qualities = [
+                  #       "WEBDL-1080p"
+                  #       "WEBRip-1080p"
+                  #     ];
+                  #   }
+                  # ];
                 }
               ];
 
@@ -133,7 +134,7 @@
                 # Anime
                 {
                   trash_ids = [ "949c16fe0a8147f50ba82cc2df9411c9" ]; # Anime BD Tier 01 (Top SeaDex Muxers)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 1400;
@@ -142,7 +143,7 @@
                 }
                 {
                   trash_ids = [ "ed7f1e315e000aef424a58517fa48727" ]; # Anime BD Tier 02 (SeaDex Muxers)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 1300;
@@ -151,7 +152,7 @@
                 }
                 {
                   trash_ids = [ "096e406c92baa713da4a72d88030b815" ]; # Anime BD Tier 03 (SeaDex Muxers)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 1200;
@@ -160,7 +161,7 @@
                 }
                 {
                   trash_ids = [ "30feba9da3030c5ed1e0f7d610bcadc4" ]; # Anime BD Tier 04 (SeaDex Muxers)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 1100;
@@ -169,7 +170,7 @@
                 }
                 {
                   trash_ids = [ "545a76b14ddc349b8b185a6344e28b04" ]; # Anime BD Tier 05 (Remuxes)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 1000;
@@ -178,7 +179,7 @@
                 }
                 {
                   trash_ids = [ "25d2afecab632b1582eaf03b63055f72" ]; # Anime BD Tier 06 (FanSubs)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 900;
@@ -187,7 +188,7 @@
                 }
                 {
                   trash_ids = [ "0329044e3d9137b08502a9f84a7e58db" ]; # Anime BD Tier 07 (P2P/Scene)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 800;
@@ -196,7 +197,7 @@
                 }
                 {
                   trash_ids = [ "c81bbfb47fed3d5a3ad027d077f889de" ]; # Anime BD Tier 08 (Mini Encodes)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 700;
@@ -205,7 +206,7 @@
                 }
                 {
                   trash_ids = [ "e0014372773c8f0e1bef8824f00c7dc4" ]; # Anime Web Tier 01 (Muxers)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 600;
@@ -214,7 +215,7 @@
                 }
                 {
                   trash_ids = [ "19180499de5ef2b84b6ec59aae444696" ]; # Anime Web Tier 02 (Top FanSubs)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 500;
@@ -223,7 +224,7 @@
                 }
                 {
                   trash_ids = [ "e6258996055b9fbab7e9cb2f75819294" ]; # WEB Tier 01
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 350;
@@ -232,7 +233,7 @@
                 }
                 {
                   trash_ids = [ "58790d4e2fdcd9733aa7ae68ba2bb503" ]; # WEB Tier 02
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 150;
@@ -241,7 +242,7 @@
                 }
                 {
                   trash_ids = [ "c27f2ae6a4e82373b0f1da094e2489ad" ]; # Anime Web Tier 03 (Official Subs)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 400;
@@ -250,7 +251,7 @@
                 }
                 {
                   trash_ids = [ "d84935abd3f8556dcd51d4f27e22d0a6" ]; # WEB Tier 03
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 150;
@@ -259,7 +260,7 @@
                 }
                 {
                   trash_ids = [ "9965a052eb87b0d10313b1cea89eb451" ]; # Remux Tier 01
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 1050;
@@ -268,7 +269,7 @@
                 }
                 {
                   trash_ids = [ "8a1d0c3d7497e741736761a1da866a2e" ]; # Remux Tier 02
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 1000;
@@ -277,7 +278,7 @@
                 }
                 {
                   trash_ids = [ "4fd5528a3a8024e6b49f9c67053ea5f3" ]; # Anime Web Tier 04 (Official Subs)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 300;
@@ -286,7 +287,7 @@
                 }
                 {
                   trash_ids = [ "29c2a13d091144f63307e4a8ce963a39" ]; # Anime Web Tier 05 (FanSubs)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 200;
@@ -295,7 +296,7 @@
                 }
                 {
                   trash_ids = [ "dc262f88d74c651b12e9d90b39f6c753" ]; # Anime Web Tier 06 (FanSubs)
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 100;
@@ -304,7 +305,7 @@
                 }
                 {
                   trash_ids = [ "026d5aadd1a6b4e550b134cb6c72b3ca" ]; # Uncensored
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 101;
@@ -313,7 +314,7 @@
                 }
                 {
                   trash_ids = [ "d2d7b8a9d39413da5f44054080e028a3" ]; # v0
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = -51;
@@ -322,7 +323,7 @@
                 }
                 {
                   trash_ids = [ "273bd326df95955e1b6c26527d1df89b" ]; # v1
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 1;
@@ -331,7 +332,7 @@
                 }
                 {
                   trash_ids = [ "228b8ee9aa0a609463efca874524a6b8" ]; # v2
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 2;
@@ -340,7 +341,7 @@
                 }
                 {
                   trash_ids = [ "0e5833d3af2cc5fa96a0c29cd4477feb" ]; # v3
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 3;
@@ -349,7 +350,7 @@
                 }
                 {
                   trash_ids = [ "4fc15eeb8f2f9a749f918217d4234ad8" ]; # v4
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 4;
@@ -358,7 +359,7 @@
                 }
                 {
                   trash_ids = [ "44a8ee6403071dd7b8a3a8dd3fe8cb20" ]; # VRV
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 3;
@@ -367,7 +368,7 @@
                 }
                 {
                   trash_ids = [ "418f50b10f1907201b6cfdf881f467b7" ]; # Anime Dual Audio
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 0;
@@ -376,7 +377,7 @@
                 }
                 {
                   trash_ids = [ "b2550eb333d27b75833e25b8c2557b38" ]; # 10bit
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 0;
@@ -391,7 +392,7 @@
                     "9c14d194486c4014d422adc64092d794" # Dubs Only
                     "07a32f77690263bb9fda1842db7e273f" # VOSTFR
                   ];
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = -10000;
@@ -401,7 +402,7 @@
                 # Streaming services
                 {
                   trash_ids = [ "3e0b26604165f463f3e8e192261e7284" ]; # CR
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 6;
@@ -410,7 +411,7 @@
                 }
                 {
                   trash_ids = [ "89358767a60cc28783cdc3d0be9388a4" ]; # DSNP
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 5;
@@ -419,7 +420,7 @@
                 }
                 {
                   trash_ids = [ "d34870697c9db575f17700212167be23" ]; # NF
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 4;
@@ -431,7 +432,7 @@
                     "d660701077794679fd59e8bdf4ce3a29" # AMZN
                     "44a8ee6403071dd7b8a3a8dd3fe8cb20" # VRV
                   ];
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 3;
@@ -440,7 +441,7 @@
                 }
                 {
                   trash_ids = [ "1284d18e693de8efe0fe7d6b3e0b9170" ]; # FUNi
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 2;
@@ -449,7 +450,7 @@
                 }
                 {
                   trash_ids = [ "d54cd2bf1326287275b56bccedb72ee2" ]; # ADN
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 1;
@@ -462,7 +463,7 @@
                     "4c67ff059210182b59cdd41697b8cb08" # Bilibili
                     "570b03b3145a25011bf073274a407259" # HIDIVE
                   ];
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 0;
@@ -512,7 +513,7 @@
                     "d84935abd3f8556dcd51d4f27e22d0a6" # WEB Tier 03
                     "d0c516558625b04b363fa6c5c2c7cfd4" # WEB Scene
                   ];
-                  quality_profiles = [ { name = "WEB-1080p - TV"; } ];
+                  assign_scores_to = [ { name = "WEB-1080p - TV"; } ];
                 }
               ];
             };
@@ -546,97 +547,96 @@
               # Documentation: https://recyclarr.dev/wiki/yaml/config-reference/quality-profiles/
               quality_profiles = [
                 {
+                  trash_id = "722b624f9af1e492284c4bc842153a38";
                   name = "Remux-1080p - Anime";
                   reset_unmatched_scores.enabled = true;
-                  upgrade = {
-                    allowed = true;
-                    until_quality = "Remux-1080p";
-                    until_score = 10000;
-                  };
-                  min_format_score = 100;
-                  score_set = "anime-radarr";
-                  quality_sort = "top";
-                  qualities = [
-                    {
-                      name = "Remux-1080p";
-                      qualities = [
-                        "Bluray-1080p"
-                        "Remux-1080p"
-                      ];
-                    }
-                    {
-                      name = "WEB 1080p";
-                      qualities = [
-                        "WEBDL-1080p"
-                        "WEBRip-1080p"
-                        "HDTV-1080p"
-                      ];
-                    }
-                    { name = "Bluray-720p"; }
-                    {
-                      name = "WEB 720p";
-                      qualities = [
-                        "WEBDL-720p"
-                        "WEBRip-720p"
-                        "HDTV-720p"
-                      ];
-                    }
-                    { name = "Bluray-480p"; }
-                    {
-                      name = "WEB 480p";
-                      qualities = [
-                        "WEBDL-480p"
-                        "WEBRip-480p"
-                      ];
-                    }
-                    { name = "DVD"; }
-                    { name = "SDTV"; }
-                  ];
+                  # upgrade = {
+                  #   allowed = true;
+                  #   until_quality = "Remux-1080p";
+                  #   until_score = 10000;
+                  # };
+                  # min_format_score = 100;
+                  # score_set = "anime-radarr";
+                  # quality_sort = "top";
+                  # qualities = [
+                  #   {
+                  #     name = "Remux-1080p";
+                  #     qualities = [
+                  #       "Bluray-1080p"
+                  #       "Remux-1080p"
+                  #     ];
+                  #   }
+                  #   {
+                  #     name = "WEB 1080p";
+                  #     qualities = [
+                  #       "WEBDL-1080p"
+                  #       "WEBRip-1080p"
+                  #       "HDTV-1080p"
+                  #     ];
+                  #   }
+                  #   { name = "Bluray-720p"; }
+                  #   {
+                  #     name = "WEB 720p";
+                  #     qualities = [
+                  #       "WEBDL-720p"
+                  #       "WEBRip-720p"
+                  #       "HDTV-720p"
+                  #     ];
+                  #   }
+                  #   { name = "Bluray-480p"; }
+                  #   {
+                  #     name = "WEB 480p";
+                  #     qualities = [
+                  #       "WEBDL-480p"
+                  #       "WEBRip-480p"
+                  #     ];
+                  #   }
+                  #   { name = "DVD"; }
+                  #   { name = "SDTV"; }
+                  # ];
                 }
                 {
+                  trash_id = "9ca12ea80aa55ef916e3751f4b874151";
                   name = "Remux + WEB 1080p";
-                  reset_unmatched_scores = {
-                    enabled = true;
-                  };
-                  upgrade = {
-                    allowed = true;
-                    until_quality = "Remux-1080p";
-                    until_score = 10000;
-                  };
-                  min_format_score = 0;
-                  quality_sort = "top";
-                  qualities = [
-                    { name = "Remux-1080p"; }
-                    {
-                      name = "WEB 1080p";
-                      qualities = [
-                        "WEBDL-1080p"
-                        "WEBRip-1080p"
-                      ];
-                    }
-                  ];
+                  reset_unmatched_scores.enabled = true;
+                  # upgrade = {
+                  #   allowed = true;
+                  #   until_quality = "Remux-1080p";
+                  #   until_score = 10000;
+                  # };
+                  # min_format_score = 0;
+                  # quality_sort = "top";
+                  # qualities = [
+                  #   { name = "Remux-1080p"; }
+                  #   {
+                  #     name = "WEB 1080p";
+                  #     qualities = [
+                  #       "WEBDL-1080p"
+                  #       "WEBRip-1080p"
+                  #     ];
+                  #   }
+                  # ];
                 }
                 {
+                  trash_id = "fd161a61e3ab826d3a22d53f935696dd";
                   name = "Remux + WEB 2160p";
-                  reset_unmatched_scores = {
-                    enabled = true;
-                  };
-                  upgrade = {
-                    allowed = true;
-                    until_quality = "Remux-2160p";
-                  };
-                  min_format_score = 100;
-                  quality_sort = "top";
-                  qualities = [
-                    { name = "Remux-2160p"; }
-                    {
-                      name = "Web 2160p";
-                      qualities = [
-                        "WEBDL-2160p"
-                        "WEBRip-2160p"
-                      ];
-                    }
-                  ];
+                  reset_unmatched_scores.enabled = true;
+                  # upgrade = {
+                  #   allowed = true;
+                  #   until_quality = "Remux-2160p";
+                  # };
+                  # min_format_score = 100;
+                  # quality_sort = "top";
+                  # qualities = [
+                  #   { name = "Remux-2160p"; }
+                  #   {
+                  #     name = "Web 2160p";
+                  #     qualities = [
+                  #       "WEBDL-2160p"
+                  #       "WEBRip-2160p"
+                  #     ];
+                  #   }
+                  # ];
                 }
               ];
 
@@ -684,7 +684,7 @@
                     "403816d65392c79236dcb6dd591aeda4" # WEB Tier 02
                     "af94e0fe497124d1f9ce732069ec8c3b" # WEB Tier 03
                   ];
-                  quality_profiles = [ { name = "Remux-1080p - Anime"; } ];
+                  assign_scores_to = [ { name = "Remux-1080p - Anime"; } ];
                 }
                 {
                   # Scores from TRaSH json
@@ -739,7 +739,7 @@
                     "2a6039655313bf5dab1e43523b62c374" # MA
                     "16622a6911d1ab5d5b8b713d5b0036d4" # CRiT
                   ];
-                  quality_profiles = [
+                  assign_scores_to = [
                     { name = "Remux + WEB 1080p"; }
                     { name = "Remux + WEB 2160p"; }
                   ];
@@ -749,7 +749,7 @@
                 # Adjustable scoring section
                 {
                   trash_ids = [ "064af5f084a0a24458cc8ecd3220f93f" ]; # Uncensored
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 10;
@@ -758,7 +758,7 @@
                 }
                 {
                   trash_ids = [ "4a3b087eea2ce012fcc1ce319259a3be" ]; # Anime Dual Audio
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux-1080p - Anime";
                       score = 0;
@@ -783,7 +783,7 @@
                     "e36a0ba1bc902b26ee40818a1d59b8bd" # PMTP
                     "c2863d2a50c9acad1fb50e53ece60817" # STAN
                   ];
-                  quality_profiles = [
+                  assign_scores_to = [
                     {
                       name = "Remux + WEB 1080p";
                       score = 0;
