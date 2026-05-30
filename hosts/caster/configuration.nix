@@ -26,7 +26,6 @@
         services-immich
         services-isponsorblocktv
         services-jellyfin
-        services-jellyseerr
         services-nextcloud
         services-nginx
         services-postfix
@@ -36,6 +35,7 @@
         services-radarr
         services-recyclarr
         services-seadexarr
+        services-seerr
         services-sonarr
         services-sops
         services-syncthing
@@ -103,7 +103,10 @@
 
       boot = {
         supportedFilesystems.zfs = true;
-        zfs.extraPools = [ "neodata" ];
+        zfs = {
+          extraPools = [ "neodata" ];
+          forceImportRoot = false;
+        };
       };
       networking = {
         # Required by ZFS

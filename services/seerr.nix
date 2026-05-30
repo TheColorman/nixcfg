@@ -1,15 +1,15 @@
 {
-  flake.nixosModules.services-jellyseerr =
+  flake.nixosModules.services-seerr =
     { config, ... }:
     let
       domain = "jellyseerr.color";
 
-      cfg = config.services.jellyseerr;
+      cfg = config.services.seerr;
       crtCfg = config.my.certificates.certs."${domain}";
     in
     {
       services = {
-        jellyseerr = {
+        seerr = {
           enable = true;
           openFirewall = true;
         };

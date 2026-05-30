@@ -17,9 +17,6 @@
 
           mediaLocation = "/mnt/neodata/default/immich/data";
 
-          # Disable deprecated pgvector.rs extension
-          database.enableVectors = false;
-
           openFirewall = true;
         };
 
