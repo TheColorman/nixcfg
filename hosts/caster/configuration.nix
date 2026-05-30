@@ -20,10 +20,8 @@
         services-beszel-hub
         services-cloudflared
         services-cross-seed
-        services-ersatztv
         services-gpg
         services-hedgedoc
-        services-homepage
         services-immich
         services-isponsorblocktv
         services-jellyfin
@@ -35,7 +33,6 @@
         services-qbittorrent
         services-radarr
         services-recyclarr
-        services-seadexarr
         services-seerr
         services-sonarr
         services-sops
