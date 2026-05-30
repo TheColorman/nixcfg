@@ -50,74 +50,74 @@
               # This section creates and/or updates Quality Profile(s) in your Sonarr instance
               # Documentation: https://recyclarr.dev/wiki/yaml/config-reference/#quality-profiles
               quality_profiles = [
+                # [Anime] Remux-1080p
                 {
                   trash_id = "20e0fc959f1f1704bed501f23bdae76f";
-                  name = "Remux-1080p - Anime";
                   reset_unmatched_scores.enabled = true;
-                  # upgrade = {
-                  #   allowed = true;
-                  #   until_quality = "Bluray-1080p";
-                  #   until_score = 10000;
-                  # };
-                  # min_format_score = 100;
-                  # quality_sort = "top";
-                  # qualities = [
-                  #   {
-                  #     name = "Bluray-1080p";
-                  #     qualities = [
-                  #       "Bluray-1080p Remux"
-                  #       "Bluray-1080p"
-                  #     ];
-                  #   }
-                  #   {
-                  #     name = "WEB 1080p";
-                  #     qualities = [
-                  #       "WEBDL-1080p"
-                  #       "WEBRip-1080p"
-                  #       "HDTV-1080p"
-                  #     ];
-                  #   }
-                  #   { name = "Bluray-720p"; }
-                  #   {
-                  #     name = "WEB 720p";
-                  #     qualities = [
-                  #       "WEBDL-720p"
-                  #       "WEBRip-720p"
-                  #       "HDTV-720p"
-                  #     ];
-                  #   }
-                  #   { name = "Bluray-480p"; }
-                  #   {
-                  #     name = "WEB 480p";
-                  #     qualities = [
-                  #       "WEBDL-480p"
-                  #       "WEBRip-480p"
-                  #     ];
-                  #   }
-                  #   { name = "DVD"; }
-                  #   { name = "SDTV"; }
-                  # ];
+                  upgrade = {
+                    allowed = true;
+                    until_quality = "Bluray-1080p";
+                    until_score = 10000;
+                  };
+                  min_format_score = 100;
+                  quality_sort = "top";
+                  qualities = [
+                    {
+                      name = "Bluray-1080p";
+                      qualities = [
+                        "Bluray-1080p Remux"
+                        "Bluray-1080p"
+                      ];
+                    }
+                    {
+                      name = "WEB 1080p";
+                      qualities = [
+                        "WEBDL-1080p"
+                        "WEBRip-1080p"
+                        "HDTV-1080p"
+                      ];
+                    }
+                    { name = "Bluray-720p"; }
+                    {
+                      name = "WEB 720p";
+                      qualities = [
+                        "WEBDL-720p"
+                        "WEBRip-720p"
+                        "HDTV-720p"
+                      ];
+                    }
+                    { name = "Bluray-480p"; }
+                    {
+                      name = "WEB 480p";
+                      qualities = [
+                        "WEBDL-480p"
+                        "WEBRip-480p"
+                      ];
+                    }
+                    { name = "DVD"; }
+                    { name = "SDTV"; }
+                  ];
                 }
+                # [TV] Web-1080p
                 {
                   trash_id = "72dae194fc92bf828f32cde7744e51a1";
-                  name = "WEB-1080p - TV";
                   reset_unmatched_scores.enabled = true;
-                  # upgrade = {
-                  #   allowed = true;
-                  #   until_quality = "WEB 1080p";
-                  #   until_score = 15000;
-                  # };
-                  # min_format_score = 0;
-                  # quality_sort = "top";
-                  # qualities = [
-                  #   {
-                  #     name = "WEB 1080p";
-                  #     qualities = [
-                  #       "WEBDL-1080p"
-                  #       "WEBRip-1080p"
-                  #     ];
-                  #   }
-                  # ];
+                  upgrade = {
+                    allowed = true;
+                    until_quality = "WEB 1080p";
+                    until_score = 15000;
+                  };
+                  min_format_score = 0;
+                  quality_sort = "top";
+                  qualities = [
+                    {
+                      name = "WEB 1080p";
+                      qualities = [
+                        "WEBDL-1080p"
+                        "WEBRip-1080p"
+                      ];
+                    }
+                  ];
                 }
               ];
 
@@ -541,97 +541,97 @@
               # This section creates and/or updates Quality Profile(s) in your Radarr instance
               # Documentation: https://recyclarr.dev/wiki/yaml/config-reference/quality-profiles/
               quality_profiles = [
+                # [Anime] Remux-1080p
                 {
                   trash_id = "722b624f9af1e492284c4bc842153a38";
-                  name = "Remux-1080p - Anime";
                   reset_unmatched_scores.enabled = true;
-                  # upgrade = {
-                  #   allowed = true;
-                  #   until_quality = "Remux-1080p";
-                  #   until_score = 10000;
-                  # };
-                  # min_format_score = 100;
-                  # score_set = "anime-radarr";
-                  # quality_sort = "top";
-                  # qualities = [
-                  #   {
-                  #     name = "Remux-1080p";
-                  #     qualities = [
-                  #       "Bluray-1080p"
-                  #       "Remux-1080p"
-                  #     ];
-                  #   }
-                  #   {
-                  #     name = "WEB 1080p";
-                  #     qualities = [
-                  #       "WEBDL-1080p"
-                  #       "WEBRip-1080p"
-                  #       "HDTV-1080p"
-                  #     ];
-                  #   }
-                  #   { name = "Bluray-720p"; }
-                  #   {
-                  #     name = "WEB 720p";
-                  #     qualities = [
-                  #       "WEBDL-720p"
-                  #       "WEBRip-720p"
-                  #       "HDTV-720p"
-                  #     ];
-                  #   }
-                  #   { name = "Bluray-480p"; }
-                  #   {
-                  #     name = "WEB 480p";
-                  #     qualities = [
-                  #       "WEBDL-480p"
-                  #       "WEBRip-480p"
-                  #     ];
-                  #   }
-                  #   { name = "DVD"; }
-                  #   { name = "SDTV"; }
-                  # ];
+                  upgrade = {
+                    allowed = true;
+                    until_quality = "Remux-1080p";
+                    until_score = 10000;
+                  };
+                  min_format_score = 100;
+                  score_set = "anime-radarr";
+                  quality_sort = "top";
+                  qualities = [
+                    {
+                      name = "Remux-1080p";
+                      qualities = [
+                        "Bluray-1080p"
+                        "Remux-1080p"
+                      ];
+                    }
+                    {
+                      name = "WEB 1080p";
+                      qualities = [
+                        "WEBDL-1080p"
+                        "WEBRip-1080p"
+                        "HDTV-1080p"
+                      ];
+                    }
+                    { name = "Bluray-720p"; }
+                    {
+                      name = "WEB 720p";
+                      qualities = [
+                        "WEBDL-720p"
+                        "WEBRip-720p"
+                        "HDTV-720p"
+                      ];
+                    }
+                    { name = "Bluray-480p"; }
+                    {
+                      name = "WEB 480p";
+                      qualities = [
+                        "WEBDL-480p"
+                        "WEBRip-480p"
+                      ];
+                    }
+                    { name = "DVD"; }
+                    { name = "SDTV"; }
+                  ];
                 }
+                # Remux + Web 1080p
                 {
                   trash_id = "9ca12ea80aa55ef916e3751f4b874151";
-                  name = "Remux + WEB 1080p";
                   reset_unmatched_scores.enabled = true;
-                  # upgrade = {
-                  #   allowed = true;
-                  #   until_quality = "Remux-1080p";
-                  #   until_score = 10000;
-                  # };
-                  # min_format_score = 0;
-                  # quality_sort = "top";
-                  # qualities = [
-                  #   { name = "Remux-1080p"; }
-                  #   {
-                  #     name = "WEB 1080p";
-                  #     qualities = [
-                  #       "WEBDL-1080p"
-                  #       "WEBRip-1080p"
-                  #     ];
-                  #   }
-                  # ];
+                  upgrade = {
+                    allowed = true;
+                    until_quality = "Remux-1080p";
+                    until_score = 10000;
+                  };
+                  min_format_score = 0;
+                  quality_sort = "top";
+                  qualities = [
+                    { name = "Remux-1080p"; }
+                    {
+                      name = "WEB 1080p";
+                      qualities = [
+                        "WEBDL-1080p"
+                        "WEBRip-1080p"
+                      ];
+                    }
+                  ];
                 }
+                # Remux + WEB 2160p
                 {
                   trash_id = "fd161a61e3ab826d3a22d53f935696dd";
-                  name = "Remux + WEB 2160p";
                   reset_unmatched_scores.enabled = true;
-                  # upgrade = {
-                  #   allowed = true;
-                  #   until_quality = "Remux-2160p";
-                  # };
-                  # min_format_score = 100;
-                  # quality_sort = "top";
-                  # qualities = [
-                  #   { name = "Remux-2160p"; }
-                  #   {
-                  #     name = "Web 2160p";
-                  #     qualities = [
-                  #       "WEBDL-2160p"
-                  #       "WEBRip-2160p"
-                  #     ];
-                  #   }
-                  # ];
+                  upgrade = {
+                    allowed = true;
+                    until_quality = "Remux-2160p";
+                  };
+                  min_format_score = 100;
+                  quality_sort = "top";
+                  qualities = [
+                    { name = "Remux-2160p"; }
+                    {
+                      name = "Web 2160p";
+                      qualities = [
+                        "WEBDL-2160p"
+                        "WEBRip-2160p"
+                      ];
+                    }
+                  ];
                 }
               ];
 
