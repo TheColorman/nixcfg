@@ -72,8 +72,16 @@
               };
 
               launcher.enableDangerousActions = true;
+              services = {
 
-              services.showLyrics = true;
+                defaultPlayer = "YouTube Music";
+                playerAliases = [
+                  {
+                    from = "com.github.th_ch.youtube_music";
+                    to = "YouTube Music";
+                  }
+                ];
+              };
 
               utilities = {
                 toasts.nowPlaying = true;
