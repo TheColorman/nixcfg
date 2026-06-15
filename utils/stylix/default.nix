@@ -65,8 +65,6 @@
         };
 
         home.pointerCursor.enable = true;
-
-        gtk.gtk4.theme = config.home-manager.users.${username}.gtk.theme;
       };
 
       # idk man, these files keep blocking hm
