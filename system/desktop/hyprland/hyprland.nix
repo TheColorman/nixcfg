@@ -326,6 +326,8 @@
                   scale = "auto";
                 }
               ];
+
+              misc.initial_workspace_tracking = 1;
             };
         in
         {
