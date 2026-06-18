@@ -112,6 +112,7 @@
                   repeat_delay = 225;
                 };
 
+                misc.initial_workspace_tracking = 1;
               };
 
               animation =
