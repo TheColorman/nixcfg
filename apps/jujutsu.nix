@@ -127,8 +127,7 @@
                 };
                 csharpier = {
                   command = [
-                    "dotnet"
-                    "csharpier"
+                    (getExe pkgs.csharpier)
                     "format"
                     "--stdin-path=$path"
                   ];
