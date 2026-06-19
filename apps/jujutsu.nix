@@ -101,7 +101,7 @@
                       ""
                     )
                     .replace(
-                      regex:"[^a-zA-Z0-9]+",
+                      regex:"[^a-zA-Z0-9/]+",
                       "-"
                     )
                     .replace(
