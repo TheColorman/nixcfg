@@ -59,7 +59,7 @@
                   "default()"
                 ];
                 diff-editor = ":builtin";
-                merge-editor = "nvim";
+                merge-editor = "ki";
               };
               signing = {
                 behavior = "drop";
@@ -169,17 +169,24 @@
                   "trunk()"
                 ];
               };
-
-              merge-tools.nvim = {
-                merge-args = [
-                  "$output"
-                  "-M"
-                  "-c"
-                  "set modifiable"
-                  "-c"
-                  "set write"
-                ];
-                merge-tool-edits-conflict-markers = true;
+              merge-tools = {
+                ki = {
+                  merge-args = [
+                    "$output"
+                  ];
+                  merge-tool-edits-conflict-markers = true;
+                };
+                nvim = {
+                  merge-args = [
+                    "$output"
+                    "-M"
+                    "-c"
+                    "set modifiable"
+                    "-c"
+                    "set write"
+                  ];
+                  merge-tool-edits-conflict-markers = true;
+                };
               };
             };
           };
