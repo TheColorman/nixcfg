@@ -59,7 +59,7 @@
                   "default()"
                 ];
                 diff-editor = ":builtin";
-                merge-editor = "nvim";
+                merge-editor = "ki";
               };
               signing = {
                 behavior = "drop";
