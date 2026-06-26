@@ -29,10 +29,9 @@
           adminuser = "admin";
           adminpassFile = config.sops.secrets."services/nextcloud/adminpass".path;
         };
-        settings = {
-          config_is_read_only = true;
-          serverid = 444;
-        };
+
+        settings.serverid = 444;
+
         configureRedis = true;
         caching.redis = true;
 
