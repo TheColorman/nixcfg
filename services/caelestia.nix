@@ -156,13 +156,13 @@
 
                 # Media
                 (mkBindR "CTRL + SUPER + Space" ''hl.dsp.global("caelestia:mediaToggle")'' { locked = true; })
-                (mkBindR "XF86AudioPlay" ''hl.dsp.global("caelestia:mediaToggle ")'' { locked = true; })
-                (mkBindR "XF86AudioPause" ''hl.dsp.global("caelestia:mediaToggle ")'' { locked = true; })
-                (mkBindR "CTRL + SUPER + Equal" ''hl.dsp.global("caelestia:mediaNext ")'' { locked = true; })
-                (mkBindR "XF86AudioNext" ''hl.dsp.global("caelestia:mediaNext ")'' { locked = true; })
-                (mkBindR "CTRL + SUPER + Minus" ''hl.dsp.global("caelestia:mediaPrev ")'' { locked = true; })
-                (mkBindR "XF86AudioPrev" ''hl.dsp.global("caelestia:mediaPrev ")'' { locked = true; })
-                (mkBindR "XF86AudioStop" ''hl.dsp.global("caelestia:mediaStop ")'' { locked = true; })
+                (mkBindR "XF86AudioPlay" ''hl.dsp.global("caelestia:mediaToggle")'' { locked = true; })
+                (mkBindR "XF86AudioPause" ''hl.dsp.global("caelestia:mediaToggle")'' { locked = true; })
+                (mkBindR "CTRL + SUPER + Equal" ''hl.dsp.global("caelestia:mediaNext")'' { locked = true; })
+                (mkBindR "XF86AudioNext" ''hl.dsp.global("caelestia:mediaNext")'' { locked = true; })
+                (mkBindR "CTRL + SUPER + Minus" ''hl.dsp.global("caelestia:mediaPrev")'' { locked = true; })
+                (mkBindR "XF86AudioPrev" ''hl.dsp.global("caelestia:mediaPrev")'' { locked = true; })
+                (mkBindR "XF86AudioStop" ''hl.dsp.global("caelestia:mediaStop")'' { locked = true; })
 
                 # Utilities
                 #   Full screen capture > clipboard
