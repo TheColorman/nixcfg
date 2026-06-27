@@ -6,6 +6,7 @@
 # 2025-H1: nemupan (https://linktr.ee/nemupan). Extended using Photoshop to fit my aspect ratio
 # 2025-H2: 夏の影 (https://pixiv.net/artworks/90877153) by あきま (https://pixiv.net/users/19301797)
 # 2026-H1: Crescent #4 (https://pixiv.net/artworks/120894232) by DDal (https://pixiv.net/users/267137)
+# 2026-H2: (https://x.com/tarou2/status/1342614251752497155) by tarou2 (https://x.com/tarou2)
 { inputs, self, ... }:
 {
   flake.nixosModules.utils-stylix =
@@ -15,7 +16,7 @@
       ...
     }:
     let
-      asset = "2026-H1.jpg";
+      asset = "2026-H2.jpg";
 
       inherit (config.my) username;
     in
