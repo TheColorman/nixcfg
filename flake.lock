@@ -190,7 +190,9 @@
     },
     "caelestia": {
       "inputs": {
-        "caelestia-cli": "caelestia-cli",
+        "caelestia-cli": [
+          "caelestia-cli"
+        ],
         "m3shapes": "m3shapes",
         "nixpkgs": [
           "nixpkgs"
@@ -213,20 +215,17 @@
     },
     "caelestia-cli": {
       "inputs": {
-        "caelestia-shell": [
-          "caelestia"
-        ],
+        "caelestia-shell": [],
         "nixpkgs": [
-          "caelestia",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1781930126,
-        "narHash": "sha256-AopjjM6497f3Usb6IAZgensjtzGlYGGpJLw7DRtP67I=",
+        "lastModified": 1782533477,
+        "narHash": "sha256-2enYwf3n9GUkne9v4J3Ud6LpoG4Uarl3BaSQgRAAH7o=",
         "owner": "caelestia-dots",
         "repo": "cli",
-        "rev": "b00dabaa9351d1383dfba162f5b3575b49a126e1",
+        "rev": "e9e115568f818ee1df2d7a9e21925141b053ec6e",
         "type": "github"
       },
       "original": {
@@ -1779,6 +1778,7 @@
         "anchorr": "anchorr",
         "authentik-nix": "authentik-nix",
         "caelestia": "caelestia",
+        "caelestia-cli": "caelestia-cli",
         "deploy-rs": "deploy-rs",
         "discord-portal": "discord-portal",
         "disko": "disko",

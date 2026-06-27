@@ -80,9 +80,19 @@
     };
 
     # Desktop shell dots
+    caelestia-cli = {
+      url = "github:caelestia-dots/cli";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        caelestia-shell.follows = "";
+      };
+    };
     caelestia = {
       url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        caelestia-cli.follows = "caelestia-cli";
+      };
     };
 
     # Zen browser
