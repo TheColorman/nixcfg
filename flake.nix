@@ -169,5 +169,14 @@
       url = "github:kawaiiDango/pano-scrobbler-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Unpatched binary runner
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs = {
+        nix-index-database.follows = "nix-index-database";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
 }

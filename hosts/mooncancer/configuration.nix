@@ -95,6 +95,8 @@
           opencode
           ripgrep
           wl-clipboard
+
+          inputs.nix-alien.packages.${stdenv.hostPlatform.system}.default
         ];
       };
 
