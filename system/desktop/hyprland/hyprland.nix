@@ -356,7 +356,10 @@
               '';
             };
             services = {
-              hyprpaper.enable = true;
+              hyprpaper = {
+                enable = true;
+                settings.splash = lib.mkForce true;
+              };
               hyprpolkitagent.enable = true;
               cliphist = {
                 enable = true;
