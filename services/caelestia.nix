@@ -34,6 +34,7 @@
 
               background = {
                 enabled = true;
+                wallpaperEnabled = false;
                 desktopClock = {
                   enabled = true;
                   background.enabled = false;
