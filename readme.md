@@ -11,6 +11,7 @@ all my machines
   - `archer/` - My Framework laptop.
   - `caster/` - Media + general purpose server.
   - `foreigner/` - WSL laptop.
+  - `lancer/` - USB-C drive.
   - `mooncancer` - WSL desktop.
   - `pretender/` - Mini PC.
   - `rider/` - Raspberry Pi 4B.
