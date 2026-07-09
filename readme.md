@@ -10,7 +10,8 @@ all my machines
 - `hosts/` - Configuration for each machine.
   - `archer/` - My Framework laptop.
   - `caster/` - Media + general purpose server.
-  - `foreigner/` - WSL.
+  - `foreigner/` - WSL laptop.
+  - `mooncancer` - WSL desktop.
   - `pretender/` - Mini PC.
   - `rider/` - Raspberry Pi 4B.
   - `saber/` - Desktop computer.
@@ -25,6 +26,6 @@ all my machines
 
 I only have 2 branches `main` and `stable`. `main` runs `nixos-unstable`,
 whereas `stable` runs whatever the stable version of nixpkgs is at the moment.
-As of writing, this is `25.05`. The only host I build from `stable` is Caster as
+As of writing, this is `26.05`. The only host I build from `stable` is Caster as
 the applications running there are at a higher risk of breaking during major
 updates. Running stable allows me to plan my updates better.
