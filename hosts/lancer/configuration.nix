@@ -112,6 +112,16 @@
           showBattery = true;
           showWifi = true;
         };
+
+        # Lancer known monitors and preffered display settings
+        wayland.windowManager.hyprland.settings.monitor = [
+          {
+            output = "desc:BOE 0x0BCA";
+            mode = "2256x1504";
+            position = "0x0";
+            scale = "1.333333";
+          }
+        ];
       };
     };
 }
