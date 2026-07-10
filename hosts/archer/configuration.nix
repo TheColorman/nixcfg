@@ -1,4 +1,4 @@
-{ self, ... }:
+{ inputs, self, ... }:
 {
   flake.nixosModules.archer-configuration =
     {
@@ -83,6 +83,8 @@
           "video"
         ];
         packages = with pkgs; [
+          inputs.disko.packages.${pkgs.stdenv.hostPlatform.system}.default
+
           aria2
           cachix
           chromium
