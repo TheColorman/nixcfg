@@ -31,6 +31,7 @@
         apps-zen-browser
         profiles-gaming
         profiles-hacking
+        profiles-language-servers
         profiles-office
         services-caelestia
         services-docker
