@@ -26,6 +26,6 @@
       environment.systemPackages = [ pkgs.safeeyes ];
 
       # Enable autostart
-      my.autostart = [ "${pkgs.writeScript "launch-safeyes" "sleep 5; ${lib.getExe pkgs.safeeyes}"}" ];
+      my.autostart = [ "${pkgs.writeScript "launch-safeyes" "sleep 10; ${lib.getExe pkgs.safeeyes}"}" ];
     };
 }
