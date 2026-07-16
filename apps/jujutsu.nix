@@ -47,6 +47,10 @@
                 "default()" = ''
                   wip() | latest(tags()) | bookmarks()
                 '';
+                # Make commits by other authors immutable
+                "immutable_heads()" = ''
+                  builtin_immutable_heads() | (trunk().. & ~mine())
+                '';
               };
               ui = {
                 log-word-wrap = true;
