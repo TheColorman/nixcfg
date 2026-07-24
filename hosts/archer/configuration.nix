@@ -99,6 +99,7 @@
           p7zip
           pear-desktop
           ripgrep
+          signal-desktop
           telegram-desktop
           unzip
           wireguard-tools
