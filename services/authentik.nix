@@ -13,10 +13,6 @@
       services.authentik = {
         enable = true;
 
-        nginx = {
-          enable = true;
-          host = evalSecrets.domain;
-        };
         settings = {
           listen.http = "127.0.0.1:8080";
           email.from = "no-reply@${evalSecrets.emailDomain}";
