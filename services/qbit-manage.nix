@@ -11,7 +11,7 @@
       virtualisation = {
         podman.defaultNetwork.settings.dns_enabled = true;
         oci-containers.containers.qbit_manage = {
-          image = "ghcr.io/stuffanthings/qbit_manage:v4.7.1";
+          image = "ghcr.io/stuffanthings/qbit_manage:v4.11.0@sha256:d888d415075dc6fb6843f77465c6eb5688e6d78f15d7bd6a00da1cdd99a92120";
           volumes = [
             "/var/lib/qbit_manage/config:/config"
             "/mnt/neodata/default/Vault/Torrents:/mnt/neodata/default/Vault/Torrents"
