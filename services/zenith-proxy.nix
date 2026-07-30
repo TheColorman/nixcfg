@@ -3,7 +3,7 @@
     { config, ... }:
     let
       mkZenithInstance = dir: port: environmentFile: {
-        image = "ghcr.io/rfresh2/zenithproxy@sha256:045294f15a2253816f3a8bb1f43abf41d6148ae62cd2fe83eb13a5d3c8bf508d";
+        image = "ghcr.io/rfresh2/zenithproxy@sha256:3ba7c981bfc051785da83d32c394e141d6cd31cb3a938866f911fea2d8548bc5";
         ports = [ "0.0.0.0:${port}:25565" ];
         volumes = [
           "/var/lib/${dir}/:/opt/ZenithProxy/"
