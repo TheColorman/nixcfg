@@ -22,7 +22,7 @@
           inherit (pkgs.nextcloud33Packages.apps)
             end_to_end_encryption
             notify_push
-            user_saml
+            oidc_login
             ;
         };
         config = {
