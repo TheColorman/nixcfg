@@ -22,6 +22,7 @@
           inherit (pkgs.nextcloud33Packages.apps)
             end_to_end_encryption
             notify_push
+            user_saml
             ;
         };
         config = {
@@ -29,8 +30,10 @@
           adminuser = "admin";
           adminpassFile = config.sops.secrets."services/nextcloud/adminpass".path;
         };
-
-        settings.serverid = 444;
+        settings = {
+          serverid = 444;
+          maintenance_window_start = 1;
+        };
 
         configureRedis = true;
         caching.redis = true;
