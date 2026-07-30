@@ -36,6 +36,10 @@
           maintenance_window_start = 1;
           # OIDC settings
           lost_password_link = "disabled";
+          user_oidc = {
+            login_label = "Log in with ColorCloud";
+            allow_multiple_user_backends = 0;
+          };
         };
         secrets = {
           instanceid = config.sops.secrets."services/nextcloud/instanceid".path;
