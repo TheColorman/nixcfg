@@ -1,7 +1,7 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 {
   flake.nixosModules.services-authentik =
-    { config, ... }:
+    { config, pkgs, ... }:
     let
       evalSecrets = (import "${inputs.nix-secrets}/evaluation-secrets.nix").services.authentik;
     in
@@ -18,7 +18,10 @@
             http = [ "127.0.0.1:8080" ];
             trusted_proxy_cidrs = [ "127.0.0.0/8" ];
           };
-          email.from = "no-reply@${evalSecrets.emailDomain}";
+          email = {
+            from = "no-reply@${evalSecrets.emailDomain}";
+            template_dir = self.packages.${pkgs.stdenv.hostPlatform.system}.authentik_templates;
+          };
         };
 
         environmentFile = config.sops.templates."authentik.env".path;

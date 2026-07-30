@@ -1,0 +1,11 @@
+{% load i18n %}{% load humanize %}{% autoescape off %}{% blocktrans with username=user.username %}Hi {{ username }},{% endblocktrans %}
+
+{% blocktrans %}
+You've been invited to create a ColorCloud account! Use the link below to set a password and log in.
+{% endblocktrans %}
+{{ url }}
+{% blocktrans with expires=expires|timeuntil %}
+This email has been manually sent to you by a ColorCloud administrator. The link above is valid for {{ expires }}.
+{% endblocktrans %}
+
+{% endautoescape %}

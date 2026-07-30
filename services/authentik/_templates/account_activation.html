@@ -1,0 +1,44 @@
+{% extends "email/base.html" %}
+
+{% load i18n %}
+{% load humanize %}
+
+{% block content %}
+<tr>
+  <td align="center">
+    <h1>
+      {% blocktrans with username=user.username %}
+      Hi {{ username }},
+      {% endblocktrans %}
+    </h1>
+  </td>
+</tr>
+<tr>
+  <td align="center">
+    <table border="0">
+      <tr>
+        <td align="center" style="max-width: 300px; padding: 20px 0; color: #212124;">
+          {% blocktrans %}
+          You've been invited to create a ColorCloud account! Use the link below to set a password and log in.
+          {% endblocktrans %}
+        </td>
+      </tr>
+      <tr>
+        <td align="center" class="btn btn-primary">
+          <a id="confirm" href="{{ url }}" rel="noopener noreferrer" target="_blank">{% trans 'Set Password' %}</a>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+{% endblock %}
+
+{% block sub_content %}
+<tr>
+  <td style="padding: 20px; font-size: 12px; color: #212124;" align="center">
+    {% blocktrans with expires=expires|timeuntil %}
+    This email has been manually sent to you by a ColorCloud administrator. The link above is valid for {{ expires }}.
+    {% endblocktrans %}
+  </td>
+</tr>
+{% endblock %}
