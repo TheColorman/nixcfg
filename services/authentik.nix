@@ -14,7 +14,10 @@
         enable = true;
 
         settings = {
-          listen.http = [ "127.0.0.1:8080" ];
+          listen = {
+            http = [ "127.0.0.1:8080" ];
+            trusted_proxy_cidrs = [ "127.0.0.0/8" ];
+          };
           email.from = "no-reply@${evalSecrets.emailDomain}";
         };
 
