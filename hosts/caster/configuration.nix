@@ -99,6 +99,12 @@
         extraGroups = [ "wheel" ];
       };
 
+      nix.gc = {
+        automatic = true;
+        dates = [ "weekly" ];
+        randomizedDelaySec = "45min";
+      };
+
       boot = {
         supportedFilesystems.zfs = true;
         zfs = {
