@@ -954,11 +954,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1785393031,
-        "narHash": "sha256-5kRfReCn8qF4unM1k5Rg0oncF/jGtF19HqC76HsOq/E=",
+        "lastModified": 1785417019,
+        "narHash": "sha256-Z89MlbQtz73AEFI7xEqDRa+khTk9L9KzdXFGp3mEnLo=",
         "owner": "TheColorman",
         "repo": "ki-editor",
-        "rev": "971646cf4e1ab748a1067d71218957a4f33924e2",
+        "rev": "8804d71d1a3356ca4af130def1e944ff3ca877a0",
         "type": "github"
       },
       "original": {
@@ -1377,11 +1377,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785393519,
-        "narHash": "sha256-I1AqlAt5DeORDNNNJTSPYA/L1L1qVLW6vJJnACPphJo=",
+        "lastModified": 1785433518,
+        "narHash": "sha256-3l69kZspzosMPrAsWdtr+Y4EOab/tpimRztAhTBdyAg=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "84427b8d70e953074566afcefa0529f2a9880387",
+        "rev": "cd6669a4e8f13489a0aa96501f603b622795ce74",
         "type": "github"
       },
       "original": {
@@ -2198,11 +2198,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785224333,
-        "narHash": "sha256-8DNJUVM10ktK02V9ZIV064CH+fuPF272VCAZBn6arig=",
+        "lastModified": 1785432635,
+        "narHash": "sha256-LSb65DJoBk8ZDrg0xCfrOb3NnfsMLTC0kEAVpvlTG+Y=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "5f1a4be4d280e1ae06d61a75775a234b1714da3f",
+        "rev": "aaf2c248c3a75dfd99ea96261675545a308a5b64",
         "type": "github"
       },
       "original": {
