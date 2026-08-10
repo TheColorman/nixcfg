@@ -79,6 +79,7 @@
           killall
           nixd
           nixfmt
+          opencode
           ripgrep
           wl-clipboard
         ];
