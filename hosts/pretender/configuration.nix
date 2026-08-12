@@ -85,6 +85,11 @@
         };
       };
 
-      services.udev.packages = [ pkgs.limesuite ];
+      services.udev = {
+        packages = [ pkgs.limesuite ];
+        extraRules = ''
+          SUBSYSTEM=="usb", ATTR{idVendor}=="04b4", ATTR{idProduct}=="00f3", MODE="0666"
+        '';
+      };
     };
 }
