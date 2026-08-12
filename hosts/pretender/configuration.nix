@@ -20,6 +20,7 @@
         apps-kitty
         apps-neovim
         apps-nix
+        services-docker
         services-gpg
         services-kanata
         services-sops
