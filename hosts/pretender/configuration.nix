@@ -59,6 +59,7 @@
           iperf
           jq
           killall
+          limesuite
           opencode
           python313
           ripgrep
@@ -83,5 +84,7 @@
           package = pkgs.rtl-sdr-osmocom;
         };
       };
+
+      services.udev.packages = [ pkgs.limesuite ];
     };
 }
