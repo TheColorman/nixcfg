@@ -277,7 +277,7 @@ def build_initial_notification(
             "**Current best release(s):**",
             format_release_list(best),
             "",
-            entry.get("url", ""),
+            f"https://releases.moe/{entry.get("alID", "")}",
         ]
     )
 
@@ -334,7 +334,7 @@ def build_notification(
         "**New/updated best release(s):**",
         format_release_list(new_releases),
         "",
-        entry.get("url", ""),
+        f"https://releases.moe/{entry.get("alID", "")}",
     ])
 
     return "\n".join(parts)
