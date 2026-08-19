@@ -85,6 +85,7 @@
           fastfetch
           jq
           killall
+          lmstudio
           nixpkgs-fmt
           nixpkgs-review
           obsidian
