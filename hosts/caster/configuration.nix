@@ -33,6 +33,7 @@
         services-qbittorrent
         services-radarr
         services-recyclarr
+        services-seadex-watch
         services-seerr
         services-sonarr
         services-sops
