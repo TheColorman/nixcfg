@@ -24,6 +24,8 @@
             shfmt
             # JavaScript/TypeScript/JSON/Markdown etc.
             prettierd
+            # Python
+            pyright
             # Rust
             rust-analyzer
           ]
