@@ -10,9 +10,9 @@
           ;; https://github.com/DreymaR/BigBagKbdTrixPKL
           (defsrc
             esc
-            grv 1  2  3  4  5  6  7  8  9  0
-            tab  q  w  e  r  t  y  u  i  o  p
-            caps  a  s  d  f  g  h  j  k  l  ;
+            grv 1  2  3  4  5  6  7  8  9  0  -  =
+            tab  q  w  e  r  t  y  u  i  o  p  [  ]
+            caps  a  s  d  f  g  h  j  k  l  ;  '
             lsft   z  x  c  v  b  n  m  ,  .  ⁄
             lctl     ‹⎇        spc        ⎇›
           )
@@ -44,42 +44,42 @@
           )
           (deflayer (default-layer)
             esc
-            grv 1   2   3   4   5   6   7   8   9   0
-            tab  q   w   f   p   b   j   l   u   y   ;
-            @ext  a   r   s   t   g   m   n   e   i   o
+            grv 1   2   3   4   5   6   7   8   9   0  -  =
+            tab  q   w   f   p   b   j   l   u   y   ;  [  ]
+            @ext  a   r   s   t   g   m   n   e   i   o  '
             @sft   x   c   d   v   z   k   h   ,   .   ⁄
             lctl      ‹⎇           spc          @altgr
           )
           (deflayer (shift)
             esc
-            S-grv S-1 S-2 S-3 S-4 S-5 S-6 S-7 S-8 S-9 S-0
-            tab    S-q S-w S-f S-p S-b S-j S-l S-u S-y S-;
-            @ext    S-a S-r S-s S-t S-g S-m S-n S-e S-i S-o
+            S-grv S-1 S-2 S-3 S-4 S-5 S-6 S-7 S-8 S-9 S-0 S-- S-=
+            tab    S-q S-w S-f S-p S-b S-j S-l S-u S-y S-; S-[ S-]
+            @ext    S-a S-r S-s S-t S-g S-m S-n S-e S-i S-o S-'
             @sft     S-x S-c S-d S-v S-z S-k S-h S-, S-. S-⁄
             lctl         ‹⎇           spc          @altgr
           )
           ;; Right-hand mirror layer
           (deflayer (alt-graph)
-            _
-          	_   _   _   _   _   _   _   _   _   _   _
-          	_    _   @å  _   @ø  _   b   p   f   w   q
-          	@ext  _   _   _   _   _   g   t   s   r  a
-          	@sftgr _   _   _   _   @æ  v   d   c   x  z
-          	@qwerty    _             _           @altgr
+             _
+             _  _   _   _   _   _   _   _   _   _   _   _   _
+             _   _   @å  _   @ø  _   b   p   f   w   q   _   _
+            @ext  _   _   _   _   _   g   t   s   r   a   _
+            @sftgr _   _   _   _   @æ  v   d   c   x   z
+            @qwerty   _             _           @altgr
           )
           (deflayer (alt-graph-shift)
-            _
-            _   _   _   _   _   _   _   _   _   _   _
-          	_    _   @Å  _   @Ø  _   _   _   _   _   _
-          	@ext  _   _   _   _   _   _   _   _   _   _
-          	_      _   _   _   _   @Æ  _   _   _   _   _
-          	_          _             _           @altgr
+             _
+             _ _   _   _   _   _   _   _   _   _   _   _   _
+             _  _   @Å  _   @Ø  _   _   _   _   _   _   _   _ 
+            @ext _   _   _   _   _   _   _   _   _   _   _
+             _     _   _   _   _   @Æ  _   _   _   _   _
+             _        _             _           @altgr
           )
           (deflayer (navigation)
             caps
-            grv _   _   _   _   _   _   _   _   _   _
-            tab  ⎋  @⇪⭾  @⭾  _   _   ⇤   ⇞   ▲   ⇟   ⇥
-            @ext  ‹⎇  ‹❖  ‹⇧  ‹⌃  _   _   ◀   ▼   ▶   _
+            grv _   _   _   _   _   _   _   _   _   _   _   _
+            tab  ⎋  @⇪⭾  @⭾  _   _   ⇤   ⇞   ▲   ⇟   ⇥   _   _
+            @ext  ‹⎇  ‹❖  ‹⇧  ‹⌃  _   _   ◀   ▼   ▶   _   _
             lsft  C-x C-c C-d C-v C-z  _   ⌫   ⌦   _   _
             lctl    @numpad    enter               ⎇›
           )
@@ -87,17 +87,17 @@
           ;; mapping back to qwerty
           (deflayer (qwerty)
             esc
-            grv 1  2  3  4  5  6  7  8  9  0
-            tab  q  w  e  r  t  y  u  i  o  p
-            @ext  a  s  d  f  g  h  j  k  l  ;
+            grv 1  2  3  4  5  6  7  8  9  0  -  =
+            tab  q  w  e  r  t  y  u  i  o  p  [  ]
+            @ext  a  s  d  f  g  h  j  k  l  ;  '
             lsft   z  x  c  v  b  n  m  ,  .  ⁄
             lctl     ‹⎇        spc     @deflt
           )
           (deflayer (numpad)
             esc
-            grv _   _   _   _   _   _   _   _   kp/ kp*
-            tab  _   _   _   _   _   _   7   8   9   kp-
-            @ext  _   _   _   _   _   _   4   5   6   kp+
+            grv _   _   _   _   _   _   _   _   kp/ kp*   _   _
+            tab  _   _   _   _   _   _   7   8   9   kp-   _   _
+            @ext  _   _   _   _   _   _   4   5   6   kp+   _
             lsft   _   _   _   _   _   0   1   2   3   kp.
             lctl     @deflt  NumpadEnter            _
           )
