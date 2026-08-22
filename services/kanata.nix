@@ -44,27 +44,27 @@
           )
           (deflayer (default-layer)
             esc
-            grv 1   2   3   4   5   6   7   8   9   0  -  =
-            tab  q   w   f   p   b   j   l   u   y   ;  [  ]
-            @ext  a   r   s   t   g   m   n   e   i   o  '
-            @sft   x   c   d   v   z   k   h   ,   .   ⁄
+            grv 1   2   3   4   5   6   7   8   9   0  [  ]
+            tab  b   l   d   w   z   '   f   o   u   j  ;  =
+            @ext  n   r   t   s   g   y   h   a   e   i  ,
+            @sft   q   x   m   c   v   k   p   .   -   ⁄
             lctl      ‹⎇           spc          @altgr
           )
           (deflayer (shift)
             _
             _  _  _  _  _  _  _  _  _  _  _  _  _ 
-            _      _  _  _  _  _  _  _  _  _  _  _  _ 
-            _       _  _  _  _  _  _  _  _  _  _  _ 
-            _        _  _  _  _  _  _  _  _  _  _ 
+            _      _  _  _  _  _  -  _  _  _  _  _  _ 
+            _       _  _  _  _  _  _  _  _  _  _  ⁄ 
+            _        _  _  _  _  _  _  _  _  '  , 
             _          _          _         _
           )
           ;; Right-hand mirror layer
           (deflayer (alt-graph)
              _
              _  _   _   _   _   _   _   _   _   _   _   _   _
-             _   _   @å  _   @ø  _   b   p   f   w   q   _   _
-            @ext  _   _   _   _   _   g   t   s   r   a   _
-            @sftgr _   _   _   _   @æ  v   d   c   x   z
+             _   _   @å  _   @ø  _   z   w   d   l   b   _   _
+            @ext  _   _   _   _   _   g   s   t   r   n   _
+            @sftgr _   _   _   _   @æ  v   c   m   x   q
             @qwerty   _             _           @altgr
           )
           (deflayer (alt-graph-shift)
