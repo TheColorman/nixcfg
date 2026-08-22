@@ -19,26 +19,15 @@
           ;; I use symbols cause they're not as wide as the text versions.
           ;; See https://github.com/jtroo/kanata/blob/main/docs/fancy_symbols.md
 
-          ;; This is the setup for using home-row mods. Disabled for now, but
-          ;; I'll try it again when I get a split keyboard.
-          ;; (defvar
-          ;;   left-hand-keys (
-          ;;     q  w  f  p  b
-          ;;      a  r  s  t  g
-          ;;        x  c  d  v  z
-          ;;   )
-          ;;   right-hand-keys (
-          ;;     j  l  u  y  ;  [  ]  \
-          ;;      m  n  e  i  o  '
-          ;;        k  h  ,  .  /
-          ;;   )
-          ;; )
-
           (defalias
             ext (layer-while-held navigation)
             deflt  (layer-switch     default-layer)
             altgr  (layer-while-held alt-graph)
             sftgr  (layer-while-held alt-graph-shift)
+            sft    (multi
+                     (layer-while-held shift)
+                     lsft
+                   )
             qwerty (layer-switch     qwerty)
             numpad (layer-while-held numpad)
 
@@ -58,8 +47,16 @@
             grv 1   2   3   4   5   6   7   8   9   0
             tab  q   w   f   p   b   j   l   u   y   ;
             @ext  a   r   s   t   g   m   n   e   i   o
-            lsft   x   c   d   v   z   k   h   ,   .   ⁄
+            @sft   x   c   d   v   z   k   h   ,   .   ⁄
             lctl      ‹⎇           spc          @altgr
+          )
+          (deflayer (shift)
+            esc
+            S-grv S-1 S-2 S-3 S-4 S-5 S-6 S-7 S-8 S-9 S-0
+            tab    S-q S-w S-f S-p S-b S-j S-l S-u S-y S-;
+            @ext    S-a S-r S-s S-t S-g S-m S-n S-e S-i S-o
+            @sft     S-x S-c S-d S-v S-z S-k S-h S-, S-. S-⁄
+            lctl         ‹⎇           spc          @altgr
           )
           ;; Right-hand mirror layer
           (deflayer (alt-graph)
