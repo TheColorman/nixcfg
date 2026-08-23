@@ -10,21 +10,35 @@
         inputs.authentik-nix.nixosModules.default
       ];
 
-      services.authentik = {
-        enable = true;
+      services = {
+        authentik = {
+          enable = true;
 
-        settings = {
-          listen = {
-            http = [ "127.0.0.1:8080" ];
-            trusted_proxy_cidrs = [ "127.0.0.0/8" ];
+          settings = {
+            listen = {
+              http = [ "127.0.0.1:8080" ];
+              trusted_proxy_cidrs = [ "127.0.0.0/8" ];
+            };
+            email = {
+              from = "no-reply@${evalSecrets.emailDomain}";
+              template_dir = self.packages.${pkgs.stdenv.hostPlatform.system}.authentik_templates;
+            };
           };
-          email = {
-            from = "no-reply@${evalSecrets.emailDomain}";
-            template_dir = self.packages.${pkgs.stdenv.hostPlatform.system}.authentik_templates;
-          };
+
+          environmentFile = config.sops.templates."authentik.env".path;
         };
 
-        environmentFile = config.sops.templates."authentik.env".path;
+        nginx.commonHttpConfig = ''
+          map $http_upgrade $connection_upgrade_keepalive {
+            default upgrade;
+            '''     ''';
+          }
+
+          map $http_host $ak_http_host {
+            default $http_host;
+            '''     $host;
+          }
+        '';
       };
 
       my.cloudflared.tunnels.authentik.tokenFile =
