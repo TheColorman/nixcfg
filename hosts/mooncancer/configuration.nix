@@ -30,6 +30,7 @@
         services-sops
         services-vscode-server
         system-locale-danish
+        utils-emulation
         utils-shell-fish
         utils-tmux
       ];
