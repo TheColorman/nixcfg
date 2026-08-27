@@ -45,6 +45,10 @@
         ];
 
         privileged = true;
+        extraOptions = [
+          "--memory=8g"
+          "--memory-swap=8g"
+        ];
       };
 
       # Need myself some kernel modules for that container to work
