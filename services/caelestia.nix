@@ -6,7 +6,13 @@
       inherit (config.my) username;
     in
     {
-      options.my.markers.caelestia.enable = lib.mkEnableOption "Caelestia shell";
+      options.my = {
+        markers.caelestia.enable = lib.mkEnableOption "Caelestia shell";
+        caelestia.extraStatusIcons = lib.mkOption {
+          type = lib.types.listOf (lib.types.attrsOf lib.types.anything);
+          default = [ ];
+        };
+      };
 
       config = {
         my = {
@@ -53,6 +59,20 @@
                 clock.showIcon = false;
                 persistent = false;
                 popouts.activeWindow = false;
+                statusIcons =
+                  let
+                    mkIcon = name: {
+                      id = name;
+                      enabled = true;
+                    };
+                  in
+                  (map mkIcon [
+                    "lockStatus"
+                    "audio"
+                    "network"
+                    "bluetooth"
+                  ])
+                  ++ config.my.caelestia.extraStatusIcons;
                 status = {
                   showAudio = true;
                   showBattery = lib.mkDefault false;
