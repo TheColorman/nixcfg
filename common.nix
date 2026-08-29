@@ -145,15 +145,27 @@
           useUserPackages = true;
           backupFileExtension = "hm-backup";
 
-          users."${cfg.username}" = {
-            programs.home-manager.enable = true;
+          users = {
+            "${cfg.username}" = {
+              programs.home-manager.enable = true;
 
-            home = {
-              inherit (cfg) username stateVersion;
-              homeDirectory = "/home/${cfg.username}";
+              home = {
+                inherit (cfg) username stateVersion;
+                homeDirectory = "/home/${cfg.username}";
+              };
+            };
+
+            # For special cases only - I normally don't set root's home-manager options
+            "root" = {
+              programs.home-manager.enable = true;
+              home = {
+                inherit (cfg) stateVersion;
+                homeDirectory = "/root";
+              };
             };
           };
         };
+
         system = {
           inherit (cfg) stateVersion;
           configurationRevision =

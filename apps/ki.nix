@@ -10,6 +10,8 @@
     let
       inherit (config.my) username;
       cfg = config.home-manager.users."${username}".programs.ki;
+
+      kiSettingsJson = builtins.toJSON cfg.settings;
     in
     {
       # Set up marker option so other modules know that Ki Editor is enabled
@@ -27,30 +29,35 @@
           variables.EDITOR = lib.mkForce "ki";
         };
 
-        home-manager.users."${username}" = {
-          # Create home-manager option
-          options.programs.ki.settings = lib.mkOption {
-            type = lib.types.submodule { freeformType = (pkgs.formats.json { }).type; };
-            default = { };
-          };
-
-          config = {
-            # Set home manager options
-            programs.ki.settings = {
-              keyboard_layout = "COLEMAK-DH (ANSI)";
-              languages = { };
-              theme = "Tokyo Night";
-              wakatime = {
-                enabled = true;
-                cli_path = lib.getExe pkgs.wakatime-cli;
-              };
+        home-manager.users = {
+          "${username}" = {
+            # Create home-manager option
+            options.programs.ki.settings = lib.mkOption {
+              type = lib.types.submodule { freeformType = (pkgs.formats.json { }).type; };
+              default = { };
             };
 
-            # Write options to config file
-            xdg.configFile."ki/config.json".text = builtins.toJSON cfg.settings;
+            config = {
+              # Set home manager options
+              programs.ki.settings = {
+                keyboard_layout = "COLEMAK-DH (ANSI)";
+                languages = { };
+                theme = "Tokyo Night";
+                wakatime = {
+                  enabled = true;
+                  cli_path = lib.getExe pkgs.wakatime-cli;
+                };
+              };
+
+              # Write options to config file
+              xdg.configFile."ki/config.json".text = kiSettingsJson;
+            };
           };
+
+          # This is a special case, since I use Ki as root and need the keyboard
+          # layout to match, normally I don't set home-manager options for root
+          "root".xdg.configFile."ki/config.json".text = kiSettingsJson;
         };
       };
-
     };
 }
