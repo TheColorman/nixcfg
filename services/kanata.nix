@@ -51,12 +51,12 @@
             lctl      ‹⎇           spc          @altgr
           )
           (deflayer (shift)
-            esc
-            S-grv S-1 S-2 S-3 S-4 S-5 S-6 S-7 S-8 S-9 S-0 S-- S-=
-            tab    S-q S-w S-f S-p S-b S-j S-l S-u S-y S-; S-[ S-]
-            @ext    S-a S-r S-s S-t S-g S-m S-n S-e S-i S-o S-'
-            @sft     S-x S-c S-d S-v S-z S-k S-h S-, S-. S-⁄
-            lctl         ‹⎇           spc          @altgr
+            _
+            _  _  _  _  _  _  _  _  _  _  _  _  _ 
+            _      _  _  _  _  _  _  _  _  _  _  _  _ 
+            _       _  _  _  _  _  _  _  _  _  _  _ 
+            _        _  _  _  _  _  _  _  _  _  _ 
+            _          _          _         _
           )
           ;; Right-hand mirror layer
           (deflayer (alt-graph)
