@@ -40,7 +40,47 @@
             config = {
               # Set home manager options
               programs.ki.settings = {
-                keyboard_layout = "COLEMAK-DH (ANSI)";
+                custom_keyboard_layouts = {
+                  graphite = [
+                    [
+                      "b"
+                      "l"
+                      "d"
+                      "w"
+                      "z"
+                      "'"
+                      "f"
+                      "o"
+                      "u"
+                      "j"
+                    ]
+                    [
+                      "n"
+                      "r"
+                      "t"
+                      "s"
+                      "g"
+                      "y"
+                      "h"
+                      "a"
+                      "e"
+                      "i"
+                    ]
+                    [
+                      "q"
+                      "x"
+                      "m"
+                      "c"
+                      "v"
+                      "k"
+                      "p"
+                      "."
+                      "-"
+                      "/"
+                    ]
+                  ];
+                };
+                keyboard_layout = "graphite";
                 languages = { };
                 theme = "Tokyo Night";
                 wakatime = {
