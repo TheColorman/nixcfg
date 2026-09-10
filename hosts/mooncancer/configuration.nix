@@ -43,6 +43,7 @@
       wsl = {
         enable = true;
         defaultUser = cfg.username;
+        interop.register = true;
       };
       services = {
         # envfs is broken in wsl - makes system unbootable
