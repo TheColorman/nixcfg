@@ -13,7 +13,7 @@
             grv 1  2  3  4  5  6  7  8  9  0  -  =
             tab  q  w  e  r  t  y  u  i  o  p  [  ]
             caps  a  s  d  f  g  h  j  k  l  ;  '
-            lsft   z  x  c  v  b  n  m  ,  .  ⁄
+            lsft   z  x  c  v  b  n  m  ,  .  ⁄ rsft
             lctl     ‹⎇        spc        ⎇›
           )
           ;; I use symbols cause they're not as wide as the text versions.
@@ -47,7 +47,7 @@
             grv 1   2   3   4   5   6   7   8   9   0  [  ]
             tab  b   l   d   w   z   '   f   o   u   j  ;  =
             @ext  n   r   t   s   g   y   h   a   e   i  ,
-            @sft   q   x   m   c   v   k   p   .   -   ⁄
+            @sft   q   x   m   c   v   k   p   .   -   ⁄ @sft
             lctl      ‹⎇           spc          @altgr
           )
           (deflayer (shift)
@@ -55,7 +55,7 @@
             _  _  _  _  _  _  _  _  _  _  _  _  _ 
             _      _  _  _  _  _  -  _  _  _  _  _  _ 
             _       _  _  _  _  _  _  _  _  _  _  ⁄ 
-            _        _  _  _  _  _  _  _  _  '  , 
+            _        _  _  _  _  _  _  _  _  '  ,  _ 
             _          _          _         _
           )
           ;; Right-hand mirror layer
@@ -64,7 +64,7 @@
              _  _   _   _   _   _   _   _   _   _   _   _   _
              _   _   @å  _   @ø  _   z   w   d   l   b   _   _
             @ext  _   _   _   _   _   g   s   t   r   n   _
-            @sftgr _   _   _   _   @æ  v   c   m   x   q
+            @sftgr _   _   _   _   @æ  v   c   m   x   q @sftgr
             @qwerty   _             _           @altgr
           )
           (deflayer (alt-graph-shift)
@@ -72,7 +72,7 @@
              _ _   _   _   _   _   _   _   _   _   _   _   _
              _  _   @Å  _   @Ø  _   _   _   _   _   _   _   _ 
             @ext _   _   _   _   _   _   _   _   _   _   _
-             _     _   _   _   _   @Æ  _   _   _   _   _
+             _     _   _   _   _   @Æ  _   _   _   _   _  _
              _        _             _           @altgr
           )
           (deflayer (navigation)
@@ -80,7 +80,7 @@
             grv _   _   _   _   _   _   _   _   _   _   _   _
             tab  ⎋  @⇪⭾  @⭾  _   _   ⇤   ⇞   ▲   ⇟   ⇥   _   _
             @ext  ‹⎇  ‹❖  ‹⇧  ‹⌃  _   _   ◀   ▼   ▶   _   _
-            lsft  C-x C-c C-d C-v C-z  _   ⌫   ⌦   _   _
+            lsft  C-x C-c C-d C-v C-z  _   ⌫   ⌦   _   _  rsft
             lctl    @numpad    enter               ⎇›
           )
           ;; Since OS already uses colemak-dh, this is essentially a reverse
@@ -90,15 +90,15 @@
             grv 1  2  3  4  5  6  7  8  9  0  -  =
             tab  q  w  e  r  t  y  u  i  o  p  [  ]
             @ext  a  s  d  f  g  h  j  k  l  ;  '
-            lsft   z  x  c  v  b  n  m  ,  .  ⁄
+            lsft   z  x  c  v  b  n  m  ,  .  ⁄ rsft
             lctl     ‹⎇        spc     @deflt
           )
           (deflayer (numpad)
             esc
-            grv _   _   _   _   _   _   _   _   kp/ kp*   _   _
-            tab  _   _   _   _   _   _   7   8   9   kp-   _   _
-            @ext  _   _   _   _   _   _   4   5   6   kp+   _
-            lsft   _   _   _   _   _   0   1   2   3   kp.
+            grv _   _   _   _   _   _   _   _  kp/ kp*  _   _
+            tab  _   _   _   _   _   _   7   8   9  kp-  _   _
+            @ext  _   _   _   _   _   _   4   5   6  kp+  _
+            lsft   _   _   _   _   _   0   1   2   3  kp. rsft
             lctl     @deflt  NumpadEnter            _
           )
         '';
