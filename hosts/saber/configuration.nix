@@ -90,6 +90,7 @@
           nixpkgs-fmt
           nixpkgs-review
           obsidian
+          opencode
           p7zip
           pear-desktop
           prismlauncher
