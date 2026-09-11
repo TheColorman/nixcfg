@@ -47,6 +47,7 @@
           "networkmanager"
           "wheel"
           "plugdev"
+          "dialout"
         ];
         packages = with pkgs; [
           attic-client
