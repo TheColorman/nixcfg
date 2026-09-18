@@ -24,6 +24,7 @@
         apps-ki
         apps-neovim
         apps-nix
+        apps-opencode
         profiles-language-servers
         services-docker
         services-gpg
@@ -95,7 +96,6 @@
           niks3
           nixd
           nixfmt
-          opencode
           ripgrep
           wl-clipboard
 
