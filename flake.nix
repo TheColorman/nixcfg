@@ -48,9 +48,6 @@
     };
 
     # == Packages provided as flakes ==
-    # My nvf config
-    nvfcfg.url = "github:TheColorman/nvfcfg";
-
     # Binary debugger
     pwndbg = {
       url = "github:pwndbg/pwndbg/dev";

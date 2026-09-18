@@ -1,4 +1,3 @@
-{ inputs, ... }:
 {
   flake.nixosModules.apps-neovim =
     {
@@ -10,60 +9,10 @@
     let
       inherit (lib) getExe;
       inherit (config.my) username;
-
-      nvim =
-        if
-          config ? stylix && config.stylix.enable
-        # Override with stylix theme if stylix is enabled
-        then
-          inputs.nvfcfg.override.${pkgs.stdenv.hostPlatform.system}.default (
-            { lib, ... }:
-            with config.lib.stylix.colors;
-            {
-              vim = {
-                theme = {
-                  name = lib.mkForce "base16";
-                  transparent = true;
-                  base16-colors = {
-                    inherit
-                      base00
-                      base01
-                      base02
-                      base03
-                      base04
-                      base05
-                      base06
-                      base07
-                      base08
-                      base09
-                      base0A
-                      base0B
-                      base0C
-                      base0D
-                      base0E
-                      base0F
-                      ;
-                  };
-                };
-                # Telescope colors look ass in default base16
-                # This gives everything transparent background
-                luaConfigRC.extraHighlights = lib.nvim.dag.entryAfter [ "theme" "highlight" "pluginConfigs" ] ''
-                  vim.api.nvim_set_hl(0, "TelescopeBorder", {fg="#${base08}"})
-                  vim.api.nvim_set_hl(0, "TelescopeNormal", {fg="#${base05}"})
-                  vim.api.nvim_set_hl(0, "TelescopePromptBorder", {fg="#${base0F}"})
-                  vim.api.nvim_set_hl(0, "TelescopePromptNormal", {fg="#${base04}"})
-                  vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {fg="#${base04}"})
-                '';
-              };
-            }
-          )
-        # Else use default theme
-        else
-          inputs.nvfcfg.packages.${pkgs.stdenv.hostPlatform.system}.default;
     in
     {
       environment = {
-        systemPackages = [ nvim ];
+        systemPackages = [ pkgs.neovim ];
         variables = {
           EDITOR = "nvim";
           MANPAGER = "nvim +Man!";
@@ -87,7 +36,7 @@
             include ${
               (pkgs.runCommand "kitty-scrollback-generate.conf" { } ''
                 export HOME=$PWD/home # neovim needs a home dir to load plugins and run next command
-                ${getExe nvim} --headless +'redir! > $out' +'KittyScrollbackGenerateKittens' +'redir END' +'q'
+                ${getExe pkgs.neovim} --headless +'redir! > $out' +'KittyScrollbackGenerateKittens' +'redir END' +'q'
               '')
             }
           '';
