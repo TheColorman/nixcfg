@@ -24,6 +24,7 @@
         apps-ki
         apps-neovim
         apps-nix
+        apps-opencode
         services-docker
         services-gpg
         services-sops
@@ -79,7 +80,6 @@
           killall
           nixd
           nixfmt
-          opencode
           ripgrep
           wl-clipboard
         ];

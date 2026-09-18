@@ -10,8 +10,8 @@
         common
         apps-affinity
         apps-btop
-        apps-evince
         apps-deploy-rs
+        apps-evince
         apps-feh
         apps-git
         apps-hashcat
@@ -23,6 +23,7 @@
         apps-mpv
         apps-neovim
         apps-nix
+        apps-opencode
         apps-pano-scrobbler
         apps-vesktop
         apps-virt-manager
@@ -90,7 +91,6 @@
           nixpkgs-fmt
           nixpkgs-review
           obsidian
-          opencode
           p7zip
           pear-desktop
           prismlauncher

@@ -20,6 +20,7 @@
         apps-kitty
         apps-neovim
         apps-nix
+        apps-opencode
         services-docker
         services-gpg
         services-kanata
@@ -61,7 +62,6 @@
           jq
           killall
           limesuite
-          opencode
           python313
           ripgrep
           usbutils
