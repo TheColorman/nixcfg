@@ -26,6 +26,7 @@
             url = "http://${systemName}:${builtins.toString port}";
           };
           secrets = config.sops.templates."firefox-syncserver.secrets.env".path;
+          database.type = "mysql";
         };
       };
       networking.firewall.allowedTCPPorts = [ cfg.settings.port ];
