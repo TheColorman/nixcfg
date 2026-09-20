@@ -70,6 +70,32 @@
         automatic-timezoned.enable = true;
         upower.enable = true;
         openssh.enable = true;
+
+        # Disable suspend when closing lid
+        logind.settings.Login = {
+          HandleLidSwitch = "ignore";
+          HandleLidSwitchExternalPower = "ignore";
+          HandleLidSwitchDocked = "ignore";
+        };
+
+        # Blank console whith lid
+        acpid = {
+          enable = true;
+
+          lidEventCommands = ''
+            active_tty="$(cat /sys/class/tty/tty0/active)"
+            tty="/dev/$active_tty"
+
+            case "$1" in
+              *close*)
+                ${pkgs.util-linux}/bin/setterm --blank force < "$tty" > "$tty"
+                ;;
+              *open*)
+                ${pkgs.util-linux}/bin/setterm --blank poke < "$tty" > "$tty"
+                ;;
+            esac
+          '';
+        };
       };
     };
 }
