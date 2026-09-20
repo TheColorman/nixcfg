@@ -70,6 +70,17 @@
         automatic-timezoned.enable = true;
         upower.enable = true;
         openssh.enable = true;
+
+        # Disable suspend when closing lid
+        logind.settings.Login = {
+          HandleLidSwitch = "ignore";
+          HandleLidSwitchExternalPower = "ignore";
+          HandleLidSwitchDocked = "ignore";
+        };
       };
+
+      boot.kernelParams = [
+        "consoleblank=300"
+      ];
     };
 }
