@@ -100,27 +100,21 @@
         extraGroups = [ "wheel" ];
       };
 
-      nix.gc = {
-        automatic = true;
-        dates = [ "weekly" ];
-        randomizedDelaySec = "45min";
-      };
-
       boot = {
         supportedFilesystems.zfs = true;
-         zfs = {
-           extraPools = [ "neodata" ];
-           forceImportRoot = false;
-         };
-       };
-       zramSwap = {
-         enable = true;
-         swapDevices = 1;
-         memoryPercent = 100;
-         memoryMax = 8 * 1024 * 1024 * 1024;
-         algorithm = "zstd";
-       };
-       networking = {
+        zfs = {
+          extraPools = [ "neodata" ];
+          forceImportRoot = false;
+        };
+      };
+      zramSwap = {
+        enable = true;
+        swapDevices = 1;
+        memoryPercent = 100;
+        memoryMax = 8 * 1024 * 1024 * 1024;
+        algorithm = "zstd";
+      };
+      networking = {
         # Required by ZFS
         hostId = "2fe34f2d";
         firewall.allowedTCPPorts = [

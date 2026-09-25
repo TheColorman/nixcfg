@@ -99,6 +99,12 @@
               type = "github";
             };
           };
+
+          gc = {
+            automatic = true;
+            dates = [ "weekly" ];
+            randomizedDelaySec = "45min";
+          };
         };
         # Allow execution of dynamic binaries
         programs.nix-ld = {
