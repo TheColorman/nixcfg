@@ -124,6 +124,7 @@
           cachix
           dig
           dust
+          erdtree
           fastfetch
           fd
           file
