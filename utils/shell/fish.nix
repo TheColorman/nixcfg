@@ -16,6 +16,7 @@
     in
     {
       imports = with self.nixosModules; [
+        apps-eza
         utils-shell
         utils-shell-starship
       ];
@@ -46,7 +47,7 @@
           programs.fish =
             let
               inherit (lib.meta) getExe;
-              inherit (pkgs) eza xxd;
+              inherit (pkgs) xxd;
             in
             {
               enable = true;
@@ -92,9 +93,6 @@
                   commandline ""
                 end
               '';
-              shellAliases = {
-                ls = getExe eza;
-              };
               plugins = [
                 {
                   name = "fish-async-prompt";
