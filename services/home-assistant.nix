@@ -13,7 +13,10 @@
         };
 
         nginx.virtualHosts."${domain}" = {
-          locations."/".proxyPass = "http://127.0.0.1:8123";
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:8123";
+            proxyWebsockets = true;
+          };
           extraConfig = ''
             proxy_buffering off;
           '';
