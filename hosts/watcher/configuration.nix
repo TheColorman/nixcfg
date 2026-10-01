@@ -24,7 +24,9 @@
         apps-nix
         profiles-language-servers
         services-gpg
+        services-home-assistant
         services-kanata
+        services-nginx
         services-sops
         services-tailscale
         system-boot
