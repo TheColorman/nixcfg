@@ -10,10 +10,17 @@
       services = {
         home-assistant = {
           enable = true;
+          config.http = {
+            trusted_proxies = [ "127.0.0.1" ];
+            use_x_forwarded_for = true;
+          };
         };
 
         nginx.virtualHosts."${domain}" = {
           locations."/".proxyPass = "http://127.0.0.1:8123";
+          extraConfig = ''
+            proxy_buffering off;
+          '';
           forceSSL = true;
 
           sslCertificateKey = crtCfg.key.path;
