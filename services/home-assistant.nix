@@ -12,8 +12,9 @@
           enable = true;
           extraComponents = [
             "default_config"
-            "usb"
+            "met"
             "tesla_wall_connector"
+            "usb"
           ];
         };
 
