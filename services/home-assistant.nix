@@ -10,6 +10,9 @@
       services = {
         home-assistant = {
           enable = true;
+          extraComponents = [
+            "tesla_wall_connector"
+          ];
         };
 
         nginx.virtualHosts."${domain}" = {
