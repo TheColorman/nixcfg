@@ -11,6 +11,8 @@
         home-assistant = {
           enable = true;
           extraComponents = [
+            "default_config"
+            "usb"
             "tesla_wall_connector"
           ];
         };
