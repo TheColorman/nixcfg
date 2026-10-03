@@ -1,6 +1,6 @@
 {
   flake.nixosModules.services-home-assistant =
-    { config, ... }:
+    { config, pkgs, ... }:
     let
       domain = "home-assistant.color";
 
@@ -15,7 +15,20 @@
             "met"
             "tesla_wall_connector"
             "usb"
+            "bluetooth"
           ];
+
+          customComponents = [
+            (config.services.home-assistant.package.python3Packages.callPackage
+              ./_components/ha-electricity-costs-dkk
+              { }
+            )
+          ];
+          extraPackages =
+            python3Packages: with python3Packages; [
+              electrickiwi-api
+              (python3Packages.callPackage ./_components/ha-electricity-costs-dkk/electricity-cost-dkk.nix { })
+            ];
         };
 
         nginx.virtualHosts."${domain}" = {
