@@ -31,6 +31,48 @@
               electrickiwi-api
               (p3p.callPackage ./_components/ha-electricity-costs-dkk/electricity-cost-dkk.nix { })
             ];
+          config = {
+
+            lovelace.dashboards.energy-prices = {
+              mode = "yaml";
+              title = "Energy Prices";
+              filename = "dashboards/energy-prices.yaml";
+            };
+
+            template = [
+              {
+                sensor = [
+                  {
+                    name = "Price Timeline Data";
+                    unique_id = "price_timeline_data";
+                    unit_of_measurement = "DKK/kWh";
+                    state = ''
+                      {{ (state_attr('sensor.electricity_costs_dkk_current_hour_cost', 'today').hours
+                          | map(attribute='total') | average) | round(2) }}
+                    '';
+                    attributes.data = ''
+                      {% set ns = namespace(items=[]) %}
+                      {% for day in ['today', 'tomorrow'] %}
+                        {% set d = state_attr('sensor.electricity_costs_dkk_current_hour_cost', day) %}
+                        {% if d %}
+                          {% for h in d.hours %}
+                            {% set ns.items = ns.items + [
+                              {
+                                'start_time': (as_timestamp(d.date ~ 'T00:00:00') + h.hour * 3600)
+                                              | timestamp_custom('%Y-%m-%dT%H:%M:%S%z'),
+                                'price_per_kwh': h.total
+                              }
+                            ] %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                      {{ ns.items }}
+                    '';
+                  }
+                ];
+              }
+            ];
+          };
         };
 
         nginx.virtualHosts."${domain}" = {
@@ -47,6 +89,11 @@
           sslCertificate = crtCfg.crt.path;
         };
       };
+
+      systemd.tmpfiles.rules = [
+        "d /var/lib/hass/dashboards 0755 hass hass - -"
+        "L+ /var/lib/hass/dashboards/energy-prices.yaml - - - - ${./_dashboards/energy-prices.yaml}"
+      ];
 
       my.certificates.certs."${domain}" = { };
     };

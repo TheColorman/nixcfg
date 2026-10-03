@@ -1,0 +1,8 @@
+views:
+  - title: Energy Prices
+    type: sections
+    cards:
+      - type: custom:price-timeline-card
+        price: sensor.price_timeline_data
+        view: graph
+        cheap_times: true
