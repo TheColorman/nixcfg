@@ -18,16 +18,18 @@
             "bluetooth"
           ];
 
-          customComponents = [
-            (config.services.home-assistant.package.python3Packages.callPackage
-              ./_components/ha-electricity-costs-dkk
-              { }
-            )
-          ];
+          customComponents =
+            let
+              pythonPkg = config.services.home-assistant.package.python3Packages;
+            in
+            [
+              (pythonPkg.callPackage ./_components/ha-electricity-costs-dkk { })
+            ];
+          customLovelaceModules = [ (pkgs.callPackage ./_lovelace/ha-price-timeline-card { }) ];
           extraPackages =
-            python3Packages: with python3Packages; [
+            p3p: with p3p; [
               electrickiwi-api
-              (python3Packages.callPackage ./_components/ha-electricity-costs-dkk/electricity-cost-dkk.nix { })
+              (p3p.callPackage ./_components/ha-electricity-costs-dkk/electricity-cost-dkk.nix { })
             ];
         };
 
