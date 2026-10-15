@@ -23,6 +23,8 @@
         apps-neovim
         apps-nix
         profiles-language-servers
+        services-dawarich
+        services-cloudflared
         services-gpg
         services-home-assistant
         services-kanata
