@@ -29,6 +29,7 @@
         services-home-assistant
         services-kanata
         services-nginx
+        services-postfix
         services-sops
         services-tailscale
         services-trek
