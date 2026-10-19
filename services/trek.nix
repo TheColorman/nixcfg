@@ -46,8 +46,9 @@
 
       systemd.tmpfiles.rules = [
         "d /var/lib/trek 0750 root root -"
-        "d /var/lib/trek/data 0750 root root -"
-        "d /var/lib/trek/uploads 0750 root root -"
+        # 1000 is node user in container
+        "d /var/lib/trek/data 0750 1000 1000 -"
+        "d /var/lib/trek/uploads 0750 1000 1000 -"
       ];
 
       my.cloudflared.tunnels.trek.tokenFile = config.sops.secrets."services/trek/tunnelToken".path;
