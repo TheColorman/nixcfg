@@ -1,6 +1,6 @@
 { inputs, ... }: {
   flake.nixosModules.services-dawarich =
-    { config, ... }:
+    { config, pkgs, ... }:
     let
       dawarichSecrets = (import "${inputs.nix-secrets}/evaluation-secrets.nix").services.dawarich;
       authentikSecrets = (import "${inputs.nix-secrets}/evaluation-secrets.nix").services.authentik;
@@ -12,6 +12,15 @@
     {
       services = {
         dawarich = {
+          package = pkgs.dawarich.overrideAttrs (old: {
+            postPatch = (old.postPatch or "") + ''
+              substituteInPlace config/initializers/geocoder.rb \
+                --replace-fail \
+                  "'User-Agent' => \"Dawarich #{APP_VERSION} (https://dawarich.app)\"" \
+                  "'User-Agent' => \"Dawarich #{APP_VERSION} (https://dawarich.app; contact: contact@colorman.me)\""
+            '';
+          });
+
           enable = true;
           localDomain = domain;
           smtp.fromAddress = "noreply@colorman.me";
