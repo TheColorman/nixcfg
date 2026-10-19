@@ -23,6 +23,7 @@
         apps-neovim
         apps-nix
         profiles-language-servers
+        services-airtrail
         services-cloudflared
         services-dawarich
         services-gpg
