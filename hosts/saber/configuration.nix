@@ -110,7 +110,12 @@
 
       time.timeZone = "Europe/Copenhagen";
 
-      programs.xppen.enable = true;
+      hardware = {
+        opentabletdriver.enable = true;
+        uinput.enable = true;
+      };
+
+      boot.kernelModules = [ "uinput" ];
 
       home-manager.users."${cfg.username}" = {
         # btop rocm for AMD GPU
