@@ -110,6 +110,8 @@
 
       time.timeZone = "Europe/Copenhagen";
 
+      programs.xppen.enable = true;
+
       home-manager.users."${cfg.username}" = {
         # btop rocm for AMD GPU
         programs.btop.package = pkgs.btop-rocm;
