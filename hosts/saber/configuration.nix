@@ -100,6 +100,7 @@
           telegram-desktop
           unzip
           wireguard-tools
+          xppen_4
         ];
       };
 
