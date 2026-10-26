@@ -917,11 +917,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1790931137,
-        "narHash": "sha256-WopTXWajE6bxMIP5khFPzh+qJWpZn2yatz1GKT5KuGs=",
+        "lastModified": 1793016808,
+        "narHash": "sha256-60rDw3Sk9PIk6PF4aFSVhdUdd+XSu6SQCtqWJlmbRAk=",
         "owner": "TheColorman",
         "repo": "ki-editor",
-        "rev": "7bed519e51f32878bb64943d70de6107d3a42adc",
+        "rev": "b602c3d2abe0e345b0a2bcb82058899653a99391",
         "type": "github"
       },
       "original": {
