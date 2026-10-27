@@ -1,4 +1,4 @@
-{
+{ self, ... }: {
   flake.nixosModules.services-opencode =
     {
       config,
@@ -13,6 +13,8 @@
       stateDir = "/var/lib/opencode";
     in
     {
+      imports = [ self.nixosModules.apps-opencode ];
+
       services.nginx.virtualHosts.${domain} = {
         locations."/".proxyPass = "http://127.0.0.1:4096";
         forceSSL = true;
