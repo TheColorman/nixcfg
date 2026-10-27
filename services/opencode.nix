@@ -11,6 +11,15 @@
       crtCfg = config.my.certificates.certs.${domain};
       user = "opencode";
       stateDir = "/var/lib/opencode";
+      # Nginx is the public entry point; keep OpenCode bound to loopback.
+      serveArgs = [
+        "--print-logs"
+        "serve"
+        "--hostname"
+        "127.0.0.1"
+        "--port"
+        "4096"
+      ];
     in
     {
       imports = [ self.nixosModules.apps-opencode ];
@@ -30,6 +39,7 @@
           isSystemUser = true;
           group = user;
           home = stateDir;
+          shell = pkgs.bashInteractive;
           # Allows untrusted access to the Nix daemon; this is not a trusted-user grant.
           extraGroups = [ "nix-users" ];
         };
@@ -80,8 +90,8 @@
           ProtectKernelModules = true;
           ProtectControlGroups = true;
           ExecStart = pkgs.writeShellScript "opencode-serve" ''
-            export OPENCODE_SERVER_PASSWORD="$(<"$CREDENTIALS_DIRECTORY/server-password")"
-            exec ${lib.getExe pkgs.opencode} serve --hostname 127.0.0.1 --port 4096
+            export OPENCODE_PASSWORD="$(<"$CREDENTIALS_DIRECTORY/server-password")"
+            exec ${lib.getExe pkgs.opencode} ${lib.escapeShellArgs serveArgs}
           '';
         };
       };
