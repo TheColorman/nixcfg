@@ -9,18 +9,29 @@
     let
       nextcloudSecrets = (import "${inputs.nix-secrets}/evaluation-secrets.nix").services.nextcloud;
       authentikSecrets = (import "${inputs.nix-secrets}/evaluation-secrets.nix").services.authentik;
+      # Use a pinned stable snapshot without changing caster's flake inputs.
+      stablePkgs =
+        import
+          (builtins.fetchTarball {
+            url = "https://github.com/NixOS/nixpkgs/archive/6f06d204d8f2d8761d9da78778745974a3216381.tar.gz";
+            sha256 = "sha256-loLMnbbS4KhmG2ln9EY6f0YMNCA273Yx02oWYQ9IMeE=";
+          })
+          {
+            localSystem = pkgs.stdenv.hostPlatform;
+          };
     in
     {
       services.nextcloud = {
         enable = true;
-        # Pinned
-        package = pkgs.nextcloud33;
+        package = stablePkgs.nextcloud33;
+        # PHP 8.4.27 fixes CVE-2026-109618 and CVE-2026-109619.
+        phpPackage = stablePkgs.php84;
         webfinger = true;
         maxUploadSize = "16G";
         https = true;
         hostName = nextcloudSecrets.hostname;
         extraApps = {
-          inherit (pkgs.nextcloud33Packages.apps)
+          inherit (stablePkgs.nextcloud33Packages.apps)
             end_to_end_encryption
             notify_push
             user_oidc
