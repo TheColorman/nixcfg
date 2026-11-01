@@ -2,6 +2,7 @@
   flake.nixosModules.apps-mpv =
     {
       config,
+      lib,
       pkgs,
       ...
     }:
@@ -11,30 +12,35 @@
     {
       home-manager.users."${username}" = {
         programs.mpv = {
-          # TODO: Pinned to 0.40.0 due to
-          # https://github.com/mpv-player/mpv/issues/17204
-          package =
-            (import (fetchTarball {
-              url = "https://github.com/nixos/nixpkgs/archive/52cd1feb965915e2675a2f41aa911c2522a9ec70.tar.gz";
-              sha256 = "sha256:0py2nsq8ddxj5wkiwdhyni8x95aiychfl33jcmm3ayzcpa1f44js";
-            }) { inherit (pkgs.stdenv.hostPlatform) system; }).mpv.override
-              {
-                scripts = with pkgs.mpvScripts; [
-                  videoclip
-                  mpris
-                ];
-              };
+          # Keep mpv, its scripts, and the host graphics stack on the same
+          # nixpkgs revision. Use `gpu` to work around mpv 0.41's HDR issue
+          # with Hyprland: https://github.com/mpv-player/mpv/issues/17204
+          package = pkgs.mpv.override {
+            scripts = with pkgs.mpvScripts; [
+              videoclip
+              mpris
+            ];
+            # videoclip invokes the ffmpeg CLI to encode clips.
+            extraMakeWrapperArgs = [
+              "--prefix"
+              "PATH"
+              ":"
+              (lib.makeBinPath [
+                pkgs.ffmpeg
+                pkgs.xdg-user-dirs
+              ])
+            ];
+          };
           enable = true;
 
-          # TODO: Re-enable scripts when package override is gone
-          # scripts = with pkgs.mpvScripts; [
-          #   videoclip
-          #   mpris
-          # ];
           config = {
-            # These two are for hdr
+            # Preserve HDR colorspace hints while using the compatible renderer.
             target-colorspace-hint = "yes";
-            vo = "gpu-next";
+            vo = "gpu";
+
+            # Set demuxer cache limits (these are mpv options, not videoclip options).
+            demuxer-max-bytes = 2147483648; # 2 GiB
+            demuxer-max-back-bytes = 524288000; # 500 MiB
           };
         };
         # Mostly copied from videoclip readme
@@ -84,11 +90,6 @@
           # If using litterbox, time until video expires
           # Available values: 1h, 12h, 24h, 72h
           litterbox_expire=72h
-
-          # Cache settings
-          # Set readahead to 2GiB and backbuffer to 500 MiB
-          demuxer-max-bytes=2147483648 # 2 GiB
-          demuxer-max-back-bytes=524288000 # 500 MiB
         '';
       };
     };
