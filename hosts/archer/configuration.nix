@@ -18,6 +18,7 @@
         common
         apps-btop
         apps-evince
+        apps-feh
         apps-git
         apps-hashcat
         apps-jftui
