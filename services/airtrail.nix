@@ -26,7 +26,7 @@
           networks = [ "airtrail" ];
         };
         airtrail = {
-          image = "docker.io/johly/airtrail:v3.13.0@sha256:b49918c441cd52ffd2ef795738e58031abbcfd1e8094a4365672282bb6b805b1";
+          image = "docker.io/johly/airtrail:v3.14.0@sha256:69ef0a421d6a5f99c06d04ea6b66445a5d1261dd533d6efe3bd8bc3e2dfd018f";
           ports = [ "127.0.0.1:${port}:3000" ];
           environment = {
             ORIGIN = "https://${airtrailDomain}";
