@@ -12,7 +12,7 @@
     {
       virtualisation.oci-containers.containers = {
         airtrail-db = {
-          image = "docker.io/postgres:18.6-alpine3.24@sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873";
+          image = "docker.io/postgres:18.6-alpine3.24@sha256:123b17998ccaf47e53b502e8c6a1e79afd8f579c6f3eec83c563da026f957395";
           environment = {
             POSTGRES_DB = "airtrail";
             POSTGRES_USER = "airtrail";
