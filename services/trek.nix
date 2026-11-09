@@ -11,7 +11,7 @@
     in
     {
       virtualisation.oci-containers.containers.trek = {
-        image = "docker.io/mauriceboe/trek:5.1.1@sha256:7068cc86c0d4d5aa9b55aeffd03966f7458352bcb3e010721e3d7d6899ac60bd";
+        image = "docker.io/mauriceboe/trek:5.1.2@sha256:6ee086badda34c62f692a74f606c4a52f3d8226427c7ec62881a709350f52546";
         extraOptions = [
           "--security-opt=no-new-privileges:true"
           "--tmpfs=/tmp:rw,noexec,nosuid,size=128m"
