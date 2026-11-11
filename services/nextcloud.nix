@@ -8,7 +8,6 @@
     }:
     let
       nextcloudSecrets = (import "${inputs.nix-secrets}/evaluation-secrets.nix").services.nextcloud;
-      authentikSecrets = (import "${inputs.nix-secrets}/evaluation-secrets.nix").services.authentik;
       # Use a pinned stable snapshot without changing caster's flake inputs.
       stablePkgs =
         import
@@ -37,11 +36,7 @@
             user_oidc
             ;
         };
-        config = {
-          dbtype = "pgsql";
-          adminuser = "admin";
-          adminpassFile = config.sops.secrets."services/nextcloud/adminpass".path;
-        };
+        config.dbtype = "pgsql";
         settings = {
           serverid = 444;
           maintenance_window_start = 1;
@@ -65,16 +60,14 @@
         config.sops.secrets."services/nextcloud/tunnel_token".path;
 
       # Sops key setup
-      sops = {
-        secrets = {
-          "services/nextcloud/adminpass" = { };
-          "services/nextcloud/tunnel_token" = { };
-          "services/nextcloud/instanceid" = { };
-          "services/nextcloud/passwordsalt" = { };
-          "services/nextcloud/secret" = { };
-          "services/nextcloud/oidc_id" = { };
-          "services/nextcloud/oidc_secret" = { };
-        };
+      sops.secrets = {
+        "services/nextcloud/tunnel_token" = { };
+        "services/nextcloud/instanceid" = { };
+        "services/nextcloud/passwordsalt" = { };
+        "services/nextcloud/secret" = { };
+        "services/nextcloud/oidc_id" = { };
+        "services/nextcloud/oidc_secret" = { };
       };
+
     };
 }
