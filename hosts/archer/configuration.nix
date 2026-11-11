@@ -65,13 +65,6 @@
       my = {
         username = "color";
         stateVersion = "23.11";
-        syncthing.folders = {
-          brain = { };
-          CTF = { };
-          Documents = { };
-          ITU = { };
-          projects = { };
-        };
         caelestia.extraStatusIcons = [
           {
             # Archer has a battery.

@@ -61,13 +61,6 @@
       my = {
         username = "color";
         stateVersion = "24.05";
-        syncthing.folders = {
-          brain = { };
-          CTF = { };
-          Documents = { };
-          projects = { };
-          Games = { };
-        };
       };
 
       environment.etc.hosts.mode = "0644"; # Make hosts file writable
