@@ -25,13 +25,30 @@
               redirect_uri = "http://localhost:19876/callback";
             };
           };
+
+          "Kagi" = {
+            type = "remote";
+            url = "https://mcp.kagi.com/mcp";
+            headers = {
+              "Authorization" = "{file:${config.sops.templates."oc-mcp-kagi-auth".path}}";
+            };
+          };
         };
       };
 
-      sops.secrets = {
-        "oc/mcp/gitlab/url".owner = username;
-        "oc/mcp/slack/clientId".owner = username;
-        "oc/mcp/slack/clientSecret".owner = username;
+      sops = {
+        secrets = {
+          "oc/mcp/gitlab/url".owner = username;
+          "oc/mcp/slack/clientId".owner = username;
+          "oc/mcp/slack/clientSecret".owner = username;
+          "oc/mcp/kagi/bearerToken".owner = username;
+        };
+        templates."oc-mcp-kagi-auth" = {
+          owner = username;
+          content = ''
+            Bearer ${config.sops.placeholder."oc/mcp/kagi/bearerToken"}
+          '';
+        };
       };
     };
 }
