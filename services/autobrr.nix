@@ -9,10 +9,7 @@
     in
     {
       services = {
-        autobrr = {
-          enable = true;
-          secretFile = config.sops.secrets."services/autobrr/sessionSecret".path;
-        };
+        autobrr.enable = true;
 
         nginx.virtualHosts."${domain}" = {
           locations."/".proxyPass = "http://127.0.0.1:${toString cfg.settings.port}";
@@ -24,9 +21,5 @@
       };
 
       my.certificates.certs."${domain}" = { };
-
-      sops.secrets."services/autobrr/sessionSecret" = {
-        reloadUnits = [ "autobrr.service" ];
-      };
     };
 }

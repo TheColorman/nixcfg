@@ -71,8 +71,8 @@
                 key = "~/.ssh/id_ed25519.pub";
                 backends.ssh.program = "${openssh}/bin/ssh-keygen";
               };
+              revsets.git-sign-on-push = "~signed()";
               git = {
-                sign-on-push = true;
                 private-commits = ''
                   description(glob-i:'wip:*') | description(glob-i:'ai:*')
                 '';
