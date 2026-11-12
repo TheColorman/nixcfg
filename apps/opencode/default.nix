@@ -34,6 +34,7 @@
             };
           };
         };
+        commands."rebase" = ./commands/rebase.md;
       };
 
       sops = {
