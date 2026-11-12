@@ -1,6 +1,7 @@
 # Delegation
 
 - Make good use of subagents for complex tasks, context management, and subtasks that can be cleanly separated. Delegate independent work in parallel when useful, provide clear scopes and sufficient context, and integrate and verify the results.
+- Always have a separate agent independently review changes for readability, maintainability, and whether they meet the task's success criteria before considering the work complete. Address review findings and have any resulting changes independently reviewed as well.
 
 # Version Control
 
