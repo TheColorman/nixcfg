@@ -8,6 +8,7 @@
 - Always use `jj` instead of `git` for version control operations.
 - When I say "branch", I mean a branching code path, not a Git branch. When I mean a Git branch, I will use the word "bookmark".
 - All agents, including subagents, must create a new JJ workspace before starting work on changes in a JJ repository. Use the requested starting revision, or fall back to the `main` bookmark when the intended base is unclear, and resolve it to a stable change ID. Empty revisions, including merge changes, are valid workspace bases. Ask only if the starting revision cannot be resolved unambiguously. Run `jj workspace add <path_to_target> -r <base_change_id>` with that explicit stable change ID, then perform all changes and verification in the new workspace rather than the user's workspace.
+- Reuse the created workspace for the entire session instead of creating new workspaces for every request.
 - Do not include newly created, unnecessary empty commits in merge requests. Before preparing an MR, abandon disposable agent-created empty changes, including unused working-copy changes created by `jj commit`; preserve existing base history and meaningful merge changes.
 - Do not edit, squash into, describe, or abandon user-owned changes without explicit permission.
 - Commit and verify completed work in agent-owned workspaces, then report the deliverables by stable change ID. The parent agent is responsible for reconciling subagent work into its own result before integrating it into the user's checkout.
