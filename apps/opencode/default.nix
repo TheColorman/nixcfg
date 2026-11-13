@@ -34,7 +34,10 @@
             };
           };
         };
-        commands."rebase" = ./commands/rebase.md;
+        commands = {
+          "rebase" = ./commands/rebase.md;
+          "reviewed" = ./commands/reviewed.md;
+        };
       };
 
       sops = {
