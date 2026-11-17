@@ -29,6 +29,10 @@
 - Prepend agent-authored git forge pull/merge-request review comments and discussion replies (including inline comments and review summaries) with the exact prefix `Opencode: ` so I can distinguish them from my own comments.
 - Apply this prefix only to review comments and replies, not to pull/merge-request titles, descriptions, or other non-review content.
 
+# Herdr
+
+- When running inside Herdr (`HERDR_ENV=1`), rename the current workspace to a concise label reflecting the task using `herdr workspace rename "$HERDR_WORKSPACE_ID" "<task label>"`. Update the label when the task changes.
+
 # Tooling
 
 - If a command is not installed on the system, use Nix to run it from nixpkgs instead of stopping. Example: `nix shell nixpkgs#ruby -c ruby --version`.
