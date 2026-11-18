@@ -26,6 +26,10 @@
               ''${custom.lastfm}$time$battery
             '';
             # Modules
+            kubernetes = {
+              disabled = false;
+              detect_files = [ ".sourceignore" ]; # Flux root file
+            };
             battery.display = [
               {
                 threshold = 10;
