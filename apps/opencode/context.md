@@ -12,6 +12,7 @@
 
 # Version Control
 
+- **Deployment/GitOps repositories — mandatory:** Agents MUST NOT push, merge, apply manifests, or otherwise change live state without explicit user approval for that specific action. Requests to implement, fix, commit, or prepare an MR are NOT push or deployment approval. Permission to push a non-deploying MR bookmark does NOT authorize deployment; deployment-triggering pushes or merges require explicit approval for that deployment. If approval or deployment impact is unclear, STOP and ask. Follow the repository's documented deployment workflow.
 - Always use `jj` instead of `git` for version control operations.
 - When I say "branch", I mean a branching code path, not a Git branch. When I mean a Git branch, I will use the word "bookmark".
 - All agents, including subagents, must create a new JJ workspace before starting work on changes in a JJ repository. Use the requested starting revision, or fall back to the `main` bookmark when the intended base is unclear, and resolve it to a stable change ID. Empty revisions, including merge changes, are valid workspace bases. Ask only if the starting revision cannot be resolved unambiguously. Run `jj workspace add <path_to_target> -r <base_change_id>` with that explicit stable change ID, then perform all changes and verification in the new workspace rather than the user's workspace.
@@ -29,7 +30,6 @@
 - Commit completed logical changes with `jj commit -m <message>`.
 - Use scoped commit messages in the form `<scope>: <message>`, following https://scopedcommits.com/.
 - Scopes should identify the affected path or product area, such as `services/api/workspaces: add permissions and contracts`.
-- In deployment/GitOps repositories, never deploy unilaterally. Pushing or merging to a deployment-triggering ref, applying manifests, or otherwise changing live state requires explicit user approval for that deployment. Explicitly requested pushes to non-deploying merge-request bookmarks are allowed, but a request to push an MR bookmark is not deployment approval. Follow the repository's documented deployment workflow.
 
 # Git forge Communication
 
