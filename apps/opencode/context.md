@@ -1,10 +1,9 @@
 # Herdr workspace naming — parent agent only
 
-- At session start, when `HERDR_ENV=1`, the top-level parent agent MUST run `herdr workspace rename "$HERDR_WORKSPACE_ID" "<label>"` before substantive work. This naming command is explicitly allowed in Plan mode. Treat it as a required startup step, including for short questions and read-only investigations, not optional housekeeping.
-- Use at most 3 words describing the broad session goal, such as "Improve Herdr instructions". Prefer a recognizable, stable label over a specific description of the current step.
-- Keep the same label across follow-ups, refinements, and subtasks—even across dozens of turns. Rename only when the overall session goal materially changes, not on every user message.
-- Subagents MUST NOT rename the workspace, even when they inherit `HERDR_ENV=1` and `HERDR_WORKSPACE_ID`.
-- If renaming fails, report the failure rather than silently skipping it.
+- At session start, when `HERDR_ENV=1`, the parent agent MUST run `herdr workspace rename "$HERDR_WORKSPACE_ID" "<label>"` before substantive work, including short/read-only tasks. This is allowed in Plan mode. Report failures.
+- Use at most 3 words, subject first: "Herdr naming", not "Investigate Herdr". Only the first 13 characters are visible, so put the most distinguishing information first.
+- Name the broad session goal; keep the label across follow-ups and subtasks. Rename only when that goal materially changes.
+- Subagents MUST NOT rename the workspace, even if they inherit Herdr environment variables.
 
 # Delegation
 
