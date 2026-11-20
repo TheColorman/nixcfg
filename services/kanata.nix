@@ -106,6 +106,13 @@
           process-unmapped-keys no
           ;; windows only i guess
           ;; windows-algr cancel-lctl-press
+
+          linux-dev-names-exclude (
+            ;; TOTEM ZMK keyboard - my custom layout is compiled into the
+            ;; firmware, so don't need Kanata remapping. See
+            ;; - https://github.com/TheColorman/zmk-config
+            "Totem Keyboard"
+          )
         '';
       };
     };
