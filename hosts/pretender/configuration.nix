@@ -25,6 +25,7 @@
         services-gpg
         services-kanata
         services-sops
+        system-bluetooth
         system-boot
         system-desktop-plasma
         system-display
