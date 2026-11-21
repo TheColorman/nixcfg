@@ -169,5 +169,11 @@
       url = "github:kawaiiDango/pano-scrobbler-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # IP ffmpeg offloading
+    ffmpeg-over-ip = {
+      url = "github:TheColorman/ffmpeg-over-ip-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

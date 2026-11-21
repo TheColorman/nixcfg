@@ -403,6 +403,46 @@
         "type": "github"
       }
     },
+    "ffmpeg-over-ip": {
+      "inputs": {
+        "ffmpeg-over-ip": "ffmpeg-over-ip_2",
+        "flake-parts": "flake-parts_5",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pkgs-by-name": "pkgs-by-name"
+      },
+      "locked": {
+        "lastModified": 1795309943,
+        "narHash": "sha256-6BiVsOtM09g+WL1fWsEau6t0lNAXDsgd4A5VdnZoQsc=",
+        "owner": "TheColorman",
+        "repo": "ffmpeg-over-ip-nix-flake",
+        "rev": "fbe87874c85d88dc563acd585a2ec27ff0678852",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TheColorman",
+        "repo": "ffmpeg-over-ip-nix-flake",
+        "type": "github"
+      }
+    },
+    "ffmpeg-over-ip_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792439639,
+        "narHash": "sha256-nLVWT/g4GpvhuyL67aswNt7PVSf/QCiM7LN1zgElv+E=",
+        "owner": "steelbrain",
+        "repo": "ffmpeg-over-ip",
+        "rev": "20c4d0070313d8c2c414ba83ef3aac2dc717c878",
+        "type": "github"
+      },
+      "original": {
+        "owner": "steelbrain",
+        "ref": "v6.0.0",
+        "repo": "ffmpeg-over-ip",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -562,6 +602,27 @@
         "type": "github"
       }
     },
+    "flake-parts_10": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "stylix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1767609335,
+        "narHash": "sha256-feveD98mQpptwrAEggBQKJTYbvwwglSbOv53uCfH9PY=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "250481aafeb741edfe23d29195671c19b36b6dca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "flake-parts_2": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_2"
@@ -618,6 +679,27 @@
     },
     "flake-parts_5": {
       "inputs": {
+        "nixpkgs-lib": [
+          "ffmpeg-over-ip",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793576659,
+        "narHash": "sha256-V1h85lUaJBQoHFrB2vpXZOE0Ju1MYSnIpsehoVZYlDo=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "ea2630b7470978622c7689a1ff75d2b389175399",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_6": {
+      "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_5"
       },
       "locked": {
@@ -634,7 +716,7 @@
         "type": "github"
       }
     },
-    "flake-parts_6": {
+    "flake-parts_7": {
       "inputs": {
         "nixpkgs-lib": [
           "nur",
@@ -655,7 +737,7 @@
         "type": "github"
       }
     },
-    "flake-parts_7": {
+    "flake-parts_8": {
       "inputs": {
         "nixpkgs-lib": [
           "nvfcfg",
@@ -677,7 +759,7 @@
         "type": "github"
       }
     },
-    "flake-parts_8": {
+    "flake-parts_9": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib_6"
       },
@@ -687,27 +769,6 @@
         "owner": "hercules-ci",
         "repo": "flake-parts",
         "rev": "17c9d6cdfc60c64f4ee8d306f9bc0b4ccb51481e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
-    "flake-parts_9": {
-      "inputs": {
-        "nixpkgs-lib": [
-          "stylix",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1767609335,
-        "narHash": "sha256-feveD98mQpptwrAEggBQKJTYbvwwglSbOv53uCfH9PY=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "250481aafeb741edfe23d29195671c19b36b6dca",
         "type": "github"
       },
       "original": {
@@ -1061,10 +1122,10 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1787516004,
-        "narHash": "sha256-tA1D6wiIJY9gR7Vf1V0PhE02GV/1LDB/aR0ad7Sv1oE=",
+        "lastModified": 1795295538,
+        "narHash": "sha256-QStjDIobkVCW4iOrHRqCMS2c6QO8dvJo1Sg6mkFkH7Y=",
         "ref": "refs/heads/master",
-        "rev": "d40ae33d5d36354306ec88c6e73ad469ec360f68",
+        "rev": "d0f51930df1a30e72b1362b86869123da3e83679",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/TheColorman/nix-secrets"
@@ -1365,7 +1426,7 @@
     },
     "nur": {
       "inputs": {
-        "flake-parts": "flake-parts_6",
+        "flake-parts": "flake-parts_7",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -1412,7 +1473,7 @@
     "nvf": {
       "inputs": {
         "flake-compat": "flake-compat_7",
-        "flake-parts": "flake-parts_7",
+        "flake-parts": "flake-parts_8",
         "mnw": "mnw",
         "ndg": "ndg",
         "nixpkgs": [
@@ -1491,9 +1552,24 @@
         "type": "github"
       }
     },
+    "pkgs-by-name": {
+      "locked": {
+        "lastModified": 1789628227,
+        "narHash": "sha256-PC+g00FlwHgA/MyejBAEtQLRnrZLiA/Eo7i0rEkZ7bE=",
+        "owner": "drupol",
+        "repo": "pkgs-by-name-for-flake-parts",
+        "rev": "da796090e8b34326a4aaf0c173df514f135b3907",
+        "type": "github"
+      },
+      "original": {
+        "owner": "drupol",
+        "repo": "pkgs-by-name-for-flake-parts",
+        "type": "github"
+      }
+    },
     "playit-nixos-module": {
       "inputs": {
-        "flake-parts": "flake-parts_8",
+        "flake-parts": "flake-parts_9",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -1733,8 +1809,9 @@
         "discord-portal": "discord-portal",
         "disko": "disko",
         "factbot": "factbot",
+        "ffmpeg-over-ip": "ffmpeg-over-ip",
         "fish-plugin-jj": "fish-plugin-jj",
-        "flake-parts": "flake-parts_5",
+        "flake-parts": "flake-parts_6",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
         "ki-editor": "ki-editor",
@@ -1845,7 +1922,7 @@
         "base16-helix": "base16-helix",
         "base16-vim": "base16-vim",
         "firefox-gnome-theme": "firefox-gnome-theme",
-        "flake-parts": "flake-parts_9",
+        "flake-parts": "flake-parts_10",
         "gnome-shell": "gnome-shell",
         "nixpkgs": [
           "nixpkgs"
