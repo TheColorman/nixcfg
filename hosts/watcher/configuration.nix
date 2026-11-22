@@ -8,6 +8,7 @@
     {
       config,
       pkgs,
+      lib,
       ...
     }:
     let
@@ -15,6 +16,9 @@
     in
     {
       imports = with self.nixosModules; [
+        inputs.nixos-hardware.nixosModules.huawei-machc-wa
+        inputs.nixos-hardware.nixosModules.common-gpu-nvidia-disable
+
         common
         apps-btop
         apps-git
@@ -86,6 +90,7 @@
           HandleLidSwitchDocked = "ignore";
         };
       };
+
       boot = {
         kernel.sysctl = {
           "net.ipv4.ip_forward" = 1;
@@ -94,6 +99,15 @@
         kernelParams = [
           "consoleblank=300"
         ];
+      };
+
+      # See https://github.com/NixOS/nixos-hardware/blob/master/common/gpu/nvidia/prime.nix
+      hardware.nvidia = {
+        prime.offload.enable = lib.mkForce false;
+        powerManagement = {
+          enable = lib.mkForce false;
+          finegrained = lib.mkForce false;
+        };
       };
     };
 }
