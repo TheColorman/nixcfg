@@ -78,7 +78,6 @@
 
       services = {
         fwupd.enable = true;
-        power-profiles-daemon.enable = true;
         automatic-timezoned.enable = true;
         upower.enable = true;
         openssh.enable = true;
@@ -89,6 +88,9 @@
           HandleLidSwitchExternalPower = "ignore";
           HandleLidSwitchDocked = "ignore";
         };
+
+        # Control battery charge limits
+        tlp.enable = true;
       };
 
       boot = {
