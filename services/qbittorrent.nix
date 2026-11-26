@@ -35,11 +35,11 @@
           config.sops.templates."qbittorrentvpn.env".path
         ];
 
-        capabilities = {
-          NET_ADMIN = true;
-          NET_RAW = true;
-          SYS_MODULE = true;
-        };
+        # capabilities = {
+        #   NET_ADMIN = true;
+        #   NET_RAW = true;
+        #   SYS_MODULE = true;
+        # };
         devices = [
           "/dev/net/tun"
         ];
@@ -48,6 +48,7 @@
         extraOptions = [
           "--memory=8g"
           "--memory-swap=8g"
+          "--sysctl=net.ipv4.conf.all.src_valid_mark=1"
         ];
       };
 
