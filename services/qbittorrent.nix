@@ -19,7 +19,7 @@
         ports = [
           "127.0.0.1:${port}:${port}"
         ];
-        image = "ghcr.io/binhex/arch-qbittorrentvpn:5.2.3-3-01@sha256:229e441811921893e77b483a192006e5dd598c356f94a80dbadbb9cf88c0f69f";
+        image = "ghcr.io/binhex/arch-qbittorrentvpn:5.3.1-1-01@sha256:381c24a9525fbfcbdaafbee5611f68b34e5cd064abe6d40392b968775ec74a6c";
         hostname = "qbittorrentvpn";
         environment = {
           VPN_ENABLED = "yes";
