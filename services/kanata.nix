@@ -107,6 +107,8 @@
           ;; windows only i guess
           ;; windows-algr cancel-lctl-press
 
+          ;; Find dev names wits
+          ;; cat /proc/bus/input/devices
           linux-dev-names-exclude (
             ;; TOTEM ZMK keyboard - my custom layout is compiled into the
             ;; firmware, so don't need Kanata remapping. See
