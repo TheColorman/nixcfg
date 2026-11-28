@@ -112,6 +112,9 @@
             ;; firmware, so don't need Kanata remapping. See
             ;; - https://github.com/TheColorman/zmk-config
             "Totem Keyboard"
+            "Totem Mouse"
+            "ZMK Project Totem Keyboard"
+            "ZMK Project Totem Mouse"
           )
         '';
       };
