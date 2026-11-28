@@ -8,7 +8,6 @@
     {
       imports = with self.nixosModules; [
         common
-        apps-affinity
         apps-btop
         apps-deploy-rs
         apps-evince
@@ -25,6 +24,7 @@
         apps-nix
         apps-opencode
         apps-pano-scrobbler
+        apps-photocraft
         apps-vesktop
         apps-virt-manager
         apps-vscode
