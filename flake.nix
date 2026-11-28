@@ -172,5 +172,11 @@
       url = "github:herdrdev/herdr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Photoshop alternative
+    photocraft = {
+      url = "github:nolight132/photocraft-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

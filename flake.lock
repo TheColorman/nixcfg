@@ -1350,6 +1350,26 @@
         "type": "github"
       }
     },
+    "photocraft": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794494667,
+        "narHash": "sha256-YVV7xRFjhfSn/MwIM5awuP2QtlJ0043J1QMp8cj50V8=",
+        "owner": "nolight132",
+        "repo": "photocraft-flake",
+        "rev": "4dc7aa57a486c0ae8fddaca6ab8b9f055159b61c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nolight132",
+        "repo": "photocraft-flake",
+        "type": "github"
+      }
+    },
     "playit-nixos-module": {
       "inputs": {
         "flake-parts": "flake-parts_7",
@@ -1607,6 +1627,7 @@
         "nixpkgs": "nixpkgs_6",
         "nur": "nur",
         "pano-scrobbler": "pano-scrobbler",
+        "photocraft": "photocraft",
         "playit-nixos-module": "playit-nixos-module",
         "pwndbg": "pwndbg",
         "seadexarr": "seadexarr",
