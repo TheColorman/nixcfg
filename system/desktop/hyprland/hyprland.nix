@@ -214,7 +214,6 @@
                     size = "50%";
                   })
                   (mkBind "SUPER + Q" "hl.dsp.window.close()")
-                  (mkBindCmd "SUPER + M" "uwsm stop")
                   (mkBindCmd "SUPER + E" "${uwsm} ${fileManager}")
                   (mkBindCmdR "SUPER + ALT + E" "${uwsm} ${fileManager}" {
                     float = true;
